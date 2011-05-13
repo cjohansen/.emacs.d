@@ -25,6 +25,7 @@
  
 ;; Customize background color of lighlighted line
 (set-face-background 'hl-line "#222222")
+(set-face-foreground 'hl-line "#ffffff")
 
 ;; org-mode colors
 (setq org-todo-keyword-faces
