@@ -15,6 +15,7 @@
 ;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
+(add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . javascript-mode))
 
 ;; Showoff mode
 (add-to-list 'auto-mode-alist '("\\.md$" . showoff-mode))
@@ -24,3 +25,5 @@
 
 ;; org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+(provide 'mode-mappings)

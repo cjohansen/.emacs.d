@@ -123,6 +123,8 @@
 (require 'key-bindings)
 (require 'autoinsert-templates)
 (require 'git-walk)
+(require 'snippets)
+(require 'mode-mappings)
 (autoload 'rhtml-mode "rhtml-mode")
 (autoload 'showoff-mode "showoff-mode")
 (autoload 'mustache-mode "mustache-mode")
