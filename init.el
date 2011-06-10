@@ -86,6 +86,10 @@
 ;; Seed the random-number generator
 (random t) 
 
+;; Hippie expand: at times perhaps too hip
+(delete 'try-expand-line hippie-expand-try-functions-list)
+(delete 'try-expand-list hippie-expand-try-functions-list)
+
 ;; Misc
 (mouse-wheel-mode t)
 (set-terminal-coding-system 'utf-8)
@@ -114,7 +118,9 @@
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/showoff-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode/")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
 
 ;; Additional configuration
 (require 'defuns)
@@ -125,6 +131,10 @@
 (require 'git-walk)
 (require 'snippets)
 (require 'mode-mappings)
-(autoload 'rhtml-mode "rhtml-mode")
-(autoload 'showoff-mode "showoff-mode")
-(autoload 'mustache-mode "mustache-mode")
+(put 'downcase-region 'disabled nil)
+
+;; EMMS :)
+(require 'emms-setup)
+(emms-standard)
+(emms-default-players)
+(require 'emms-browser)

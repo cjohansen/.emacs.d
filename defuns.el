@@ -1,3 +1,5 @@
+(require 'imenu)
+
 ;; Network
 
 (defun view-url ()

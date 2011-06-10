@@ -1,5 +1,6 @@
 ;; Completion that uses many different methods to find options.
-(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-|") 'hippie-expand)
+(global-set-key (kbd "C-.") 'hippie-expand)
 
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
@@ -71,5 +72,8 @@
 (global-set-key (kbd "<s-left>") 'windmove-left)
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
+
+;; Mark all
+(global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
 (provide 'key-bindings)

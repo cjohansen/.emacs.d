@@ -1,0 +1,6 @@
+[submodule "site-lisp/yaml-mode"]
+	path = site-lisp/yaml-mode
+	url = https://github.com/yoshiki/yaml-mode.git
+[submodule "site-lisp/emms"]
+	path = site-lisp/emms
+	url = git://git.sv.gnu.org/emms.git
