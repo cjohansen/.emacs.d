@@ -138,3 +138,9 @@
 (emms-standard)
 (emms-default-players)
 (require 'emms-browser)
+
+;; Ido
+(custom-set-variables '(ido-use-filename-at-point nil))
+
+;; Emacs server
+(server-start)

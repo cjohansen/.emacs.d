@@ -76,4 +76,7 @@
 ;; Mark all
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
+;; Delete region (don't put it in the kill-ring)
+(global-set-key (kbd "C-c C-w") 'delete-region)
+
 (provide 'key-bindings)
