@@ -121,16 +121,18 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
+(add-to-list 'load-path "~/.emacs.d/site-list/recall-position")
 
 ;; Additional configuration
 (require 'defuns)
 (require 'appearance)
 (require 'smooth-scrolling)
-(require 'key-bindings)
 (require 'autoinsert-templates)
 (require 'git-walk)
 (require 'snippets)
 (require 'mode-mappings)
+(require 'windows)
+(require 'key-bindings)
 (put 'downcase-region 'disabled nil)
 
 ;; EMMS :)
@@ -142,5 +144,8 @@
 ;; Ido
 (custom-set-variables '(ido-use-filename-at-point nil))
 
+;; Recall position
+(require 'recall-position)
+(global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
 ;; Emacs server
 (server-start)
