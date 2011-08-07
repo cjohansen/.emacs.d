@@ -54,7 +54,10 @@
 (add-hook 'before-make-frame-hook 'turn-off-tool-bar)
 
 ;; Scrollbars to the right
-(setq scroll-bar-mode-explicit t)
-(set-scroll-bar-mode `right) 
+;;(setq scroll-bar-mode-explicit t)
+;;(set-scroll-bar-mode `right) 
+
+;; Ditch them scrollbars
+(scroll-bar-mode -1)
 
 (provide 'appearance)
