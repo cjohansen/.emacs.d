@@ -1,6 +1,6 @@
 (defun git-walk (direction)
   (interactive)
-  (shell-command (concat "git walk " direction))
+  (shell-command (concat "git-walk " direction))
   (revert-buffer nil t))
 
 (defun git-walk-next ()
