@@ -10,3 +10,6 @@
 [submodule "site-lisp/eval-lines"]
 	path = site-lisp/eval-lines
 	url = https://github.com/cjohansen/eval-lines.el.git
+[submodule "site-lisp/magit"]
+	path = site-lisp/magit
+	url = https://github.com/magit/magit.git

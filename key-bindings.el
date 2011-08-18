@@ -84,4 +84,8 @@
 (global-set-key (kbd "C-c C-e") 'eval-current-line)
 (global-set-key (kbd "C-c M-e") 'eval-output-marked-lines)
 
+;; Git
+(autoload 'magit-status "magit")
+(global-set-key (kbd "<f8>") 'magit-status)
+
 (provide 'key-bindings)
