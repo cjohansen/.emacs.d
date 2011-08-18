@@ -7,3 +7,6 @@
 [submodule "site-list/recall-position"]
 	path = site-list/recall-position
 	url = http://github.com/cjohansen/recall-position.el.git
+[submodule "site-lisp/eval-lines"]
+	path = site-lisp/eval-lines
+	url = https://github.com/cjohansen/eval-lines.el.git
