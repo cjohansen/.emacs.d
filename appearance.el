@@ -1,21 +1,14 @@
 ;; mode colors in rhtml mode
 ;;(custom-set-faces '(erb-face ((t (:background nil)))))
 
-;; Fix colors in nxhtml mode (ugly green background for JavaScript)
-; '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) (:background "*")))))
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(fill-column 80))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "Black" :foreground "White" :inverse-video nil :box nil :strike-t*hrough nil :overline nil :underline nil :slant normal :weight normal :width normal :height 105))))
+ '(fill-column 80)
+ '(highlight ((((class color) (min-colors 88) (background dark)) (:background "#111111"))))
  '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) nil))))
 
 (set-face-background 'region "#464740")
