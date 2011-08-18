@@ -121,7 +121,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
-(add-to-list 'load-path "~/.emacs.d/site-list/recall-position")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
 
 ;; Additional configuration
 (require 'defuns)
@@ -147,5 +148,14 @@
 ;; Recall position
 (require 'recall-position)
 (global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
+
+;; Eval lines (Ruby only)
+(require 'eval-lines)
+(setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
+
 ;; Emacs server
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+(put 'narrow-to-region 'disabled nil)

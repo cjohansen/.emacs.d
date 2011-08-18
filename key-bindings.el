@@ -80,4 +80,8 @@
 ;; Delete region (don't put it in the kill-ring)
 (global-set-key (kbd "C-c C-w") 'delete-region)
 
+;; Eval lines
+(global-set-key (kbd "C-c C-e") 'eval-current-line)
+(global-set-key (kbd "C-c M-e") 'eval-output-marked-lines)
+
 (provide 'key-bindings)
