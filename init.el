@@ -84,7 +84,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Seed the random-number generator
-(random t) 
+(random t)
 
 ;; Hippie expand: at times perhaps too hip
 (delete 'try-expand-line hippie-expand-try-functions-list)
@@ -113,6 +113,9 @@
       oddmuse-directory (concat dotfiles-dir "oddmuse")
       xterm-mouse-mode t
       save-place-file (concat dotfiles-dir "places"))
+
+;; Trailing white-space. Just say no.
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Load path
 (add-to-list 'load-path "~/.emacs.d/")
