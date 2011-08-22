@@ -147,7 +147,19 @@
 (require 'emms-browser)
 
 ;; Ido
-(custom-set-variables '(ido-use-filename-at-point nil))
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(fill-column 80)
+ '(ido-use-filename-at-point nil)
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
+
+;; Yahtzee, baby
+(autoload 'yahtzee "yahtzee" nil t)
+(autoload 'yahtzee-mode "yahtzee" nil t)
+(add-to-list 'auto-mode-alist '("\\.yz\\'" . yahtzee-mode))
 
 ;; Recall position
 (require 'recall-position)
@@ -161,5 +173,3 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
-(put 'narrow-to-region 'disabled nil)
