@@ -138,6 +138,8 @@
 (require 'mode-mappings)
 (require 'windows)
 (require 'key-bindings)
+(require 'package)
+(require 'package-config)
 (put 'downcase-region 'disabled nil)
 
 ;; EMMS :)
