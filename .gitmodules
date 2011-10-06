@@ -13,3 +13,6 @@
 [submodule "site-lisp/magit"]
 	path = site-lisp/magit
 	url = https://github.com/magit/magit.git
+[submodule "site-lisp/recall-position"]
+	path = site-lisp/recall-position
+	url = https://github.com/cjohansen/recall-position.el.git
