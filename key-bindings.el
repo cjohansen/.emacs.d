@@ -88,4 +88,6 @@
 (autoload 'magit-status "magit")
 (global-set-key (kbd "<f8>") 'magit-status)
 
+(global-set-key (kbd "<C-return>") 'new-line-below)
+
 (provide 'key-bindings)
