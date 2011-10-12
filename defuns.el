@@ -213,9 +213,8 @@ Symbols matching the text at point are put first in the completion list."
     (let ((line (buffer-substring
                  (point)
                  (progn (end-of-line) (point)))))
-      (next-line)
-      (beginning-of-line)
-      (insert (concat line "\n"))))
+      (end-of-line)
+      (insert (concat "\n" line))))
   (next-line))
 
 (provide 'defuns)
