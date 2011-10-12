@@ -196,4 +196,13 @@ Symbols matching the text at point are put first in the completion list."
   (newline)
   (indent-for-tab-command))
 
+(defun add-javascript-hook (fn &optional pattern)
+  (lexical-let ((pattern (if pattern nil ".js"))
+                (fun fn))
+    (add-hook 'find-file-hook
+              (lambda ()
+                (let* ((file (buffer-file-name))
+                       (len (length file)))
+                  (if (equal (substring file (- len (length pattern)) len) pattern)
+                      (apply fun ())))))))
 (provide 'defuns)
