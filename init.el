@@ -135,11 +135,11 @@
 (require 'autoinsert-templates)
 (require 'git-walk)
 (require 'snippets)
-(require 'mode-mappings)
 (require 'windows)
-(require 'key-bindings)
 (require 'package)
 (require 'package-config)
+(require 'mode-mappings)
+(require 'key-bindings)
 (put 'downcase-region 'disabled nil)
 
 ;; EMMS :)

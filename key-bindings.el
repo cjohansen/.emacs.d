@@ -89,5 +89,6 @@
 (global-set-key (kbd "<f8>") 'magit-status)
 
 (global-set-key (kbd "<C-return>") 'new-line-below)
+(global-set-key (kbd "C-c d") 'duplicate-line)
 
 (provide 'key-bindings)

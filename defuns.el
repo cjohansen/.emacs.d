@@ -205,4 +205,17 @@ Symbols matching the text at point are put first in the completion list."
                        (len (length file)))
                   (if (equal (substring file (- len (length pattern)) len) pattern)
                       (apply fun ())))))))
+
+(defun duplicate-line ()
+  (interactive)
+  (save-excursion
+    (beginning-of-line)
+    (let ((line (buffer-substring
+                 (point)
+                 (progn (end-of-line) (point)))))
+      (next-line)
+      (beginning-of-line)
+      (insert (concat line "\n"))))
+  (next-line))
+
 (provide 'defuns)
