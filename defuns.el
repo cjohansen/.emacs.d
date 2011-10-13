@@ -251,8 +251,9 @@ Symbols matching the text at point are put first in the completion list."
 
 (defun yank-as-line ()
   (interactive)
-  (insert "\n")
-  (goto-char (1- (point)))
+  (save-excursion
+    (insert "\n")
+    (indent-for-tab-command))
   (yank))
 
 (provide 'defuns)
