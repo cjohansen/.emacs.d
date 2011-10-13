@@ -97,7 +97,11 @@
 (global-set-key (kbd "<C-S-down>") 'move-line-down)
 (global-set-key (kbd "<C-S-up>") 'move-line-up)
 
+;; Mark words, sentences and paragraphs
 (global-set-key (kbd "M-1") 'mark-whole-word)
 (global-set-key (kbd "M-2") 'mark-whole-word-command)
+
+;; Fancy yank
+(global-set-key (kbd "C-S-y") 'yank-as-line)
 
 (provide 'key-bindings)

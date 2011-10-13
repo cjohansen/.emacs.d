@@ -192,9 +192,11 @@ Symbols matching the text at point are put first in the completion list."
 
 (defun new-line-below ()
   (interactive)
-  (end-of-line)
-  (newline)
-  (indent-for-tab-command))
+  (if (eolp)
+      (newline)
+    (end-of-line)
+    (newline)
+    (indent-for-tab-command)))
 
 (defun new-line-in-between ()
   (interactive)
@@ -282,5 +284,12 @@ Symbols matching the text at point are put first in the completion list."
   (set-mark (point))
   (forward-paragraph)
   (setq mark-whole-word-thing :paragraph))
+
+(defun yank-as-line ()
+  (interactive)
+  (save-excursion
+    (insert "\n")
+    (indent-for-tab-command))
+  (yank))
 
 (provide 'defuns)
