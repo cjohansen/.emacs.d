@@ -196,7 +196,6 @@ Symbols matching the text at point are put first in the completion list."
   (newline)
   (indent-for-tab-command))
 
-<<<<<<< HEAD
 (defun new-line-in-between ()
   (interactive)
   (newline)
