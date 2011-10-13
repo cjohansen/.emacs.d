@@ -97,4 +97,7 @@
 (global-set-key (kbd "<C-S-down>") 'move-line-down)
 (global-set-key (kbd "<C-S-up>") 'move-line-up)
 
+(global-set-key (kbd "M-1") 'mark-whole-word)
+(global-set-key (kbd "M-2") 'mark-whole-word-command)
+
 (provide 'key-bindings)

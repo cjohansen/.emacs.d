@@ -247,4 +247,40 @@ Symbols matching the text at point are put first in the completion list."
       (transpose-lines -1))
     (move-to-column col)))
 
+(defvar mark-whole-word-thing nil)
+(defvar mark-whole-word-original-pos nil)
+
+(defun mark-whole-word-command ()
+  (interactive)
+  (if (or (eq last-command 'mark-whole-word-command)
+          (eq last-command 'mark-whole-word))
+      nil
+    (setq mark-whole-word-command nil)
+    (setq mark-whole-word-original-pos nil))
+  (if mark-whole-word-original-pos (goto-char mark-whole-word-original-pos))
+  (cond
+   ((eq mark-whole-word-thing :word) (mark-whole-sentence))
+   ((eq mark-whole-word-thing :sentence) (mark-whole-paragraph))
+   (t (mark-whole-word))))
+
+(defun mark-whole-word ()
+  (interactive)
+  (setq mark-whole-word-original-pos (point))
+  (backward-word)
+  (set-mark (point))
+  (forward-word)
+  (setq mark-whole-word-thing :word))
+
+(defun mark-whole-sentence ()
+  (backward-sentence)
+  (set-mark (point))
+  (forward-sentence)
+  (setq mark-whole-word-thing :sentence))
+
+(defun mark-whole-paragraph ()
+  (backward-paragraph)
+  (set-mark (point))
+  (forward-paragraph)
+  (setq mark-whole-word-thing :paragraph))
+
 (provide 'defuns)
