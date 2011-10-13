@@ -230,4 +230,21 @@ Symbols matching the text at point are put first in the completion list."
                   (if (equal (substring file (- len (length pattern)) len) pattern)
                       (apply fun ())))))))
 
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (next-line)
+      (transpose-lines 1))
+    (next-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (next-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
 (provide 'defuns)

@@ -93,4 +93,8 @@
 (global-set-key (kbd "C-S-a") 'beginning-of-code-line)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
+;; Line movement
+(global-set-key (kbd "<C-S-down>") 'move-line-down)
+(global-set-key (kbd "<C-S-up>") 'move-line-up)
+
 (provide 'key-bindings)
