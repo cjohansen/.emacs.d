@@ -97,4 +97,7 @@
 (global-set-key (kbd "<C-S-down>") 'move-line-down)
 (global-set-key (kbd "<C-S-up>") 'move-line-up)
 
+;; Fancy yank
+(global-set-key (kbd "C-S-y") 'yank-as-line)
+
 (provide 'key-bindings)

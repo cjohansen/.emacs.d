@@ -249,4 +249,10 @@ Symbols matching the text at point are put first in the completion list."
       (transpose-lines -1))
     (move-to-column col)))
 
+(defun yank-as-line ()
+  (interactive)
+  (insert "\n")
+  (goto-char (1- (point)))
+  (yank))
+
 (provide 'defuns)
