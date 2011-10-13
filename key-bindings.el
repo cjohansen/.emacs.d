@@ -89,5 +89,7 @@
 (global-set-key (kbd "<f8>") 'magit-status)
 
 (global-set-key (kbd "<C-return>") 'new-line-below)
+(global-set-key (kbd "<M-return>") 'new-line-in-between)
+(global-set-key (kbd "C-S-a") 'beginning-of-code-line)
 
 (provide 'key-bindings)

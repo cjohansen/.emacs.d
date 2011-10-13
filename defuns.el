@@ -196,4 +196,17 @@ Symbols matching the text at point are put first in the completion list."
   (newline)
   (indent-for-tab-command))
 
+(defun new-line-in-between ()
+  (interactive)
+  (newline)
+  (save-excursion
+    (newline)
+    (indent-for-tab-command))
+  (indent-for-tab-command))
+
+(defun beginning-of-code-line ()
+  (interactive)
+  (beginning-of-line)
+  (indent-for-tab-command))
+
 (provide 'defuns)
