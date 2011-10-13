@@ -8,9 +8,9 @@
             (topdir (read-directory-name
                      "gtags: top of source tree:" default-directory)))
         (cd topdir)
-        (shell-command "GTAGSLABEL=rtags gtags && echo 'Created tagfile'")
+        (shell-command "env PATH=/home/christian/.rvm/gems/ree-1.8.7-2010.02/bin:$PATH GTAGSLABEL=rtags gtags && echo 'Created tagfile'")
         (cd olddir))
-    (shell-command "GTAGSLABEL=rtags global -u && echo 'Updated tagfile'")))
+    (shell-command "env PATH=/home/christian/.rvm/gems/ree-1.8.7-2010.02/bin:$PATH GTAGSLABEL=rtags global -u && echo 'Updated tagfile'")))
 
 (add-hook 'gtags-mode-hook
           (lambda()

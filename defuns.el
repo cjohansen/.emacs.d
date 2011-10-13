@@ -196,6 +196,7 @@ Symbols matching the text at point are put first in the completion list."
   (newline)
   (indent-for-tab-command))
 
+<<<<<<< HEAD
 (defun new-line-in-between ()
   (interactive)
   (newline)
@@ -208,5 +209,26 @@ Symbols matching the text at point are put first in the completion list."
   (interactive)
   (beginning-of-line)
   (indent-for-tab-command))
+
+(defun duplicate-line ()
+  (interactive)
+  (save-excursion
+    (beginning-of-line)
+    (let ((line (buffer-substring
+                 (point)
+                 (progn (end-of-line) (point)))))
+      (end-of-line)
+      (insert (concat "\n" line))))
+  (next-line))
+
+(defun add-javascript-hook (fn &optional pattern)
+  (lexical-let ((pattern (if pattern nil ".js"))
+                (fun fn))
+    (add-hook 'find-file-hook
+              (lambda ()
+                (let* ((file (buffer-file-name))
+                       (len (length file)))
+                  (if (equal (substring file (- len (length pattern)) len) pattern)
+                      (apply fun ())))))))
 
 (provide 'defuns)
