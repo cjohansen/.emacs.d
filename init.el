@@ -140,6 +140,7 @@
 (require 'package-config)
 (require 'mode-mappings)
 (require 'key-bindings)
+(require 'mac)
 (put 'downcase-region 'disabled nil)
 
 ;; EMMS :)
