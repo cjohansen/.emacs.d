@@ -5,4 +5,9 @@
 ;; mac friendly font
 (set-frame-font "Monaco-16")
 
+;; make sure path is correct when launched as application
+(when (equal system-type 'darwin)
+  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+  (push "/usr/local/bin" exec-path))
+
 (provide 'mac)
