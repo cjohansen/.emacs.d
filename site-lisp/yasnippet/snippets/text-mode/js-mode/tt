@@ -1,0 +1,6 @@
+# name : test
+# contributor : magnars@gmail.com
+# --
+"should ${1:do stuff}": function () {
+        $0
+}

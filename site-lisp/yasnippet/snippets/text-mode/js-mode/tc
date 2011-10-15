@@ -1,0 +1,10 @@
+# name : testCase
+# contributor : magnars@gmail.com
+# --
+(function () {
+  var assert = buster.assert;
+
+  buster.testCase('${1:`(camelize (strip-test-suffix (buffer-file-name-body)))`}', {
+    tt$0
+  });
+}());
