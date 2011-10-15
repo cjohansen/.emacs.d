@@ -27,9 +27,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . javascript-mode))
-(add-javascript-hook (lambda ()
-                       (local-set-key (kbd "<return>") 'new-line-below)
-                       (local-set-key (kbd "<C-return>") 'newline)))
 
 ;; Markdown
 ;;(require 'showoff-mode)
