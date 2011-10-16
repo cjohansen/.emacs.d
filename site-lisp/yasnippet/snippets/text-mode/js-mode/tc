@@ -4,7 +4,7 @@
 (function () {
   var assert = buster.assert;
 
-  buster.testCase('${1:`(camelize (strip-test-suffix (buffer-file-name-body)))`}', {
+  buster.testCase('${1:`(chop-suffix "Test" (camelize (buffer-file-name-body)))`}', {
     tt$0
   });
 }());
