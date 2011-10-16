@@ -48,13 +48,18 @@
   (if list
       (cons (funcall fn-head (car list)) (mapcar fn-rest (cdr list)))))
 
-(defun camelize (s)
+(defun lower-camel-case (s)
   "Convert string 's' to camelCase string."
   (mapconcat 'identity (mapcar-head
                         '(lambda (word) (downcase word))
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) ""))
 
+(defun upper-camel-case (s)
+  "Convert string 's' to camelCase string."
+  (mapconcat 'identity (mapcar
+                        '(lambda (word) (capitalize (downcase word)))
+                        (split-name s)) ""))
 
 (provide 'snippet-helpers)
 ;;; snippet-helpers.el ends here
