@@ -24,18 +24,19 @@
 
 ;;; Code:
 
-(defun strip-test-suffix (s)
-  "removes one trailing 'Test' from the string S"
-  (if (string= "test" (downcase(substring s -4)))
-    (substring s 0 -4)
-    s))
+(defun chop-suffix (suffix s)
+  "Remove string 'suffix' if it is at end of string 's'"
+  (let ((pos (* -1 (length suffix))))
+    (if (string= suffix (substring s pos))
+        (substring s 0 pos)
+      s)))
 
 (defun buffer-file-name-body ()
-  "Buffer file name without directory or extension"
+  "Buffer file name stripped of directory and extension"
   (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))
 
 (defun split-name (s)
-  "Split name into words"
+  "Split name into list of words"
   (split-string
    (let ((case-fold-search nil))
      (downcase
@@ -48,7 +49,7 @@
       (cons (funcall fn-head (car list)) (mapcar fn-rest (cdr list)))))
 
 (defun camelize (s)
-  "Convert string S to camelCase string."
+  "Convert string 's' to camelCase string."
   (mapconcat 'identity (mapcar-head
                         '(lambda (word) (downcase word))
                         '(lambda (word) (capitalize (downcase word)))
