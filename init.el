@@ -125,8 +125,10 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 
 ;; Additional configuration
 (require 'defuns)
@@ -170,8 +172,8 @@
 (global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
 
 ;; Eval lines (Ruby only)
-(require 'eval-lines)
-(setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
+;; (require 'eval-lines)
+;; (setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
 
 ;; Emacs server
 (require 'server)

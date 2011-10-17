@@ -28,6 +28,18 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . javascript-mode))
 
+;; Snippets
+(add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
+
+;; Oppdrag
+(require 'oppdrag-mode)
+
+(add-hook 'find-file-hook
+          (lambda ()
+            (let* ((file (buffer-file-name))
+                   (len (length file)))
+              (if (string-match-p "oppdrag-services" file) (oppdrag-mode)))))
+
 ;; Markdown
 ;;(require 'showoff-mode)
 (autoload 'markdown-mode "markdown-mode")
