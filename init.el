@@ -161,9 +161,9 @@
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
 ;; Yahtzee, baby
-(autoload 'yahtzee "yahtzee" nil t)
-(autoload 'yahtzee-mode "yahtzee" nil t)
-(add-to-list 'auto-mode-alist '("\\.yz\\'" . yahtzee-mode))
+;; (autoload 'yahtzee "yahtzee" nil t)
+;; (autoload 'yahtzee-mode "yahtzee" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.yz\\'" . yahtzee-mode))
 
 ;; Recall position
 (require 'recall-position)
