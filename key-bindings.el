@@ -87,6 +87,7 @@
 ;; Git
 (autoload 'magit-status "magit")
 (global-set-key (kbd "<f8>") 'magit-status)
+(global-set-key (kbd "C-x m") 'magit-status)
 
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)

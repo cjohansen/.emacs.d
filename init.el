@@ -128,6 +128,7 @@
 ;;(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
+(add-to-list 'load-path "~/projects/oppdrag-mode")
 
 ;; Additional configuration
 (require 'defuns)
