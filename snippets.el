@@ -1,5 +1,5 @@
-(require 'yasnippet-bundle)
-;; (require 'yasnippet) ;; not yasnippet-bundle
-;; (yas/initialize)
-;; (yas/load-directory "~/.emacs.d/plugins/yasnippet-x.y.z/snippets")
+;; (require 'yasnippet-bundle)
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/site-lisp/yasnippet/snippets")
 (provide 'snippets)
