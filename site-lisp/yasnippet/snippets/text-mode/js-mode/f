@@ -1,4 +1,4 @@
 # name : function
 # contributor : magnars@gmail.com
 # --
-function ($1) {$0}
+function $1($2) {$0}
