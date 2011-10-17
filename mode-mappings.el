@@ -28,6 +28,9 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . javascript-mode))
 
+;; Snippets
+(add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
+
 ;; Markdown
 ;;(require 'showoff-mode)
 (autoload 'markdown-mode "markdown-mode")
