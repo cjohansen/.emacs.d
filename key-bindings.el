@@ -91,7 +91,7 @@
 
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
-(global-set-key (kbd "C-S-a") 'beginning-of-code-line)
+(global-set-key (kbd "C-S-a") 'beginning-of-line-text)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
 ;; Line movement

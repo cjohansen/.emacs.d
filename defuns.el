@@ -206,11 +206,6 @@ Symbols matching the text at point are put first in the completion list."
     (indent-for-tab-command))
   (indent-for-tab-command))
 
-(defun beginning-of-code-line ()
-  (interactive)
-  (beginning-of-line)
-  (indent-for-tab-command))
-
 (defun duplicate-line ()
   (interactive)
   (save-excursion
