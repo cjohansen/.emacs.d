@@ -120,12 +120,8 @@
 ;; Load path
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/showoff-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
-;;(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
@@ -146,12 +142,6 @@
 (require 'magit)
 (put 'downcase-region 'disabled nil)
 
-;; EMMS :)
-(require 'emms-setup)
-(emms-standard)
-(emms-default-players)
-(require 'emms-browser)
-
 ;; Ido
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -162,18 +152,9 @@
  '(ido-use-filename-at-point nil)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
-;; Yahtzee, baby
-(autoload 'yahtzee "yahtzee" nil t)
-(autoload 'yahtzee-mode "yahtzee" nil t)
-(add-to-list 'auto-mode-alist '("\\.yz\\'" . yahtzee-mode))
-
 ;; Recall position
 (require 'recall-position)
 (global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
-
-;; Eval lines (Ruby only)
-;; (require 'eval-lines)
-;; (setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
 
 ;; Emacs server
 (require 'server)
