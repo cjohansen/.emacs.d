@@ -56,7 +56,7 @@
                         (split-name s)) ""))
 
 (defun upper-camel-case (s)
-  "Convert string 's' to camelCase string."
+  "Convert string 's' to CamelCase string."
   (mapconcat 'identity (mapcar
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) ""))
