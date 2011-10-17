@@ -125,7 +125,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/emms/lisp")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
+;;(add-to-list 'load-path "~/.emacs.d/site-lisp/eval-lines")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 
 ;; Additional configuration
