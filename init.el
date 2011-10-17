@@ -169,8 +169,8 @@
 (global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
 
 ;; Eval lines (Ruby only)
-(require 'eval-lines)
-(setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
+;; (require 'eval-lines)
+;; (setq eval-ruby-interpreter "/home/christian/.rvm/rubies/ree-1.8.7-2010.02/bin/ruby")
 
 ;; Emacs server
 (require 'server)
