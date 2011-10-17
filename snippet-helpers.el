@@ -26,7 +26,7 @@
 
 (defun chop-suffix (suffix s)
   "Remove string 'suffix' if it is at end of string 's'"
-  (let ((pos (* -1 (length suffix))))
+  (let ((pos (- (length suffix))))
     (if (string= suffix (substring s pos))
         (substring s 0 pos)
       s)))
