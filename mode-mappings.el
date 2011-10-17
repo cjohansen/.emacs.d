@@ -40,6 +40,15 @@
                    (len (length file)))
               (if (string-match-p "oppdrag-services" file) (oppdrag-mode)))))
 
+;; Buster.JS
+(add-to-list 'load-path "~/projects/buster/buster-mode.el")
+(autoload 'buster-mode "buster-mode")
+
+;; TMP
+(require 'buster-mode)
+;;(add-javascript-hook (lambda () (buster-mode)) "test.js")
+>>>>>>> Stashed changes
+
 ;; Markdown
 ;;(require 'showoff-mode)
 (autoload 'markdown-mode "markdown-mode")

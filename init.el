@@ -129,6 +129,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
+(add-to-list 'load-path "~/projects/yahtzee.el")
+(add-to-list 'load-path "~/projects/buster/buster-mode.el")
 
 ;; Additional configuration
 (require 'defuns)
