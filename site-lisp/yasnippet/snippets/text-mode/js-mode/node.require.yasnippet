@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: node.require
+# key: req
+# --
+
+var ${1:$(lower-camel-case (file-name-nondirectory yas/text))} = require("${1:sys}")$3;$0
