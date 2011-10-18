@@ -105,4 +105,7 @@
 ;; Fancy yank
 (global-set-key (kbd "C-S-y") 'yank-as-line)
 
+;; Toggle quotes
+(global-set-key (kbd "C-\"") 'toggle-quotes)
+
 (provide 'key-bindings)
