@@ -46,6 +46,9 @@
 ;; Scheme
 (setq scheme-program-name "/usr/bin/mzscheme")
 
+;; JavaScript
+(setq js-indent-level 2)
+
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
