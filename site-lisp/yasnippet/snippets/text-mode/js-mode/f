@@ -1,4 +1,0 @@
-# name : function
-# contributor : magnars@gmail.com
-# --
-function ($1) {$0}
