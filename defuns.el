@@ -292,4 +292,38 @@ Symbols matching the text at point are put first in the completion list."
     (indent-for-tab-command))
   (yank))
 
+;; toggle quotes
+
+(defun point-is-in-string-p ()
+  (nth 3 (syntax-ppss)))
+
+(defun move-point-forward-out-of-string ()
+  (if (point-is-in-string-p)
+      (progn
+        (forward-char)
+        (move-point-forward-out-of-string))))
+
+(defun move-point-backward-out-of-string ()
+ (if (point-is-in-string-p)
+   (progn
+    (backward-char)
+    (move-point-backward-out-of-string))))
+
+(defun alternate-quotes-char ()
+  (if (= 34 (nth 3 (syntax-ppss)))
+      "'"
+    "\""))
+
+(defun toggle-quotes ()
+  (interactive)
+  (when (point-is-in-string-p)
+    (let ((new-quotes (alternate-quotes-char)))
+      (save-excursion
+        (move-point-forward-out-of-string)
+        (backward-delete-char 1)
+        (insert new-quotes)
+        (move-point-backward-out-of-string)
+        (delete-char 1)
+        (insert new-quotes)))))
+
 (provide 'defuns)
