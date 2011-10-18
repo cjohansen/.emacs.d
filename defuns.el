@@ -217,6 +217,32 @@ Symbols matching the text at point are put first in the completion list."
       (insert (concat "\n" line))))
   (next-line))
 
+;; (defun duplicate-region (region)
+;;   (interactive "r")
+;;   (save-excursion
+;;     (beginning-of-line)
+;;     (let ((line (buffer-substring
+;;                  (point)
+;;                  (progn (end-of-line) (point)))))
+;;       (end-of-line)
+;;       (insert (concat "\n" line))))
+;;   (next-line))
+
+;; (defun duplicate-content (&optional region)
+;;   "Duplicate content. With no prefix argument, duplicates current line.
+;; With region, duplicates region"
+;;   (interactive)
+;;   (save-excursion
+;;     (beginning-of-line)
+;;     (let ((line (buffer-substring
+;;                  (point)
+;;                  (progn (end-of-line) (point)))))
+;;       (end-of-line)
+;;       (insert (concat "\n" line))))
+;;   (next-line))
+
+;
+
 (defun add-javascript-hook (fn &optional pattern)
   (lexical-let ((pattern (if pattern nil ".js"))
                 (fun fn))
@@ -286,5 +312,13 @@ Symbols matching the text at point are put first in the completion list."
     (insert "\n")
     (indent-for-tab-command))
   (yank))
+
+;; (defun quote-differently ()
+;;   "Replace the closest set of ' or \" with the opposite quoting style"
+;;   (interactive)
+;;   (let ((closest-lhs-single (save-excursion
+;;                               (search-backward "'")
+;;                               (point)))
+;;         (closest-rhs-single))))
 
 (provide 'defuns)

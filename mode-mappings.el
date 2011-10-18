@@ -47,7 +47,6 @@
 ;; TMP
 (require 'buster-mode)
 ;;(add-javascript-hook (lambda () (buster-mode)) "test.js")
->>>>>>> Stashed changes
 
 ;; Markdown
 ;;(require 'showoff-mode)
