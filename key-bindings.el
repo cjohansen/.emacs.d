@@ -32,7 +32,7 @@
 (global-set-key (kbd "C-x -") 'swap-windows)
 
 ;; Indentation help
-(global-set-key (kbd "C-x ^") 'join-line)
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; Fetch the contents at a URL, display it raw.
 (global-set-key (kbd "C-x h") 'view-url)
