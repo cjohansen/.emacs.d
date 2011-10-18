@@ -1,5 +1,6 @@
-# name : testCase
-# contributor : magnars@gmail.com
+# -*- mode: snippet -*-
+# name: jstd.testCase
+# key: tc
 # --
 (function (${1:$(lower-camel-case yas/text)}) {
   testCase("${2:`(chop-suffix "Test" (upper-camel-case (buffer-file-name-body)))`}", sinon.testCase({
