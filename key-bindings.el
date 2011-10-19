@@ -9,8 +9,8 @@
 (global-set-key [f1] 'menu-bar-mode)
 
 ;; Font size
-(define-key global-map (kbd "C-+") 'text-scale-increase)
-(define-key global-map (kbd "C--") 'text-scale-decrease)
+(define-key global-map (kbd "C-+") 'zoom-in)
+(define-key global-map (kbd "C--") 'zoom-out)
 
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)

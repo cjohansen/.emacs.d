@@ -110,9 +110,10 @@
 (require 'package)
 (require 'package-config)
 (require 'mode-mappings)
-(require 'key-bindings)
 (require 'magit)
 (require 'recall-position)
+(require 'zoom-frm)
+(require 'key-bindings)
 (when (equal system-type 'darwin)
   (require 'mac))
 
