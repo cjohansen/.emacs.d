@@ -15,31 +15,6 @@
 ;; Lines should be 80 characters wide, not 72
 (setq fill-column 80)
 
-(defun comment-or-uncomment-and-indent-region ()
-  "Comments or uncomments a region and re-indents"
-  (interactive)
-  (comment-or-uncomment-region (mark) (point))
-  (indent-region (mark) (point))
-  )
-
-;; Scratch buffers
-(defun create-scratch-buffer nil
-  "create a new scratch buffer to work in. (could be *scratch* - *scratchX*)"
-  (interactive)
-  (let ((n 0)
-	bufname)
-    (while (progn
-	     (setq bufname (concat "*scratch"
-				   (if (= n 0) "" (int-to-string n))
-				   "*"))
-	     (setq n (1+ n))
-	     (get-buffer bufname)))
-    (switch-to-buffer (get-buffer-create bufname))
-    (if (= n 1) (lisp-interaction-mode)) ; 1, because n was incremented
-    ))
-
-(global-set-key (kbd "C-c b") 'create-scratch-buffer)
-
 ;; Auto refresh buffers
 (global-auto-revert-mode)
 
@@ -52,8 +27,6 @@
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
-
-;; (setq make-backup-files nil)
 
 ;; Interactively Do Things
 (require 'ido)
@@ -75,11 +48,6 @@
 ;; Save a list of recent files visited.
 (recentf-mode 1)
 
-;;
-(set-default 'indent-tabs-mode nil)
-(set-default 'indicate-empty-lines t)
-(set-default 'imenu-auto-rescan t)
-
 ;; Fill text always
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
@@ -94,6 +62,9 @@
 (delete 'try-expand-list hippie-expand-try-functions-list)
 
 ;; Misc
+(set-default 'indent-tabs-mode nil)
+(set-default 'indicate-empty-lines t)
+(set-default 'imenu-auto-rescan t)
 (mouse-wheel-mode t)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -142,7 +113,11 @@
 (require 'key-bindings)
 (require 'mac)
 (require 'magit)
+(require 'recall-position)
+
+;; Run at full power please
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Ido
 (custom-set-variables
@@ -153,10 +128,6 @@
  '(fill-column 80)
  '(ido-use-filename-at-point nil)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
-
-;; Recall position
-(require 'recall-position)
-(global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
 
 ;; Emacs server
 (require 'server)
