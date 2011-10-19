@@ -3,7 +3,7 @@
 (setq mac-command-modifier 'meta)
 
 ;; mac friendly font
-(set-frame-font "Monaco-16")
+(set-face-attribute 'default nil :font "Monaco-16")
 
 ;; make sure path is correct when launched as application
 (when (equal system-type 'darwin)
