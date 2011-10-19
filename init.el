@@ -133,7 +133,6 @@
 (require 'defuns)
 (require 'appearance)
 (require 'smooth-scrolling)
-(require 'autoinsert-templates)
 (require 'git-walk)
 (require 'snippets)
 (require 'windows)
