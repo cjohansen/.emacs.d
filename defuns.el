@@ -87,11 +87,6 @@ Symbols matching the text at point are put first in the completion list."
 (add-hook 'coding-hook 'local-column-number-mode)
 (add-hook 'coding-hook 'local-comment-auto-fill)
 (add-hook 'coding-hook 'turn-on-hl-line-mode)
-;;(add-hook 'coding-hook 'pretty-lambdas)
-
-(defun run-coding-hook ()
-  "Enable things that are convenient across all coding buffers."
-  (run-hooks 'coding-hook))
 
 (defun untabify-buffer ()
   (interactive)
@@ -134,54 +129,11 @@ Symbols matching the text at point are put first in the completion list."
   ;; TODO: remove elpa-to-submit once everything's submitted.
   (byte-recompile-directory (concat dotfiles-dir "elpa-to-submit/" 0)))
 
-(defun regen-autoloads (&optional force-regen)
-  "Regenerate the autoload definitions file if necessary and load it."
-  (interactive "P")
-  (let ((autoload-dir (concat dotfiles-dir "/elpa-to-submit"))
-        (generated-autoload-file autoload-file))
-    (when (or force-regen
-              (not (file-exists-p autoload-file))
-              (some (lambda (f) (file-newer-than-file-p f autoload-file))
-                    (directory-files autoload-dir t "\\.el$")))
-      (message "Updating autoloads...")
-      (let (emacs-lisp-mode-hook)
-        (update-directory-autoloads autoload-dir))))
-  (load autoload-file))
-
 (defun sudo-edit (&optional arg)
   (interactive "p")
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-(defun lorem ()
-  "Insert a lorem ipsum."
-  (interactive)
-  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
-          "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
-          "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
-          "aliquip ex ea commodo consequat. Duis aute irure dolor in "
-          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
-          "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
-          "culpa qui officia deserunt mollit anim id est laborum."))
-
-(defun switch-or-start (function buffer)
-  "If the buffer is current, bury it, otherwise invoke the function."
-  (if (equal (buffer-name (current-buffer)) buffer)
-      (bury-buffer)
-    (if (get-buffer buffer)
-        (switch-to-buffer buffer)
-      (funcall function))))
-
-(defun insert-date ()
-  "Insert a time-stamp according to locale's date and time format."
-  (interactive)
-  (insert (format-time-string "%c" (current-time))))
-
-(defun pairing-bot ()
-  "If you can't pair program with a human, use this instead."
-  (interactive)
-  (message (if (y-or-n-p "Do you have a test for that? ") "Good." "Bad!")))
 
 (defun esk-paredit-nonlisp ()
   "Turn on paredit mode for non-lisps."
@@ -217,41 +169,15 @@ Symbols matching the text at point are put first in the completion list."
       (insert (concat "\n" line))))
   (next-line))
 
-;; (defun duplicate-region (region)
-;;   (interactive "r")
-;;   (save-excursion
-;;     (beginning-of-line)
-;;     (let ((line (buffer-substring
-;;                  (point)
-;;                  (progn (end-of-line) (point)))))
-;;       (end-of-line)
-;;       (insert (concat "\n" line))))
-;;   (next-line))
-
-;; (defun duplicate-content (&optional region)
-;;   "Duplicate content. With no prefix argument, duplicates current line.
-;; With region, duplicates region"
-;;   (interactive)
-;;   (save-excursion
-;;     (beginning-of-line)
-;;     (let ((line (buffer-substring
-;;                  (point)
-;;                  (progn (end-of-line) (point)))))
-;;       (end-of-line)
-;;       (insert (concat "\n" line))))
-;;   (next-line))
-
-;
-
-(defun add-javascript-hook (fn &optional pattern)
-  (lexical-let ((pattern (if pattern nil ".js"))
+(defun add-file-find-hook-with-pattern (pattern fn)
+  "Add a find-file-hook that calls FN for files where PATTERN
+matches the file name"
+  (lexical-let ((re-pattern pattern)
                 (fun fn))
     (add-hook 'find-file-hook
               (lambda ()
-                (let* ((file (buffer-file-name))
-                       (len (length file)))
-                  (if (equal (substring file (- len (length pattern)) len) pattern)
-                      (apply fun ())))))))
+                (if (string-match re-pattern (buffer-file-name))
+                    (apply fun ()))))))
 
 (defun move-line-down ()
   (interactive)

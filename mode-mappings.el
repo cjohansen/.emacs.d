@@ -46,7 +46,7 @@
 
 ;; TMP
 (require 'buster-mode)
-;;(add-javascript-hook (lambda () (buster-mode)) "test.js")
+;;(add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)))
 
 ;; Markdown
 ;;(require 'showoff-mode)
