@@ -111,9 +111,10 @@
 (require 'package-config)
 (require 'mode-mappings)
 (require 'key-bindings)
-(require 'mac)
 (require 'magit)
 (require 'recall-position)
+(when (equal system-type 'darwin)
+  (require 'mac))
 
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)

@@ -6,8 +6,7 @@
 (set-face-attribute 'default nil :font "Monaco-16")
 
 ;; make sure path is correct when launched as application
-(when (equal system-type 'darwin)
-  (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-  (push "/usr/local/bin" exec-path))
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
 
 (provide 'mac)
