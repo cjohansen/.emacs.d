@@ -26,7 +26,7 @@
 
 (defun chop-suffix (suffix s)
   "Remove string 'suffix' if it is at end of string 's'"
-  (let ((pos (* -1 (length suffix))))
+  (let ((pos (- (length suffix))))
     (if (string= suffix (substring s pos))
         (substring s 0 pos)
       s)))
@@ -56,7 +56,7 @@
                         (split-name s)) ""))
 
 (defun upper-camel-case (s)
-  "Convert string 's' to camelCase string."
+  "Convert string 's' to CamelCase string."
   (mapconcat 'identity (mapcar
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) ""))
