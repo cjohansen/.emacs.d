@@ -114,4 +114,7 @@
 ;; Sorting
 (global-set-key (kbd "M-s l") 'sort-lines)
 
+;; Paste URLs as HTML links
+(global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
+
 (provide 'key-bindings)

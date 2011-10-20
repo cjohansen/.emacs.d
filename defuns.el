@@ -279,4 +279,12 @@ Both PATTERN and CONTENTS are matched as regular expressions."
         (delete-char 1)
         (insert new-quotes)))))
 
+(defun linkify-region-from-kill-ring (start end)
+  (interactive "r")
+  (let ((text (buffer-substring start end)))
+    (delete-region start end)
+    (insert "<a href=\"")
+    (yank)
+    (insert (concat "\">" text "</a>"))))
+
 (provide 'defuns)
