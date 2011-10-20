@@ -25,6 +25,9 @@
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Edit file with sudo
+(global-set-key (kbd "M-s e") 'sudo-edit)
+
 ;; Window switching. (C-x o goes to the next window)
 (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
@@ -98,7 +101,7 @@
 
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
-(global-set-key (kbd "C-S-a") 'beginning-of-code-line)
+(global-set-key (kbd "C-S-a") 'beginning-of-line-text)
 (global-set-key (kbd "C-c d") 'duplicate-line)
 
 ;; Line movement
@@ -114,5 +117,11 @@
 
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)
+
+;; Sorting
+(global-set-key (kbd "M-s l") 'sort-lines)
+
+;; Paste URLs as HTML links
+(global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
 
 (provide 'key-bindings)
