@@ -111,4 +111,7 @@
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)
 
+;; Sorting
+(global-set-key (kbd "M-s l") 'sort-lines)
+
 (provide 'key-bindings)

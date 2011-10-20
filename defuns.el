@@ -169,14 +169,20 @@ Symbols matching the text at point are put first in the completion list."
       (insert (concat "\n" line))))
   (next-line))
 
-(defun add-file-find-hook-with-pattern (pattern fn)
+(defun add-file-find-hook-with-pattern (pattern fn &optional contents)
   "Add a find-file-hook that calls FN for files where PATTERN
-matches the file name"
+matches the file name, and optionally, where CONTENT matches file contents.
+Both PATTERN and CONTENTS are matched as regular expressions."
   (lexical-let ((re-pattern pattern)
-                (fun fn))
+                (fun fn)
+                (re-content contents))
     (add-hook 'find-file-hook
               (lambda ()
-                (if (string-match re-pattern (buffer-file-name))
+                (if (and
+                     (string-match re-pattern (buffer-file-name))
+                     (or (null re-content)
+                         (string-match re-content
+                                       (buffer-substring (point-min) (point-max)))))
                     (apply fun ()))))))
 
 (defun move-line-down ()

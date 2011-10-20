@@ -41,12 +41,8 @@
               (if (string-match-p "oppdrag-services" file) (oppdrag-mode)))))
 
 ;; Buster.JS
-(add-to-list 'load-path "~/projects/buster/buster-mode.el")
 (autoload 'buster-mode "buster-mode")
-
-;; TMP
-(require 'buster-mode)
-;;(add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)))
+(add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)) "require(\\(\"\\|'\\)buster")
 
 ;; Markdown
 ;;(require 'showoff-mode)

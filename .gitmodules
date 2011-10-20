@@ -16,3 +16,6 @@
 [submodule "site-lisp/recall-position"]
 	path = site-lisp/recall-position
 	url = https://github.com/cjohansen/recall-position.el.git
+[submodule "site-lisp/buster-mode"]
+	path = site-lisp/buster-mode
+	url = git://gitorious.org/buster/buster-mode.git
