@@ -23,7 +23,6 @@
 
 ;; JavaScript
 (setq js-indent-level 2)
-(setq buster-node-executable "/usr/local/bin/node")
 
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
