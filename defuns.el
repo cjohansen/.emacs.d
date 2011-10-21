@@ -310,19 +310,34 @@ Both PATTERN and CONTENTS are matched as regular expressions."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word 1)))
 
-;; copy region if active, otherwise copy current line
+;; copy region if active
+;; otherwise copy to end of current line
+;;   * with prefix, copy N whole lines
 
-(defun copy-line (arg)
+(defun copy-to-end-of-line ()
+  (interactive)
+  (kill-ring-save (point)
+                  (line-end-position))
+  (message "Copied to end of line"))
+
+(defun copy-whole-lines (arg)
   "Copy lines (as many as prefix argument) in the kill ring"
   (interactive "p")
   (kill-ring-save (line-beginning-position)
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
-(defun save-region-or-current-line ()
-  (interactive)
+(defun copy-line (arg)
+  "Copy to end of line, or as many lines as prefix argument"
+  (interactive "p")
+  (if (> arg 1)
+      (copy-whole-lines arg)
+    (copy-to-end-of-line)))
+
+(defun save-region-or-current-line (arg)
+  (interactive "p")
   (if (region-active-p)
       (kill-ring-save (region-beginning) (region-end))
-    (copy-line 1)))
+    (copy-line arg)))
 
 (provide 'defuns)
