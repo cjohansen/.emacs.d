@@ -17,6 +17,9 @@
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
+
 ;; Make zap-to-char more convenient, and suspend-frame less
 (global-set-key (kbd "C-z") 'zap-to-char)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
