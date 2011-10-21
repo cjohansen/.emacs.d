@@ -23,6 +23,7 @@
 
 ;; JavaScript
 (setq js-indent-level 2)
+(setq buster-node-executable "/usr/local/bin/node")
 
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
@@ -100,7 +101,6 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
-(add-to-list 'load-path "~/projects/yahtzee.el")
 
 ;; Additional configuration
 (require 'defuns)
