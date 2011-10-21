@@ -21,6 +21,9 @@
 (define-key global-map (kbd "C-+") 'zoom-in)
 (define-key global-map (kbd "C--") 'zoom-out)
 
+;; Create new frame (bound to regular mac-command)
+(define-key global-map (kbd "M-n") 'make-frame-command)
+
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
