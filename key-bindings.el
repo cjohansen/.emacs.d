@@ -17,6 +17,10 @@
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
 
+;; Make zap-to-char more convenient, and suspend-frame less
+(global-set-key (kbd "C-z") 'zap-to-char)
+(global-set-key (kbd "C-x C-z") 'suspend-frame)
+
 ;; Font size
 (define-key global-map (kbd "C-+") 'zoom-in)
 (define-key global-map (kbd "C--") 'zoom-out)
