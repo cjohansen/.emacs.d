@@ -6,7 +6,16 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 ;; Turn on the menu bar for exploring new modes
-(global-set-key [f1] 'menu-bar-mode)
+(global-set-key (kbd "C-<f10>") 'menu-bar-mode)
+
+;; Use shell-like backspace C-h, rebind help to F1
+(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
+(define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
+(global-set-key (kbd "<f1>") 'help-command)
+
+;; Use C-w for backward-kill-word if no active region
+(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
+(global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;; Font size
 (define-key global-map (kbd "C-+") 'zoom-in)
@@ -41,7 +50,7 @@
 (global-set-key (kbd "C-x h") 'view-url)
 
 ;; Help should search more than just commands
-(global-set-key (kbd "C-h a") 'apropos)
+(global-set-key (kbd "<f1> a") 'apropos)
 
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c e") 'eval-and-replace)
