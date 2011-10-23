@@ -9,4 +9,7 @@
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 (push "/usr/local/bin" exec-path)
 
+;; keybinding to toggle full screen mode
+(global-set-key (quote [M-f10]) (quote ns-toggle-fullscreen))
+
 (provide 'mac)
