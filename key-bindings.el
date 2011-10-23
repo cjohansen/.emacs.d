@@ -24,6 +24,14 @@
 (global-set-key (kbd "C-z") 'zap-to-char)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
+;; M-m: Move to char - similar to "f" in vim
+(global-set-key (kbd "M-m") 'iy-go-to-char)
+(global-set-key (kbd "M-M") 'iy-go-to-char-backward)
+
+;; Remap old M-m to M-i (better mnemonic for back-to-indentation)
+;; We lose tab-to-tab-stop, which is no big loss in my use cases.
+(global-set-key (kbd "M-i") 'back-to-indentation)
+
 ;; Font size
 (define-key global-map (kbd "C-+") 'zoom-in)
 (define-key global-map (kbd "C--") 'zoom-out)

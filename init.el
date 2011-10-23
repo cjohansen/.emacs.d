@@ -114,6 +114,7 @@
 (require 'mode-mappings)
 (require 'magit)
 (require 'recall-position)
+(require 'iy-go-to-char)
 (require 'zoom-frm)
 (require 'key-bindings)
 (when (equal system-type 'darwin)
