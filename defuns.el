@@ -329,13 +329,13 @@ Both PATTERN and CONTENTS are matched as regular expressions."
 
 (defun copy-line (arg)
   "Copy to end of line, or as many lines as prefix argument"
-  (interactive "p")
-  (if (> arg 1)
-      (copy-whole-lines arg)
-    (copy-to-end-of-line)))
+  (interactive "P")
+  (if (null arg)
+      (copy-to-end-of-line)
+    (copy-whole-lines (prefix-numeric-value arg))))
 
 (defun save-region-or-current-line (arg)
-  (interactive "p")
+  (interactive "P")
   (if (region-active-p)
       (kill-ring-save (region-beginning) (region-end))
     (copy-line arg)))
