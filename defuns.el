@@ -310,6 +310,14 @@ Both PATTERN and CONTENTS are matched as regular expressions."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word 1)))
 
+;; Fix kmacro-edit-lossage, it's normal implementation
+;; is bound tightly to C-h
+(defun kmacro-edit-lossage ()
+  "Edit most recent 300 keystrokes as a keyboard macro."
+  (interactive)
+  (kmacro-push-ring)
+  (edit-kbd-macro 'view-lossage))
+
 ;; copy region if active
 ;; otherwise copy to end of current line
 ;;   * with prefix, copy N whole lines
