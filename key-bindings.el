@@ -2,6 +2,9 @@
 (global-set-key (kbd "C-|") 'hippie-expand)
 (global-set-key (kbd "C-.") 'hippie-expand)
 
+;; Repeat last command - too cumbersome with C-x z
+(global-set-key (kbd "M-.") 'repeat)
+
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 
