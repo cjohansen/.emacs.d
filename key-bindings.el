@@ -1,5 +1,4 @@
 ;; Completion that uses many different methods to find options.
-(global-set-key (kbd "C-|") 'hippie-expand)
 (global-set-key (kbd "C-.") 'hippie-expand)
 
 ;; Repeat last command - too cumbersome with C-x z
@@ -152,5 +151,8 @@
 
 ;; Paste URLs as HTML links
 (global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
+
+;; Touch buffer file
+(global-set-key (kbd "C-x t") 'touch-buffer-file)
 
 (provide 'key-bindings)
