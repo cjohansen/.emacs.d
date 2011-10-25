@@ -46,10 +46,8 @@
 (add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)) "require(\\(\"\\|'\\)buster")
 
 ;; Markdown
-;;(require 'showoff-mode)
 (autoload 'markdown-mode "markdown-mode")
-(autoload 'showoff-mode "showoff-mode")
-(add-to-list 'auto-mode-alist '("\\.md$" . showoff-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
 ;; Plain HTML
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
