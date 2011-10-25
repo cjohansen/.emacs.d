@@ -1,21 +1,9 @@
 [submodule "site-lisp/yaml-mode"]
 	path = site-lisp/yaml-mode
 	url = https://github.com/yoshiki/yaml-mode.git
-[submodule "site-lisp/emms"]
-	path = site-lisp/emms
-	url = git://git.sv.gnu.org/emms.git
-[submodule "site-list/recall-position"]
-	path = site-list/recall-position
-	url = http://github.com/cjohansen/recall-position.el.git
-[submodule "site-lisp/eval-lines"]
-	path = site-lisp/eval-lines
-	url = https://github.com/cjohansen/eval-lines.el.git
-[submodule "site-lisp/magit"]
-	path = site-lisp/magit
-	url = https://github.com/magit/magit.git
 [submodule "site-lisp/recall-position"]
 	path = site-lisp/recall-position
-	url = https://github.com/cjohansen/recall-position.el.git
+	url = http://github.com/cjohansen/recall-position.el.git
 [submodule "site-lisp/buster-mode"]
 	path = site-lisp/buster-mode
 	url = git://gitorious.org/buster/buster-mode.git
