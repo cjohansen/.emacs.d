@@ -9,6 +9,7 @@ Setup
 To grab all the dependencies, either:
 
     git clone git://github.com/magnars/.emacs.d.git
+    cd .emacs.d
     git submodule init
     git submodule update
 
