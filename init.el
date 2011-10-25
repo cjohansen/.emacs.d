@@ -3,7 +3,7 @@
                     (or (buffer-file-name) load-file-name)))
 
 ;; Don't break lines for me, please
-(setq truncate-lines 0)
+(setq-default truncate-lines t)
 
 ;; Always display line and column numbers
 (setq line-number-mode t)
