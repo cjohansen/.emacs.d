@@ -100,7 +100,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
+;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
 
 ;; Additional configuration
 (require 'defuns)

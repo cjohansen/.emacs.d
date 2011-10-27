@@ -41,9 +41,9 @@
               (if (string-match-p "oppdrag-services" file) (oppdrag-mode)))))
 
 ;; Buster.JS
-(autoload 'buster-mode "buster-mode")
-(setq buster-node-executable "/usr/local/bin/node")
-(add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)) "require(\\(\"\\|'\\)buster")
+;(autoload 'buster-mode "buster-mode")
+;(setq buster-node-executable "/usr/local/bin/node")
+;(add-file-find-hook-with-pattern "test\\.js$" (lambda () (buster-mode)) "require(\\(\"\\|'\\)buster")
 
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode")
