@@ -2,9 +2,8 @@
 # name: jstd.testCase
 # key: jtc
 # --
-(function (${1:$(lower-camel-case yas/text)}) {
-  testCase("${2:`(chop-suffix "Test" (upper-camel-case (buffer-file-name-body)))`}", sinon.testCase({
+(function ($2) {
+  testCase("${3:`(upper-camel-case (buffer-file-name-body))`}", sinon.testCase({
     jtt$0
   }));
-}(FINN.oppdrag.${1:namespace}));
-
+}(FINN.oppdrag.$1));
