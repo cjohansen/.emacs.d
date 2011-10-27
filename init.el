@@ -28,6 +28,11 @@
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
+;; Autopair parens
+(require 'autopair)
+(autopair-global-mode) ;; to enable in all buffers
+(setq autopair-blink nil) ;; no no no! NO BLINKING! NOOO!
+
 ;; Interactively Do Things
 (require 'ido)
 
