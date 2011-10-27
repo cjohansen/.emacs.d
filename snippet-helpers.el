@@ -61,5 +61,11 @@
                         '(lambda (word) (capitalize (downcase word)))
                         (split-name s)) ""))
 
+(defun capitalized-words (s)
+  "Convert string 's' to Capitalized Words string."
+  (mapconcat 'identity (mapcar
+                        '(lambda (word) (capitalize (downcase word)))
+                        (split-name s)) " "))
+
 (provide 'snippet-helpers)
 ;;; snippet-helpers.el ends here

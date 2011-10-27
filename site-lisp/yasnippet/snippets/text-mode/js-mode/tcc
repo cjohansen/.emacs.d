@@ -1,6 +1,0 @@
-# name : additionalTestCase
-# contributor : magnars@gmail.com
-# --
-testCase("${1:`(chop-suffix "Test" (upper-camel-case (buffer-file-name-body)))`}", sinon.testCase({
-    tt$0
-}));

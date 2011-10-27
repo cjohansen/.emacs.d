@@ -1,10 +1,10 @@
 !# -*- mode: snippet -*-
 # name: jstd.testCase
-# key: tc
+# key: jstd.tc
 # --
 (function (${1:$(lower-camel-case yas/text)}) {
   testCase("${2:`(chop-suffix "Test" (upper-camel-case (buffer-file-name-body)))`}", sinon.testCase({
-    tt$0
+    jstd.tt$0
   }));
 }(FINN.oppdrag.${1:namespace}));
 
