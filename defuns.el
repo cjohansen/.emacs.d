@@ -266,16 +266,10 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (nth 3 (syntax-ppss)))
 
 (defun move-point-forward-out-of-string ()
-  (if (point-is-in-string-p)
-      (progn
-        (forward-char)
-        (move-point-forward-out-of-string))))
+  (while (point-is-in-string-p) (forward-char)))
 
 (defun move-point-backward-out-of-string ()
- (if (point-is-in-string-p)
-   (progn
-    (backward-char)
-    (move-point-backward-out-of-string))))
+  (while (point-is-in-string-p) (backward-char)))
 
 (defun alternate-quotes-char ()
   (if (= 34 (nth 3 (syntax-ppss)))
