@@ -262,8 +262,11 @@ Both PATTERN and CONTENTS are matched as regular expressions."
 
 ;; toggle quotes
 
-(defun point-is-in-string-p ()
+(defun current-quotes-char ()
   (nth 3 (syntax-ppss)))
+
+(defun point-is-in-string-p ()
+  (current-quotes-char))
 
 (defun move-point-forward-out-of-string ()
   (while (point-is-in-string-p) (forward-char)))
@@ -272,16 +275,13 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (while (point-is-in-string-p) (backward-char)))
 
 (defun alternate-quotes-char ()
-  (if (= 34 (nth 3 (syntax-ppss))) "'" "\""))
-
-(defun quotes-char ()
-  (if (= 34 (nth 3 (syntax-ppss))) "\"" "'"))
+  (if (eq ?' (current-quotes-char)) ?\" ?'))
 
 (defun toggle-quotes ()
   (interactive)
-  (when (point-is-in-string-p)
-    (let ((old-quotes (quotes-char))
-          (new-quotes (alternate-quotes-char))
+  (if (point-is-in-string-p)
+    (let ((old-quotes (char-to-string (current-quotes-char)))
+          (new-quotes (char-to-string (alternate-quotes-char)))
           (start (make-marker))
           (end (make-marker)))
       (save-excursion
@@ -294,7 +294,8 @@ Both PATTERN and CONTENTS are matched as regular expressions."
         (insert new-quotes)
         (set-marker start (point))
         (replace-string new-quotes (concat "\\" new-quotes) nil start end)
-        (replace-string (concat "\\" old-quotes) old-quotes nil start end)))))
+        (replace-string (concat "\\" old-quotes) old-quotes nil start end)))
+    (error "Point isn't in a string")))
 
 ;; Select text in quotes
 (defun select-text-in-quotes ()
