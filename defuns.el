@@ -272,21 +272,29 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (while (point-is-in-string-p) (backward-char)))
 
 (defun alternate-quotes-char ()
-  (if (= 34 (nth 3 (syntax-ppss)))
-      "'"
-    "\""))
+  (if (= 34 (nth 3 (syntax-ppss))) "'" "\""))
+
+(defun quotes-char ()
+  (if (= 34 (nth 3 (syntax-ppss))) "\"" "'"))
 
 (defun toggle-quotes ()
   (interactive)
   (when (point-is-in-string-p)
-    (let ((new-quotes (alternate-quotes-char)))
+    (let ((old-quotes (quotes-char))
+          (new-quotes (alternate-quotes-char))
+          (start (make-marker))
+          (end (make-marker)))
       (save-excursion
         (move-point-forward-out-of-string)
         (backward-delete-char 1)
+        (set-marker end (point))
         (insert new-quotes)
         (move-point-backward-out-of-string)
         (delete-char 1)
-        (insert new-quotes)))))
+        (insert new-quotes)
+        (set-marker start (point))
+        (replace-string new-quotes (concat "\\" new-quotes) nil start end)
+        (replace-string (concat "\\" old-quotes) old-quotes nil start end)))))
 
 ;; Select text in quotes
 (defun select-text-in-quotes ()
