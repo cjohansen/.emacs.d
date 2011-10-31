@@ -122,6 +122,7 @@
 (require 'recall-position)
 (require 'iy-go-to-char)
 (require 'zoom-frm)
+(require 'dired-details)
 (require 'key-bindings)
 (when (equal system-type 'darwin)
   (require 'mac))
