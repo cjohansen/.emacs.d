@@ -3,6 +3,10 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
+;; HTML
+(add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
+
 ;; Ruby
 (autoload 'rhtml-mode "rhtml-mode")
 (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
