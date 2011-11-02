@@ -158,4 +158,7 @@
 ;; Touch buffer file
 (global-set-key (kbd "C-x t") 'touch-buffer-file)
 
+;; Easy-mode rgrep
+(global-set-key (kbd "M-s s") 'rgrep)
+
 (provide 'key-bindings)
