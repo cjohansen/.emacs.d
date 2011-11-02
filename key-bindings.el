@@ -18,9 +18,13 @@
 (define-key isearch-mode-map (kbd "C-h") 'isearch-delete-char)
 (global-set-key (kbd "<f1>") 'help-command)
 
-;; Use C-w for backward-kill-word if no active region
+;; Killing text
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-S-k") 'kill-and-retry-line)
+
+;; Delete region (don't put it in the kill-ring)
+(global-set-key (kbd "C-c C-w") 'delete-region)
 
 ;; Use M-w for copy-line if no active region
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
@@ -119,9 +123,6 @@
 
 ;; Mark all
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
-
-;; Delete region (don't put it in the kill-ring)
-(global-set-key (kbd "C-c C-w") 'delete-region)
 
 ;; Eval lines
 (global-set-key (kbd "C-c C-e") 'eval-current-line)

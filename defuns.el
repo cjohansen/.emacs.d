@@ -379,4 +379,10 @@ in register specified by the magit-status-register variable."
   (delete-other-windows)
   (window-configuration-to-register magit-status-fullscreen-register))
 
+(defun kill-and-retry-line ()
+  "Kill the entire current line and reposition point at indentation"
+  (interactive)
+  (back-to-indentation)
+  (kill-line))
+
 (provide 'defuns)
