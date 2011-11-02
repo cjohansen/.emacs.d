@@ -127,10 +127,10 @@
 (global-set-key (kbd "C-c C-e") 'eval-current-line)
 (global-set-key (kbd "C-c M-e") 'eval-output-marked-lines)
 
-;; Git
-(autoload 'magit-status "magit")
-(global-set-key (kbd "C-x m") 'magit-status)
+;; Magit
+(global-set-key (kbd "C-x m") 'magit-status-fullscreen)
 
+;; New lines
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
 (global-set-key (kbd "C-c d") 'duplicate-line)
