@@ -3,6 +3,11 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
+;; Adventur
+(add-to-list 'load-path "~/.emacs.d/site-lisp/adventur-mode")
+(autoload 'adventur-mode "adventur-mode")
+(add-to-list 'auto-mode-alist '("A[0-9]+/A[0-9]+\\.txt$" . adventur-mode))
+
 ;; HTML
 (add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
