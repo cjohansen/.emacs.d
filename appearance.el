@@ -15,13 +15,16 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
- 
+
 ;; Customize background color of lighlighted line
 (set-face-background 'hl-line "#222222")
 
-(if (eq window-system nil)
-    ((set-face-foreground 'hl-line "#ffcccc")
-     (set-face-background 'hl-line "#000000")))
+;; Subtler highlight in magit
+(set-face-background 'magit-item-highlight "#121212")
+(set-face-foreground 'magit-diff-none "#666666")
+
+;; Highlight in yasnippet
+(set-face-background 'yas/field-highlight-face "#333399")
 
 ;; org-mode colors
 (setq org-todo-keyword-faces
@@ -48,7 +51,7 @@
 
 ;; Scrollbars to the right
 ;;(setq scroll-bar-mode-explicit t)
-;;(set-scroll-bar-mode `right) 
+;;(set-scroll-bar-mode `right)
 
 ;; Ditch them scrollbars
 (scroll-bar-mode -1)

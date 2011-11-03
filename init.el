@@ -103,14 +103,12 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/magit")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
 
 ;; Additional configuration
 (require 'defuns)
-(require 'appearance)
 (require 'smooth-scrolling)
 (require 'git-walk)
 (require 'snippets)
@@ -124,6 +122,7 @@
 (require 'zoom-frm)
 (require 'dired-details)
 (require 'key-bindings)
+(require 'appearance)
 (when (equal system-type 'darwin)
   (require 'mac))
 
