@@ -89,6 +89,7 @@
                            er/mark-symbol
                            er/mark-inside-quotes
                            er/mark-outside-quotes
+                           mark-paragraph
                            er/mark-inside-pairs
                            er/mark-outside-pairs))
 
@@ -104,13 +105,14 @@
         (condition-case nil
             (progn
               (funcall (car try-list))
-              (when (and (<= (point) start)
+              (when (and (region-active-p)
+                         (<= (point) start)
                          (>= (mark) end)
                          (> (- (mark) (point)) (- end start))
-                         (< (- (mark) (point)) (- best-end best-start)))
+                         (>= (point) best-start))
                 (setq best-start (point))
                 (setq best-end (mark))
-                (message "%S" (car try-list) best-start best-end)))
+                (message "%S" (car try-list))))
           (error nil)))
       (setq try-list (cdr try-list)))
     (goto-char best-start)
