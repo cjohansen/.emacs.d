@@ -5,6 +5,9 @@
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
+;; Remove selected region if typing
+(pending-delete-mode t)
+
 ;; Always display line and column numbers
 (setq line-number-mode t)
 (setq column-number-mode t)
