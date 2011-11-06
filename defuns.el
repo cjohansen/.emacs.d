@@ -265,8 +265,7 @@ Both PATTERN and CONTENTS are matched as regular expressions."
 (defun current-quotes-char ()
   (nth 3 (syntax-ppss)))
 
-(defun point-is-in-string-p ()
-  (current-quotes-char))
+(defalias 'point-is-in-string-p 'current-quotes-char)
 
 (defun move-point-forward-out-of-string ()
   (while (point-is-in-string-p) (forward-char)))
