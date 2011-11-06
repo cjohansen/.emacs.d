@@ -13,3 +13,6 @@
 [submodule "site-lisp/undo-tree"]
 	path = site-lisp/undo-tree
 	url = http://www.dr-qubit.org/git/undo-tree.git
+[submodule "site-lisp/js2-mode"]
+	path = site-lisp/js2-mode
+	url = https://github.com/mooz/js2-mode

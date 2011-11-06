@@ -24,9 +24,6 @@
 ;; Scheme
 (setq scheme-program-name "/usr/bin/mzscheme")
 
-;; JavaScript
-(setq js-indent-level 2)
-
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
@@ -108,6 +105,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/undo-tree")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
 
@@ -158,10 +156,10 @@
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline t)
  '(js2-indent-on-enter-key t)
+ '(js2-mirror-mode t)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
 ;; Emacs server
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
