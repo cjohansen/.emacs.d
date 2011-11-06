@@ -7,3 +7,6 @@
 [submodule "site-lisp/buster-mode"]
 	path = site-lisp/buster-mode
 	url = git://gitorious.org/buster/buster-mode.git
+[submodule "site-lisp/evil"]
+	path = site-lisp/evil
+	url = git://gitorious.org/evil/evil.git
