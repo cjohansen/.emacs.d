@@ -134,7 +134,6 @@
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
-;; Ido
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -142,9 +141,14 @@
   ;; If there is more than one, they won't work right.
  '(fill-column 80)
  '(ido-use-filename-at-point nil)
+ '(js2-auto-indent-p t)
+ '(js2-basic-offset 2)
+ '(js2-enter-indents-newline t)
+ '(js2-indent-on-enter-key t)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
 ;; Emacs server
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
