@@ -127,11 +127,6 @@
 (when (equal system-type 'darwin)
   (require 'mac))
 
-;; Autopair parens
-(require 'autopair)
-(autopair-global-mode) ;; to enable in all buffers
-(setq autopair-blink nil) ;; no no no! NO BLINKING! NOOO!
-
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
