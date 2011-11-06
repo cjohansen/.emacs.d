@@ -120,6 +120,7 @@
 (require 'recall-position)
 (require 'iy-go-to-char)
 (require 'zoom-frm)
+(require 'expand-region)
 (require 'dired-details)
 (require 'key-bindings)
 (require 'appearance)
