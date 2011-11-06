@@ -21,6 +21,34 @@
       (while (looking-back symbol-regexp)
         (backward-char)))))
 
+;; Mark method call (can be improved further)
+
+(defun er/mark-method-call ()
+  (interactive)
+  (let ((symbol-regexp "\\s_\\|\\sw\\|\\."))
+    (when (or (looking-at symbol-regexp)
+              (looking-back symbol-regexp))
+      (while (looking-back symbol-regexp)
+        (backward-char))
+      (set-mark (point))
+      (while (looking-at symbol-regexp)
+        (forward-char))
+      (if (looking-at "(")
+          (forward-list))
+      (exchange-point-and-mark))))
+
+;; Mark javascript function
+
+(defun er/mark-js-function ()
+  (interactive)
+  (while (not (looking-at "function "))
+    (backward-char))
+  (set-mark (point))
+  (while (not (looking-at "{"))
+    (forward-char))
+  (forward-list)
+  (exchange-point-and-mark))
+
 ;; Quotes
 
 (defun current-quotes-char ()
@@ -83,28 +111,28 @@
   (forward-list)
   (exchange-point-and-mark))
 
-;; Mark javascript function
-
-(defun er/mark-js-function ()
-  (interactive)
-  (while (not (looking-at "function "))
-    (backward-char))
-  (set-mark (point))
-  (while (not (looking-at "{"))
-    (forward-char))
-  (forward-list)
-  (exchange-point-and-mark))
-
-;; Expand region
+;; Methods to try expanding to
 
 (setq er/try-expand-list '(er/mark-word
                            er/mark-symbol
+                           er/mark-method-call
                            er/mark-inside-quotes
                            er/mark-outside-quotes
-                           er/mark-js-function
                            mark-paragraph
                            er/mark-inside-pairs
                            er/mark-outside-pairs))
+
+;; Add more methods for javascript
+
+(defun er/more-expansions-in-js2-mode ()
+  (make-variable-buffer-local 'er/try-expand-list)
+  (setq er/try-expand-list (append
+                            er/try-expand-list
+                            '(er/mark-js-function))))
+
+(add-hook 'js2-mode-hook 'er/more-expansions-in-js2-mode)
+
+;; The magic expand-region method
 
 (defun er/expand-region ()
   (interactive)
@@ -122,7 +150,7 @@
                          (<= (point) start)
                          (>= (mark) end)
                          (> (- (mark) (point)) (- end start))
-                         (>= (point) best-start))
+                         (> (point) best-start))
                 (setq best-start (point))
                 (setq best-end (mark))
                 (message "%S" (car try-list))))
