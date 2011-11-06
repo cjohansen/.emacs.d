@@ -149,9 +149,6 @@
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)
 
-;; Mark quote contents
-(global-set-key (kbd "M-\"") 'select-text-in-quotes)
-
 ;; Sorting
 (global-set-key (kbd "M-s l") 'sort-lines)
 

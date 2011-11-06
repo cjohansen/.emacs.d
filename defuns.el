@@ -296,18 +296,6 @@ Both PATTERN and CONTENTS are matched as regular expressions."
         (replace-string (concat "\\" old-quotes) old-quotes nil start end)))
     (error "Point isn't in a string")))
 
-;; Select text in quotes
-(defun select-text-in-quotes ()
- (interactive)
- (let (b1 b2)
-   (move-point-backward-out-of-string)
-   (forward-char)
-   (setq b1 (point))
-   (move-point-forward-out-of-string)
-   (backward-char)
-   (setq b2 (point))
-   (set-mark b1)))
-
 (defun linkify-region-from-kill-ring (start end)
   (interactive "r")
   (let ((text (buffer-substring start end)))
