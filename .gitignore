@@ -7,3 +7,4 @@ tramp
 elpa
 emms
 site-lisp/adventur-mode
+*.elc
