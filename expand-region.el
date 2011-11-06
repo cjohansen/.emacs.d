@@ -83,12 +83,25 @@
   (forward-list)
   (exchange-point-and-mark))
 
+;; Mark javascript function
+
+(defun er/mark-js-function ()
+  (interactive)
+  (while (not (looking-at "function "))
+    (backward-char))
+  (set-mark (point))
+  (while (not (looking-at "{"))
+    (forward-char))
+  (forward-list)
+  (exchange-point-and-mark))
+
 ;; Expand region
 
 (setq er/try-expand-list '(er/mark-word
                            er/mark-symbol
                            er/mark-inside-quotes
                            er/mark-outside-quotes
+                           er/mark-js-function
                            mark-paragraph
                            er/mark-inside-pairs
                            er/mark-outside-pairs))
