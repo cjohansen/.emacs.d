@@ -107,6 +107,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/undo-tree")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
 
@@ -129,6 +130,10 @@
 (require 'appearance)
 (when (equal system-type 'darwin)
   (require 'mac))
+
+;; Undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
