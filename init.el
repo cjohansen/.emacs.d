@@ -152,9 +152,11 @@
   ;; If there is more than one, they won't work right.
  '(fill-column 80)
  '(ido-use-filename-at-point nil)
+ '(js2-allow-rhino-new-expr-initializer nil)
  '(js2-auto-indent-p t)
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline t)
+ '(js2-global-externs (quote ("module" "require" "jQuery" "$" "_" "buster" "sinon" "FINN" "ZOMBIE" "assert" "refute" "testCase")))
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode t)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
