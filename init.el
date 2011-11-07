@@ -130,6 +130,10 @@
 (when (equal system-type 'darwin)
   (require 'mac))
 
+;; No dropdowns please, yas
+(setq yas/prompt-functions '(yas/ido-prompt
+                             yas/completing-prompt))
+
 ;; Undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
