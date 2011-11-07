@@ -137,7 +137,7 @@
 ;; New lines
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
-(global-set-key (kbd "C-c d") 'duplicate-line)
+(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 ;; Line movement
 (global-set-key (kbd "<C-S-down>") 'move-line-down)

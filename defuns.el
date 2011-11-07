@@ -173,16 +173,28 @@ Symbols matching the text at point are put first in the completion list."
     (indent-for-tab-command))
   (indent-for-tab-command))
 
-(defun duplicate-line ()
-  (interactive)
-  (save-excursion
-    (beginning-of-line)
-    (let ((line (buffer-substring
-                 (point)
-                 (progn (end-of-line) (point)))))
-      (end-of-line)
-      (insert (concat "\n" line))))
-  (next-line))
+(defun duplicate-current-line-or-region (arg)
+  "Duplicates the current line or region ARG times.
+If there's no region, the current line will be duplicated. However, if
+there's a region, all lines that region covers will be duplicated."
+  (interactive "p")
+  (let (beg end (origin (point)))
+    (if (and (region-active-p) (> (point) (mark)))
+        (exchange-point-and-mark))
+    (setq beg (line-beginning-position))
+    (when (region-active-p)
+      (exchange-point-and-mark)
+      (if (eq (point) (line-beginning-position))
+          (backward-char)))
+    (setq end (line-end-position))
+    (let ((region (buffer-substring-no-properties beg end)))
+      (dotimes (i arg)
+        (goto-char end)
+        (newline)
+        (insert region)
+        (setq end (point)))
+      (goto-char (+ origin (* (length region) arg) arg)))))
+
 
 (defun add-file-find-hook-with-pattern (pattern fn &optional contents)
   "Add a find-file-hook that calls FN for files where PATTERN
