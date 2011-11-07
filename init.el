@@ -111,6 +111,7 @@
 
 ;; Additional configuration
 (require 'defuns)
+(require 'file-defuns)
 (require 'smooth-scrolling)
 (require 'git-walk)
 (require 'snippets)

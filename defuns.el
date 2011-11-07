@@ -350,12 +350,6 @@ Both PATTERN and CONTENTS are matched as regular expressions."
       (kill-ring-save (region-beginning) (region-end))
     (copy-line arg)))
 
-(defun touch-buffer-file ()
-  (interactive)
-  (insert " ")
-  (backward-delete-char 1)
-  (save-buffer))
-
 (defvar magit-status-fullscreen-window-configuration-register
   ?b
   "The register to store the current window configuration in when
