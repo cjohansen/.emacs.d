@@ -72,31 +72,20 @@
 
 (defun er/mark-inside-pairs ()
   (interactive)
-  (while (not (looking-back "\\s("))
-    (if (looking-back "\\s)")
-        (backward-list)
-      (backward-char)))
-  (set-mark (point))
-  (backward-char)
-  (forward-list)
-  (backward-char)
-  (exchange-point-and-mark))
+  (when (> (car (syntax-ppss)) 0)
+      (goto-char (nth 1 (syntax-ppss)))
+      (set-mark (1+ (point)))
+      (forward-list)
+      (backward-char)
+      (exchange-point-and-mark)))
 
 (defun er/mark-outside-pairs ()
   (interactive)
-  (when (and (looking-at "\\s(")
-             (region-active-p)
-             (save-excursion
-               (forward-list)
-               (>= (mark) (point))))
-        (backward-char))
-  (while (not (looking-at "\\s("))
-    (if (looking-back "\\s)")
-        (backward-list)
-      (backward-char)))
-  (set-mark (point))
-  (forward-list)
-  (exchange-point-and-mark))
+  (when (> (car (syntax-ppss)) 0)
+      (goto-char (nth 1 (syntax-ppss)))
+      (set-mark (point))
+      (forward-list)
+      (exchange-point-and-mark)))
 
 ;; Methods to try expanding to
 
@@ -205,7 +194,6 @@
     (set-mark best-end)))
 
 (provide 'expand-region)
-
 
 
 ;; Todo: Take advantage of this:
