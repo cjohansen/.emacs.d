@@ -175,26 +175,29 @@ Symbols matching the text at point are put first in the completion list."
 
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
-If there's no region, the current line will be duplicated. However, if
-there's a region, all lines that region covers will be duplicated."
+If there's no region, the current line will be duplicated."
   (interactive "p")
-  (let (beg end (origin (point)))
-    (if (and (region-active-p) (> (point) (mark)))
-        (exchange-point-and-mark))
-    (setq beg (line-beginning-position))
-    (when (region-active-p)
-      (exchange-point-and-mark)
-      (if (eq (point) (line-beginning-position))
-          (backward-char)))
-    (setq end (line-end-position))
-    (let ((region (buffer-substring-no-properties beg end)))
-      (dotimes (i arg)
-        (goto-char end)
-        (newline)
-        (insert region)
-        (setq end (point)))
-      (goto-char (+ origin (* (length region) arg) arg)))))
+  (if (region-active-p)
+      (duplicate-region arg)
+    (duplicate-current-line arg)))
 
+(defun duplicate-region (num &optional start end)
+  "Duplicates the region bounded by START and END NUM times.
+If no START and END is provided, the current region-beginning
+and region-end is used."
+  (interactive "p")
+  (let* ((start (or start (region-beginning)))
+         (end (or end (region-end)))
+         (region (buffer-substring start end)))
+    (goto-char end)
+    (dotimes (i num)
+      (insert region))))
+
+(defun duplicate-current-line (num)
+  "Duplicate the current line NUM times."
+  (interactive "p")
+  (duplicate-region num (point-at-bol) (1+ (point-at-eol)))
+  (goto-char (1- (point))))
 
 (defun add-file-find-hook-with-pattern (pattern fn &optional contents)
   "Add a find-file-hook that calls FN for files where PATTERN
