@@ -161,8 +161,8 @@
 
 ;; Buffer file functions
 (global-set-key (kbd "C-x t") 'touch-buffer-file)
-(global-set-key (kbd "C-x C-r") 'rename-this-buffer-and-file)
-(global-set-key (kbd "C-x C-k") 'delete-this-buffer-and-file)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
 ;; Easy-mode rgrep
 (global-set-key (kbd "M-s s") 'rgrep)
