@@ -22,6 +22,7 @@
 ;; Subtler highlight in magit
 (set-face-background 'magit-item-highlight "#121212")
 (set-face-foreground 'magit-diff-none "#666666")
+(set-face-foreground 'magit-diff-add "#00cc33")
 
 ;; Highlight in yasnippet
 (set-face-background 'yas/field-highlight-face "#333399")
