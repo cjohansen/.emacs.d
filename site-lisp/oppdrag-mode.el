@@ -59,5 +59,13 @@ in an exploded war, re-deploy the file."
       (add-hook 'after-save-hook 'oppdrag-hot-deploy-buffer-file nil t)
     (remove-hook 'after-save-hook 'oppdrag-hot-deploy-buffer-file t)))
 
+(defun oppdrag--setup-js-quirks ()
+  (when (string-match-p "oppdrag-services" (buffer-file-name))
+              (setq js2-additional-externs '("FINN" "assert" "refute" "testCase"))
+              (make-variable-buffer-local 'js2-basic-offset)
+              (setq js2-basic-offset 4)))
+
+(add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
+
 (provide 'oppdrag-mode)
 ;;; oppdrag-mode.el ends here

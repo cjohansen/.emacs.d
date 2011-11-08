@@ -60,13 +60,6 @@
                    (len (length file)))
               (if (string-match-p "oppdrag-services" file) (oppdrag-mode)))))
 
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (when (string-match-p "oppdrag-services" (buffer-file-name))
-              (make-variable-buffer-local 'js2-basic-offset)
-              (setq js2-basic-offset 4))))
-
-
 
 ;; Buster.JS
 ;(autoload 'buster-mode "buster-mode")
