@@ -106,6 +106,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/undo-tree")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
+(add-to-list 'load-path "~/.emacs.d/site-lisp/jade-mode")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
 ;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
 
