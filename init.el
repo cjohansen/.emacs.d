@@ -134,6 +134,10 @@
 (setq yas/prompt-functions '(yas/ido-prompt
                              yas/completing-prompt))
 
+;; Key-chord-mode will explode your mind
+(require 'key-chord)
+(key-chord-mode 1)
+
 ;; Undo-tree
 (require 'undo-tree)
 (global-undo-tree-mode)
