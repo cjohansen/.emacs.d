@@ -168,7 +168,7 @@
  '(js2-enter-indents-newline t)
  '(js2-global-externs (quote ("module" "require" "jQuery" "$" "_" "buster" "sinon" "ZOMBIE")))
  '(js2-indent-on-enter-key t)
- '(js2-mirror-mode t)
+ '(js2-mirror-mode nil)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
 
 ;; Emacs server
