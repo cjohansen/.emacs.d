@@ -126,6 +126,8 @@
 (require 'zoom-frm)
 (require 'expand-region)
 (require 'dired-details)
+(require 'js2-mode)
+(require 'key-chord)
 (require 'key-bindings)
 (require 'appearance)
 (when (equal system-type 'darwin)
@@ -136,7 +138,6 @@
                              yas/completing-prompt))
 
 ;; Key-chord-mode will explode your mind
-(require 'key-chord)
 (key-chord-mode 1)
 
 ;; Undo-tree
