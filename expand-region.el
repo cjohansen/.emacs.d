@@ -70,22 +70,38 @@
 
 ;; Pairs - ie [] () {} etc
 
+(defun er--inside-pairs-p ()
+  (> (car (syntax-ppss)) 0))
+
 (defun er/mark-inside-pairs ()
   (interactive)
-  (when (> (car (syntax-ppss)) 0)
+  (when (er--inside-pairs-p)
       (goto-char (nth 1 (syntax-ppss)))
       (set-mark (1+ (point)))
       (forward-list)
       (backward-char)
       (exchange-point-and-mark)))
 
+(defun er--looking-at-pair ()
+  (looking-at "\\s("))
+
+(defun er--looking-at-marked-pair ()
+  (and (er--looking-at-pair)
+       (eq (mark)
+           (save-excursion
+             (forward-list)
+             (point)))))
+
 (defun er/mark-outside-pairs ()
   (interactive)
-  (when (> (car (syntax-ppss)) 0)
-      (goto-char (nth 1 (syntax-ppss)))
-      (set-mark (point))
-      (forward-list)
-      (exchange-point-and-mark)))
+  (when (and (er--inside-pairs-p)
+             (or (not (er--looking-at-pair))
+                 (er--looking-at-marked-pair)))
+    (goto-char (nth 1 (syntax-ppss))))
+  (when (er--looking-at-pair)
+    (set-mark(point))
+    (forward-list)
+    (exchange-point-and-mark)))
 
 ;; Methods to try expanding to
 
