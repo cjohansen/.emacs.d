@@ -42,9 +42,6 @@
 (key-chord-define-global "fg" 'iy-go-to-char)
 (key-chord-define-global "df" 'iy-go-to-char-backward)
 
-;; Add semicolon to end of line
-(key-chord-define js2-mode-map ";;"  "\C-e;")
-
 ;; Remap old M-m to M-i (better mnemonic for back-to-indentation)
 ;; We lose tab-to-tab-stop, which is no big loss in my use cases.
 (global-set-key (kbd "M-i") 'back-to-indentation)
