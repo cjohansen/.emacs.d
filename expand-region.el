@@ -38,34 +38,34 @@
 
 ;; Quotes
 
-(defun current-quotes-char ()
+(defun er--current-quotes-char ()
   (nth 3 (syntax-ppss)))
 
-(defalias 'point-is-in-string-p 'current-quotes-char)
+(defalias 'er--point-is-in-string-p 'er--current-quotes-char)
 
-(defun move-point-forward-out-of-string ()
-  (while (point-is-in-string-p) (forward-char)))
+(defun er--move-point-forward-out-of-string ()
+  (while (er--point-is-in-string-p) (forward-char)))
 
-(defun move-point-backward-out-of-string ()
-  (while (point-is-in-string-p) (backward-char)))
+(defun er--move-point-backward-out-of-string ()
+  (while (er--point-is-in-string-p) (backward-char)))
 
 (defun er/mark-inside-quotes ()
  (interactive)
- (when (point-is-in-string-p)
-   (move-point-backward-out-of-string)
+ (when (er--point-is-in-string-p)
+   (er--move-point-backward-out-of-string)
    (forward-char)
    (set-mark (point))
-   (move-point-forward-out-of-string)
+   (er--move-point-forward-out-of-string)
    (backward-char)
    (exchange-point-and-mark)))
 
 (defun er/mark-outside-quotes ()
  (interactive)
- (when (point-is-in-string-p)
-   (move-point-backward-out-of-string)
+ (when (er--point-is-in-string-p)
+   (er--move-point-backward-out-of-string)
    (set-mark (point))
    (forward-char)
-   (move-point-forward-out-of-string)
+   (er--move-point-forward-out-of-string)
    (exchange-point-and-mark)))
 
 ;; Pairs - ie [] () {} etc
