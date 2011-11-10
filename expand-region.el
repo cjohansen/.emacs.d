@@ -210,14 +210,3 @@
     (set-mark best-end)))
 
 (provide 'expand-region)
-
-
-;; Todo: Take advantage of this:
-;;
-;; Well, in a nutshell, he makes the inspired assumption that indentation is
-;; almost always a function of brace/paren/curly nesting level, and he uses a
-;; little-known built-in Emacs function called parse-partial-sexp, written in C,
-;; which tells you the current nesting level of not only braces, parens and
-;; curlies, but also of c-style block comments, and whether you're inside a
-;; single- or double-quoted string. How useful! Good thing JavaScript uses
-;; C-like syntax, or that function would have been far less relevant.
