@@ -1,3 +1,5 @@
+;; JavaScript specific defuns
+
 (defun js--looking-at-object-start ()
   (and (looking-at "{")
        (not (looking-back ")[\s\n]*"))))
