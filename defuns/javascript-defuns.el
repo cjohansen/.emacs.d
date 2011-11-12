@@ -54,4 +54,14 @@
 (js--create-object-whitespace-traverser js-contract-object
                                        (js--ensure-just-one-space))
 
+(defun js-extract-variable (name start end)
+  (interactive "MVariable name: \nr")
+  (let ((expression (buffer-substring start end)))
+    (delete-region start end)
+    (insert name)
+    (back-to-indentation)
+    (insert (concat "var " name " = " expression ";\n"))
+    (goto-char end)))
+
+
 (provide 'javascript-defuns)
