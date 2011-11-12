@@ -100,15 +100,11 @@
 ;; Load path
 (add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/rhtml-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yaml-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/recall-position")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/yasnippet")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/undo-tree")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/js2-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/jade-mode")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/oppdrag-mode")
-;(add-to-list 'load-path "~/.emacs.d/site-lisp/buster-mode")
+
+; Add external projects to load path
+(dolist (project (directory-files "~/.emacs.d/site-lisp" t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
 
 ;; Additional configuration
 (require 'defuns)
