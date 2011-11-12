@@ -16,4 +16,4 @@
                                                 (if (looking-back "^\s*")
                                                     (back-to-indentation))))))
 
-(provide 'js2-mode-expansions)
+(provide 'setup-js2-mode)
