@@ -136,9 +136,11 @@
      (interactive)
      (jump-to-register magit-status-fullscreen-window-configuration-register)))
 
-;; New lines
+;; Clever newlines
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
+
+;; Duplicate region
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 ;; Line movement
