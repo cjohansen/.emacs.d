@@ -36,9 +36,10 @@
 (require 'mode-mappings)
 
 ;; Functions
-(require 'defuns)
-(require 'file-defuns)
-(require 'javascript-defuns)
+(setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
+(dolist (file (directory-files defuns-dir t "\\w+"))
+  (when (file-regular-p file)
+    (load file)))
 (require 'recall-position)
 (require 'expand-region)
 (require 'iy-go-to-char)
