@@ -40,6 +40,7 @@
 (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode))
 
 ;; JavaScript
+(autoload 'js2-mode "setup-js2-mode")
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))

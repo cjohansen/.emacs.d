@@ -15,6 +15,20 @@
 
 ;; Buffer-related
 
+(defun swap-windows ()
+ "If you have 2 windows, it swaps them." (interactive) (cond ((not (= (count-windows) 2)) (message "You need exactly 2 windows to do this."))
+ (t
+ (let* ((w1 (first (window-list)))
+	 (w2 (second (window-list)))
+	 (b1 (window-buffer w1))
+	 (b2 (window-buffer w2))
+	 (s1 (window-start w1))
+	 (s2 (window-start w2)))
+ (set-window-buffer w1 b2)
+ (set-window-buffer w2 b1)
+ (set-window-start w1 s2)
+ (set-window-start w2 s1)))))
+
 (defun ido-imenu ()
   "Update the imenu index and then use ido to select a symbol to navigate to.
 Symbols matching the text at point are put first in the completion list."
@@ -328,29 +342,6 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (if (region-active-p)
       (kill-ring-save (region-beginning) (region-end))
     (copy-line arg)))
-
-(defvar magit-status-fullscreen-window-configuration-register
-  ?b
-  "The register to store the current window configuration in when
-entering fullscreen magit-status.")
-
-(defvar magit-status-fullscreen-register
-  ?g
-  "The register to store the fullscreen magit-status
-window configuration in.")
-
-(defun magit-status-fullscreen ()
-  "Save the current window configuration, run magit-status
-and delete other windows, providing a fullscreen git mode.
-The previous window configuration is stored in the register
-specified by the magit-status-fullscreen-window-configuration-register
-variable. The fullscreen magit status configuration is stored
-in register specified by the magit-status-register variable."
-  (interactive)
-  (window-configuration-to-register magit-status-fullscreen-window-configuration-register)
-  (magit-status (magit-get-top-dir default-directory))
-  (delete-other-windows)
-  (window-configuration-to-register magit-status-fullscreen-register))
 
 (defun kill-and-retry-line ()
   "Kill the entire current line and reposition point at indentation"

@@ -1,7 +1,7 @@
 auto-save-list
 backups
 *~
-places
+.places
 session.*
 tramp
 elpa

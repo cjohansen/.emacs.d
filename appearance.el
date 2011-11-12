@@ -1,15 +1,7 @@
-;; mode colors in rhtml mode
-;;(custom-set-faces '(erb-face ((t (:background nil)))))
-
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "Black" :foreground "White" :inverse-video nil :box nil :strike-t*hrough nil :overline nil :underline nil :slant normal :weight normal :width normal :height 105))))
- '(fill-column 80)
- '(highlight ((((class color) (min-colors 88) (background dark)) (:background "#111111"))))
- '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) nil))))
+(setq visible-bell t
+      font-lock-maximum-decoration t
+      color-theme-is-global t
+      truncate-partial-width-windows nil)
 
 (set-face-background 'region "#464740")
 
@@ -52,5 +44,8 @@
 
 ;; Ditch them scrollbars
 (scroll-bar-mode -1)
+
+;; Make zooming affect frame instead of buffers
+(require 'zoom-frm)
 
 (provide 'appearance)
