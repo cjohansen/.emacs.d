@@ -29,13 +29,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
 
-(require 'gtags-tweaks)
-(let ((hook (lambda ()
-              (gtags-mode t)
-              (gtags-create-or-update))))
-  (add-hook 'ruby-mode-hook hook)
-  (add-hook 'rhtml-mode-hook hook))
-
 ;; SVG
 (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode))
 
@@ -78,9 +71,6 @@
 
 ;; org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-
-;; Mustache
-(autoload 'mustache-mode "mustache-mode")
 
 ;; Apache config
 (autoload 'apache-mode "apache-mode" nil t)
