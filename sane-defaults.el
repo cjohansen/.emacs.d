@@ -10,7 +10,7 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-;; Show active mark
+;; Show active region
 (setq transient-mark-mode t)
 
 ;; Move files to trash when deleting
@@ -33,7 +33,7 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; Remove selected region if typing
+;; Remove text in active region if inserting text
 (pending-delete-mode t)
 
 ;; Always display line and column numbers
@@ -64,17 +64,12 @@
 ;; Keep cursor away from edges when scrolling up/down
 (require 'smooth-scrolling)
 
-;; Undo-tree
+;; Represent undo-history as an actual tree (visualize with C-x u)
 (require 'undo-tree)
 (global-undo-tree-mode)
 
 ;; Add parts of each file's directory to the buffer name if not unique
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
-
-;; Save cursor position
-(require 'saveplace)
-(setq-default save-place t)
-(setq save-place-file (expand-file-name ".places" dotfiles-dir))
 
 (provide 'sane-defaults)

@@ -22,6 +22,11 @@
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
+;; Save point position between sessions
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" dotfiles-dir))
+
 ;; Lets start with a smattering of sanity
 (require 'sane-defaults)
 
@@ -35,7 +40,7 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
-;; Functions
+;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)

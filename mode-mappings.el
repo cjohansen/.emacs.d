@@ -16,6 +16,7 @@
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
 ;; HTML
+(add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
 
@@ -38,8 +39,6 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 
-(add-hook 'js2-mode-hook (lambda () (require 'js2-mode-expansions)))
-
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
 
@@ -61,9 +60,6 @@
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode")
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-
-;; Plain HTML
-(add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 
 ;; PHP
 (autoload 'php-mode "php-mode")
