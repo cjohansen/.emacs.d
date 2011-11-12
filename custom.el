@@ -6,7 +6,9 @@
  '(default ((t (:inherit nil :stipple nil :background "Black" :foreground "White" :inverse-video nil :box nil :strike-t*hrough nil :overline nil :underline nil :slant normal :weight normal :width normal :height 105))))
  '(fill-column 80)
  '(highlight ((((class color) (min-colors 88) (background dark)) (:background "#111111"))))
- '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) nil))))
+ '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) nil)))
+ '(show-paren-match ((nil (:background "#222277"))))
+ '(show-paren-mismatch ((((class color)) (:background "red")))))
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
