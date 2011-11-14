@@ -61,8 +61,9 @@
 
 (defun er/mark-outside-quotes ()
  (interactive)
- (when (er--point-is-in-string-p)
-   (er--move-point-backward-out-of-string)
+ (if (er--point-is-in-string-p)
+   (er--move-point-backward-out-of-string))
+ (when (looking-at "\\s\"")
    (set-mark (point))
    (forward-char)
    (er--move-point-forward-out-of-string)
