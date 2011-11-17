@@ -1,0 +1,6 @@
+* JavaScript tweaks [0/1]
+** TODO js-move-line-up/down: fixes commas in object literals
+* HTML-mode [0/3]
+** TODO er/mark-inside-tag
+** TODO er/mark-outside-tag
+** TODO er/mark-attribute

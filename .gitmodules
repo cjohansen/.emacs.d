@@ -19,3 +19,6 @@
 [submodule "site-lisp/jade-mode"]
 	path = site-lisp/jade-mode
 	url = https://github.com/brianc/jade-mode
+[submodule "site-lisp/coffee-mode"]
+	path = site-lisp/coffee-mode
+	url = https://github.com/defunkt/coffee-mode
