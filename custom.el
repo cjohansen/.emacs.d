@@ -25,4 +25,5 @@
  '(js2-global-externs (quote ("module" "require" "jQuery" "$" "_" "buster" "sinon" "ZOMBIE")))
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
+ '(js2-strict-inconsistent-return-warning nil)
  '(safe-local-variable-values (quote ((encoding . utf-8)))))
