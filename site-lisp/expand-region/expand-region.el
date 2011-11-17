@@ -115,9 +115,6 @@
                            er/mark-inside-pairs
                            er/mark-outside-pairs))
 
-;; Mode-specific expansions
-(require 'js-mode-expansions)
-
 ;; The magic expand-region method
 
 (defun er/expand-region ()
@@ -144,5 +141,8 @@
       (setq try-list (cdr try-list)))
     (goto-char best-start)
     (set-mark best-end)))
+
+;; Mode-specific expansions
+(require 'js-mode-expansions)
 
 (provide 'expand-region)
