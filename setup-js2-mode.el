@@ -7,6 +7,10 @@
 (define-key js2-mode-map (kbd "C-S-e") 'js-expand-object)
 (define-key js2-mode-map (kbd "C-S-c") 'js-contract-object)
 
+;; Line movement
+(define-key js2-mode-map (kbd "<C-S-down>") 'js-move-line-down)
+(define-key js2-mode-map (kbd "<C-S-up>") 'js-move-line-up)
+
 ;; Extract JavaScript variables
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
