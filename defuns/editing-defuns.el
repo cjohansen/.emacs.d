@@ -8,6 +8,13 @@
     (newline)
     (indent-for-tab-command)))
 
+(defun new-line-above ()
+  (interactive)
+  (beginning-of-line)
+  (newline)
+  (previous-line)
+  (indent-for-tab-command))
+
 (defun new-line-in-between ()
   (interactive)
   (newline)
