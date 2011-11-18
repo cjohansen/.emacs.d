@@ -47,6 +47,7 @@
     (load file)))
 (require 'recall-position)
 (require 'expand-region)
+(require 'mark-multiple)
 (require 'iy-go-to-char)
 
 ;; Setup key mappings

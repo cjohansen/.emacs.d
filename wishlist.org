@@ -1,5 +1,14 @@
+* DONE Marking multiple
+** lets you create awesome functionality
+*** TODO edit multiple variable names at once
+*** TODO edit multiple lines at once
+*** TODO rename html-tag
+
+* Editing ends of multiple lines
+
 * JavaScript tweaks [1/1]
 ** DONE js-move-line-up/down: fixes commas in object literals
+
 * HTML-mode [0/3]
 ** TODO er/mark-inside-tag
 ** TODO er/mark-outside-tag

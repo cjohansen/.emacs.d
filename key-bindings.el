@@ -8,6 +8,7 @@
 
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-@") 'er/expand-region)
+(global-set-key (kbd "C-*") 'mm/mark-more-like-this)
 
 ;; Repeat last command - too cumbersome with C-x z
 (global-set-key (kbd "M-z") 'repeat)
