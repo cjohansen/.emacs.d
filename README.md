@@ -16,3 +16,19 @@ To grab all the dependencies, either:
 or on git v1.6.5 or later:
 
     git clone --recursive git://github.com/magnars/.emacs.d.git
+
+
+Magit
+-----
+
+I don't keep magit in my .emacs.d. To install magit, check install-instructions here:
+
+    https://github.com/magit/magit
+
+
+Install emacs on mac
+--------------------
+I use Cocoa Emacs, installed like this:
+
+    brew install emacs --cocoa
+
