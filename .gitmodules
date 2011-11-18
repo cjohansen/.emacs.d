@@ -15,7 +15,7 @@
 	url = http://www.dr-qubit.org/git/undo-tree.git
 [submodule "site-lisp/js2-mode"]
 	path = site-lisp/js2-mode
-	url = https://github.com/mooz/js2-mode
+	url = https://github.com/magnars/js2-mode
 [submodule "site-lisp/jade-mode"]
 	path = site-lisp/jade-mode
 	url = https://github.com/brianc/jade-mode
