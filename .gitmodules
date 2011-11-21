@@ -25,3 +25,6 @@
 [submodule "site-lisp/mark-multiple"]
 	path = site-lisp/mark-multiple
 	url = https://github.com/magnars/mark-multiple.el.git
+[submodule "site-lisp/ace-jump-mode"]
+	path = site-lisp/ace-jump-mode
+	url = https://github.com/winterTTr/ace-jump-mode.git
