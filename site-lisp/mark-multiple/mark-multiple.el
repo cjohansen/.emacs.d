@@ -58,22 +58,33 @@ Point must be within the region defined by START and END."
     (setq mm/mirrors ())
     (remove-hook 'post-command-hook 'mm/post-command-handler)))
 
+(defun mm/master-start ()
+  (overlay-start mm/master))
+
+(defun mm/master-end ()
+  (overlay-end mm/master))
+
 (defun mm/point-is-outside-of-master ()
   "Is point outside of master?"
   (or (null mm/master)
-      (< (point) (overlay-start mm/master))
-      (> (point) (overlay-end mm/master))))
+      (< (point) (mm/master-start))
+      (> (point) (mm/master-end))))
+
+(defun mm/active-region-is-outside-of-master ()
+  "Is region active and mark outside master?"
+  (and (region-active-p)
+       (or (< (mark) (mm/master-start))
+           (> (mark) (mm/master-end)))))
 
 (defun mm/post-command-handler ()
-  "Clear all marks if point is outside of master"
-  (if (mm/point-is-outside-of-master)
+  "Clear all marks if point or region is outside of master"
+  (if (or (mm/point-is-outside-of-master)
+          (mm/active-region-is-outside-of-master))
       (mm/clear-all)))
-
-;; consider clearing also if active region and mark is outside master
 
 (defun mm/master-substring ()
   "Get the buffer substring that is in master"
-  (buffer-substring (overlay-start mm/master) (overlay-end mm/master)))
+  (buffer-substring (mm/master-start) (mm/master-end)))
 
 (defun mm/on-master-modification (overlay after? beg end &optional length)
   "Update all mirrors after a change"
@@ -91,7 +102,7 @@ Point must be within the region defined by START and END."
 
 (defun mm/first-overlay-start ()
   "Find first buffer position covered by master and mirrors"
-  (let ((start (overlay-start mm/master)))
+  (let ((start (mm/master-start)))
     (dolist (mirror mm/mirrors)
       (if (< (overlay-start mirror) start)
           (setq start (overlay-start mirror))))
@@ -99,7 +110,7 @@ Point must be within the region defined by START and END."
 
 (defun mm/last-overlay-end ()
   "Find last buffer position covered by master and mirrors"
-  (let ((end (overlay-end mm/master)))
+  (let ((end (mm/master-end)))
     (dolist (mirror mm/mirrors)
       (if (> (overlay-end mirror) end)
           (setq end (overlay-end mirror))))
