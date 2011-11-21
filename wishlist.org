@@ -13,3 +13,5 @@
 ** TODO er/mark-inside-tag
 ** TODO er/mark-outside-tag
 ** TODO er/mark-attribute
+* Dired [0/1]
+** TODO Always update buffer

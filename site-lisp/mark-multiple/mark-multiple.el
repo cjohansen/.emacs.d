@@ -60,13 +60,16 @@ Point must be within the region defined by START and END."
 
 (defun mm/point-is-outside-of-master ()
   "Is point outside of master?"
-  (or (< (point) (overlay-start mm/master))
+  (or (null mm/master)
+      (< (point) (overlay-start mm/master))
       (> (point) (overlay-end mm/master))))
 
 (defun mm/post-command-handler ()
   "Clear all marks if point is outside of master"
   (if (mm/point-is-outside-of-master)
       (mm/clear-all)))
+
+;; consider clearing also if active region and mark is outside master
 
 (defun mm/master-substring ()
   "Get the buffer substring that is in master"
@@ -84,6 +87,16 @@ Point must be within the region defined by START and END."
   (delete-char (- (overlay-end mirror) (overlay-start mirror)))
   (insert substring))
 
+;; Define some utility functions for users of mark-multiple:
+
+(defun mm/first-overlay-start ()
+  "Find first buffer position covered by master and mirrors"
+  (let ((start (overlay-start mm/master)))
+    (dolist (mirror mm/mirrors)
+      (if (< (overlay-start mirror) start)
+          (setq start (overlay-start mirror))))
+    start))
+
 (defun mm/last-overlay-end ()
   "Find last buffer position covered by master and mirrors"
   (let ((end (overlay-end mm/master)))
@@ -92,14 +105,4 @@ Point must be within the region defined by START and END."
           (setq end (overlay-end mirror))))
     end))
 
-(defun mm/mark-more-like-this (start end)
-  "Find and mark the next part of the buffer matching master"
-  (interactive "r")
-  (let ((length (- end start)))
-    (if (null mm/master)
-        (mm/create-master start end))
-    (save-excursion
-      (goto-char (mm/last-overlay-end))
-      (let ((case-fold-search nil))
-        (search-forward (mm/master-substring)))
-      (mm/add-mirror (- (point) length) (point)))))
+(provide 'mark-multiple)
