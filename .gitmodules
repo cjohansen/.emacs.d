@@ -22,3 +22,6 @@
 [submodule "site-lisp/coffee-mode"]
 	path = site-lisp/coffee-mode
 	url = https://github.com/defunkt/coffee-mode
+[submodule "site-lisp/mark-multiple"]
+	path = site-lisp/mark-multiple
+	url = https://github.com/magnars/mark-multiple.el.git
