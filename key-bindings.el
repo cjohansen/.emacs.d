@@ -13,6 +13,9 @@
 (global-set-key (kbd "C-å") 'mark-previous-like-this)
 (global-set-key (kbd "C-æ") 'mark-next-like-this)
 
+;; Replace rectangle-text with inline-string-rectangle
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+
 ;; Repeat last command - too cumbersome with C-x z
 (global-set-key (kbd "M-z") 'repeat)
 

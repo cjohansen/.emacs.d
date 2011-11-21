@@ -48,6 +48,7 @@
 (require 'recall-position)
 (require 'expand-region)
 (require 'mark-more-like-this)
+(require 'inline-string-rectangle)
 (require 'iy-go-to-char)
 
 ;; Setup key mappings
