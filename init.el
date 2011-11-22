@@ -49,6 +49,7 @@
 (require 'expand-region)
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
+(require 'rename-sgml-tag)
 (require 'iy-go-to-char)
 (require 'ace-jump-mode)
 
