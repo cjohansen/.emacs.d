@@ -18,6 +18,7 @@
 
 ;; Quickly jump in document with ace-jump-mode
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-ø") 'ace-jump-mode)
 
 ;; Repeat last command - too cumbersome with C-x z
 (global-set-key (kbd "M-z") 'repeat)
