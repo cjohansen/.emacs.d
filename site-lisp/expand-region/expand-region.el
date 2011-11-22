@@ -144,5 +144,6 @@
 
 ;; Mode-specific expansions
 (require 'js-mode-expansions)
+(require 'html-mode-expansions)
 
 (provide 'expand-region)
