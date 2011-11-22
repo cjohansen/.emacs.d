@@ -13,9 +13,23 @@ Does not support html-attributes with spaces around the equal sign or unquotes a
     (er--move-point-forward-out-of-string)
     (exchange-point-and-mark)))
 
+(defun er--looking-at-marked-tag ()
+  (and (looking-at "<")
+       (eq (mark)
+           (save-excursion
+             (sgml-skip-tag-forward 1)
+             (point)))))
+
+(defun er--inside-tag-p ()
+  (save-excursion
+    (not (null (sgml-get-context)))))
+
 (defun er/mark-outer-tag ()
   (interactive)
-  (sgml-get-context)
+  (when (and (er--inside-tag-p)
+             (or (not (looking-at "<"))
+                 (er--looking-at-marked-tag)))
+    (sgml-get-context))
   (set-mark (point))
   (sgml-skip-tag-forward 1)
   (exchange-point-and-mark))
