@@ -147,9 +147,6 @@
      (interactive)
      (jump-to-register magit-status-fullscreen-window-configuration-register)))
 
-;; HTML
-(define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)
-
 ;; Clever newlines
 (global-set-key (kbd "<C-return>") 'new-line-below)
 (global-set-key (kbd "<C-S-return>") 'new-line-above)

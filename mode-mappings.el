@@ -19,6 +19,9 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
+(add-hook 'sgml-mode-hook
+          (lambda ()
+            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 
 ;; Ruby
 (autoload 'rhtml-mode "rhtml-mode")
