@@ -23,6 +23,7 @@
  '(js2-basic-offset 2)
  '(js2-enter-indents-newline t)
  '(js2-global-externs (quote ("module" "require" "jQuery" "$" "_" "buster" "sinon" "ZOMBIE")))
+ '(js2-idle-timer-delay 0.5)
  '(js2-indent-on-enter-key t)
  '(js2-mirror-mode nil)
  '(js2-strict-inconsistent-return-warning nil)
