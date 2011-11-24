@@ -159,8 +159,8 @@
 (global-set-key (kbd "<C-S-down>") 'move-line-down)
 (global-set-key (kbd "<C-S-up>") 'move-line-up)
 
-;; Fancy yank
-(global-set-key (kbd "C-S-y") 'yank-as-line)
+;; Yank and indent
+(global-set-key (kbd "C-S-y") 'yank-indented)
 
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)

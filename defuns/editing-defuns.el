@@ -67,12 +67,11 @@ region-end is used. Adds the duplicated text to the kill ring."
       (transpose-lines -1))
     (move-to-column col)))
 
-(defun yank-as-line ()
+(defun yank-indented ()
   (interactive)
-  (save-excursion
-    (insert "\n")
-    (indent-for-tab-command))
-  (yank))
+  (let ((start (point)))
+    (yank)
+    (indent-region start (point))))
 
 ;; toggle quotes
 
