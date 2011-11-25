@@ -1,11 +1,11 @@
-* DONE Marking multiple
-** lets you create awesome functionality
-*** TODO edit multiple variable names at once
-*** DONE edit multiple lines at once
-*** TODO rename html-tag
+* Marking multiple [3/4]
+** DONE edit multiple variable names at once
+** DONE edit multiple lines at once
+** DONE rename html-tag
+** TODO skip this occurence
 
 * Editing ends of multiple lines
-
+  ** could be: multiple cursors, running same command on several lines at once
 * JavaScript tweaks [1/1]
 ** DONE js-move-line-up/down: fixes commas in object literals
 
@@ -15,3 +15,12 @@
 ** DONE er/mark-attribute
 * Dired [1/1]
 ** DONE Always update buffer
+* js2-mode [0/2]
+** TODO Don't show parsing error while editing.
+*** could be: don't show in modified buffers
+*** could be: don't show after point
+*** could be: don't show until a certain time has passed
+** TODO Jump to next error
+* oppdrag-mode [0/2]
+** TODO rename og delete filer --> også i target
+** TODO ido-mode ignore target dir
