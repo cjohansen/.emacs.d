@@ -54,8 +54,8 @@
 (global-set-key (kbd "M-i") 'back-to-indentation)
 
 ;; Font size
-(define-key global-map (kbd "C-+") 'zoom-in)
-(define-key global-map (kbd "C--") 'zoom-out)
+(define-key global-map (kbd "M-s +") 'zoom-in)
+(define-key global-map (kbd "M-s -") 'zoom-out)
 
 ;; Create new frame (bound to regular mac-command)
 (define-key global-map (kbd "M-n") 'make-frame-command)
