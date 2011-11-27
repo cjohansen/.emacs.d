@@ -8,3 +8,4 @@ elpa
 emms
 site-lisp/adventur-mode
 *.elc
+.DS_Store
