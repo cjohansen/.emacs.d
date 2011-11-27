@@ -31,3 +31,6 @@
 [submodule "site-lisp/buster-snippets"]
 	path = site-lisp/buster-snippets
 	url = git@github.com:magnars/buster-snippets.el.git
+[submodule "site-lisp/yasnippet"]
+	path = site-lisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
