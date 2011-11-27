@@ -49,9 +49,6 @@
 ;; Save a list of recent files visited.
 (recentf-mode 1)
 
-;; Fill text always
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-
 ;; Never insert tabs
 (set-default 'indent-tabs-mode nil)
 
