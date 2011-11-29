@@ -37,3 +37,6 @@
 [submodule "site-lisp/expand-region"]
 	path = site-lisp/expand-region
 	url = git@github.com:magnars/expand-region.el.git
+[submodule "site-lisp/php-mode"]
+	path = site-lisp/php-mode
+	url = https://github.com/ejmr/php-mode.git
