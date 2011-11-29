@@ -15,12 +15,14 @@
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
 ;; js2-mode steals TAB, let's steal it back for yasnippet
-(define-key js2-mode-map (kbd "TAB") (lambda()
-                                            (interactive)
-                                            (let ((yas/fallback-behavior 'return-nil))
-                                              (unless (yas/expand)
-                                                (indent-for-tab-command)
-                                                (if (looking-back "^\s*")
-                                                    (back-to-indentation))))))
+(defun js2-tab-properly ()
+  (interactive)
+  (let ((yas/fallback-behavior 'return-nil))
+    (unless (yas/expand)
+      (indent-for-tab-command)
+      (if (looking-back "^\s*")
+          (back-to-indentation)))))
+
+(define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
 (provide 'setup-js2-mode)
