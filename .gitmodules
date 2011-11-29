@@ -34,3 +34,6 @@
 [submodule "site-lisp/yasnippet"]
 	path = site-lisp/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "site-lisp/expand-region"]
+	path = site-lisp/expand-region
+	url = git@github.com:magnars/expand-region.el.git
