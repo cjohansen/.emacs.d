@@ -11,4 +11,7 @@
 ;; Always rescan buffer for imenu
 (set-default 'imenu-auto-rescan t)
 
+(add-to-list 'ido-ignore-directories "target")
+(add-to-list 'ido-ignore-directories "node_modules")
+
 (provide 'setup-ido)
