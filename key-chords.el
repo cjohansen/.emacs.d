@@ -5,5 +5,9 @@
 (key-chord-define-global "fg" 'iy-go-to-char)
 (key-chord-define-global "df" 'iy-go-to-char-backward)
 
+;; Indent entire buffer and fix whitespace
+(key-chord-define-global "i0" 'indent-buffer)
+(key-chord-define-global "i9" 'whitespace-cleanup)
+
 
 (provide 'key-chords)
