@@ -13,9 +13,6 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
-;; Show active region
-(setq transient-mark-mode t)
-
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)
 
@@ -36,8 +33,11 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; Show active region
+(transient-mark-mode 1)
+
 ;; Remove text in active region if inserting text
-(pending-delete-mode t)
+(delete-selection-mode 1)
 
 ;; Always display line and column numbers
 (setq line-number-mode t)
