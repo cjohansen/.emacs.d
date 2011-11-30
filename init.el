@@ -36,6 +36,7 @@
 (require 'setup-dired)
 (require 'setup-magit)
 (require 'setup-hippie)
+(require 'setup-autopair)
 
 ;; Map files to modes
 (require 'mode-mappings)
