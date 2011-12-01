@@ -80,7 +80,7 @@
 (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
-(global-set-key (kbd "C-x -") 'swap-windows)
+(global-set-key (kbd "C-x -") 'rotate-windows)
 
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
