@@ -152,3 +152,10 @@ region-end is used. Adds the duplicated text to the kill ring."
   (interactive)
   (back-to-indentation)
   (kill-line))
+
+(defun replace-next-underscore-with-camel ()
+  (interactive)
+  (search-forward-regexp "_\\sw")
+  (forward-char -2)
+  (delete-char 1)
+  (capitalize-word 1))
