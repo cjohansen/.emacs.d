@@ -14,6 +14,9 @@
 ;; Extract JavaScript variables
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
+;; Change next underscore with a camel case
+(global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
+
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
   (interactive)
