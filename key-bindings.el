@@ -100,6 +100,8 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "M-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "M-<down>") 'end-of-buffer)
+(global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
 
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
