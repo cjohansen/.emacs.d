@@ -58,7 +58,7 @@
 (define-key global-map (kbd "M-s -") 'zoom-out)
 
 ;; Create new frame (bound to regular mac-command)
-(define-key global-map (kbd "M-n") 'make-frame-command)
+(define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
@@ -102,6 +102,8 @@
 (global-set-key (kbd "M-<down>") 'end-of-buffer)
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
+(global-set-key (kbd "M-p") 'backward-paragraph)
+(global-set-key (kbd "M-n") 'forward-paragraph)
 
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
