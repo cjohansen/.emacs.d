@@ -40,6 +40,9 @@
 [submodule "site-lisp/php-mode"]
 	path = site-lisp/php-mode
 	url = https://github.com/ejmr/php-mode.git
+[submodule "site-lisp/perspective"]
+	path = site-lisp/perspective
+	url = https://github.com/nex3/perspective-el.git
 [submodule "site-lisp/delsel"]
 	path = site-lisp/delsel
 	url = https://github.com/emacsmirror/delsel.git

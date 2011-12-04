@@ -37,6 +37,7 @@
 (require 'setup-magit)
 (require 'setup-hippie)
 ;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
+;(require 'setup-perspective) -- do not mess with buffer mkay
 
 ;; Map files to modes
 (require 'mode-mappings)
