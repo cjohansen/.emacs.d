@@ -36,6 +36,7 @@
 (require 'setup-dired)
 (require 'setup-magit)
 (require 'setup-hippie)
+(require 'setup-ace-jump-mode)
 ;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 ;(require 'setup-perspective) -- do not mess with buffer mkay
 
@@ -52,7 +53,6 @@
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
 (require 'iy-go-to-char)
-(require 'ace-jump-mode)
 (require 'delsel)
 
 ;; Setup key mappings

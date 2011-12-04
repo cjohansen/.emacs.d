@@ -1,6 +1,7 @@
 ;; change command to meta, and ignore option to use weird norwegian keyboard
 (setq mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
+(setq ns-function-modifier 'hyper)
 
 ;; mac friendly font
 (set-face-attribute 'default nil :font "Monaco-16")
