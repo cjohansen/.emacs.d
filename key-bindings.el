@@ -60,6 +60,9 @@
 ;; Create new frame (bound to regular mac-command)
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
+;; Cycle through buffers
+(global-set-key (kbd "<C-tab>") 'bury-buffer)
+
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
