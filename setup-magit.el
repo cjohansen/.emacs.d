@@ -23,5 +23,12 @@ in register specified by the magit-status-register variable."
   (delete-other-windows)
   (window-configuration-to-register magit-status-fullscreen-register))
 
+(defun magit-quit-session ()
+  "Restores the previous window configuration and kills the
+magit buffer"
+  (interactive)
+  (let ((magit-buffer (current-buffer)))
+    (jump-to-register magit-status-fullscreen-window-configuration-register)
+    (kill-buffer magit-buffer)))
 
 (provide 'setup-magit)
