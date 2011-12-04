@@ -35,6 +35,9 @@
 
 ;; Show active region
 (transient-mark-mode 1)
+(make-variable-buffer-local 'transient-mark-mode)
+(put 'transient-mark-mode 'permanent-local t)
+(setq-default transient-mark-mode t)
 
 ;; Remove text in active region if inserting text
 (delete-selection-mode 1)

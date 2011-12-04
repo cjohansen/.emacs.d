@@ -36,7 +36,7 @@
 (require 'setup-dired)
 (require 'setup-magit)
 (require 'setup-hippie)
-(require 'setup-autopair)
+;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -52,6 +52,7 @@
 (require 'inline-string-rectangle)
 (require 'iy-go-to-char)
 (require 'ace-jump-mode)
+(require 'delsel)
 
 ;; Setup key mappings
 (require 'key-chords)
