@@ -105,10 +105,14 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "M-<up>") 'beginning-of-buffer)
 (global-set-key (kbd "M-<down>") 'end-of-buffer)
-(global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
-(global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
+
+;; Move more quickly
+(global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
+(global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
+(global-set-key (kbd "C-S-f") (lambda () (interactive) (forward-char 5)))
+(global-set-key (kbd "C-S-b") (lambda () (interactive) (backward-char 5)))
 
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
