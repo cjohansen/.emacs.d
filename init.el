@@ -43,6 +43,12 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
+;; Hardcore mode
+(setq too-hardcore-backspace t)
+(setq too-hardcore-return t)
+(require 'hardcore-mode)
+(global-hardcore-mode)
+
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
 (dolist (file (directory-files defuns-dir t "\\w+"))

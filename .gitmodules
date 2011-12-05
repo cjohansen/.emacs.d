@@ -46,3 +46,6 @@
 [submodule "site-lisp/delsel"]
 	path = site-lisp/delsel
 	url = https://github.com/emacsmirror/delsel.git
+[submodule "site-lisp/hardcore-mode"]
+	path = site-lisp/hardcore-mode
+	url = git@github.com:magnars/hardcore-mode.el.git
