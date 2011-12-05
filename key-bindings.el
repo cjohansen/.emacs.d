@@ -25,6 +25,7 @@
 
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
+(global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
