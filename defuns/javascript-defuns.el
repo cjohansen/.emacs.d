@@ -20,11 +20,12 @@
   (while (or (looking-at "\s*\n")
              (looking-back "\n\s*"))
     (when (looking-at "\n")
-        (delete-char 1))
+      (delete-char 1))
     (when (looking-back "\n\s")
-        (backward-char)
-        (delete-char -1))
-    (just-one-space)))
+      (backward-char)
+      (delete-char -1))
+    (just-one-space))
+  (just-one-space))
 
 (defmacro js--create-object-whitespace-traverser (name func)
   `(defun ,name ()
@@ -49,10 +50,10 @@
          ,func))))
 
 (js--create-object-whitespace-traverser js-expand-object
-                                       (js--ensure-newline))
+                                        (js--ensure-newline))
 
 (js--create-object-whitespace-traverser js-contract-object
-                                       (js--ensure-just-one-space))
+                                        (js--ensure-just-one-space))
 
 (defun js-extract-variable (name start end)
   (interactive "MVariable name: \nr")
