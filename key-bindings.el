@@ -33,6 +33,9 @@
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "<f1>") 'help-command)
 
+;; Change next underscore with a camel case
+(global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
+
 ;; Killing text
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
