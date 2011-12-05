@@ -1,8 +1,12 @@
-* Marking multiple [3/4]
+* Marking multiple [7/7]
 ** DONE edit multiple variable names at once
 ** DONE edit multiple lines at once
 ** DONE rename html-tag
-** TODO skip this occurence
+** DONE skip this occurence
+
+** DONE renaming tags from end tag should work
+** DONE mark-js-object-property-value failed { editableBy: customer } with cursor on m
+** DONE contract js object should format object properly (without having to expand first)
 
 * Editing ends of multiple lines
   ** could be: multiple cursors, running same command on several lines at once
