@@ -1,7 +1,15 @@
-(require 'js2-mode)
+(setq-default js2-allow-rhino-new-expr-initializer nil)
+(setq-default js2-auto-indent-p nil)
+(setq-default js2-basic-offset 2)
+(setq-default js2-enter-indents-newline nil)
+(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "ZOMBIE"))
+(setq-default js2-idle-timer-delay 0.5)
+(setq-default js2-indent-on-enter-key nil)
+(setq-default js2-mirror-mode nil)
+(setq-default js2-strict-inconsistent-return-warning nil)
+(setq-default js2-auto-indent-p t)
 
-;; Add semicolon to end of line
-(key-chord-define js2-mode-map ";;"  "\C-e;")
+(require 'js2-mode)
 
 ;; Expand and contract object
 (define-key js2-mode-map (kbd "C-S-e") 'js-expand-object)
