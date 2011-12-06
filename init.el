@@ -58,11 +58,9 @@
 (require 'expand-region)
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
-(require 'iy-go-to-char)
 (require 'delsel)
 
-;; Setup key mappings
-(require 'key-chords)
+;; Setup key bindings
 (require 'key-bindings)
 
 ;; Misc
