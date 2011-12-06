@@ -43,9 +43,10 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
+;; Map paths to project settings
+(require 'project-mappings)
+
 ;; Hardcore mode
-(setq too-hardcore-backspace t)
-(setq too-hardcore-return t)
 (require 'hardcore-mode)
 ;(global-hardcore-mode)
 
