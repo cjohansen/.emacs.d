@@ -1,8 +1,8 @@
 ;; FINN Oppdrag
+(require 'oppdrag-mode)
 (add-hook 'find-file-hook
           (lambda ()
             (when (string-match-p "oppdrag-services" (buffer-file-name))
-              (require 'oppdrag-mode)
               (oppdrag-mode))))
 
 ;; Zombie TDD
