@@ -191,7 +191,7 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
-;; Easy-mode rgrep
-(global-set-key (kbd "M-s s") 'rgrep)
+;; Easy-mode fullscreen rgrep
+(global-set-key (kbd "M-s s") 'rgrep-fullscreen)
 
 (provide 'key-bindings)

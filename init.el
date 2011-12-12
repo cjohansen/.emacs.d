@@ -35,6 +35,7 @@
 (require 'setup-yasnippet)
 (require 'setup-dired)
 (require 'setup-magit)
+(require 'setup-rgrep)
 (require 'setup-hippie)
 (require 'setup-ace-jump-mode)
 ;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
