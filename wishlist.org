@@ -1,22 +1,5 @@
-* Marking multiple [7/7]
-** DONE edit multiple variable names at once
-** DONE edit multiple lines at once
-** DONE rename html-tag
-** DONE skip this occurence
-
-** DONE renaming tags from end tag should work
-** DONE mark-js-object-property-value failed { editableBy: customer } with cursor on m
-** DONE contract js object should format object properly (without having to expand first)
-
 * Editing ends of multiple lines
   ** could be: multiple cursors, running same command on several lines at once
-* JavaScript tweaks [1/1]
-** DONE js-move-line-up/down: fixes commas in object literals
-
-* HTML-mode [3/3]
-** DONE er/mark-inside-tag
-** DONE er/mark-outside-tag
-** DONE er/mark-attribute
 * Dired [1/1]
 ** DONE Always update buffer
 * js2-mode [0/2]
@@ -28,9 +11,8 @@
 * oppdrag-mode [0/2]
 ** TODO rename og delete filer --> også i target
 ** TODO ido-mode ignore target dir
-* expand-region [/]
-** mark object property also with quotes around key
-
+* expand-region [0/1]
+** TODO mark object property also with quotes around key
 * Fix undo-tree
 Dear Damien and Magnar,
 
@@ -83,3 +65,10 @@ All the best,
 
 Toby
 
+* TODO Rectangle mode like TextMate
+* DONE Open/create file under point
+** recognize filename under point
+** open or create that file
+* TODO Pressing ~ in ido-find-file goes straight to home
+** typing ~/ is clumsy on my keyboard
+** I am very rarely in need of ~ for anything other than home
