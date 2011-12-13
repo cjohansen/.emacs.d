@@ -73,6 +73,9 @@ region-end is used. Adds the duplicated text to the kill ring."
     (yank)
     (indent-region start (point))))
 
+; define as yank-command for delsel.el
+(put 'yank-indented 'delete-selection 'yank-indented)
+
 ;; toggle quotes
 
 (defun current-quotes-char ()
