@@ -30,6 +30,20 @@
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
+(defun find-or-create-file-at-point ()
+  "Guesses what parts of the buffer under point is a file name and opens it."
+  (interactive)
+  (save-excursion
+    (let* ((file-name-regexp "[./a-zA-Z0-9\-_]")
+           (start (progn (while (looking-back file-name-regexp)
+                           (forward-char -1))
+                         (point)))
+           (end (progn (while (looking-at file-name-regexp)
+                           (forward-char 1))
+                         (point)))
+           (file-name (buffer-substring start end)))
+      (find-file file-name))))
+
 (defun touch-buffer-file ()
   (interactive)
   (insert " ")
