@@ -61,6 +61,7 @@
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
 (require 'delsel)
+(require 'iy-go-to-char)
 
 ;; Setup key bindings
 (require 'key-bindings)
