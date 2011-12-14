@@ -49,3 +49,6 @@
 [submodule "site-lisp/hardcore-mode"]
 	path = site-lisp/hardcore-mode
 	url = https://github.com/magnars/hardcore-mode.el.git
+[submodule "site-lisp/vimgolf"]
+	path = site-lisp/vimgolf
+	url = https://github.com/timvisher/vimgolf.git

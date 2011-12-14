@@ -63,6 +63,9 @@
 (require 'delsel)
 (require 'iy-go-to-char)
 
+;; Vimgolf
+(load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
+
 ;; Setup key bindings
 (require 'key-bindings)
 
