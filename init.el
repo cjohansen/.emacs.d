@@ -38,8 +38,8 @@
 (require 'setup-rgrep)
 (require 'setup-hippie)
 (require 'setup-ace-jump-mode)
+(require 'setup-perspective)
 ;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
-;(require 'setup-perspective) -- do not mess with buffer mkay
 
 ;; Map files to modes
 (require 'mode-mappings)
