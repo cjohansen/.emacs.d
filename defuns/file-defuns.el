@@ -34,7 +34,7 @@
   "Guesses what parts of the buffer under point is a file name and opens it."
   (interactive)
   (save-excursion
-    (let* ((file-name-regexp "[./a-zA-Z0-9\-_]")
+    (let* ((file-name-regexp "[./a-zA-Z0-9\-_~]")
            (start (progn (while (looking-back file-name-regexp)
                            (forward-char -1))
                          (point)))
