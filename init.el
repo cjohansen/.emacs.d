@@ -39,6 +39,7 @@
 (require 'setup-hippie)
 (require 'setup-ace-jump-mode)
 (require 'setup-perspective)
+(require 'setup-shell)
 ;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 
 ;; Map files to modes

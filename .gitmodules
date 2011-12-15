@@ -52,3 +52,6 @@
 [submodule "site-lisp/vimgolf"]
 	path = site-lisp/vimgolf
 	url = https://github.com/timvisher/vimgolf.git
+[submodule "site-lisp/bash-completion"]
+	path = site-lisp/bash-completion
+	url = https://github.com/szermatt/emacs-bash-completion.git

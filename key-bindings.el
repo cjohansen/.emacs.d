@@ -20,9 +20,6 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-ø") 'ace-jump-mode)
 
-;; Repeat last command - too cumbersome with C-x z
-(global-set-key (kbd "M-z") 'repeat)
-
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
@@ -48,8 +45,8 @@
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 (global-set-key (kbd "M-W") '(lambda () (interactive) (save-region-or-current-line 1)))
 
-;; Make zap-to-char more convenient, and suspend-frame less
-(global-set-key (kbd "C-z") 'zap-to-char)
+;; Make shell more convenient, and suspend-frame less
+(global-set-key (kbd "C-z") 'shell)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
 ;; iy-go-to-char - like f in Vim
