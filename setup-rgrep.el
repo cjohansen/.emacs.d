@@ -15,7 +15,7 @@
                                           nil default-directory t))
                 (confirm (equal current-prefix-arg '(4))))
            (list regexp files dir confirm))))))
-  (window-configuration-to-register ?b)
+  (window-configuration-to-register ?$)
   (rgrep regexp files dir confirm)
   (switch-to-buffer "*grep*")
   (delete-other-windows)
@@ -24,7 +24,7 @@
 (defun rgrep-quit-window ()
   (interactive)
   (kill-buffer)
-  (jump-to-register ?b))
+  (jump-to-register ?$))
 
 (add-hook 'grep-mode-hook
           (lambda ()
