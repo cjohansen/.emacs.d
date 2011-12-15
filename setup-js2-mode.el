@@ -22,6 +22,10 @@
 ;; Extract JavaScript variables
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
+;; Don't steal my C-a or C-e please js2-mode
+(define-key js2-mode-map (kbd "C-e") 'move-end-of-line-or-next-line)
+(define-key js2-mode-map (kbd "C-a") 'move-start-of-line-or-prev-line)
+
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
   (interactive)

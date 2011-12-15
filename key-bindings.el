@@ -109,6 +109,8 @@
 (global-set-key (kbd "M-<down>") 'end-of-buffer)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "C-e") 'move-end-of-line-or-next-line)
+(global-set-key (kbd "C-a") 'move-start-of-line-or-prev-line)
 
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
