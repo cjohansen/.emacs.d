@@ -19,6 +19,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
