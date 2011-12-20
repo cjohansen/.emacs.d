@@ -10,6 +10,13 @@ entering fullscreen magit-status.")
   "The register to store the fullscreen magit-status
 window configuration in.")
 
+(defun magit-kill-file-on-line ()
+  "Show file on current magit line and prompt for deletion."
+  (interactive)
+  (magit-visit-item)
+  (delete-current-buffer-file)
+  (magit-refresh))
+
 (defun magit-status-fullscreen ()
   "Save the current window configuration, run magit-status
 and delete other windows, providing a fullscreen git mode.

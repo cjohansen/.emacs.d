@@ -160,6 +160,7 @@
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status-fullscreen)
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+(define-key magit-status-mode-map (kbd "C-x C-k") 'magit-kill-file-on-line)
 
 ;; Clever newlines
 (global-set-key (kbd "<C-return>") 'new-line-below)
