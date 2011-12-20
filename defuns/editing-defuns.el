@@ -124,15 +124,17 @@ region-end is used. Adds the duplicated text to the kill ring."
 
 (defun move-end-of-line-or-next-line ()
   (interactive)
-  (if (eolp)
+  (if (and (eolp)
+           (eq last-command 'move-end-of-line-or-next-line))
       (move-end-of-line 2)
-      (move-end-of-line nil)))
+    (move-end-of-line nil)))
 
 (defun move-start-of-line-or-prev-line ()
   (interactive)
-  (if (bolp)
+  (if (and (bolp)
+           (eq last-command 'move-start-of-line-or-prev-line))
       (move-beginning-of-line 0)
-      (move-beginning-of-line nil)))
+    (move-beginning-of-line nil)))
 
 ;; copy region if active
 ;; otherwise copy to end of current line
