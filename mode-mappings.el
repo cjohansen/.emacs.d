@@ -4,12 +4,10 @@
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
 ;; Adventur
-(add-to-list 'load-path "~/.emacs.d/site-lisp/adventur-mode")
 (autoload 'adventur-mode "adventur-mode")
 (add-to-list 'auto-mode-alist '("A[0-9]+/A[0-9]+\\.txt$" . adventur-mode))
 
 ;; Jade and Stylus (sws = significant whitespace)
-(add-to-list 'load-path "~/.emacs.d/site-lisp/jade-mode")
 (autoload 'sws-mode "sws-mode")
 (autoload 'jade-mode "jade-mode")
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
