@@ -35,6 +35,10 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
 
+;; Groovy
+(autoload 'groovy-mode "groovy-mode")
+(add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
+
 ;; SVG
 (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode))
 
