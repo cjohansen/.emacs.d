@@ -73,7 +73,7 @@ region-end is used. Adds the duplicated text to the kill ring."
     (yank)
     (indent-region start (point))))
 
-; define as yank-command for delsel.el
+;; define as yank-command for delsel.el
 (put 'yank-indented 'delete-selection 'yank-indented)
 
 ;; toggle quotes
@@ -95,21 +95,21 @@ region-end is used. Adds the duplicated text to the kill ring."
 (defun toggle-quotes ()
   (interactive)
   (if (point-is-in-string-p)
-    (let ((old-quotes (char-to-string (current-quotes-char)))
-          (new-quotes (char-to-string (alternate-quotes-char)))
-          (start (make-marker))
-          (end (make-marker)))
-      (save-excursion
-        (move-point-forward-out-of-string)
-        (backward-delete-char 1)
-        (set-marker end (point))
-        (insert new-quotes)
-        (move-point-backward-out-of-string)
-        (delete-char 1)
-        (insert new-quotes)
-        (set-marker start (point))
-        (replace-string new-quotes (concat "\\" new-quotes) nil start end)
-        (replace-string (concat "\\" old-quotes) old-quotes nil start end)))
+      (let ((old-quotes (char-to-string (current-quotes-char)))
+            (new-quotes (char-to-string (alternate-quotes-char)))
+            (start (make-marker))
+            (end (make-marker)))
+        (save-excursion
+          (move-point-forward-out-of-string)
+          (backward-delete-char 1)
+          (set-marker end (point))
+          (insert new-quotes)
+          (move-point-backward-out-of-string)
+          (delete-char 1)
+          (insert new-quotes)
+          (set-marker start (point))
+          (replace-string new-quotes (concat "\\" new-quotes) nil start end)
+          (replace-string (concat "\\" old-quotes) old-quotes nil start end)))
     (error "Point isn't in a string")))
 
 ;; kill region if active, otherwise kill backward word
