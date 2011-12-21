@@ -63,6 +63,7 @@
 (require 'inline-string-rectangle)
 (require 'delsel)
 (require 'iy-go-to-char)
+(require 'eproject)
 
 ;; Vimgolf
 (load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))

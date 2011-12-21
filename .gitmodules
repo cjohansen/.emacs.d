@@ -55,3 +55,6 @@
 [submodule "site-lisp/bash-completion"]
 	path = site-lisp/bash-completion
 	url = https://github.com/szermatt/emacs-bash-completion.git
+[submodule "site-lisp/eproject"]
+	path = site-lisp/eproject
+	url = https://github.com/jrockway/eproject.git

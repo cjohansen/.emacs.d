@@ -20,4 +20,11 @@
 ;; Ignore .DS_Store files with ido mode
 (add-to-list 'ido-ignore-files "\\.DS_Store")
 
+;; Don't open files from the workspace in a new frame
+(setq ns-pop-up-frames nil)
+
+;; PeepOpen
+;; See https://gist.github.com/1505658 if PeepOpen opens selected files in a new Emacs instance
+(require 'eproject-peepopen)
+
 (provide 'mac)
