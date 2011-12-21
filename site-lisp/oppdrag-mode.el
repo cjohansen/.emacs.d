@@ -67,6 +67,7 @@ in an exploded war, re-deploy the file."
     (setq buster-testcase-snippets-enabled nil)
     (make-variable-buffer-local 'buster-test-prefix)
     (setq buster-test-prefix "test should ")
+    (set (make-local-variable 'sgml-basic-offset) 4)
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)))
 
