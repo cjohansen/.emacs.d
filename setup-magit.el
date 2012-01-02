@@ -1,4 +1,5 @@
 (require 'magit)
+(require 'magit-svn)
 
 (defvar magit-status-fullscreen-window-configuration-register
   ?b
