@@ -26,6 +26,10 @@
 ;; Extract JavaScript variables
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
+;; Rename JavaScript variables
+(require 'js2-rename-var)
+(define-key js2-mode-map (kbd "C-c C-r") 'js2-rename-var)
+
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
   (interactive)
