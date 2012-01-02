@@ -3,11 +3,15 @@
 (setq-default js2-basic-offset 2)
 (setq-default js2-enter-indents-newline nil)
 (setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute"))
-(setq-default js2-idle-timer-delay 0.5)
+(setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
 (setq-default js2-strict-inconsistent-return-warning nil)
 (setq-default js2-auto-indent-p t)
+(setq-default js2-rebind-eol-bol-keys nil)
+(setq-default js2-mode-show-parse-errors nil)
+(setq-default js2-include-rhino-externs nil)
+(setq-default js2-include-gears-externs nil)
 
 (require 'js2-mode)
 
@@ -21,10 +25,6 @@
 
 ;; Extract JavaScript variables
 (define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
-
-;; Don't steal my C-a or C-e please js2-mode
-(define-key js2-mode-map (kbd "C-e") 'move-end-of-line-or-next-line)
-(define-key js2-mode-map (kbd "C-a") 'move-start-of-line-or-prev-line)
 
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
