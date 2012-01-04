@@ -29,6 +29,11 @@
   (custom-persp "zombie"
                 (find-file "~/projects/zombietdd/")))
 
+(defun custom-persp/adventur ()
+  (interactive)
+  (custom-persp "adventur"
+                (find-file "~/projects/adventur/nettsidene/adventur_no/source/backlog.txt")))
+
 (defun custom-persp/emacs ()
   (interactive)
   (custom-persp "emacs"
@@ -40,8 +45,9 @@
                 (find-file "~/Dropbox/org/")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
-(define-key persp-mode-map (kbd "C-x p e") 'custom-persp/emacs)
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
+(define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
+(define-key persp-mode-map (kbd "C-x p e") 'custom-persp/emacs)
 (define-key persp-mode-map (kbd "C-<f6>") 'custom-persp/org)
 (define-key persp-mode-map (kbd "C-x p -") 'custom-persp-last)
 
