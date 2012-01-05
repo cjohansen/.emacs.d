@@ -1,7 +1,7 @@
 ;; Setup shell
 
 ;; Note: Emacs runs .bashrc in *shell*
-;; So mac users should use that instead of .profile
+;; So mac users should ln -s .profile .bashrc
 
 ;; bash-completion
 
