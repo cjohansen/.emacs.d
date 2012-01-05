@@ -8,7 +8,7 @@
  '(highlight ((((class color) (min-colors 88) (background dark)) (:background "#111111"))))
  '(js2-function-param-face ((t (:foreground "LightGoldenrod"))))
  '(mumamo-background-chunk-submode ((((class color) (min-colors 88) (background dark)) nil)))
- '(show-paren-match ((nil (:background "#222277"))))
+ '(show-paren-match ((nil (:background "#333399"))))
  '(show-paren-mismatch ((((class color)) (:background "red")))))
 
 (custom-set-variables
