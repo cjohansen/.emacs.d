@@ -54,7 +54,6 @@ in an exploded war, re-deploy the file."
 (define-minor-mode oppdrag-mode
   "Convenience utilities for working with Finn Oppdrag"
   nil " Oppdrag" nil
-  (make-local-hook 'after-save-hook)
   (if oppdrag-mode
       (add-hook 'after-save-hook 'oppdrag-hot-deploy-buffer-file nil t)
     (remove-hook 'after-save-hook 'oppdrag-hot-deploy-buffer-file t)))
