@@ -62,7 +62,7 @@
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
 (require 'delsel)
-(require 'iy-go-to-char)
+(require 'jump-char)
 (require 'eproject)
 
 ;; Vimgolf

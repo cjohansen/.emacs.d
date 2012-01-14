@@ -58,3 +58,6 @@
 [submodule "site-lisp/eproject"]
 	path = site-lisp/eproject
 	url = https://github.com/jrockway/eproject.git
+[submodule "site-lisp/jump-char"]
+	path = site-lisp/jump-char
+	url = https://github.com/lewang/jump-char.git

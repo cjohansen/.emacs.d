@@ -50,8 +50,8 @@
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
 ;; iy-go-to-char - like f in Vim
-(global-set-key (kbd "M-m") 'iy-go-to-char)
-(global-set-key (kbd "M-M") 'iy-go-to-char-backward)
+(global-set-key (kbd "M-m") 'jump-char-forward)
+(global-set-key (kbd "M-M") 'jump-char-backward)
 
 ;; Remap old M-m to M-i (better mnemonic for back-to-indentation)
 ;; We lose tab-to-tab-stop, which is no big loss in my use cases.
