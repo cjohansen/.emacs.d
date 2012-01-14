@@ -39,6 +39,18 @@
       (if (looking-back "^\s*")
           (back-to-indentation)))))
 
+(font-lock-add-keywords
+ 'js2-mode `(("\\(function\\) *("
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u0192")
+                        nil)))))
+
+(font-lock-add-keywords
+ 'js2-mode `(("function *([^)]*) *{ *\\(return\\) "
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u2190")
+                        nil)))))
+
 (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
 (provide 'setup-js2-mode)
