@@ -5,7 +5,7 @@
 
 ;; Adventur
 (autoload 'adventur-mode "adventur-mode")
-(add-to-list 'auto-mode-alist '("A[0-9]+/A[0-9]+\\.txt$" . adventur-mode))
+(add-to-list 'auto-mode-alist '("\\.adv$" . adventur-mode))
 
 ;; Jade and Stylus (sws = significant whitespace)
 (autoload 'sws-mode "sws-mode")
@@ -21,6 +21,7 @@
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
+            (define-key sgml-mode-map (kbd "C-c t") 'sgml-add-tag)
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 
 ;; Ruby
