@@ -45,7 +45,8 @@ in an exploded war, re-deploy the file."
   (interactive)
   (let* ((source (buffer-file-name))
          (target (oppdrag--string-replace "src/main/webapp" "target/oppdrag" source)))
-    (if (file-writable-p target)
+    (if (and (file-writable-p target)
+             (not (string= source target)))
         (progn
           (copy-file source target t)
           (message (concat "Deployed " source " to " target)))
