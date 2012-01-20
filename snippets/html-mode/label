@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# key: label
+# name: label
+# --
+<label${1: for="$2"}>$0</label>
