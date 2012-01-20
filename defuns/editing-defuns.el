@@ -172,13 +172,30 @@ region-end is used. Adds the duplicated text to the kill ring."
   (back-to-indentation)
   (kill-line))
 
+(defun camelize-buffer ()
+  (interactive)
+  (goto-char 0)
+  (condition-case nil
+      (replace-next-underscore-with-camel 0)
+    (error nil))
+  (goto-char 0))
+
 (defun replace-next-underscore-with-camel (arg)
   (interactive "p")
   (if (> arg 0)
       (setq arg (1+ arg))) ; 1-based index to get eternal loop with 0
   (while (not (= arg 1))
-    (search-forward-regexp "_\\sw")
+    (search-forward-regexp "_[a-zA-Z]")
     (forward-char -2)
     (delete-char 1)
     (capitalize-word 1)
     (setq arg (1- arg))))
+
+(defun snakeify-current-word ()
+  (interactive)
+  (er/mark-word)
+  (let* ((beg (region-beginning))
+         (end (region-end))
+         (current-word (buffer-substring-no-properties beg end))
+         (snakified (snake-case current-word)))
+    (replace-string current-word snakified nil beg end)))

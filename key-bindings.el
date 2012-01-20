@@ -34,6 +34,7 @@
 
 ;; Change next underscore with a camel case
 (global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
+(global-set-key (kbd "M-s M--") 'snakeify-current-word)
 
 ;; Killing text
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
