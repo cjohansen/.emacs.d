@@ -197,6 +197,9 @@
 ;; Easy-mode fullscreen rgrep
 (global-set-key (kbd "M-s s") 'rgrep-fullscreen)
 
+;; Find-name-dired
+(global-set-key (kbd "M-s f") 'find-name-dired)
+
 ;; Open my org files
 (global-set-key (kbd "<f6>") (lambda () (interactive) (find-file-other-frame "~/Dropbox/org/")))
 
