@@ -185,7 +185,7 @@ region-end is used. Adds the duplicated text to the kill ring."
   (if (> arg 0)
       (setq arg (1+ arg))) ; 1-based index to get eternal loop with 0
   (while (not (= arg 1))
-    (search-forward-regexp "_[a-zA-Z]")
+    (search-forward-regexp "\\b_[a-zA-Z]")
     (forward-char -2)
     (delete-char 1)
     (capitalize-word 1)
