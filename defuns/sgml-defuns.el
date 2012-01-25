@@ -1,0 +1,16 @@
+(defun jsp-wrap-in-c-out ()
+  (interactive)
+  (save-excursion
+    (let (start end)
+      (if (use-region-p)
+          (progn (setq start (min (point) (mark))
+                       end (max (point) (mark)))
+                 (deactivate-mark))
+        (setq start (point)
+              end (point)))
+      (goto-char end)
+      (insert "\" />")
+      (goto-char start)
+      (insert "<c:out value=\""))))
+
+(provide 'sgml-defuns)
