@@ -10,6 +10,11 @@
 (global-set-key (kbd "C-@") 'er/expand-region)
 (global-set-key (kbd "C-*") 'er/contract-region)
 
+;; Experimental multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/add-multiple-cursors-to-region-lines)
+(global-set-key (kbd "C-S-c C-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
+
 ;; Mark additional regions matching current region
 (global-set-key (kbd "C-å") 'mark-previous-like-this)
 (global-set-key (kbd "C-æ") 'mark-next-like-this)

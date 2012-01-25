@@ -16,8 +16,8 @@
 (require 'js2-mode)
 
 ;; Expand and contract object
-(define-key js2-mode-map (kbd "C-S-e") 'js-expand-object)
-(define-key js2-mode-map (kbd "C-S-c") 'js-contract-object)
+(define-key js2-mode-map (kbd "C-c C-S-e") 'js-expand-object)
+(define-key js2-mode-map (kbd "C-c C-S-c") 'js-contract-object)
 
 ;; Line movement
 (define-key js2-mode-map (kbd "<C-S-down>") 'js-move-line-down)
