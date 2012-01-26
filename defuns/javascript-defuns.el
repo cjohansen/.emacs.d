@@ -140,8 +140,12 @@
 
 (defvar js--iife-regexp "^(function (")
 
+;; Create shortcut for marked global by injecting it in the wrapping IIFE
+
 (defun js-inject-global-in-iife ()
   (interactive)
+  (when (js2-parsed-errors)
+    (error "Can't refactor while buffer has parse errors."))
   (unless (use-region-p)
     (error "Mark the variable to inject first."))
   (save-excursion
