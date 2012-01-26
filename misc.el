@@ -7,7 +7,7 @@
       whitespace-line-column 100)
 
 ;; Various superfluous white-space. Just say no.
-(add-hook 'before-save-hook 'cleanup-buffer)
+(add-hook 'before-save-hook 'cleanup-buffer-safe)
 
 ;; Misc in misc
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
