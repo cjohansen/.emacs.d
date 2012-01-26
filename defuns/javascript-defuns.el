@@ -147,7 +147,7 @@
   (save-excursion
     (let* ((name (buffer-substring-no-properties (region-beginning) (region-end)))
            (short (buster--global-shortcut name))
-           end)
+           beg end)
       (unless (search-backward-regexp js--iife-regexp)
         (error "No immediately invoked function expression found."))
       (deactivate-mark)
@@ -156,6 +156,7 @@
       (unless (looking-at ")")
         (insert ", "))
       (search-forward "{")
+      (setq beg (point))
       (backward-char)
       (forward-list)
       (forward-char)
@@ -163,6 +164,6 @@
       (insert name)
       (unless (looking-at ")")
         (insert ", "))
-      (replace-string name short t 0 end))))
+      (replace-string name short t beg end))))
 
 (provide 'javascript-defuns)
