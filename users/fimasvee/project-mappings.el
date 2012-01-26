@@ -18,7 +18,7 @@
 (defun custom-persp/zombie ()
   (interactive)
   (custom-persp "zombie"
-                (find-file "~/projects/zombietdd/")))
+                (find-file "~/projects/zombietdd/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
