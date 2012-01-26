@@ -6,8 +6,8 @@
                                   indentation space-after-tab)
       whitespace-line-column 100)
 
-;; Trailing white-space. Just say no.
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; Various superfluous white-space. Just say no.
+(add-hook 'before-save-hook 'cleanup-buffer)
 
 ;; Misc in misc
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
