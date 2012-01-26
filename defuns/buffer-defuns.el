@@ -153,7 +153,8 @@ Symbols matching the text at point are put first in the completion list."
   (interactive)
   (indent-buffer)
   (untabify-buffer)
-  (delete-trailing-whitespace))
+  (delete-trailing-whitespace)
+  (set-buffer-file-coding-system 'utf-8))
 
 (defun recentf-ido-find-file ()
   "Find a recent file using ido."
