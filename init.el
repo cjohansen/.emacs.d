@@ -56,9 +56,6 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
-;; Map paths to project settings
-(require 'project-mappings)
-
 ;; Hardcore mode
 (require 'hardcore-mode)
 ;;(global-hardcore-mode)
