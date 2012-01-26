@@ -16,8 +16,8 @@
 (require 'js2-mode)
 
 ;; Expand and contract object
-(define-key js2-mode-map (kbd "C-c m eo") 'js-expand-object)
-(define-key js2-mode-map (kbd "C-c m co") 'js-contract-object)
+(define-key js2-mode-map (kbd "C-S-e") 'js-expand-object)
+(define-key js2-mode-map (kbd "C-S-o") 'js-contract-object)
 
 ;; Inject global with short name
 (define-key js2-mode-map (kbd "C-c m ig") 'js-inject-global-in-iife)
