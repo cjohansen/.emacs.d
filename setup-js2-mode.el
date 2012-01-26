@@ -1,6 +1,5 @@
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
-(setq-default js2-basic-offset 4)
 (setq-default js2-enter-indents-newline nil)
 (setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "location" "setInterval" "__dirname"))
 (setq-default js2-idle-timer-delay 0.1)
