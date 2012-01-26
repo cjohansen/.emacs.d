@@ -64,3 +64,6 @@
 [submodule "site-lisp/multiple-cursors"]
 	path = site-lisp/multiple-cursors
 	url = https://github.com/magnars/multiple-cursors.el.git
+[submodule "site-lisp/js2-refactor"]
+	path = site-lisp/js2-refactor
+	url = https://github.com/magnars/js2-refactor.el.git

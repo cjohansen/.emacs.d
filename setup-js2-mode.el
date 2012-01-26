@@ -13,24 +13,7 @@
 (setq-default js2-include-gears-externs nil)
 
 (require 'js2-mode)
-
-;; Expand and contract object
-(define-key js2-mode-map (kbd "C-c RET eo") 'js-expand-object)
-(define-key js2-mode-map (kbd "C-c RET co") 'js-contract-object)
-
-;; Inject global with short name
-(define-key js2-mode-map (kbd "C-c RET ig") 'js-inject-global-in-iife)
-
-;; Extract JavaScript variables
-(define-key js2-mode-map (kbd "C-c RET ev") 'js-extract-variable)
-
-;; Line movement
-(define-key js2-mode-map (kbd "<C-S-down>") 'js-move-line-down)
-(define-key js2-mode-map (kbd "<C-S-up>") 'js-move-line-up)
-
-;; Rename JavaScript variables
-(require 'js2-rename-var)
-(define-key js2-mode-map (kbd "C-c C-r") 'js2-rename-var)
+(require 'js2-refactor)
 
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
@@ -41,12 +24,14 @@
       (if (looking-back "^\s*")
           (back-to-indentation)))))
 
+;; Use lambda for anonymous functions
 (font-lock-add-keywords
  'js2-mode `(("\\(function\\) *("
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u0192")
                         nil)))))
 
+;; Use right arrow for return in one-line functions
 (font-lock-add-keywords
  'js2-mode `(("function *([^)]*) *{ *\\(return\\) "
               (0 (progn (compose-region (match-beginning 1)
