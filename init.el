@@ -1,3 +1,7 @@
+;; Turn off mouse interface early in startup to avoid momentary display
+(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+  (when (fboundp mode) (funcall mode -1)))
+
 ;; Set path to .emacs.d
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
@@ -8,6 +12,10 @@
 ;; Set up load path
 (add-to-list 'load-path dotfiles-dir)
 (add-to-list 'load-path site-lisp-dir)
+
+;; Settings for currently logged in user
+(setq user-settings-dir (concat user-emacs-directory "users/" user-login-name))
+(add-to-list 'load-path user-settings-dir)
 
 ;; Add external projects to load path
 (dolist (project (directory-files site-lisp-dir t "\\w+"))
@@ -40,7 +48,7 @@
 (require 'setup-ace-jump-mode)
 (require 'setup-perspective)
 (require 'setup-shell)
-;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
+;;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -50,7 +58,7 @@
 
 ;; Hardcore mode
 (require 'hardcore-mode)
-;(global-hardcore-mode)
+;;(global-hardcore-mode)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
@@ -85,3 +93,7 @@
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+
+;; Conclude init by setting up specifics for the current user
+(when (file-exists-p user-settings-dir)
+      (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
