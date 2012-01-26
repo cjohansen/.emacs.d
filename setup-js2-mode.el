@@ -21,12 +21,12 @@
 ;; Inject global with short name
 (define-key js2-mode-map (kbd "C-c RET ig") 'js-inject-global-in-iife)
 
+;; Extract JavaScript variables
+(define-key js2-mode-map (kbd "C-c RET ev") 'js-extract-variable)
+
 ;; Line movement
 (define-key js2-mode-map (kbd "<C-S-down>") 'js-move-line-down)
 (define-key js2-mode-map (kbd "<C-S-up>") 'js-move-line-up)
-
-;; Extract JavaScript variables
-(define-key js2-mode-map (kbd "C-c x") 'js-extract-variable)
 
 ;; Rename JavaScript variables
 (require 'js2-rename-var)
