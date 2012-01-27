@@ -38,6 +38,9 @@
 ;; Lets start with a smattering of sanity
 (require 'sane-defaults)
 
+;; Are we on a mac?
+(setq is-mac (equal system-type 'darwin))
+
 ;; Setup extensions
 (require 'setup-ido)
 (require 'setup-yasnippet)
@@ -52,9 +55,6 @@
 
 ;; Map files to modes
 (require 'mode-mappings)
-
-;; Map paths to project settings
-(require 'project-mappings)
 
 ;; Hardcore mode
 (require 'hardcore-mode)
@@ -83,7 +83,7 @@
 ;; Misc
 (require 'appearance)
 (require 'misc)
-(when (equal system-type 'darwin) (require 'mac))
+(when is-mac (require 'mac))
 
 ;; Emacs server
 (require 'server)
