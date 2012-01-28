@@ -78,4 +78,7 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; Easily navigate sillycased words
+(global-subword-mode 1)
+
 (provide 'sane-defaults)
