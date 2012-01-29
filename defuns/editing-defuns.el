@@ -50,23 +50,6 @@ region-end is used. Adds the duplicated text to the kill ring."
   (duplicate-region num (point-at-bol) (1+ (point-at-eol)))
   (goto-char (1- (point))))
 
-(defun move-line-down ()
-  (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (next-line)
-      (transpose-lines 1))
-    (next-line)
-    (move-to-column col)))
-
-(defun move-line-up ()
-  (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (next-line)
-      (transpose-lines -1))
-    (move-to-column col)))
-
 (defun yank-indented ()
   (interactive)
   (let ((start (point)))
