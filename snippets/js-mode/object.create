@@ -6,4 +6,4 @@ create: function (params) {
   return Object.create(this, {
     ppp$0
   });
-},
+}
