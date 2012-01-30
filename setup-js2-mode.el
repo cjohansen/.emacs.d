@@ -15,6 +15,16 @@
 (require 'js2-mode)
 (require 'js2-refactor)
 
+(defun js2-hide-test-functions ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (ignore-errors
+      (while (re-search-forward "\"should [^\"]+\": function (")
+        (js2-mode-hide-element)))))
+
+(define-key js2-mode-map (kbd "C-c t") 'js2-hide-test-functions)
+
 ;; js2-mode steals TAB, let's steal it back for yasnippet
 (defun js2-tab-properly ()
   (interactive)
