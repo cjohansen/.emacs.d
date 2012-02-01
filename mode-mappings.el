@@ -21,7 +21,6 @@
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
-            (define-key sgml-mode-map (kbd "C-c RET co") 'jsp-wrap-in-c-out)
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 
 ;; Ruby
