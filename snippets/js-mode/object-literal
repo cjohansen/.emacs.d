@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: object-literal
+# key: {
+# --
+{
+        $0
+};
