@@ -69,6 +69,9 @@
 ;; Keep cursor away from edges when scrolling up/down
 (require 'smooth-scrolling)
 
+;; Fontify org-mode code blocks
+(setq org-src-fontify-natively t)
+
 ;; Represent undo-history as an actual tree (visualize with C-x u)
 (setq undo-tree-mode-lighter "")
 (require 'undo-tree)
