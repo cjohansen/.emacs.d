@@ -34,6 +34,10 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
 
+;; Puppet
+(autoload 'puppet-mode "puppet-mode")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
 ;; Groovy
 (autoload 'groovy-mode "groovy-mode")
 (add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
