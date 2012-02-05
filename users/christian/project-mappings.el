@@ -30,6 +30,15 @@
               (setq buster-add-default-global-to-iife t)
               (setq buster-use-strict t))))
 
+;; Gitorious
+
+(defun custom-persp/gitorious ()
+  (interactive)
+  (custom-persp "Gts"
+                (find-file "~/projects/gitorious/org/christian.org")))
+
+(define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gitorious)
+
 ;; Emacs
 
 (defun custom-persp/emacs ()
