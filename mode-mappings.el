@@ -3,6 +3,10 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
+;; Cucumber
+(autoload 'feature-mode "feature-mode")
+(add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
+
 ;; Adventur
 (autoload 'adventur-mode "adventur-mode")
 (add-to-list 'auto-mode-alist '("\\.adv$" . adventur-mode))
