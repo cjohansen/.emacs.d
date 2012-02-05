@@ -15,6 +15,13 @@
         (find-file file)
       (error "%s not found." file))))
 
+(defun jump-to-lib-file-other-window ()
+  (interactive)
+  (let ((file (guess-lib-file)))
+    (if (file-exists-p file)
+        (find-file-other-window file)
+      (error "%s not found." file))))
+
 (defun guess-lib-file ()
   (format "%s/%s.js" (guess-lib-folder) (guess-lib-file-name)))
 
@@ -45,6 +52,13 @@
   (let ((file (guess-test-file)))
     (if (file-exists-p file)
         (find-file file)
+      (error "%s not found." file))))
+
+(defun jump-to-test-file-other-window ()
+  (interactive)
+  (let ((file (guess-test-file)))
+    (if (file-exists-p file)
+        (find-file-other-window file)
       (error "%s not found." file))))
 
 (defun guess-test-file ()
