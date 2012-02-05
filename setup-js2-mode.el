@@ -15,8 +15,10 @@
 (require 'js2-mode)
 (require 'js2-refactor)
 
-(define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file-other-window)
-(define-key js2-mode-map (kbd "C-c RET jl") 'jump-to-lib-file-other-window)
+(define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
+(define-key js2-mode-map (kbd "C-c RET ot") 'jump-to-test-file-other-window)
+(define-key js2-mode-map (kbd "C-c RET js") 'jump-to-source-file)
+(define-key js2-mode-map (kbd "C-c RET os") 'jump-to-source-file-other-window)
 
 (defun js2-hide-test-functions ()
   (interactive)

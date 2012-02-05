@@ -6,44 +6,44 @@
         (substring s 0 pos)
       s)))
 
-;; Jump to lib-file
+;; Jump to source-file
 
-(defun jump-to-lib-file ()
+(defun jump-to-source-file ()
   (interactive)
-  (let ((file (guess-lib-file)))
+  (let ((file (guess-source-file)))
     (if (file-exists-p file)
         (find-file file)
       (error "%s not found." file))))
 
-(defun jump-to-lib-file-other-window ()
+(defun jump-to-source-file-other-window ()
   (interactive)
-  (let ((file (guess-lib-file)))
+  (let ((file (guess-source-file)))
     (if (file-exists-p file)
         (find-file-other-window file)
       (error "%s not found." file))))
 
-(defun guess-lib-file ()
-  (format "%s/%s.js" (guess-lib-folder) (guess-lib-file-name)))
+(defun guess-source-file ()
+  (format "%s/%s.js" (guess-source-folder) (guess-source-file-name)))
 
-(defun guess-lib-file-name ()
+(defun guess-source-file-name ()
   (chop-suffix "Test.js"
                (chop-suffix "_test.js"
                             (chop-suffix "-test.js" (file-name-nondirectory (buffer-file-name))))))
 
-(defun guess-lib-folder ()
+(defun guess-source-folder ()
   (let ((test-dir (file-name-directory (buffer-file-name))))
     (if (string-match-p "/test/" test-dir)
-        (let ((lib-dir (lib-folder-with-same-nesting test-dir)))
-          (if (file-exists-p lib-dir) lib-dir)))))
+        (let ((source-dir (source-folder-with-same-nesting test-dir)))
+          (if (file-exists-p source-dir) source-dir)))))
 
-(defun lib-folder-with-same-nesting (test-dir)
-  (let ((lib-dir (replace-regexp-in-string ".+/test/\\(.*\\)" "lib/\\1" test-dir)))
-    (concat (path-out-of-test lib-dir) lib-dir)))
+(defun source-folder-with-same-nesting (test-dir)
+  (let ((source-dir (replace-regexp-in-string ".+/test/\\(.*\\)" "lib/\\1" test-dir)))
+    (concat (path-out-of-test source-dir) source-dir)))
 
-(defun path-out-of-test (lib-dir)
+(defun path-out-of-test (source-dir)
   (mapconcat 'identity (mapcar
                         '(lambda (word) "../")
-                        (split-string lib-dir "/" t)) ""))
+                        (split-string source-dir "/" t)) ""))
 
 ;; Jump to test-file
 
@@ -77,16 +77,16 @@
   (chop-suffix ".js" (file-name-nondirectory (buffer-file-name))))
 
 (defun guess-test-folder ()
-  (let ((lib-dir (file-name-directory (buffer-file-name))))
-    (if (string-match-p "/lib/" lib-dir)
-        (let ((test-dir (test-folder-with-same-nesting lib-dir)))
+  (let ((source-dir (file-name-directory (buffer-file-name))))
+    (if (string-match-p "/lib/" source-dir)
+        (let ((test-dir (test-folder-with-same-nesting source-dir)))
           (if (file-exists-p test-dir) test-dir)))))
 
-(defun test-folder-with-same-nesting (lib-dir)
-  (let ((test-dir (replace-regexp-in-string ".+/lib/\\(.*\\)" "test/\\1" lib-dir)))
-    (concat (path-out-of-lib test-dir) test-dir)))
+(defun test-folder-with-same-nesting (source-dir)
+  (let ((test-dir (replace-regexp-in-string ".+/lib/\\(.*\\)" "test/\\1" source-dir)))
+    (concat (path-out-of-source test-dir) test-dir)))
 
-(defun path-out-of-lib (test-dir)
+(defun path-out-of-source (test-dir)
   (mapconcat 'identity (mapcar
                         '(lambda (word) "../")
                         (split-string test-dir "/" t)) ""))
