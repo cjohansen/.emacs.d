@@ -15,6 +15,9 @@
 (require 'js2-mode)
 (require 'js2-refactor)
 
+(define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
+(define-key js2-mode-map (kbd "C-c RET jl") 'jump-to-lib-file)
+
 (defun js2-hide-test-functions ()
   (interactive)
   (save-excursion
@@ -34,6 +37,8 @@
       (if (looking-back "^\s*")
           (back-to-indentation)))))
 
+(define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
+
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
  'js2-mode `(("\\(function\\) *("
@@ -47,7 +52,5 @@
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u2190")
                         nil)))))
-
-(define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
 (provide 'setup-js2-mode)
