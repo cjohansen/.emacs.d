@@ -1,69 +1,75 @@
 [submodule "site-lisp/yaml-mode"]
-	path = site-lisp/yaml-mode
-	url = https://github.com/yoshiki/yaml-mode.git
+        path = site-lisp/yaml-mode
+        url = https://github.com/yoshiki/yaml-mode.git
 [submodule "site-lisp/recall-position"]
-	path = site-lisp/recall-position
-	url = http://github.com/cjohansen/recall-position.el.git
+        path = site-lisp/recall-position
+        url = http://github.com/cjohansen/recall-position.el.git
 [submodule "site-lisp/buster-mode"]
-	path = site-lisp/buster-mode
-	url = git://gitorious.org/buster/buster-mode.git
+        path = site-lisp/buster-mode
+        url = git://gitorious.org/buster/buster-mode.git
 [submodule "site-lisp/evil"]
-	path = site-lisp/evil
-	url = git://gitorious.org/evil/evil.git
+        path = site-lisp/evil
+        url = git://gitorious.org/evil/evil.git
 [submodule "site-lisp/undo-tree"]
-	path = site-lisp/undo-tree
-	url = http://www.dr-qubit.org/git/undo-tree.git
+        path = site-lisp/undo-tree
+        url = http://www.dr-qubit.org/git/undo-tree.git
 [submodule "site-lisp/js2-mode"]
-	path = site-lisp/js2-mode
-	url = https://github.com/magnars/js2-mode
+        path = site-lisp/js2-mode
+        url = https://github.com/magnars/js2-mode
 [submodule "site-lisp/jade-mode"]
-	path = site-lisp/jade-mode
-	url = https://github.com/brianc/jade-mode
+        path = site-lisp/jade-mode
+        url = https://github.com/brianc/jade-mode
 [submodule "site-lisp/coffee-mode"]
-	path = site-lisp/coffee-mode
-	url = https://github.com/defunkt/coffee-mode
+        path = site-lisp/coffee-mode
+        url = https://github.com/defunkt/coffee-mode
 [submodule "site-lisp/mark-multiple"]
-	path = site-lisp/mark-multiple
-	url = https://github.com/magnars/mark-multiple.el.git
+        path = site-lisp/mark-multiple
+        url = https://github.com/magnars/mark-multiple.el.git
 [submodule "site-lisp/ace-jump-mode"]
-	path = site-lisp/ace-jump-mode
-	url = https://github.com/winterTTr/ace-jump-mode.git
+        path = site-lisp/ace-jump-mode
+        url = https://github.com/winterTTr/ace-jump-mode.git
 [submodule "site-lisp/buster-snippets"]
-	path = site-lisp/buster-snippets
-	url = https://github.com/magnars/buster-snippets.el.git
+        path = site-lisp/buster-snippets
+        url = https://github.com/magnars/buster-snippets.el.git
 [submodule "site-lisp/yasnippet"]
-	path = site-lisp/yasnippet
-	url = https://github.com/capitaomorte/yasnippet.git
+        path = site-lisp/yasnippet
+        url = https://github.com/capitaomorte/yasnippet.git
 [submodule "site-lisp/expand-region"]
-	path = site-lisp/expand-region
-	url = https://github.com/magnars/expand-region.el.git
+        path = site-lisp/expand-region
+        url = https://github.com/magnars/expand-region.el.git
 [submodule "site-lisp/php-mode"]
-	path = site-lisp/php-mode
-	url = https://github.com/ejmr/php-mode.git
+        path = site-lisp/php-mode
+        url = https://github.com/ejmr/php-mode.git
 [submodule "site-lisp/perspective"]
-	path = site-lisp/perspective
-	url = https://github.com/magnars/perspective-el.git
+        path = site-lisp/perspective
+        url = https://github.com/magnars/perspective-el.git
 [submodule "site-lisp/delsel"]
-	path = site-lisp/delsel
-	url = https://github.com/emacsmirror/delsel.git
+        path = site-lisp/delsel
+        url = https://github.com/emacsmirror/delsel.git
 [submodule "site-lisp/hardcore-mode"]
-	path = site-lisp/hardcore-mode
-	url = https://github.com/magnars/hardcore-mode.el.git
+        path = site-lisp/hardcore-mode
+        url = https://github.com/magnars/hardcore-mode.el.git
 [submodule "site-lisp/vimgolf"]
-	path = site-lisp/vimgolf
-	url = https://github.com/timvisher/vimgolf.git
+        path = site-lisp/vimgolf
+        url = https://github.com/timvisher/vimgolf.git
 [submodule "site-lisp/bash-completion"]
-	path = site-lisp/bash-completion
-	url = https://github.com/szermatt/emacs-bash-completion.git
+        path = site-lisp/bash-completion
+        url = https://github.com/szermatt/emacs-bash-completion.git
 [submodule "site-lisp/eproject"]
-	path = site-lisp/eproject
-	url = https://github.com/jrockway/eproject.git
+        path = site-lisp/eproject
+        url = https://github.com/jrockway/eproject.git
 [submodule "site-lisp/jump-char"]
-	path = site-lisp/jump-char
-	url = https://github.com/lewang/jump-char.git
+        path = site-lisp/jump-char
+        url = https://github.com/lewang/jump-char.git
 [submodule "site-lisp/multiple-cursors"]
-	path = site-lisp/multiple-cursors
-	url = https://github.com/magnars/multiple-cursors.el.git
+        path = site-lisp/multiple-cursors
+        url = https://github.com/magnars/multiple-cursors.el.git
 [submodule "site-lisp/js2-refactor"]
-	path = site-lisp/js2-refactor
-	url = https://github.com/magnars/js2-refactor.el.git
+        path = site-lisp/js2-refactor
+        url = https://github.com/magnars/js2-refactor.el.git
+[submodule "site-lisp/wrap-region"]
+        path = site-lisp/wrap-region
+        url = https://github.com/magnars/wrap-region.git
+[submodule "site-lisp/feature-mode"]
+	path = site-lisp/feature-mode
+	url = https://github.com/michaelklishin/cucumber.el.git
