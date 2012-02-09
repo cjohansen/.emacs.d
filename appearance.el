@@ -19,6 +19,10 @@
 ;; Highlight in yasnippet
 (set-face-background 'yas/field-highlight-face "#333399")
 
+;; Preeeetty font in Emacs 24/Ubuntu
+(if is-mac nil
+  (set-face-attribute 'default nil :font "DejaVu Sans Mono"))
+
 ;; org-mode colors
 (setq org-todo-keyword-faces
       '(
