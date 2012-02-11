@@ -12,7 +12,7 @@
   (if (js-method-p)
       (insert ",")
     (unless (js-function-declaration-p)
-      (insert ";"))))
+      (if (looking-at "\n") (insert ";")))))
 
 (defun snippet--function-name ()
   (if (js-function-declaration-p) "name" ""))
