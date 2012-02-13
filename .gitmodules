@@ -67,9 +67,9 @@
 [submodule "site-lisp/js2-refactor"]
         path = site-lisp/js2-refactor
         url = https://github.com/magnars/js2-refactor.el.git
-[submodule "site-lisp/wrap-region"]
-        path = site-lisp/wrap-region
-        url = https://github.com/magnars/wrap-region.git
 [submodule "site-lisp/feature-mode"]
-	path = site-lisp/feature-mode
-	url = https://github.com/michaelklishin/cucumber.el.git
+        path = site-lisp/feature-mode
+        url = https://github.com/michaelklishin/cucumber.el.git
+[submodule "site-lisp/wrap-region"]
+	path = site-lisp/wrap-region
+	url = https://github.com/magnars/wrap-region.git
