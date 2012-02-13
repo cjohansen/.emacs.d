@@ -15,8 +15,10 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
-(global-set-key (kbd "C-å") 'mark-more-like-this-extended)
-(global-set-key (kbd "C-æ") 'mark-more-like-this-extended)
+(global-set-key (kbd "C-å") 'mark-previous-like-this)
+(global-set-key (kbd "C-æ") 'mark-next-like-this)
+(global-set-key (kbd "C-Å") 'mark-more-like-this-extended)
+(global-set-key (kbd "C-Æ") 'mark-more-like-this-extended)
 
 ;; Replace rectangle-text with inline-string-rectangle
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
