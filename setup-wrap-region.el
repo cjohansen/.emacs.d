@@ -13,5 +13,6 @@
 (wrap-region-add-wrapper "<c:out value=\"" "\"/>" "o" 'html-mode)
 (wrap-region-add-wrapper "<p>" "</p>" "p" 'html-mode)
 (wrap-region-add-wrapper "<li>" "</li>" "l" 'html-mode)
+(wrap-region-add-wrapper "<span class=\"required\">" "</span>" "r" 'html-mode)
 
 (provide 'setup-wrap-region)
