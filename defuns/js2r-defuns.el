@@ -8,22 +8,22 @@
 
 ;; Jump to source-file
 
-(defun jump-to-source-file ()
-  (interactive)
+(defun jump-to-source-file (arg)
+  (interactive "P")
   (let ((file (guess-source-file)))
-    (if (file-exists-p file)
+    (if (or (file-exists-p file) arg)
         (find-file file)
       (error "%s not found." file))))
 
-(defun jump-to-source-file-other-window ()
-  (interactive)
+(defun jump-to-source-file-other-window (arg)
+  (interactive "P")
   (let ((file (guess-source-file)))
-    (if (file-exists-p file)
+    (if (or (file-exists-p file) arg)
         (find-file-other-window file)
       (error "%s not found." file))))
 
 (defun guess-source-file ()
-  (format "%s/%s.js" (guess-source-folder) (guess-source-file-name)))
+  (format "%s/%s.js" (chop-suffix "/" (guess-source-folder)) (guess-source-file-name)))
 
 (defun guess-source-file-name ()
   (chop-suffix "Test.js"
@@ -47,17 +47,17 @@
 
 ;; Jump to test-file
 
-(defun jump-to-test-file ()
-  (interactive)
+(defun jump-to-test-file (arg)
+  (interactive "P")
   (let ((file (guess-test-file)))
-    (if (file-exists-p file)
+    (if (or (file-exists-p file) arg)
         (find-file file)
       (error "%s not found." file))))
 
-(defun jump-to-test-file-other-window ()
-  (interactive)
+(defun jump-to-test-file-other-window (arg)
+  (interactive "P")
   (let ((file (guess-test-file)))
-    (if (file-exists-p file)
+    (if (or (file-exists-p file) arg)
         (find-file-other-window file)
       (error "%s not found." file))))
 
@@ -71,7 +71,7 @@
     (if (file-exists-p file) file nil)))
 
 (defun test-file-name (suffix)
-  (format "%s/%s%s.js" (guess-test-folder) (test-file-name-stub) suffix))
+  (format "%s/%s%s.js" (chop-suffix "/" (guess-test-folder)) (test-file-name-stub) suffix))
 
 (defun test-file-name-stub ()
   (chop-suffix ".js" (file-name-nondirectory (buffer-file-name))))
