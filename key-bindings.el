@@ -54,6 +54,9 @@
 (global-set-key (kbd "C-z") 'shell)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
+;; Zap to char exclusive
+(global-set-key (kbd "M-Z") 'zap-to-char-exclusive)
+
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'jump-char-forward)
 (global-set-key (kbd "M-M") 'jump-char-backward)

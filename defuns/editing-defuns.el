@@ -183,3 +183,17 @@ region-end is used. Adds the duplicated text to the kill ring."
          (current-word (buffer-substring-no-properties beg end))
          (snakified (snake-case current-word)))
     (replace-string current-word snakified nil beg end)))
+
+(defun zap-to-char-exclusive (arg char)
+  "Kill up to, but not including ARGth occurrence of CHAR.
+Case is ignored if `case-fold-search' is non-nil in the current buffer.
+Goes backward if ARG is negative; error if CHAR not found."
+  (interactive "p\ncZap to char (exclusive): ")
+  ;; Avoid "obsolete" warnings for translation-table-for-input.
+  (with-no-warnings
+    (if (char-table-p translation-table-for-input)
+        (setq char (or (aref translation-table-for-input char) char))))
+  (kill-region (point) (progn
+                         (search-forward (char-to-string char) nil nil arg)
+                         (goto-char (if (> arg 0) (1- (point)) (1+ (point))))
+                         (point))))
