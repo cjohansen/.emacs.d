@@ -15,8 +15,10 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
-(global-set-key (kbd "C-å") 'mark-more-like-this-extended)
-(global-set-key (kbd "C-æ") 'mark-more-like-this-extended)
+(global-set-key (kbd "C-å") 'mark-previous-like-this)
+(global-set-key (kbd "C-æ") 'mark-next-like-this)
+(global-set-key (kbd "C-Å") 'mark-more-like-this-extended)
+(global-set-key (kbd "C-Æ") 'mark-more-like-this-extended)
 
 ;; Replace rectangle-text with inline-string-rectangle
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
@@ -44,9 +46,6 @@
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
 
-;; Delete region (don't put it in the kill-ring)
-(global-set-key (kbd "C-c C-w") 'delete-region)
-
 ;; Use M-w for copy-line if no active region
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 (global-set-key (kbd "M-W") '(lambda () (interactive) (save-region-or-current-line 1)))
@@ -54,6 +53,9 @@
 ;; Make shell more convenient, and suspend-frame less
 (global-set-key (kbd "C-z") 'shell)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
+
+;; Zap to char exclusive
+(global-set-key (kbd "M-Z") 'zap-to-char-exclusive)
 
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'jump-char-forward)
