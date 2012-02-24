@@ -25,7 +25,7 @@
   (save-excursion
     (goto-char (point-min))
     (ignore-errors
-      (while (re-search-forward "\"should [^\"]+\": function (")
+      (while (re-search-forward "\"[^\"]+\": function (")
         (js2-mode-hide-element)))))
 
 (define-key js2-mode-map (kbd "C-c t") 'js2-hide-test-functions)
