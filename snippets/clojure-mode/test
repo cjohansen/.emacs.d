@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: test
+# key: tt
+# --
+(deftest should-$1
+  (is (= $0)))
