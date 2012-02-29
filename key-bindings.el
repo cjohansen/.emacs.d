@@ -192,6 +192,9 @@
 ;; Paste URLs as HTML links
 (global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
 
+;; Browse the kill ring
+(global-set-key (kbd "C-x y") 'browse-kill-ring)
+
 ;; Buffer file functions
 (global-set-key (kbd "C-x t") 'touch-buffer-file)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
