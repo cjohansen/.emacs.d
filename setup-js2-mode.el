@@ -1,7 +1,7 @@
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
-(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "location" "setInterval" "__dirname"))
+(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname"))
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
@@ -25,7 +25,7 @@
   (save-excursion
     (goto-char (point-min))
     (ignore-errors
-      (while (re-search-forward "\"should [^\"]+\": function (")
+      (while (re-search-forward "\"[^\"]+\": function (")
         (js2-mode-hide-element)))))
 
 (define-key js2-mode-map (kbd "C-c t") 'js2-hide-test-functions)

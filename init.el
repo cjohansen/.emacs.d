@@ -74,6 +74,7 @@
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
+(require 'browse-kill-ring)
 
 ;; Vimgolf
 (load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
