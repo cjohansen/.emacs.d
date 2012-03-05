@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: oocss-module
+# key: mod
+# --
+<div class="mod mod_${1:1st}">
+  <div class="bd">
+    $0
+  </div>
+</div>
