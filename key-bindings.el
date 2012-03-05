@@ -72,9 +72,6 @@
 ;; Create new frame (bound to regular mac-command)
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
-;; Cycle through buffers
-(global-set-key (kbd "<C-tab>") 'bury-buffer)
-
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
@@ -97,6 +94,9 @@
 
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+
+;; Indent buffer
+(global-set-key (kbd "<C-tab>") 'indent-buffer)
 
 ;; Fetch the contents at a URL, display it raw.
 (global-set-key (kbd "C-x h") 'view-url)
