@@ -61,7 +61,10 @@ in an exploded war, re-deploy the file."
 
 (defun oppdrag--setup-js-quirks ()
   (when (string-match-p "oppdrag-services" (buffer-file-name))
-    (setq js2-additional-externs '("FINN" "testCase"))
+    (setq js2-additional-externs '("FINN" "testCase" "culljs"))
+    (setq js2r-path-to-tests "/test/javascript/tests/")
+    (setq js2r-path-to-sources "/main/webapp/scripts/")
+    (setq js2r-test-suffix "Test")
     (setq buster-default-global "FINN.oppdrag")
     (setq buster-add-default-global-to-iife t)
     (setq buster-testcase-snippets-enabled nil)
