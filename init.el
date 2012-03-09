@@ -52,7 +52,6 @@
 (require 'setup-perspective)
 (require 'setup-shell)
 (require 'setup-wrap-region)
-;;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 
 ;; Map files to modes
 (require 'mode-mappings)
