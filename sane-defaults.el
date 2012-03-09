@@ -60,9 +60,6 @@
 ;; Show me empty lines after buffer end
 (set-default 'indicate-empty-lines t)
 
-;; Disallow scrolling with mouse wheel
-(mouse-wheel-mode nil)
-
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 

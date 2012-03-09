@@ -52,7 +52,6 @@
 (require 'setup-perspective)
 (require 'setup-shell)
 (require 'setup-wrap-region)
-;;(require 'setup-autopair) -- could this be the culprit in delete-selection-mode failures?
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -95,6 +94,11 @@
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+
+;; Diminish modeline clutter
+(require 'diminish)
+(diminish 'wrap-region-mode)
+(diminish 'yas/minor-mode)
 
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
