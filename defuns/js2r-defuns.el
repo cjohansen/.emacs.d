@@ -1,8 +1,18 @@
-(defun chop-suffix (suffix s)
+(require 'cl)
+
+(defun _any (pred seq)
+  (< 0 (count-if pred seq)))
+
+(defun s-ends-with-p (s suffix)
+  "Does S end in SUFFIX?"
+  (let ((pos (- (length suffix))))
+    (and (>= (length s) (length suffix))
+         (string= suffix (substring s pos)))))
+
+(defun s-chop-suffix (s suffix)
   "Remove string 'suffix' if it is at end of string 's'"
   (let ((pos (- (length suffix))))
-    (if (and (>= (length s) (length suffix))
-             (string= suffix (substring s pos)))
+    (if (s-ends-with-p s suffix)
         (substring s 0 pos)
       s)))
 
@@ -28,6 +38,14 @@
         (find-file file)
       (error "%s not found." file))))
 
+(defun possible-test-file-suffixes ()
+  (cons (concat js2r-test-suffix ".js")
+        '("Test.js" "_test.js" "-test.js")))
+
+(defun looks-like-test-file-name (file-name)
+  (_any (apply-partially 's-ends-with-p file-name)
+        (possible-test-file-suffixes)))
+
 (defun jump-to-source-file-other-window (arg)
   (interactive "P")
   (let ((file (guess-source-file)))
@@ -36,15 +54,13 @@
       (error "%s not found." file))))
 
 (defun guess-source-file ()
-  (format "%s/%s.js" (chop-suffix "/" (guess-source-folder)) (guess-source-file-name)))
-
+  (unless (looks-like-test-file-name (buffer-file-name))
+    (error "This doesn't look like a test file."))
+  (format "%s/%s.js" (s-chop-suffix (guess-source-folder) "/") (guess-source-file-name)))
 
 (defun guess-source-file-name ()
-  (chop-suffix (concat js2r-test-suffix ".js")
-               (chop-suffix "Test.js"
-                            (chop-suffix "_test.js"
-                                         (chop-suffix "-test.js"
-                                                      (file-name-nondirectory (buffer-file-name)))))))
+  (reduce 's-chop-suffix (possible-test-file-suffixes)
+          :initial-value (file-name-nondirectory (buffer-file-name))))
 
 (defun guess-source-folder ()
   (let ((test-dir (file-name-directory (buffer-file-name))))
@@ -76,6 +92,8 @@
       (error "%s not found." file))))
 
 (defun guess-test-file ()
+  (when (looks-like-test-file-name (buffer-file-name))
+    (error "Looks like you're already in the test file."))
   (or (test-file-that-exists "-test")
       (test-file-that-exists "_test")
       (test-file-that-exists "Test")
@@ -86,10 +104,10 @@
     (if (file-exists-p file) file nil)))
 
 (defun test-file-name (suffix)
-  (format "%s/%s%s.js" (chop-suffix "/" (guess-test-folder)) (test-file-name-stub) suffix))
+  (format "%s/%s%s.js" (s-chop-suffix (guess-test-folder) "/") (test-file-name-stub) suffix))
 
 (defun test-file-name-stub ()
-  (chop-suffix ".js" (file-name-nondirectory (buffer-file-name))))
+  (s-chop-suffix (file-name-nondirectory (buffer-file-name)) ".js"))
 
 (defun guess-test-folder ()
   (let ((source-dir (file-name-directory (buffer-file-name))))
