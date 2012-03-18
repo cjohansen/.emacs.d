@@ -8,7 +8,6 @@
 (setq-default js2-strict-inconsistent-return-warning nil)
 (setq-default js2-auto-indent-p t)
 (setq-default js2-rebind-eol-bol-keys nil)
-(setq-default js2-mode-show-parse-errors nil)
 (setq-default js2-include-rhino-externs nil)
 (setq-default js2-include-gears-externs nil)
 
