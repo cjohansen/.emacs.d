@@ -52,6 +52,7 @@
 (require 'setup-perspective)
 (require 'setup-shell)
 (require 'setup-wrap-region)
+(require 'setup-ffip)
 
 ;; Map files to modes
 (require 'mode-mappings)

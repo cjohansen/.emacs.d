@@ -1,3 +1,9 @@
+(defmacro project-specifics (name &rest body)
+  `(add-hook 'find-file-hook
+             (lambda ()
+               (when (string-match-p ,name (buffer-file-name))
+                 ,@body))))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
@@ -8,10 +14,11 @@
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
 (require 'oppdrag-mode)
-(add-hook 'find-file-hook
-          (lambda ()
-            (when (string-match-p "oppdrag-services" (buffer-file-name))
-              (oppdrag-mode))))
+
+(project-specifics "oppdrag-services"
+                   (ffip-local-excludes "target" "overlays")
+                   (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
+                   (oppdrag-mode))
 
 ;; Zombie TDD
 
@@ -22,9 +29,13 @@
 
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
+(project-specifics "projects/zombietdd"
+                   (ffip-local-excludes "node_modules")
+                   (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
+
 (add-hook 'js2-mode-hook
           (lambda ()
-            (when (string-match-p "zombietdd" (buffer-file-name))
+            (when (string-match-p "projects/zombietdd" (buffer-file-name))
               (setq js2-additional-externs '("ZOMBIE" "Faye" "EventEmitter" "when"))
               (setq buster-default-global "ZOMBIE")
               (setq buster-add-default-global-to-iife t)
@@ -39,6 +50,10 @@
                 (find-file "~/projects/culljs/")))
 
 (define-key persp-mode-map (kbd "C-x p c") 'custom-persp/culljs)
+
+(project-specifics "projects/culljs"
+                   (ffip-local-excludes "node_modules")
+                   (ffip-local-patterns "*.js"))
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -66,6 +81,11 @@
   (interactive)
   (custom-persp "emacs"
                 (find-file "~/.emacs.d/init.el")))
+
+(project-specifics ".emacs.d"
+                   (ffip-local-excludes "swank")
+                   (ffip-local-patterns "*.el" "*.md" "*.org"))
+
 (define-key persp-mode-map (kbd "C-x p e") 'custom-persp/emacs)
 
 ;; Org

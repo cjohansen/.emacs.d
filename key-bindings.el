@@ -209,7 +209,7 @@
 ;; Find-name-dired
 (global-set-key (kbd "M-s f") 'find-name-dired)
 
-;; Open my org files
-(global-set-key (kbd "<f6>") (lambda () (interactive) (find-file-other-frame "~/Dropbox/org/")))
+;; Find file in project
+(global-set-key (kbd "C-x o") 'find-file-in-project)
 
 (provide 'key-bindings)
