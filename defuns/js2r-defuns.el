@@ -3,6 +3,9 @@
 (defun _any (pred seq)
   (< 0 (count-if pred seq)))
 
+(defun _partial (f &rest args)
+  (apply 'apply-partially (cons f args)))
+
 (defun s-ends-with-p (s suffix)
   "Does S end in SUFFIX?"
   (let ((pos (- (length suffix))))
@@ -43,7 +46,7 @@
         '("Test.js" "_test.js" "-test.js")))
 
 (defun looks-like-test-file-name (file-name)
-  (_any (apply-partially 's-ends-with-p file-name)
+  (_any (_partial 's-ends-with-p file-name)
         (possible-test-file-suffixes)))
 
 (defun jump-to-source-file-other-window (arg)
