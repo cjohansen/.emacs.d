@@ -16,7 +16,6 @@
 (require 'oppdrag-mode)
 
 (project-specifics "oppdrag-services"
-                   (ffip-local-excludes "target" "overlays")
                    (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
                    (oppdrag-mode))
 
@@ -30,7 +29,6 @@
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
 (project-specifics "projects/zombietdd"
-                   (ffip-local-excludes "node_modules")
                    (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
 
 (add-hook 'js2-mode-hook
@@ -50,10 +48,6 @@
                 (find-file "~/projects/culljs/")))
 
 (define-key persp-mode-map (kbd "C-x p c") 'custom-persp/culljs)
-
-(project-specifics "projects/culljs"
-                   (ffip-local-excludes "node_modules")
-                   (ffip-local-patterns "*.js"))
 
 (add-hook 'js2-mode-hook
           (lambda ()

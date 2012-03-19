@@ -29,5 +29,13 @@ Example:
 "
   (set (make-local-variable 'ffip-patterns) patterns))
 
+;; Default excludes - override with ffip-local-excludes
+
+(setq ffip-find-options
+      (ffip--create-exclude-find-options
+       '("node_modules"
+         "target"
+         "overlays"
+         "vendor")))
 
 (provide 'setup-ffip)
