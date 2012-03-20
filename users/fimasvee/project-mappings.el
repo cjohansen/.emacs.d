@@ -52,6 +52,7 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (when (string-match-p "projects/culljs" (buffer-file-name))
+              (setq js2-additional-externs '("cull"))
               (setq buster-default-global "cull")
               (setq buster-add-default-global-to-iife t)
               (setq buster-use-strict t)
