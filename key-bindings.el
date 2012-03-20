@@ -15,6 +15,7 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
+(global-set-key (kbd "M-æ") 'mark-all-like-this)
 (global-set-key (kbd "C-å") 'mark-previous-like-this)
 (global-set-key (kbd "C-æ") 'mark-next-like-this)
 (global-set-key (kbd "C-Å") 'mark-more-like-this-extended)
