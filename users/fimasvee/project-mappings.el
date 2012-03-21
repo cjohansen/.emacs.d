@@ -9,7 +9,7 @@
 (defun custom-persp/oppdrag ()
   (interactive)
   (custom-persp "oppdrag"
-                (find-file "~/projects/finn-oppdrag/oppdrag-services/app-main/web/src/")))
+                (find-file "~/projects/finn-oppdrag/oppdrag-services/app-main/web/src/test/javascript/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
@@ -45,13 +45,14 @@
 (defun custom-persp/culljs ()
   (interactive)
   (custom-persp "culljs"
-                (find-file "~/projects/culljs/")))
+                (find-file "~/projects/culljs/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p c") 'custom-persp/culljs)
 
 (add-hook 'js2-mode-hook
           (lambda ()
             (when (string-match-p "projects/culljs" (buffer-file-name))
+              (setq js2-additional-externs '("cull"))
               (setq buster-default-global "cull")
               (setq buster-add-default-global-to-iife t)
               (setq buster-use-strict t)
@@ -86,6 +87,7 @@
 
 (defun custom-persp/org ()
   (interactive)
-  (custom-persp "org"
-                (find-file "~/Dropbox/org/")))
+  (custom-persp "org")
+  (find-file "~/Dropbox/org/"))
+
 (define-key persp-mode-map (kbd "C-<f6>") 'custom-persp/org)

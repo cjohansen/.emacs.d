@@ -15,6 +15,7 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
+(global-set-key (kbd "M-æ") 'mark-all-like-this)
 (global-set-key (kbd "C-å") 'mark-previous-like-this)
 (global-set-key (kbd "C-æ") 'mark-next-like-this)
 (global-set-key (kbd "C-Å") 'mark-more-like-this-extended)
@@ -73,13 +74,14 @@
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
 ;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
+(global-set-key (kbd "C-x C-i") 'ido-imenu-push-mark)
 
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 (global-set-key (kbd "C-x C-p") 'find-or-create-file-at-point)
+(global-set-key (kbd "C-x M-p") 'find-or-create-file-at-point-other-window)
 (global-set-key (kbd "C-c y") 'bury-buffer)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
@@ -132,6 +134,9 @@
 ;; Query replace regex key binding
 (global-set-key (kbd "M-&") 'query-replace-regexp)
 
+;; Yank selection in isearch
+(define-key isearch-mode-map (kbd "C-o") 'isearch-yank-selection)
+
 ;; Comment out block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 
@@ -152,9 +157,6 @@
 (global-set-key (kbd "<s-left>") 'windmove-left)
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
-
-;; Recall position
-(global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
 
 ;; Mark all
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)

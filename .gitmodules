@@ -1,9 +1,6 @@
 [submodule "site-lisp/yaml-mode"]
         path = site-lisp/yaml-mode
         url = https://github.com/yoshiki/yaml-mode.git
-[submodule "site-lisp/recall-position"]
-        path = site-lisp/recall-position
-        url = http://github.com/cjohansen/recall-position.el.git
 [submodule "site-lisp/buster-mode"]
         path = site-lisp/buster-mode
         url = git://gitorious.org/buster/buster-mode.git

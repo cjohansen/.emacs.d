@@ -32,6 +32,19 @@
 (make-variable-buffer-local 'js2r-path-to-sources)
 (make-variable-buffer-local 'js2r-test-suffix)
 
+;; Toggle between source and test
+(defun jump-between-source-and-test-files (arg)
+  (interactive "P")
+  (if (looks-like-test-file-name (buffer-file-name))
+      (jump-to-source-file arg)
+    (jump-to-test-file arg)))
+
+(defun jump-between-source-and-test-files-other-window (arg)
+  (interactive "P")
+  (if (looks-like-test-file-name (buffer-file-name))
+      (jump-to-source-file-other-window arg)
+    (jump-to-test-file-other-window arg)))
+
 ;; Jump to source-file
 
 (defun jump-to-source-file (arg)

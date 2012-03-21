@@ -66,7 +66,6 @@
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
     (load file)))
-(require 'recall-position)
 (require 'expand-region)
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)
