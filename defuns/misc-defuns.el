@@ -1,6 +1,13 @@
 ;; Misc defuns go here
 ;; It wouldn't hurt to look for patterns and extract once in a while
 
+(defun isearch-yank-selection ()
+  "Put selection from buffer into search string."
+  (interactive)
+  (when (region-active-p)
+    (deactivate-mark))
+  (isearch-yank-internal (lambda () (mark))))
+
 (defun view-url ()
   "Open a new buffer containing the contents of URL."
   (interactive)

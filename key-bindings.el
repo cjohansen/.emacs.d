@@ -133,6 +133,9 @@
 ;; Query replace regex key binding
 (global-set-key (kbd "M-&") 'query-replace-regexp)
 
+;; Yank selection in isearch
+(define-key isearch-mode-map (kbd "C-o") 'isearch-yank-selection)
+
 ;; Comment out block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 
