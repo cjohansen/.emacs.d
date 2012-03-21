@@ -157,9 +157,6 @@
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
-;; Recall position
-(global-set-key (kbd "C-c C-s") 'toggle-buffer-pos)
-
 ;; Mark all
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
