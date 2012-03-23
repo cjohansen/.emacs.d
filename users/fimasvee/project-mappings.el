@@ -9,6 +9,15 @@
                (when (string-match-p ,name (dired-current-directory))
                  ,@body)))))
 
+;; Intelliadv
+
+(defun custom-persp/intelliadv ()
+  (interactive)
+  (custom-persp "intelliadv"
+                (find-file "~/projects/intelliadv/todo.org")))
+
+(define-key persp-mode-map (kbd "C-x p i") 'custom-persp/intelliadv)
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
