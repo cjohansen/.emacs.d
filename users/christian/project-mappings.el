@@ -1,17 +1,28 @@
+(defmacro project-specifics (name &rest body)
+  `(progn
+     (add-hook 'find-file-hook
+             (lambda ()
+               (when (string-match-p ,name (buffer-file-name))
+                 ,@body)))
+     (add-hook 'dired-after-readin-hook
+             (lambda ()
+               (when (string-match-p ,name (dired-current-directory))
+                 ,@body)))))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
   (interactive)
-  (custom-persp "Oppdrag"
-                (find-file "~/projects/finn.no/oppdrag-services/app-main/web/src/")))
+  (custom-persp "oppdrag"
+                (find-file "~/projects/oppdrag-services/app-main/web/src/test/javascript/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
 (require 'oppdrag-mode)
-(add-hook 'find-file-hook
-          (lambda ()
-            (when (string-match-p "oppdrag-services" (buffer-file-name))
-              (oppdrag-mode))))
+
+(project-specifics "oppdrag-services"
+                   (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
+                   (oppdrag-mode))
 
 ;; Buster
 
