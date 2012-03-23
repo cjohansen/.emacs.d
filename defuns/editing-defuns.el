@@ -5,8 +5,8 @@
   (if (eolp)
       (newline)
     (end-of-line)
-    (newline)
-    (indent-for-tab-command)))
+    (newline))
+  (indent-for-tab-command))
 
 (defun new-line-above ()
   (interactive)

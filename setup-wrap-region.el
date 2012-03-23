@@ -6,6 +6,9 @@
 ;; Only wrap region if trigger key is given a negative prefix argument
 (setq wrap-region-only-with-negative-prefix t)
 
+;; Don't screw up key bindings in magit-mode
+(add-to-list 'wrap-region-except-modes 'magit-mode)
+
 ;; Custom wrappers
 
 (wrap-region-add-wrapper "{ value: " " }" "v" 'js2-mode)

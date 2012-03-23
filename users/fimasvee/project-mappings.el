@@ -1,8 +1,22 @@
 (defmacro project-specifics (name &rest body)
-  `(add-hook 'find-file-hook
+  `(progn
+     (add-hook 'find-file-hook
              (lambda ()
                (when (string-match-p ,name (buffer-file-name))
-                 ,@body))))
+                 ,@body)))
+     (add-hook 'dired-after-readin-hook
+             (lambda ()
+               (when (string-match-p ,name (dired-current-directory))
+                 ,@body)))))
+
+;; Intelliadv
+
+(defun custom-persp/intelliadv ()
+  (interactive)
+  (custom-persp "intelliadv"
+                (find-file "~/projects/intelliadv/todo.org")))
+
+(define-key persp-mode-map (kbd "C-x p i") 'custom-persp/intelliadv)
 
 ;; FINN Oppdrag
 
