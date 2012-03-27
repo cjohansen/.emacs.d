@@ -79,3 +79,6 @@
 [submodule "site-lisp/origize.el"]
         path = site-lisp/origize.el
         url = https://github.com/cjohansen/origize.el.git
+[submodule "site-lisp/wgrep"]
+	path = site-lisp/wgrep
+	url = https://github.com/magnars/Emacs-wgrep
