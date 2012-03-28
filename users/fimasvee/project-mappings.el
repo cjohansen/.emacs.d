@@ -23,7 +23,7 @@
 (defun custom-persp/oppdrag ()
   (interactive)
   (custom-persp "oppdrag"
-                (find-file "~/projects/finn-oppdrag/oppdrag-services/app-main/web/src/test/javascript/todo.org")))
+                (find-file "~/projects/finn-oppdrag/oppdrag-services/app-main/web/")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
