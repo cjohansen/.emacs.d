@@ -49,9 +49,9 @@
           (lambda ()
             (when (string-match-p "projects/zombietdd" (buffer-file-name))
               (setq js2-additional-externs '("ZOMBIE" "Faye" "EventEmitter" "when"))
-              (setq buster-default-global "ZOMBIE")
-              (setq buster-add-default-global-to-iife t)
-              (setq buster-use-strict t)
+              (set (make-local-variable 'buster-default-global) "ZOMBIE")
+              (set (make-local-variable 'buster-add-default-global-to-iife) t)
+              (set (make-local-variable 'buster-use-strict) t)
               (setq js2r-use-strict t))))
 
 ;; culljs
