@@ -76,6 +76,8 @@
 (require 'browse-kill-ring)
 (require 'wgrep)
 
+;; Add JSP expansions to html-mode
+(eval-after-load "sgml-mode" '(require 'jsp-expansions))
 ;; Vimgolf
 (load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
 
