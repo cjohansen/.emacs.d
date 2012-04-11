@@ -78,6 +78,11 @@
 
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
+
+;; Smart M-x is smart
+(require 'smex)
+(smex-initialize)
+
 ;; Vimgolf
 (load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
 

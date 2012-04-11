@@ -6,6 +6,11 @@
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand)
 
+;; Smart M-x
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (if is-mac (kbd "C-@") (kbd "C-'")) 'er/expand-region)
 
