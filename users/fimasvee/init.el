@@ -4,6 +4,3 @@
 
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
-
-;; org-mode: Don't ruin S-arrow to switch windows please (use M-+ instead to toggle)
-(setq org-replace-disputed-keys t)
