@@ -57,9 +57,9 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
-;; Hardcore mode
-(require 'hardcore-mode)
-;;(global-hardcore-mode)
+;; Annoying arrows mode
+(require 'annoying-arrows-mode)
+(global-annoying-arrows-mode)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
