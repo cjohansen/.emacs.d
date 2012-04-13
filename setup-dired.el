@@ -15,6 +15,7 @@
   (backward-char (- (current-column) 2)))
 
 (define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
+(define-key dired-mode-map (kbd "C-x C-k") 'dired-do-delete)
 
 (eval-after-load "wdired"
   '(define-key wdired-mode-map (kbd "C-a") 'dired-back-to-start-of-files))
