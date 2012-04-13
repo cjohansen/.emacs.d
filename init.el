@@ -73,8 +73,11 @@
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
-(require 'browse-kill-ring)
 (require 'wgrep)
+
+;; Browse kill ring
+(require 'browse-kill-ring)
+(setq browse-kill-ring-quit-action 'save-and-restore)
 
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
