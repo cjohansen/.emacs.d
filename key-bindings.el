@@ -5,6 +5,7 @@
 
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand)
+(global-set-key (kbd "C-:") 'hippie-expand-lines)
 
 ;; Smart M-x
 (global-set-key (kbd "M-x") 'smex)
