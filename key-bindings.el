@@ -31,7 +31,6 @@
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 ;; Quickly jump in document with ace-jump-mode
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-ø") 'ace-jump-mode)
 
 ;; Perform general cleanup.
@@ -61,8 +60,9 @@
 (global-set-key (kbd "C-z") 'shell)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
-;; Zap to char exclusive
-(global-set-key (kbd "M-Z") 'zap-to-char-exclusive)
+;; Zap to char
+(global-set-key (kbd "M-z") 'zap-to-char-exclusive)
+(global-set-key (kbd "M-Z") 'zap-to-char)
 
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'jump-char-forward)
