@@ -61,8 +61,8 @@
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
 ;; Zap to char
-(global-set-key (kbd "M-z") 'zap-to-char-exclusive)
-(global-set-key (kbd "M-Z") 'zap-to-char)
+(global-set-key (kbd "M-z") 'zap-to-char)
+(global-set-key (kbd "M-Z") 'zap-to-char-exclusive)
 
 ;; iy-go-to-char - like f in Vim
 (global-set-key (kbd "M-m") 'jump-char-forward)
