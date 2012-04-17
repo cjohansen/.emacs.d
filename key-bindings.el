@@ -79,10 +79,6 @@
 ;; We lose tab-to-tab-stop, which is no big loss in my use cases.
 (global-set-key (kbd "M-i") 'back-to-indentation)
 
-;; Font size
-(define-key global-map (kbd "M-s +") 'zoom-in)
-(define-key global-map (kbd "M-s -") 'zoom-out)
-
 ;; Create new frame
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
