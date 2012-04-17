@@ -211,6 +211,9 @@
 ;; Easy-mode fullscreen rgrep
 (global-set-key (kbd "M-s s") 'rgrep-fullscreen)
 
+;; Occur
+(global-set-key (kbd "C-c o") 'occur)
+
 ;; Find-name-dired
 (global-set-key (kbd "M-s f") 'find-name-dired)
 

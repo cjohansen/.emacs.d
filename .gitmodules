@@ -85,3 +85,6 @@
 [submodule "site-lisp/annoying-arrows-mode"]
 	path = site-lisp/annoying-arrows-mode
 	url = git://github.com/magnars/annoying-arrows-mode.el.git
+[submodule "site-lisp/replace-plus"]
+	path = site-lisp/replace-plus
+	url = https://github.com/emacsmirror/replace-plus.git
