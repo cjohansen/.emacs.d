@@ -189,7 +189,7 @@ region-end is used. Adds the duplicated text to the kill ring."
   (interactive)
   (let* ((end-of-first (cond
                         ((looking-at ", ") (point))
-                        ((looking-back ",") (- (point) 1))
+                        ((and (looking-back ",") (looking-at " ")) (- (point) 1))
                         ((looking-back ", ") (- (point) 2))
                         (t (error "Place point between params to transpose."))))
          (start-of-first (save-excursion
