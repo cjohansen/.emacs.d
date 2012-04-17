@@ -76,13 +76,10 @@
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
 
-;; Create new frame (bound to regular mac-command)
+;; Create new frame
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
-;; Cycle through buffers
-(global-set-key (kbd "<C-tab>") 'bury-buffer)
-
-;; Jump to a definition in the current file. (This is awesome.)
+;; Jump to a definition in the current file. (This is awesome)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 ;; File finding
@@ -131,8 +128,8 @@
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-S-f") (lambda () (interactive) (forward-char 5)))
 (global-set-key (kbd "C-S-b") (lambda () (interactive) (backward-char 5)))
-
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
+
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
 (global-set-key (kbd "<XF86Forward>") 'scroll-up)
 (global-set-key (kbd "<XF86WakeUp>") 'beginning-of-buffer)
@@ -143,14 +140,9 @@
 ;; Yank selection in isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-yank-selection)
 
-;; Comment out block
+;; Comment/uncomment block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-
-;; Uncomment block
 (global-set-key (kbd "C-c u") 'uncomment-region)
-
-;; Indent region
-(global-set-key (kbd "C-c M-i") 'indent-region)
 
 ;; Eval buffer
 (global-set-key (kbd "C-c v") 'eval-buffer)
@@ -199,7 +191,7 @@
 (global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
 
 ;; Browse the kill ring
-(global-set-key (kbd "C-x y") 'browse-kill-ring)
+(global-set-key (kbd "C-x C-y") 'browse-kill-ring)
 
 ;; Buffer file functions
 (global-set-key (kbd "C-x t") 'touch-buffer-file)
