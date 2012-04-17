@@ -57,9 +57,9 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
-;; Hardcore mode
-(require 'hardcore-mode)
-;;(global-hardcore-mode)
+;; Annoying arrows mode
+(require 'annoying-arrows-mode)
+(global-annoying-arrows-mode)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
@@ -73,7 +73,18 @@
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
+(require 'wgrep)
+
+;; Browse kill ring
 (require 'browse-kill-ring)
+(setq browse-kill-ring-quit-action 'save-and-restore)
+
+;; Add JSP expansions to html-mode
+(eval-after-load "sgml-mode" '(require 'jsp-expansions))
+
+;; Smart M-x is smart
+(require 'smex)
+(smex-initialize)
 
 ;; Vimgolf
 (load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))

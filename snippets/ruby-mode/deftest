@@ -1,6 +1,7 @@
 # -*- mode: snippet -*-
-# name: test
+# name: tt
 # key: tt
 # --
-(deftest $1
-  (is (= $0)))
+def test_$1
+  $0
+end

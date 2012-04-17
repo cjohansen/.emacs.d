@@ -8,19 +8,6 @@
       ido-use-filename-at-point nil
       ido-max-prospects 10)
 
-;; Push mark when using ido-imenu
-
-(defvar push-mark-before-goto-char nil)
-
-(defadvice goto-char (before push-mark-first activate)
-  (when push-mark-before-goto-char
-    (push-mark)))
-
-(defun ido-imenu-push-mark ()
-  (interactive)
-  (let ((push-mark-before-goto-char t))
-    (ido-imenu)))
-
 ;; Always rescan buffer for imenu
 (set-default 'imenu-auto-rescan t)
 

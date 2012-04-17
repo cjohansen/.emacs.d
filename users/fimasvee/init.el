@@ -5,5 +5,5 @@
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
 
-;; org-mode: Don't ruin S-arrow to switch windows please (use M-+ instead to toggle)
-(setq org-replace-disputed-keys t)
+;; Don't screw up key bindings in magit-mode
+(add-to-list 'wrap-region-except-modes 'adventur-mode)

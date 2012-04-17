@@ -8,5 +8,10 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
+(defun hippie-expand-lines ()
+  (interactive)
+  (let ((hippie-expand-try-functions-list '(try-expand-line
+                                            try-expand-line-all-buffers)))
+    (hippie-expand nil)))
 
 (provide 'setup-hippie)

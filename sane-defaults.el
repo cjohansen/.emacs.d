@@ -4,8 +4,9 @@
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
 
-;; Also auto refresh dired
+;; Also auto refresh dired, but be quiet about it
 (setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
 
 ;; Show keystrokes in progress
 (setq echo-keystrokes 0.1)
@@ -65,6 +66,9 @@
 
 ;; Keep cursor away from edges when scrolling up/down
 (require 'smooth-scrolling)
+
+;; org-mode: Don't ruin S-arrow to switch windows please (use M-+ and M-- instead to toggle)
+(setq org-replace-disputed-keys t)
 
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)

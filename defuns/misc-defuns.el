@@ -1,6 +1,22 @@
 ;; Misc defuns go here
 ;; It wouldn't hurt to look for patterns and extract once in a while
 
+(defmacro create-simple-keybinding-command (name key)
+  `(defmacro ,name (&rest fns)
+     (list 'global-set-key (kbd ,key) `(lambda ()
+                                         (interactive)
+                                         ,@fns))))
+
+(create-simple-keybinding-command f2 "<f2>")
+(create-simple-keybinding-command f5 "<f5>")
+(create-simple-keybinding-command f6 "<f6>")
+(create-simple-keybinding-command f7 "<f7>")
+(create-simple-keybinding-command f8 "<f8>")
+(create-simple-keybinding-command f9 "<f9>")
+(create-simple-keybinding-command f10 "<f10>")
+(create-simple-keybinding-command f11 "<f11>")
+(create-simple-keybinding-command f12 "<f12>")
+
 (defun isearch-yank-selection ()
   "Put selection from buffer into search string."
   (interactive)

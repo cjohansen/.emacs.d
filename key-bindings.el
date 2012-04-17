@@ -5,6 +5,12 @@
 
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand)
+(global-set-key (kbd "C-:") 'hippie-expand-lines)
+
+;; Smart M-x
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (if is-mac (kbd "C-@") (kbd "C-'")) 'er/expand-region)
@@ -25,7 +31,6 @@
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
 ;; Quickly jump in document with ace-jump-mode
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (define-key global-map (kbd "C-ø") 'ace-jump-mode)
 
 ;; Perform general cleanup.
@@ -38,6 +43,13 @@
 ;; Use shell-like backspace C-h, rebind help to F1
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "<f1>") 'help-command)
+
+;; Transpose stuff with M-t
+(global-unset-key (kbd "M-t")) ;; which used to be transpose-words
+(global-set-key (kbd "M-t l") 'transpose-lines)
+(global-set-key (kbd "M-t w") 'transpose-words)
+(global-set-key (kbd "M-t s") 'transpose-sexps)
+(global-set-key (kbd "M-t p") 'transpose-params)
 
 ;; Change next underscore with a camel case
 (global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
@@ -55,7 +67,8 @@
 (global-set-key (kbd "C-z") 'shell)
 (global-set-key (kbd "C-x C-z") 'suspend-frame)
 
-;; Zap to char exclusive
+;; Zap to char
+(global-set-key (kbd "M-z") 'zap-to-char)
 (global-set-key (kbd "M-Z") 'zap-to-char-exclusive)
 
 ;; iy-go-to-char - like f in Vim
@@ -70,11 +83,11 @@
 (define-key global-map (kbd "C-+") 'zoom-frm-in)
 (define-key global-map (kbd "C--") 'zoom-frm-out)
 
-;; Create new frame (bound to regular mac-command)
+;; Create new frame
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
 
-;; Jump to a definition in the current file. (This is awesome.)
-(global-set-key (kbd "C-x C-i") 'ido-imenu-push-mark)
+;; Jump to a definition in the current file. (This is awesome)
+(global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
@@ -125,8 +138,8 @@
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-S-f") (lambda () (interactive) (forward-char 5)))
 (global-set-key (kbd "C-S-b") (lambda () (interactive) (backward-char 5)))
-
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
+
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
 (global-set-key (kbd "<XF86Forward>") 'scroll-up)
 (global-set-key (kbd "<XF86WakeUp>") 'beginning-of-buffer)
@@ -137,14 +150,9 @@
 ;; Yank selection in isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-yank-selection)
 
-;; Comment out block
+;; Comment/uncomment block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-
-;; Uncomment block
 (global-set-key (kbd "C-c u") 'uncomment-region)
-
-;; Indent region
-(global-set-key (kbd "C-c M-i") 'indent-region)
 
 ;; Eval buffer
 (global-set-key (kbd "C-c v") 'eval-buffer)
@@ -166,9 +174,7 @@
 (global-set-key (kbd "C-c M-e") 'eval-output-marked-lines)
 
 ;; Magit
-(global-set-key (kbd "C-x m") 'magit-status-fullscreen)
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-(define-key magit-status-mode-map (kbd "C-x C-k") 'magit-kill-file-on-line)
+(global-set-key (kbd "C-x m") 'magit-status)
 
 ;; Clever newlines
 (global-set-key (kbd "<C-return>") 'new-line-below)
@@ -195,7 +201,7 @@
 (global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
 
 ;; Browse the kill ring
-(global-set-key (kbd "C-x y") 'browse-kill-ring)
+(global-set-key (kbd "C-x C-y") 'browse-kill-ring)
 
 ;; Buffer file functions
 (global-set-key (kbd "C-x t") 'touch-buffer-file)
