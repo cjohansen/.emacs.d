@@ -49,6 +49,7 @@
 (global-set-key (kbd "M-t l") 'transpose-lines)
 (global-set-key (kbd "M-t w") 'transpose-words)
 (global-set-key (kbd "M-t s") 'transpose-sexps)
+(global-set-key (kbd "M-t p") 'transpose-params)
 
 ;; Change next underscore with a camel case
 (global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
