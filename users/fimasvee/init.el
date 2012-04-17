@@ -11,3 +11,12 @@
 ;; Font size
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
+
+;; org-mode: beginning/end of buffer on M-up/down
+
+(eval-after-load "org"
+  '(progn
+     (define-key org-mode-map (kbd "M-<up>") 'beginning-of-buffer)
+     (define-key org-mode-map (kbd "M-<down>") 'end-of-buffer)
+     (define-key org-mode-map (kbd "C-S-<up>") 'org-metaup)
+     (define-key org-mode-map (kbd "C-S-<down>") 'org-metadown)))
