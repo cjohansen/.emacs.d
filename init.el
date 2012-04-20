@@ -75,9 +75,6 @@
 (require 'eproject)
 (require 'wgrep)
 
-;; Improvements to replace.el
-(eval-after-load "replace" '(progn (require 'replace+)))
-
 ;; Browse kill ring
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
