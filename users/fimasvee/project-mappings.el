@@ -48,11 +48,13 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (when (string-match-p "projects/zombietdd" (buffer-file-name))
+              (fci-mode 1)
               (setq js2-additional-externs '("ZOMBIE" "Faye" "EventEmitter" "when"))
               (set (make-local-variable 'buster-default-global) "ZOMBIE")
               (set (make-local-variable 'buster-add-default-global-to-iife) t)
               (set (make-local-variable 'buster-use-strict) t)
-              (setq js2r-use-strict t))))
+              (set (make-local-variable 'buster-test-prefix) "")
+              (set (make-local-variable 'js2r-use-strict) t))))
 
 ;; culljs
 
@@ -66,14 +68,33 @@
 (add-hook 'js2-mode-hook
           (lambda ()
             (when (string-match-p "projects/culljs" (buffer-file-name))
+              (fci-mode 1)
               (setq js2-additional-externs '("cull"))
-              (setq buster-default-global "cull")
-              (setq buster-add-default-global-to-iife t)
-              (setq buster-use-strict t)
-              (make-variable-buffer-local 'buster-test-prefix)
-              (setq buster-test-prefix "")
+              (set (make-local-variable 'buster-default-global) "cull")
+              (set (make-local-variable 'buster-add-default-global-to-iife) t)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2-basic-offset) 4)
-              (setq js2r-use-strict t))))
+              (set (make-local-variable 'js2r-use-strict) t))))
+;; buster
+
+(defun custom-persp/buster ()
+  (interactive)
+  (custom-persp "buster"
+                (find-file "~/stuff/fs-watch-tree/todo.org")))
+
+(define-key persp-mode-map (kbd "C-x p b") 'custom-persp/buster)
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "stuff/fs-watch-tree" (buffer-file-name))
+              (fci-mode 1)
+              (set (make-local-variable 'buster-default-global) "cull")
+              (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+              (set (make-local-variable 'buster-use-strict) nil)
+              (set (make-local-variable 'buster-test-prefix) "")
+              (set (make-local-variable 'js2-basic-offset) 4)
+              (set (make-local-variable 'js2r-use-strict) nil))))
 
 ;; Adventur
 
