@@ -13,7 +13,7 @@
 (require 'buster-snippets)
 
 ;; Jump to end of snippet definition
-(define-key yas/keymap (kbd "C-<return>") 'yas/exit-all-snippets)
+(define-key yas/keymap (kbd "<return>") 'yas/exit-all-snippets)
 
 ;; Inter-field navigation
 (defun yas/goto-end-of-active-field ()
