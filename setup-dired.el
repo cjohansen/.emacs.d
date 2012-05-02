@@ -5,8 +5,12 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
-;; Always reload dired after creating a directory
+;; Reload dired after creating a directory
 (defadvice dired-create-directory (after revert-buffer-after-create activate)
+  (revert-buffer))
+
+;; Reload dired after quitting wdired
+(defadvice wdired-abort-changes (after revert-buffer-after-abort activate)
   (revert-buffer))
 
 ;; C-a is nicer in dired if it moves back to start of files
