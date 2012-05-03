@@ -14,7 +14,6 @@
   (newline-and-indent))
 
 ;; Misc in misc
-(setq ediff-window-setup-function 'ediff-setup-windows-plain
-      xterm-mouse-mode t)
+(setq xterm-mouse-mode t)
 
 (provide 'misc)
