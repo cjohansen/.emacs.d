@@ -75,6 +75,10 @@
 (require 'eproject)
 (require 'wgrep)
 
+;; Fill column indicator
+(require 'fill-column-indicator)
+(setq fci-rule-color "#111122")
+
 ;; Browse kill ring
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
