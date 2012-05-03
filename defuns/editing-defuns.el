@@ -158,9 +158,8 @@ region-end is used. Adds the duplicated text to the kill ring."
 (defun camelize-buffer ()
   (interactive)
   (goto-char 0)
-  (condition-case nil
-      (replace-next-underscore-with-camel 0)
-    (error nil))
+  (ignore-errors
+    (replace-next-underscore-with-camel 0))
   (goto-char 0))
 
 (defun replace-next-underscore-with-camel (arg)
