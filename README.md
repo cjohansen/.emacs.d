@@ -19,9 +19,8 @@ or on git v1.6.5 or later:
 
 ## Magit
 
-I don't keep magit in my .emacs.d. To install magit, check install-instructions here:
-
-    https://github.com/magit/magit
+I don't keep magit in my .emacs.d. To install magit, check
+[install-instructions here](https://github.com/magit/magit).
 
 
 ## Install emacs on mac
@@ -40,9 +39,13 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * You quit emacs with `C-x r q`, mnemonic *Really Quit*.
 
+ * Find file in project with `C-x o`, in dir with `C-x C-f`, recent with `C-x f`
+
  * Add your user- and project-specific stuff in .emacs.d/users/<machine name>/*.el
 
  * `C-h` is rebound to backspace, like in the shell. Get help on `F1` instead.
+
+ * Autocomplete with `C-.`
 
  * expand-region is your friend. Find its bound key by doing `F1 f er/expand-region`
 
@@ -54,5 +57,7 @@ If you want to use my settings straight out of the box, here are some things to 
  * Easily add functions to the F-keys with `M-: (f5 <sexps here>)`, example `(f5 (flush-lines "console.log"))`
 
  * Quickly jump anywhere in the buffer by pressing `fn` plus the starting letter of a word.
+
+ * Indent and clean up white space in the entire buffer with `C-c n`
 
  * Watch [emacsrocks.com](http://emacsrocks.com)
