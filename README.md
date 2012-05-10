@@ -55,4 +55,4 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * Quickly jump anywhere in the buffer by pressing `fn` plus the starting letter of a word.
 
- * Watch [emacsrock.com](http://emacsrock.com)
+ * Watch [emacsrocks.com](http://emacsrocks.com)
