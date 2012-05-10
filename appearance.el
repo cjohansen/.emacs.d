@@ -11,10 +11,11 @@
 ;; Customize background color of lighlighted line
 (set-face-background 'hl-line "#222222")
 
-;; Subtler highlight in magit
+;; Subtler highlight in magit (and elsewhere)
 (set-face-background 'magit-item-highlight "#121212")
-(set-face-foreground 'magit-diff-none "#666666")
-(set-face-foreground 'magit-diff-add "#00cc33")
+(set-face-foreground 'diff-context "#666666")
+(set-face-foreground 'diff-added "#00cc33")
+(set-face-foreground 'diff-removed "#ff0000")
 
 ;; Highlight in yasnippet
 (set-face-background 'yas/field-highlight-face "#333399")
