@@ -41,7 +41,7 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * Find file in project with `C-x o`, in dir with `C-x C-f`, recent with `C-x f`
 
- * Add your user- and project-specific stuff in .emacs.d/users/<machine name>/*.el
+ * Add your user- and project-specific stuff in .emacs.d/users/[machine name]/*.el
 
  * `C-h` is rebound to backspace, like in the shell. Get help on `F1` instead.
 
