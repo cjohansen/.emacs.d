@@ -1,6 +1,13 @@
 (require 'magit)
 (require 'magit-svn)
 
+;; Load git configurations
+;; For instance, to run magit-svn-mode in a project, do:
+;;
+;;     git config --add magit.extension svn
+;;
+(add-hook 'magit-mode-hook 'magit-load-config-extensions)
+
 ;; C-x C-k to kill file on line
 
 (defun magit-kill-file-on-line ()
