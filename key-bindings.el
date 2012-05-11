@@ -190,8 +190,8 @@
 ;; Sorting
 (global-set-key (kbd "M-s l") 'sort-lines)
 
-;; Paste URLs as HTML links
-(global-set-key (kbd "C-c C-l") 'linkify-from-kill-ring)
+;; Increase number at point (or other change based on prefix arg)
+(global-set-key (kbd "C-+") 'change-number-at-point)
 
 ;; Browse the kill ring
 (global-set-key (kbd "C-x C-y") 'browse-kill-ring)
