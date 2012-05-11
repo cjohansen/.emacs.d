@@ -75,6 +75,9 @@ in an exploded war, re-deploy the file."
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)))
 
+(eval-after-load "grep"
+  '(add-to-list 'grep-find-ignored-directories "ckeditor"))
+
 (add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
 
 (provide 'oppdrag-mode)
