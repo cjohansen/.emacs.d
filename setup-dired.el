@@ -42,6 +42,9 @@
 (define-key dired-mode-map (kbd "C-x C-k") 'dired-do-delete)
 
 (eval-after-load "wdired"
-  '(define-key wdired-mode-map (kbd "C-a") 'dired-back-to-start-of-files))
+  '(progn
+     (define-key wdired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
+     (define-key wdired-mode-map (kbd "M-<up>") 'dired-back-to-top)
+     (define-key wdired-mode-map (kbd "M-<down>") 'dired-jump-to-bottom)))
 
 (provide 'setup-dired)
