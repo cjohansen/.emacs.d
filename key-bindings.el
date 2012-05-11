@@ -87,7 +87,6 @@
 
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 (global-set-key (kbd "C-x C-p") 'find-or-create-file-at-point)
 (global-set-key (kbd "C-x M-p") 'find-or-create-file-at-point-other-window)
@@ -113,7 +112,7 @@
 (global-set-key (kbd "<f1> a") 'apropos)
 
 ;; Should be able to eval-and-replace anywhere.
-(global-set-key (kbd "C-c e") 'eval-and-replace)
+(global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
 ;; Navigation bindings
 (global-set-key (kbd "C-x g") 'goto-line)
@@ -162,10 +161,6 @@
 ;; Mark all
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
-;; Eval lines
-(global-set-key (kbd "C-c C-e") 'eval-current-line)
-(global-set-key (kbd "C-c M-e") 'eval-output-marked-lines)
-
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status)
 
@@ -201,16 +196,17 @@
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
-;; Dired jump
+;; Jump from file to containing directory
 (global-set-key (kbd "C-x C-j") 'dired-jump)
+(global-set-key (kbd "C-x M-j") '(lambda () (interactive) (dired-jump 1)))
 
 ;; Easy-mode fullscreen rgrep
 (global-set-key (kbd "M-s s") 'rgrep-fullscreen)
 
-;; Occur
+;; Display and edit occurances of regexp in buffer
 (global-set-key (kbd "C-c o") 'occur)
 
-;; Find-name-dired
+;; Find files by name and display results in dired
 (global-set-key (kbd "M-s f") 'find-name-dired)
 
 ;; Find file in project
