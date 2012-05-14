@@ -2,6 +2,8 @@
 
 (eval-after-load "magit"
   '(progn
+     (require 'magit-svn)
+
      ;; Subtler highlight
      (set-face-background 'magit-item-highlight "#121212")
      (set-face-foreground 'diff-context "#666666")
