@@ -19,8 +19,11 @@ or on git v1.6.5 or later:
 
 ## Magit
 
-I don't keep magit in my .emacs.d. To install magit, check
-[install-instructions here](https://github.com/magit/magit).
+I don't keep magit in my .emacs.d. To install magit, do
+
+    M-x package-list-packages
+
+Search for `magit` and install it there.
 
 
 ## Install emacs on mac
