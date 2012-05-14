@@ -7,7 +7,7 @@
 (setq wrap-region-only-with-negative-prefix t)
 
 ;; Don't screw up key bindings in magit-mode
-(add-to-list 'wrap-region-except-modes 'magit-mode)
+(add-to-list 'wrap-region-except-modes 'magit-status-mode)
 
 ;; Custom wrappers
 
