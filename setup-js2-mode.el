@@ -21,6 +21,8 @@
 (define-key js2-mode-map (kbd "C-c RET jo") 'jump-between-source-and-test-files)
 (define-key js2-mode-map (kbd "C-c RET oo") 'jump-between-source-and-test-files-other-window)
 
+(define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
+
 (defun js2-hide-test-functions ()
   (interactive)
   (save-excursion
