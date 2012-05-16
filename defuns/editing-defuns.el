@@ -47,6 +47,10 @@ region-end is used. Adds the duplicated text to the kill ring."
 (defun duplicate-current-line (num)
   "Duplicate the current line NUM times."
   (interactive "p")
+  (when (eq (point-at-eol) (point-max))
+    (goto-char (point-max))
+    (newline)
+    (forward-char -1))
   (duplicate-region num (point-at-bol) (1+ (point-at-eol)))
   (goto-char (1- (point))))
 
