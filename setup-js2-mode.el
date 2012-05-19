@@ -14,6 +14,9 @@
 (require 'js2-mode)
 (require 'js2-refactor)
 
+(require 'js2-imenu-extras)
+(js2-imenu-extras-setup)
+
 (define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
 (define-key js2-mode-map (kbd "C-c RET ot") 'jump-to-test-file-other-window)
 (define-key js2-mode-map (kbd "C-c RET js") 'jump-to-source-file)
