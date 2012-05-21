@@ -14,7 +14,7 @@
              (setq n (1+ n))
              (get-buffer bufname)))
     (switch-to-buffer (get-buffer-create bufname))
-    (if (= n 1) (lisp-interaction-mode)) ; 1, because n was incremented
+    (emacs-lisp-mode)
     ))
 
 (defun toggle-window-split ()
