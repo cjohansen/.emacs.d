@@ -90,9 +90,6 @@
 (require 'smex)
 (smex-initialize)
 
-;; Vimgolf
-(load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
-
 ;; Setup key bindings
 (require 'key-bindings)
 
@@ -117,4 +114,4 @@
 
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
-      (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
+  (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
