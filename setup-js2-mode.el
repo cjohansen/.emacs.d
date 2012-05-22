@@ -10,6 +10,7 @@
 (setq-default js2-rebind-eol-bol-keys nil)
 (setq-default js2-include-rhino-externs nil)
 (setq-default js2-include-gears-externs nil)
+(setq-default js2-concat-multiline-strings 'eol)
 
 (require 'js2-mode)
 (require 'js2-refactor)
