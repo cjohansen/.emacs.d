@@ -14,6 +14,8 @@
 ;; Highlight in yasnippet
 (set-face-background 'yas/field-highlight-face "#333399")
 
+(set-face-foreground 'font-lock-warning-face "#ff6666")
+
 ;; org-mode colors
 (setq org-todo-keyword-faces
       '(
