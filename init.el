@@ -83,9 +83,6 @@
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
 
-;; Add JSP expansions to html-mode
-(eval-after-load "sgml-mode" '(require 'jsp-expansions))
-
 ;; Smart M-x is smart
 (require 'smex)
 (smex-initialize)

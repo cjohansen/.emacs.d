@@ -13,6 +13,9 @@
 (defadvice sgml-close-tag (after close-tag-then-newline activate)
   (newline-and-indent))
 
+;; Add JSP expansions to html-mode
+(eval-after-load "sgml-mode" '(require 'jsp-expansions))
+
 ;; Misc in misc
 (setq xterm-mouse-mode t)
 
