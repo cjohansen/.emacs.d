@@ -166,6 +166,15 @@ region-end is used. Adds the duplicated text to the kill ring."
     (replace-next-underscore-with-camel 0))
   (goto-char 0))
 
+;; kill all comments in buffer
+(defun comment-kill-all ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (comment-kill (save-excursion
+                    (goto-char (point-max))
+                    (line-number-at-pos)))))
+
 (defun incs (s &optional num)
   (number-to-string (+ (or num 1) (string-to-number s))))
 
