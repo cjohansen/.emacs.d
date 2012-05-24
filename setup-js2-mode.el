@@ -27,6 +27,9 @@
 
 (define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
 
+(defadvice js2r-inline-var (after reindent-buffer activate)
+  (cleanup-buffer))
+
 (defun js2-hide-test-functions ()
   (interactive)
   (save-excursion
