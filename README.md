@@ -66,4 +66,8 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * Indent and clean up white space in the entire buffer with `C-c n`
 
+ * On a mac, the Meta key `M` is bound to Command.
+
+ * I recommend rebinding Caps Lock to Ctrl and use that instead of the often badly placed Ctrl-key.
+
  * Watch [emacsrocks.com](http://emacsrocks.com)
