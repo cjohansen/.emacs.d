@@ -1,4 +1,4 @@
-;; change command to meta, and ignore option to use weird norwegian keyboard
+;; change command to meta, and ignore option to use weird Norwegian keyboard
 (setq mac-option-modifier 'none)
 (setq mac-command-modifier 'meta)
 (setq ns-function-modifier 'hyper)
@@ -26,5 +26,8 @@
 ;; PeepOpen
 ;; See https://gist.github.com/1505658 if PeepOpen opens selected files in a new Emacs instance
 (require 'eproject-peepopen)
+
+;; Use aspell for spell checking: brew install aspell --lang=en
+(setq ispell-program-name "/usr/local/bin/aspell")
 
 (provide 'mac)

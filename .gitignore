@@ -5,6 +5,7 @@ backups
 session.*
 tramp
 elpa
+swank
 emms
 site-lisp/adventur-mode
 *.elc

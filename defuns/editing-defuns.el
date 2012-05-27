@@ -47,6 +47,10 @@ region-end is used. Adds the duplicated text to the kill ring."
 (defun duplicate-current-line (num)
   "Duplicate the current line NUM times."
   (interactive "p")
+  (when (eq (point-at-eol) (point-max))
+    (goto-char (point-max))
+    (newline)
+    (forward-char -1))
   (duplicate-region num (point-at-bol) (1+ (point-at-eol)))
   (goto-char (1- (point))))
 
@@ -158,10 +162,31 @@ region-end is used. Adds the duplicated text to the kill ring."
 (defun camelize-buffer ()
   (interactive)
   (goto-char 0)
-  (condition-case nil
-      (replace-next-underscore-with-camel 0)
-    (error nil))
+  (ignore-errors
+    (replace-next-underscore-with-camel 0))
   (goto-char 0))
+
+;; kill all comments in buffer
+(defun comment-kill-all ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (comment-kill (save-excursion
+                    (goto-char (point-max))
+                    (line-number-at-pos)))))
+
+(defun incs (s &optional num)
+  (number-to-string (+ (or num 1) (string-to-number s))))
+
+(defun change-number-at-point (arg)
+  (interactive "p")
+  (unless (or (looking-at "[0-9]")
+              (looking-back "[0-9]"))
+    (error "No number to change at point"))
+  (while (looking-back "[0-9]")
+    (forward-char -1))
+  (re-search-forward "[0-9]+" nil)
+  (replace-match (incs (match-string 0) arg) nil nil))
 
 (defun replace-next-underscore-with-camel (arg)
   (interactive "p")

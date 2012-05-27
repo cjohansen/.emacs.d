@@ -110,9 +110,6 @@
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
-;; Indent buffer
-(global-set-key (kbd "<C-tab>") 'indent-buffer)
-
 ;; Fetch the contents at a URL, display it raw.
 (global-set-key (kbd "C-x h") 'view-url)
 

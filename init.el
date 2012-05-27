@@ -75,19 +75,17 @@
 (require 'eproject)
 (require 'wgrep)
 
+;; Fill column indicator
+(require 'fill-column-indicator)
+(setq fci-rule-color "#111122")
+
 ;; Browse kill ring
 (require 'browse-kill-ring)
 (setq browse-kill-ring-quit-action 'save-and-restore)
 
-;; Add JSP expansions to html-mode
-(eval-after-load "sgml-mode" '(require 'jsp-expansions))
-
 ;; Smart M-x is smart
 (require 'smex)
 (smex-initialize)
-
-;; Vimgolf
-(load (expand-file-name "vimgolf/emacs/vimgolf.el" site-lisp-dir))
 
 ;; Setup key bindings
 (require 'key-bindings)
@@ -113,4 +111,4 @@
 
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
-      (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
+  (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))

@@ -10,9 +10,13 @@
 (setq-default js2-rebind-eol-bol-keys nil)
 (setq-default js2-include-rhino-externs nil)
 (setq-default js2-include-gears-externs nil)
+(setq-default js2-concat-multiline-strings 'eol)
 
 (require 'js2-mode)
 (require 'js2-refactor)
+
+(require 'js2-imenu-extras)
+(js2-imenu-extras-setup)
 
 (define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
 (define-key js2-mode-map (kbd "C-c RET ot") 'jump-to-test-file-other-window)
@@ -20,6 +24,8 @@
 (define-key js2-mode-map (kbd "C-c RET os") 'jump-to-source-file-other-window)
 (define-key js2-mode-map (kbd "C-c RET jo") 'jump-between-source-and-test-files)
 (define-key js2-mode-map (kbd "C-c RET oo") 'jump-between-source-and-test-files-other-window)
+
+(define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
 
 (defun js2-hide-test-functions ()
   (interactive)
@@ -55,5 +61,22 @@
               (0 (progn (compose-region (match-beginning 1)
                                         (match-end 1) "\u2190")
                         nil)))))
+
+;; After js2 has parsed a js file, we look for jslint globals decl comment ("/* global Fred, _, Harry */") and
+;; add any symbols to a buffer-local var of acceptable global vars
+;; Note that we also support the "symbol: true" way of specifying names via a hack (remove any ":true"
+;; to make it look like a plain decl, and any ':false' are left behind so they'll effectively be ignored as
+;; you can;t have a symbol called "someName:false"
+(add-hook 'js2-post-parse-callbacks
+          (lambda ()
+            (when (> (buffer-size) 0)
+              (let ((btext (replace-regexp-in-string
+                            ": *true" " "
+                            (replace-regexp-in-string "[\n\t ]+" " " (buffer-substring-no-properties 1 (buffer-size)) t t))))
+                (mapc (apply-partially 'add-to-list 'js2-additional-externs)
+                      (split-string
+                       (if (string-match "/\\* *global *\\(.*?\\) *\\*/" btext) (match-string-no-properties 1 btext) "")
+                       " *, *" t))
+                ))))
 
 (provide 'setup-js2-mode)

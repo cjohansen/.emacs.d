@@ -136,3 +136,17 @@
       (if (file-exists-p test-dir)
           test-dir
         (error "Unable to locate test folder. Verify js2r-path-to-tests")))))
+
+;; Toggle assert/refute
+
+(defun toggle-assert-refute ()
+  (interactive)
+  (save-excursion
+    (end-of-line)
+    (re-search-backward "\\(assert\\|refute\\)")
+    (if (looking-at "assert")
+        (progn
+          (kill-word 1)
+          (insert "refute"))
+      (kill-word 1)
+      (insert "assert"))))

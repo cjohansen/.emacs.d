@@ -33,9 +33,14 @@
   (delete-other-windows)
   (message "Type C-x r j $ to return to pre-rgrep windows."))
 
-(add-hook 'grep-mode-hook
-          (lambda ()
-            (define-key grep-mode-map "q" 'rgrep-quit-window)
-            (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)))
+(eval-after-load "grep"
+  '(progn
+     ;; Don't recurse into some directories
+     (add-to-list 'grep-find-ignored-directories "target")
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+
+     ;; Add custom keybindings
+     (define-key grep-mode-map "q" 'rgrep-quit-window)
+     (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)))
 
 (provide 'setup-rgrep)
