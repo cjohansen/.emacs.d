@@ -94,3 +94,6 @@
 [submodule "site-lisp/projectile"]
 	path = site-lisp/projectile
 	url = git://github.com/bbatsov/projectile.git
+[submodule "site-lisp/scss-mode"]
+	path = site-lisp/scss-mode
+	url = https://github.com/antonj/scss-mode.git
