@@ -17,7 +17,7 @@ or on git v1.6.5 or later:
     git clone --recursive git://github.com/magnars/.emacs.d.git
 
 
-## Magit
+## Magit and clojure-mode
 
 I don't keep magit in my .emacs.d. To install magit, do
 
@@ -25,6 +25,9 @@ I don't keep magit in my .emacs.d. To install magit, do
 
 Search for `magit` and install it there.
 
+The same is true for `clojure-mode` and `clojure-test-mode`. I haven't
+been able to set it up properly for testing, but installing it through
+the package system gets it right.
 
 ## Install emacs on mac
 

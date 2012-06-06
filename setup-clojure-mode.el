@@ -6,6 +6,4 @@
 (defadvice clojure-test-run-tests (before save-first activate)
   (save-buffer))
 
-(autoload 'clojure-test-mode "clojure-test-mode")
-
 (provide 'setup-clojure-mode)
