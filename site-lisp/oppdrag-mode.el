@@ -64,7 +64,7 @@ in an exploded war, re-deploy the file."
     (fci-mode 1)
     (setq js2-additional-externs '("FINN" "testCase" "cull"))
     (setq js2r-path-to-tests "/test/javascript/tests/")
-    (setq js2r-path-to-sources "/main/webapp/scripts/")
+    (setq js2r-path-to-sources "/main/webapp/oppdrag/scripts/")
     (setq js2r-test-suffix "Test")
     (setq buster-default-global "FINN.oppdrag")
     (setq buster-add-default-global-to-iife t)
@@ -76,7 +76,8 @@ in an exploded war, re-deploy the file."
     (setq js2-basic-offset 4)))
 
 (eval-after-load "grep"
-  '(add-to-list 'grep-find-ignored-directories "ckeditor"))
+  '(progn (add-to-list 'grep-find-ignored-directories "ckeditor")
+          (add-to-list 'grep-find-ignored-directories "external"))
 
 (add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
 
