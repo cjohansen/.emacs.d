@@ -56,6 +56,29 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; creator
+
+(defun custom-persp/creator ()
+  (interactive)
+  (custom-persp "creator"
+                (find-file "~/projects/creator/README.md")))
+
+(define-key persp-mode-map (kbd "C-x p cr") 'custom-persp/creator)
+
+(project-specifics "projects/creator"
+                   (ffip-local-patterns "*.js" "*.md"))
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/creator" (buffer-file-name))
+              (fci-mode 1)
+              (set (make-local-variable 'buster-default-global) "creator")
+              (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'buster-test-prefix) "")
+              (set (make-local-variable 'js2r-use-strict) t))))
+
+
 ;; culljs
 
 (defun custom-persp/culljs ()
@@ -63,7 +86,7 @@
   (custom-persp "culljs"
                 (find-file "~/projects/culljs/todo.org")))
 
-(define-key persp-mode-map (kbd "C-x p c") 'custom-persp/culljs)
+(define-key persp-mode-map (kbd "C-x p cu") 'custom-persp/culljs)
 
 (add-hook 'js2-mode-hook
           (lambda ()
