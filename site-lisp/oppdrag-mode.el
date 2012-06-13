@@ -77,7 +77,7 @@ in an exploded war, re-deploy the file."
 
 (eval-after-load "grep"
   '(progn (add-to-list 'grep-find-ignored-directories "ckeditor")
-          (add-to-list 'grep-find-ignored-directories "external"))
+          (add-to-list 'grep-find-ignored-directories "external")))
 
 (add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
 
