@@ -89,10 +89,8 @@ overview of the most commonly used shortcuts to get you through this pain:
 * `C-x C-f` Open a file. Starts in the current directory
 * `C-x f  ` Open a recently visited file
 * `C-x o  ` Open a file in the current project (based on .git ++)
-
 * `C-x C-s` Save this file
 * `C-x C-j` Jump to this files' current directory
-
 * `C-x b  ` Switch to another open file (buffer)
 * `C-x C-b` List all open files (buffers)
 
