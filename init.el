@@ -74,6 +74,7 @@
 (require 'jump-char)
 (require 'eproject)
 (require 'wgrep)
+(require 'smart-forward)
 
 ;; Fill column indicator
 (require 'fill-column-indicator)

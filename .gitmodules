@@ -97,3 +97,6 @@
 [submodule "site-lisp/scss-mode"]
 	path = site-lisp/scss-mode
 	url = https://github.com/antonj/scss-mode.git
+[submodule "site-lisp/smart-forward"]
+	path = site-lisp/smart-forward
+	url = https://github.com/magnars/smart-forward.el.git
