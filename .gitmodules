@@ -100,3 +100,6 @@
 [submodule "site-lisp/smart-forward"]
 	path = site-lisp/smart-forward
 	url = https://github.com/magnars/smart-forward.el.git
+[submodule "site-lisp/ido-ubiquitous"]
+	path = site-lisp/ido-ubiquitous
+	url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
