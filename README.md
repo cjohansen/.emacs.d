@@ -81,8 +81,9 @@ When you start using emacs for the first time, your habits fight you every inch
 of the way. Your fingers long for the good old familiar keybindings. Here's an
 overview of the most commonly used shortcuts to get you through this pain:
 
-* `C      ` Shorthand for the ctrl-key.
+* `C      ` Shorthand for the ctrl-key
 * `M      ` Shorthand for the meta-key (bound to cmd on my mac settings)
+* `S      ` Shorthand for the shift-key
 
 ### Files
 
