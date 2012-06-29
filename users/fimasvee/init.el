@@ -24,3 +24,8 @@
      (define-key org-mode-map (kbd "M-<down>") 'end-of-buffer)
      (define-key org-mode-map (kbd "C-S-<up>") 'org-metaup)
      (define-key org-mode-map (kbd "C-S-<down>") 'org-metadown)))
+
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/Dropbox/org")
+(setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
+(setq org-mobile-directory "~/Dropbox/MobileOrg-staging")
