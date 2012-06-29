@@ -29,3 +29,11 @@
 (setq org-directory "~/Dropbox/org")
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/MobileOrg-staging")
+
+;; Set up slime-js
+;; To install, see https://github.com/swank-js/swank-js/wiki/Installation
+
+(require 'slime)
+(require 'slime-js)
+
+(add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))
