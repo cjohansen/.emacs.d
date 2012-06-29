@@ -33,7 +33,10 @@
 ;; Set up slime-js
 ;; To install, see https://github.com/swank-js/swank-js/wiki/Installation
 
-(require 'slime)
-(require 'slime-js)
+(eval-after-load "js2-mode"
+  '(progn
+     (require 'slime)
+     (require 'slime-js)
+     (diminish 'slime-js-minor-mode)))
 
 (add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))
