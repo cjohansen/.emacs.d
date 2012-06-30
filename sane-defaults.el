@@ -55,6 +55,9 @@
 ;; Save a list of recent files visited.
 (recentf-mode 1)
 
+;; Undo/redo window configuration with C-c <left>/<right>
+(winner-mode 1)
+
 ;; Never insert tabs
 (set-default 'indent-tabs-mode nil)
 
