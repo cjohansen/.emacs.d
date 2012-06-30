@@ -14,10 +14,10 @@
   (sleep-for 1)
   (setq slime-protocol-version 'ignore)
   (slime-connect "localhost" 4005)
-  (sleep-for 1)
+  (sleep-for 2)
   (slime-js-set-target-url slime-js-target-url)
   (shell-command "open -a Safari http://localhost:8009")
-  (sleep-for 1)
+  (sleep-for 3)
   (setq slime-remote-history nil)
   (slime-js-select-remote (caadr (slime-eval '(js:list-remotes)))))
 
