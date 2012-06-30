@@ -3,9 +3,8 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
-;; SCSS
-(autoload 'scss-mode "scss-mode")
-(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
+;; CSS
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
 ;; Cucumber
 (autoload 'feature-mode "feature-mode")
