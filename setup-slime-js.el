@@ -19,6 +19,7 @@
   (slime-connect "localhost" 4005))
 
 (defun js2-jack-in-browser ()
+  (interactive)
   (js2-jack-in-node)
   (sleep-for 2)
   (slime-js-set-target-url slime-js-target-url)
