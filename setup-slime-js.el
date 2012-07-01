@@ -29,7 +29,8 @@
   (sleep-for 3)
   (setq slime-remote-history nil)
   (slime-js-select-remote (caadr (slime-eval '(js:list-remotes))))
-  (setq slime-js-browser-jacked-in t))
+  (setq slime-js-browser-jacked-in t)
+  (global-set-key [f5] 'slime-js-reload))
 
 (defadvice save-buffer (after save-css-buffer activate)
   (when (and slime-js-browser-jacked-in (eq major-mode 'css-mode))
