@@ -18,6 +18,19 @@
 
 (define-key persp-mode-map (kbd "C-x p i") 'custom-persp/intelliadv)
 
+;; Emacs Rocks
+
+(defun custom-persp/emacsrocks ()
+  (interactive)
+  (custom-persp "emacsrocks"
+                (find-file "~/projects/emacsrocks/site/lib/episodes.rb")))
+
+(define-key persp-mode-map (kbd "C-x p r") 'custom-persp/emacsrocks)
+
+(project-specifics "projects/emacsrocks"
+                   (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
+                   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb"))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
