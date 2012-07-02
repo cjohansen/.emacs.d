@@ -22,7 +22,7 @@
 (defun slime-js-jack-in-browser ()
   "Start a swank-js server, connect to it, open a repl, open a browser, connect to that."
   (interactive)
-  (js2-jack-in-node)
+  (slime-js-jack-in-node)
   (sleep-for 2)
   (slime-js-set-target-url slime-js-target-url)
   (shell-command (concat slime-js-browser-command " http://localhost:8009"))
