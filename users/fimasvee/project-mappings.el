@@ -43,7 +43,8 @@
 (require 'oppdrag-mode)
 
 (project-specifics "oppdrag-services"
-                   (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/oppdrag/")
+                   (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/")
+                   (set (make-local-variable 'slime-js-starting-url) "/oppdrag/")
                    (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
                    (oppdrag-mode))
 

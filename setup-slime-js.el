@@ -1,4 +1,5 @@
 (setq slime-js-target-url "http://localhost:3000")
+(setq slime-js-starting-url "/")
 (setq slime-js-swank-command "swank-js")
 (setq slime-js-swank-args '())
 (setq slime-js-browser-command "open -a Safari")
@@ -25,10 +26,10 @@
   (slime-js-jack-in-node)
   (sleep-for 2)
   (slime-js-set-target-url slime-js-target-url)
-  (shell-command (concat slime-js-browser-command " http://localhost:8009"))
+  (shell-command (concat slime-js-browser-command " http://localhost:8009" slime-js-starting-url))
   (sleep-for 3)
   (setq slime-remote-history nil)
-  (slime-js-select-remote (caadr (slime-eval '(js:list-remotes))))
+  (slime-js-sticky-select-remote (caadr (slime-eval '(js:list-remotes))))
   (setq slime-js-browser-jacked-in t)
   (global-set-key [f5] 'slime-js-reload))
 
