@@ -7,6 +7,9 @@
 (global-set-key (kbd "C-.") 'hippie-expand)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
 
+;; Use the preferrable delete-forward-char for interactive use
+(global-set-key (kbd "C-d") 'delete-forward-char)
+
 ;; Smart M-x
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
