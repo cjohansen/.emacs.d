@@ -41,25 +41,43 @@
   (or (and (js2-stmt-node-p n) (not (js2-block-node-p n)))
       (and (js2-function-node-p n) (js2-function-node-name n))))
 
-(defun slime-js-eval-statement (&optional func)
-  (interactive)
-  (lexical-let ((func (or func 'message))
-                (stmt (js2r--closest 'js2-is-eval-friendly-node)))
-    (slime-flash-region (js2-node-abs-pos stmt) (js2-node-abs-end stmt))
-    (slime-js-eval
-     (js2-node-string stmt)
-     #'(lambda (s) (funcall func (cadr s) stmt)))))
+(defun slime-js--echo-result (result &rest _)
+  (message result))
 
-(defun js2-replace-node (replacement node)
+(defun slime-js--replace-with-result (replacement beg end)
   (save-excursion
-    (js2r--goto-and-delete-node node)
+    (goto-char beg)
+    (delete-char (- end beg))
     (insert replacement)))
 
-(defun slime-js-eval-and-replace-statement ()
-  (interactive)
-  (slime-js-eval-statement 'js2-replace-node))
+(defun slime-js-eval-region (beg end &optional func)
+  (lexical-let ((func (or func 'slime-js--echo-result))
+                (beg beg)
+                (end end))
+    (slime-flash-region beg end)
+    (slime-js-eval
+     (buffer-substring-no-properties beg end)
+     #'(lambda (s) (funcall func (cadr s) beg end)))))
 
-(define-key slime-js-minor-mode-map (kbd "C-x C-e") 'slime-js-eval-statement)
-(define-key slime-js-minor-mode-map (kbd "C-c C-e") 'slime-js-eval-and-replace-statement)
+(defun slime-js-eval-statement (&optional func)
+  (let ((node (js2r--closest 'js2-is-eval-friendly-node)))
+    (slime-js-eval-region (js2-node-abs-pos node)
+                          (js2-node-abs-end node)
+                          func)))
+
+(defun slime-js-eval-current ()
+  (interactive)
+  (if (use-region-p)
+      (slime-js-eval-region (point) (mark))
+    (slime-js-eval-statement)))
+
+(defun slime-js-eval-and-replace-current ()
+  (interactive)
+  (if (use-region-p)
+      (slime-js-eval-region (point) (mark) 'slime-js--replace-with-result)
+    (slime-js-eval-statement 'slime-js--replace-with-result)))
+
+(define-key slime-js-minor-mode-map (kbd "C-x C-e") 'slime-js-eval-current)
+(define-key slime-js-minor-mode-map (kbd "C-c C-e") 'slime-js-eval-and-replace-current)
 
 (provide 'setup-slime-js)
