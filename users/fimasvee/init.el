@@ -39,5 +39,3 @@
      (require 'slime-js)
      (require 'setup-slime-js)
      (diminish 'slime-js-minor-mode)))
-
-(add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))

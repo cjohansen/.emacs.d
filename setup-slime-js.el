@@ -6,6 +6,8 @@
 (setq slime-js-browser-command "open -a Safari")
 (setq slime-js-browser-jacked-in nil)
 
+(add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))
+
 (defun slime-js-run-swank ()
   "Runs the swank side of the equation."
   (interactive)
