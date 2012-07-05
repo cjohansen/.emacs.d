@@ -85,3 +85,6 @@
 [submodule "site-lisp/ido-ubiquitous"]
         path = site-lisp/ido-ubiquitous
         url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
+[submodule "site-lisp/buster-mode"]
+	path = site-lisp/buster-mode
+	url = https://github.com/magnars/buster-mode.git
