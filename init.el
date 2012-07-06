@@ -110,6 +110,12 @@
 (diminish 'wrap-region-mode)
 (diminish 'yas/minor-mode)
 
+;; Setup slime-js if it is installed
+(add-hook 'after-init-hook
+          #'(lambda ()
+              (when (locate-library "slime-js")
+                (require 'setup-slime-js))))
+
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))

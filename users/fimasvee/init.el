@@ -13,8 +13,7 @@
 (define-key global-map (kbd "M-s -") 'zoom-out)
 
 ;; Use GNU ls - install with:
-;;    brew install xz
-;;    brew install coreutils
+;;    brew install xz coreutils
 (setq insert-directory-program "gls")
 
 ;; org-mode: beginning/end of buffer on M-up/down
@@ -29,13 +28,3 @@
 (setq org-directory "~/Dropbox/org")
 (setq org-mobile-inbox-for-pull "~/Dropbox/org/flagged.org")
 (setq org-mobile-directory "~/Dropbox/MobileOrg-staging")
-
-;; Set up slime-js
-;; To install, see https://github.com/swank-js/swank-js/wiki/Installation
-
-(eval-after-load "js2-mode"
-  '(progn
-     (require 'slime)
-     (require 'slime-js)
-     (require 'setup-slime-js)
-     (diminish 'slime-js-minor-mode)))
