@@ -88,3 +88,6 @@
 [submodule "site-lisp/buster-mode"]
 	path = site-lisp/buster-mode
 	url = https://github.com/magnars/buster-mode.git
+[submodule "site-lisp/ruby-end"]
+	path = site-lisp/ruby-end
+	url = https://github.com/rejeep/ruby-end.git

@@ -1,4 +1,5 @@
 (require 'ruby-mode)
+(require 'ruby-end)
 
 (defun ruby-end-of-block-or-parens ()
   (interactive)
@@ -18,5 +19,3 @@
 
 (define-key ruby-mode-map (kbd "C-M-n") 'ruby-end-of-block-or-parens)
 (define-key ruby-mode-map (kbd "C-M-p") 'ruby-beginning-of-block-or-parens)
-
-
