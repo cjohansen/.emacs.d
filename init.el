@@ -76,6 +76,13 @@
 (require 'wgrep)
 (require 'smart-forward)
 
+;; Expand css-like selectors to html
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
+(define-key zencoding-mode-keymap (kbd "C-j") nil)
+(define-key zencoding-mode-keymap (kbd "<C-return>") nil)
+(define-key zencoding-mode-keymap (kbd "C-c C-j") 'zencoding-expand-line)
+
 ;; Predictive abbreviations while typing - an experiment (tab to complete)
 (require 'pabbrev)
 (pabbrev-mode 1)

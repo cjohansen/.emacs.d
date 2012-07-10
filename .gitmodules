@@ -86,8 +86,11 @@
         path = site-lisp/ido-ubiquitous
         url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
 [submodule "site-lisp/buster-mode"]
-	path = site-lisp/buster-mode
-	url = https://github.com/magnars/buster-mode.git
+        path = site-lisp/buster-mode
+        url = https://github.com/magnars/buster-mode.git
 [submodule "site-lisp/ruby-end"]
-	path = site-lisp/ruby-end
-	url = https://github.com/rejeep/ruby-end.git
+        path = site-lisp/ruby-end
+        url = https://github.com/rejeep/ruby-end.git
+[submodule "site-lisp/zencoding"]
+        path = site-lisp/zencoding
+        url = https://github.com/rooney/zencoding.git
