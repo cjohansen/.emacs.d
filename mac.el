@@ -23,10 +23,6 @@
 ;; Don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)
 
-;; PeepOpen
-;; See https://gist.github.com/1505658 if PeepOpen opens selected files in a new Emacs instance
-(require 'eproject-peepopen)
-
 ;; Use aspell for spell checking: brew install aspell --lang=en
 (setq ispell-program-name "/usr/local/bin/aspell")
 
