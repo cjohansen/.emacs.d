@@ -3,6 +3,9 @@
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
 (global-set-key (kbd "C-x C-c") 'delete-frame)
 
+;; Use C-x C-m to do M-x per Steve Yegge's advice
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
