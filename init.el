@@ -58,15 +58,12 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
-;; Annoying arrows mode
-(require 'annoying-arrows-mode)
-;;(global-annoying-arrows-mode)
-
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
     (load file)))
+
 (require 'expand-region)
 (require 'mark-more-like-this)
 (require 'inline-string-rectangle)

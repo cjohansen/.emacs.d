@@ -52,7 +52,7 @@
 ;; Lines should be 80 characters wide, not 72
 (setq fill-column 80)
 
-;; Save a list of recent files visited.
+;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
 
 ;; Undo/redo window configuration with C-c <left>/<right>

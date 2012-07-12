@@ -16,7 +16,7 @@
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
 
-;; Misc in misc
+;; A bit of misc cargo culting in misc.el
 (setq xterm-mouse-mode t)
 
 (provide 'misc)
