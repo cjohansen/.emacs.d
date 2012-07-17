@@ -12,6 +12,11 @@
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
 
+;; Experimental rebind of C-b and C-f
+(fset 'quick-switch-buffer [?\C-x ?b return])
+(global-set-key (kbd "C-b") 'quick-switch-buffer) ;; toggle two most recent buffers
+(global-set-key (kbd "C-f") 'duplicate-current-line-or-region) ;; duplicate line
+
 ;; Use GNU ls - install with:
 ;;    brew install xz coreutils
 (setq insert-directory-program "gls")
