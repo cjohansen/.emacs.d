@@ -124,6 +124,11 @@ region-end is used. Adds the duplicated text to the kill ring."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word 1)))
 
+(defun kill-to-beginning-of-line ()
+  (interactive)
+  (kill-region (save-excursion (beginning-of-line) (point))
+               (point)))
+
 ;; Slightly more useful C-a and C-e
 
 (defun move-end-of-line-or-next-line ()
