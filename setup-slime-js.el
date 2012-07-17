@@ -36,7 +36,7 @@
 (setq slime-js-starting-url "/")
 (setq slime-js-swank-command "swank-js")
 (setq slime-js-swank-args '())
-(setq slime-js-browser-command "open -a Safari")
+(setq slime-js-browser-command "open -a \"Google Chrome\"")
 (setq slime-js-browser-jacked-in-p nil)
 
 (add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))
