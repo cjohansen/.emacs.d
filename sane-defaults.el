@@ -64,6 +64,9 @@
 ;; Show me empty lines after buffer end
 (set-default 'indicate-empty-lines t)
 
+;; Easily navigate sillycased words
+(global-subword-mode 1)
+
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
 
