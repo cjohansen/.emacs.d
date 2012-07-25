@@ -10,9 +10,6 @@
 (global-set-key (kbd "C-.") 'hippie-expand)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
 
-;; Use the preferrable delete-forward-char for interactive use
-(global-set-key (kbd "C-d") 'delete-forward-char)
-
 ;; Smart M-x
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
@@ -27,11 +24,11 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
-(global-set-key (kbd "M-æ") 'mark-all-like-this)
-(global-set-key (kbd "C-å") 'mark-previous-like-this)
-(global-set-key (kbd "C-æ") 'mark-next-like-this)
-(global-set-key (kbd "C-Å") 'mark-more-like-this-extended)
-(global-set-key (kbd "C-Æ") 'mark-more-like-this-extended)
+(global-set-key (kbd "M-æ") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-å") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-æ") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-Æ") 'mc/mark-more-like-this-extended)
+(global-set-key (kbd "M-å") 'mc/mark-all-in-region)
 
 ;; Set anchor to start rectangular-region-mode
 (global-set-key (kbd "H-SPC") 'set-rectangular-region-anchor)
