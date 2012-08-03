@@ -85,9 +85,9 @@
 (global-set-key (kbd "M-m") 'jump-char-forward)
 (global-set-key (kbd "M-M") 'jump-char-backward)
 
-;; Remap old M-m to M-i (better mnemonic for back-to-indentation)
-;; We lose tab-to-tab-stop, which is no big loss in my use cases.
-(global-set-key (kbd "M-i") 'back-to-indentation)
+;; vim's ci and co commands
+(global-set-key (kbd "M-i") 'change-inner)
+(global-set-key (kbd "M-o") 'change-outer)
 
 ;; Create new frame
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)

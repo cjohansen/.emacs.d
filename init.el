@@ -73,6 +73,7 @@
 (require 'eproject)
 (require 'wgrep)
 (require 'smart-forward)
+(require 'change-inner)
 
 ;; Expand css-like selectors to html
 (require 'zencoding-mode)
