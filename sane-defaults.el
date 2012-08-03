@@ -102,4 +102,8 @@
      (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
      (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)))
 
+;; Nic says eval-expression-print-level needs to be set to 0 (turned off) so
+;; that you can always see what's happening.
+(setq eval-expression-print-level 0)
+
 (provide 'sane-defaults)
