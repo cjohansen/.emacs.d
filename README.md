@@ -120,9 +120,8 @@ overview of the most commonly used shortcuts to get you through this pain:
 ### Navigation
 
 * `C-arrow` Move past words/paragraphs
-* `C-a    ` Go to start of line
+* `C-a    ` Go to indentation, then start of line
 * `C-e    ` Go to end of line
-* `M-i    ` Go to indentation
 * `M-g M-g` Go to line number
 * `C-x C-i` Go to symbol
 * `C-s    ` Search forward. Press `C-s` again to go further.
