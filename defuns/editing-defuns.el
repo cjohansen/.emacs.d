@@ -165,6 +165,12 @@ region-end is used. Adds the duplicated text to the kill ring."
   (back-to-indentation)
   (kill-line))
 
+(defun back-to-indentation-or-beginning ()
+   (interactive)
+   (if (eq last-command 'back-to-indentation-or-beginning)
+       (beginning-of-line)
+     (back-to-indentation)))
+
 (defun camelize-buffer ()
   (interactive)
   (goto-char 0)

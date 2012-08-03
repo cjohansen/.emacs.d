@@ -43,6 +43,9 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
+;; Rebind C-a to mean back-to-indentation first, then beginning-of-line
+(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
+
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
 
