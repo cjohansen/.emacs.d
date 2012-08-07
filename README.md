@@ -23,6 +23,10 @@ that are best handled by the package manager.
 
 I use Cocoa Emacs, installed like this:
 
+    brew install emacs --cocoa
+
+You can also get the very latest Emacs:
+
     brew install emacs --cocoa --use-git-head --HEAD
 
 To open it with Alfred or Quicksilver, you have to copy `Emacs.app` into
