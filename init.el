@@ -48,6 +48,7 @@
 ;; Install extensions if they're missing
 (packages-install 'magit
                   'clojure-mode
+                  'nrepl
                   'slime-js)
 
 ;; Setup extensions
