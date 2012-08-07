@@ -51,6 +51,9 @@
 
 (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
 
+;; Don't redefine C-a for me please, js2-mode
+(define-key js2-mode-map (kbd "C-a") nil)
+
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
  'js2-mode `(("\\(function\\) *("
