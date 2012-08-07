@@ -167,7 +167,8 @@ region-end is used. Adds the duplicated text to the kill ring."
 
 (defun back-to-indentation-or-beginning ()
    (interactive)
-   (if (eq last-command 'back-to-indentation-or-beginning)
+   (if (or (looking-back "^\s*")
+           (eq last-command 'back-to-indentation-or-beginning))
        (beginning-of-line)
      (back-to-indentation)))
 
