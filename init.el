@@ -46,10 +46,11 @@
 (require 'setup-package)
 
 ;; Install extensions if they're missing
-(packages-install 'magit
-                  'clojure-mode
-                  'nrepl
-                  'slime-js)
+(packages-install
+ (cons 'magit melpa)
+ (cons 'slime-js marmalade)
+ (cons 'clojure-mode melpa)
+ (cons 'nrepl melpa))
 
 ;; Setup extensions
 (require 'setup-ido)
