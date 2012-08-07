@@ -42,6 +42,14 @@
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
+;; Setup packages
+(require 'setup-package)
+
+;; Install extensions if they're missing
+(packages-install 'magit
+                  'clojure-mode
+                  'slime-js)
+
 ;; Setup extensions
 (require 'setup-ido)
 (require 'setup-yasnippet)
