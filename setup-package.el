@@ -10,6 +10,9 @@
 
 (package-initialize)
 
+(unless (file-exists-p "~/.emacs.d/elpa/archives")
+  (package-refresh-contents))
+
 (defun packages-install (&rest packages)
   (mapc (lambda (package)
           (let ((name (car package))
@@ -19,6 +22,7 @@
                 (package-initialize)
                 (package-install name)))))
         packages)
-  (package-initialize))
+  (package-initialize)
+  (delete-other-windows))
 
 (provide 'setup-package)
