@@ -98,6 +98,6 @@
 
 ;; Nic says eval-expression-print-level needs to be set to 0 (turned off) so
 ;; that you can always see what's happening.
-(setq eval-expression-print-level 0)
+(setq eval-expression-print-level nil)
 
 (provide 'sane-defaults)
