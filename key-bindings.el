@@ -139,6 +139,8 @@
 (global-set-key (kbd "M-<left>") 'smart-backward)
 (global-set-key (kbd "M-<right>") 'smart-forward)
 
+;; Webjump let's you quickly search google, wikipedia, emacs wiki
+(global-set-key (kbd "C-x g") 'webjump)
 
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
