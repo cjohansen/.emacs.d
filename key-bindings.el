@@ -127,7 +127,8 @@
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
 ;; Navigation bindings
-(global-set-key (kbd "C-x g") 'goto-line)
+(global-set-key (vector 'remap 'goto-line) 'goto-line-with-feedback)
+
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "M-p") 'backward-paragraph)
