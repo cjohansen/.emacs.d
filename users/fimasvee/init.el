@@ -17,6 +17,11 @@
 (global-set-key (kbd "C-b") 'quick-switch-buffer) ;; toggle two most recent buffers
 (global-set-key (kbd "C-f") 'duplicate-current-line-or-region) ;; duplicate line
 
+;; Some basic elnode setup that should probably have been the default
+(setq elnode-do-init nil) ;; don't start a server on port 8000 when starting emacs
+(setq elnode-error-log-to-messages nil) ;; mute the crazy logging
+(setq elnode-log-files-directory nil) ;; more mute
+
 ;; Use GNU ls - install with:
 ;;    brew install xz coreutils
 (setq insert-directory-program "gls")
