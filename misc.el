@@ -7,11 +7,12 @@
       whitespace-line-column 100)
 
 ;; Add Urban Dictionary to webjump (C-x g)
-(add-to-list 'webjump-sites '("Urban Dictionary" .
+(eval-after-load "webjump"
+  '(add-to-list 'webjump-sites '("Urban Dictionary" .
                              [simple-query
                               "www.urbandictionary.com"
                               "http://www.urbandictionary.com/define.php?term="
-                              ""]))
+                              ""])))
 
 ;; Various superfluous white-space. Just say no.
 (add-hook 'before-save-hook 'cleanup-buffer-safe)
