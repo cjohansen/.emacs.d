@@ -142,6 +142,9 @@
 ;; Webjump let's you quickly search google, wikipedia, emacs wiki
 (global-set-key (kbd "C-x g") 'webjump)
 
+;; Completion at point
+(global-set-key (kbd "C-<tab>") 'completion-at-point)
+
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
