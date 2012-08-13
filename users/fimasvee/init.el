@@ -17,10 +17,18 @@
 (global-set-key (kbd "C-b") 'quick-switch-buffer) ;; toggle two most recent buffers
 (global-set-key (kbd "C-f") 'duplicate-current-line-or-region) ;; duplicate line
 
-;; Some basic elnode setup that should probably have been the default
-(setq elnode-do-init nil) ;; don't start a server on port 8000 when starting emacs
-(setq elnode-error-log-to-messages nil) ;; mute the crazy logging
-(setq elnode-log-files-directory nil) ;; more mute
+;; Experimental super on right command key. s-x is kill-region for instance.
+(setq mac-right-command-modifier 'super)
+
+;; Experimental: keep region when undoing in region
+(defadvice undo-tree-undo (around keep-region activate)
+  (if (use-region-p)
+      (let ((m (set-marker (make-marker) (mark)))
+            (p (set-marker (make-marker) (point))))
+        ad-do-it
+        (goto-char p)
+        (set-marker (mark-marker) m))
+    ad-do-it))
 
 ;; Use GNU ls - install with:
 ;;    brew install xz coreutils
