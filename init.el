@@ -42,12 +42,16 @@
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
+;; Setup elnode before packages to stop it from starting a server
+(require 'setup-elnode)
+
 ;; Setup packages
 (require 'setup-package)
 
 ;; Install extensions if they're missing
 (packages-install
  (cons 'magit melpa)
+ (cons 'elnode marmalade)
  (cons 'slime-js marmalade)
  (cons 'clojure-mode melpa)
  (cons 'nrepl melpa))
