@@ -4,16 +4,16 @@
   (interactive)
   (let ((col (current-column)))
     (save-excursion
-      (next-line)
+      (forward-line)
       (transpose-lines 1))
-    (next-line)
+    (forward-line)
     (move-to-column col)))
 
 (defun move-line-up ()
   (interactive)
   (let ((col (current-column)))
     (save-excursion
-      (next-line)
+      (forward-line)
       (transpose-lines -1))
     (move-to-column col)))
 
@@ -29,7 +29,7 @@
   (interactive)
   (beginning-of-line)
   (newline)
-  (previous-line)
+  (forward-line -1)
   (indent-for-tab-command))
 
 (defun new-line-in-between ()
