@@ -46,6 +46,24 @@
     (deactivate-mark))
   (isearch-yank-internal (lambda () (mark))))
 
+(defun region-as-string ()
+  (buffer-substring (region-beginning)
+                    (region-end)))
+
+(defun isearch-forward-use-region ()
+  (interactive)
+  (when (region-active-p)
+    (add-to-history 'search-ring (region-as-string))
+    (deactivate-mark))
+  (call-interactively 'isearch-forward))
+
+(defun isearch-backward-use-region ()
+  (interactive)
+  (when (region-active-p)
+    (add-to-history 'search-ring (region-as-string))
+    (deactivate-mark))
+  (call-interactively 'isearch-backward))
+
 (defun view-url ()
   "Open a new buffer containing the contents of URL."
   (interactive)
