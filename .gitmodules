@@ -97,3 +97,6 @@
 [submodule "site-lisp/change-inner"]
         path = site-lisp/change-inner
         url = https://github.com/magnars/change-inner.el.git
+[submodule "site-lisp/crappy-jsp-mode"]
+	path = site-lisp/crappy-jsp-mode
+	url = git://github.com/magnars/crappy-jsp-mode.git
