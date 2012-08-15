@@ -117,7 +117,7 @@
 
 ;; Misc
 (require 'appearance)
-(require 'misc)
+(require 'my-misc)
 (when is-mac (require 'mac))
 
 ;; Emacs server

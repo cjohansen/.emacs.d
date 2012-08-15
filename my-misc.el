@@ -27,4 +27,4 @@
 ;; A bit of misc cargo culting in misc.el
 (setq xterm-mouse-mode t)
 
-(provide 'misc)
+(provide 'my-misc)
