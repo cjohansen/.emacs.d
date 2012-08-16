@@ -42,6 +42,7 @@
 
      ;; Add custom keybindings
      (define-key grep-mode-map "q" 'rgrep-quit-window)
-     (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)))
+     (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)
+     (define-key grep-mode-map (kbd "C-x C-s") 'wgrep-save-all-buffers)))
 
 (provide 'setup-rgrep)
