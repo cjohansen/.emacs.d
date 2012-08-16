@@ -91,8 +91,8 @@
 (require 'change-inner)
 
 ;; Predictive abbreviations while typing - an experiment (tab to complete)
-(require 'pabbrev)
-(pabbrev-mode 1)
+;(require 'pabbrev)
+;(global-pabbrev-mode 1)
 
 ;; Fill column indicator
 (require 'fill-column-indicator)
