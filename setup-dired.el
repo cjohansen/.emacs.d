@@ -47,6 +47,8 @@
   '(progn
      (define-key wdired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
      (define-key wdired-mode-map (kbd "M-<up>") 'dired-back-to-top)
-     (define-key wdired-mode-map (kbd "M-<down>") 'dired-jump-to-bottom)))
+     (define-key wdired-mode-map (kbd "<home>") 'dired-back-to-top)
+     (define-key wdired-mode-map (kbd "M-<down>") 'dired-jump-to-bottom)
+     (define-key wdired-mode-map (kbd "<end>") 'dired-jump-to-bottom)))
 
 (provide 'setup-dired)
