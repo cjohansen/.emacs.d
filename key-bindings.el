@@ -189,7 +189,7 @@
 (global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
 ;; Magit
-(global-set-key (kbd "C-x m") 'magit-status)
+(global-set-key (kbd "C-x m") 'magit-status) (autoload 'magit-status "magit")
 
 ;; Clever newlines
 (global-set-key (kbd "<C-return>") 'new-line-below)
@@ -224,7 +224,7 @@
 (global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
 ;; Jump from file to containing directory
-(global-set-key (kbd "C-x C-j") 'dired-jump)
+(global-set-key (kbd "C-x C-j") 'dired-jump) (autoload 'dired-jump "dired")
 (global-set-key (kbd "C-x M-j") '(lambda () (interactive) (dired-jump 1)))
 
 ;; Easy-mode fullscreen rgrep

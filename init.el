@@ -58,10 +58,11 @@
  (cons 'nrepl melpa))
 
 ;; Setup extensions
-(require 'setup-ido)
+(eval-after-load 'ido '(require 'setup-ido))
+(eval-after-load 'org '(require 'setup-org))
+(eval-after-load 'dired '(require 'setup-dired))
+(eval-after-load 'magit '(require 'setup-magit))
 (require 'setup-yasnippet)
-(require 'setup-dired)
-(require 'setup-magit)
 (require 'setup-rgrep)
 (require 'setup-hippie)
 (require 'setup-ace-jump-mode)
