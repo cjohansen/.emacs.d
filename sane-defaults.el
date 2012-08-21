@@ -100,6 +100,9 @@
 ;; that you can always see what's happening.
 (setq eval-expression-print-level nil)
 
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+
 ;; When popping the mark, continue popping until the cursor actually moves
 (defadvice pop-to-mark-command (around ensure-new-position activate)
   (let ((p (point)))
