@@ -251,6 +251,7 @@
 (global-set-key (kbd "C-x C-o rb") (ffip-create-pattern-file-finder "*.rb"))
 (global-set-key (kbd "C-x C-o or") (ffip-create-pattern-file-finder "*.org"))
 (global-set-key (kbd "C-x C-o ph") (ffip-create-pattern-file-finder "*.php"))
+(global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
 
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
