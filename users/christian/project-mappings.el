@@ -29,7 +29,7 @@
 (defun custom-persp/buster ()
   (interactive)
   (custom-persp "Buster"
-                (find-file "~/projects/buster/todo.org")))
+                (find-file "~/projects/busterjs/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p b") 'custom-persp/buster)
 
