@@ -38,9 +38,11 @@
      ;; Don't recurse into some directories
      (add-to-list 'grep-find-ignored-directories "target")
      (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-directories "vendor")
 
      ;; Add custom keybindings
      (define-key grep-mode-map "q" 'rgrep-quit-window)
-     (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)))
+     (define-key grep-mode-map (kbd "C-<return>") 'rgrep-goto-file-and-close-rgrep)
+     (define-key grep-mode-map (kbd "C-x C-s") 'wgrep-save-all-buffers)))
 
 (provide 'setup-rgrep)

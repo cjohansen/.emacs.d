@@ -1,7 +1,7 @@
 ;; smooth-scrolling.el
 ;; $Id: smooth-scrolling.el,v 1.8 2007/09/11 23:38:09 adam Exp $
 ;; Adam Spiers <emacs-ss@adamspiers.org>
-;; 
+;;
 ;; Make emacs scroll smoothly, keeping the point away from the top and
 ;; bottom of the current buffer's window in order to keep lines of
 ;; context around the point visible as much as possible, whilst
@@ -48,14 +48,14 @@
 ;;
 ;; - Maybe add option to avoid scroll jumps when point is within
 ;;   margin.
-;; 
+;;
 ;;;_* Acknowledgements
-;; 
+;;
 ;; Thanks to Mark Hulme-Jones and consolers on #emacs for helping
 ;; debug issues with line-wrapping.
-;; 
+;;
 ;;;_* License
-;; 
+;;
 ;; Released under the GNU General Public License v2 or later, with
 ;; all rights assigned to the Free Software Foundation.
 ;;
@@ -127,8 +127,8 @@ between the point and the bottom of the window.  Counting starts
 with 1 referring to the bottom line in the window."
   (interactive)
   (if smooth-scroll-strict-margins
-      (count-screen-lines (point) (window-end))
-    (count-lines (point) (window-end))))
+      (count-screen-lines (point) (window-end nil t))
+    (count-lines (point) (window-end nil t))))
 ;;;_ + after advice
 (defadvice previous-line (after smooth-scroll-down
                             (&optional arg try-vscroll)
@@ -154,7 +154,7 @@ lines of the top of the window."
       (save-excursion
         (scroll-down
               (1+ (- smooth-scroll-margin lines-from-window-top))))))))
-                            
+
 (defadvice next-line (after smooth-scroll-up
                             (&optional arg try-vscroll)
                             activate)

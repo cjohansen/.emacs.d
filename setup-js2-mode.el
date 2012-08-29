@@ -1,7 +1,7 @@
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
-(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname"))
+(setq-default js2-global-externs '("module" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON"))
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
@@ -27,6 +27,9 @@
 
 (define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
 
+(defadvice js2r-inline-var (after reindent-buffer activate)
+  (cleanup-buffer))
+
 (defun js2-hide-test-functions ()
   (interactive)
   (save-excursion
@@ -47,6 +50,9 @@
           (back-to-indentation)))))
 
 (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
+
+;; Don't redefine C-a for me please, js2-mode
+(define-key js2-mode-map (kbd "C-a") nil)
 
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords

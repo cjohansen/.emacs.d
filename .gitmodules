@@ -1,12 +1,6 @@
 [submodule "site-lisp/yaml-mode"]
         path = site-lisp/yaml-mode
         url = https://github.com/yoshiki/yaml-mode.git
-[submodule "site-lisp/buster-mode"]
-        path = site-lisp/buster-mode
-        url = git://gitorious.org/buster/buster-mode.git
-[submodule "site-lisp/evil"]
-        path = site-lisp/evil
-        url = git://gitorious.org/evil/evil.git
 [submodule "site-lisp/undo-tree"]
         path = site-lisp/undo-tree
         url = http://www.dr-qubit.org/git/undo-tree.git
@@ -46,9 +40,6 @@
 [submodule "site-lisp/hardcore-mode"]
         path = site-lisp/hardcore-mode
         url = https://github.com/magnars/hardcore-mode.el.git
-[submodule "site-lisp/vimgolf"]
-        path = site-lisp/vimgolf
-        url = https://github.com/timvisher/vimgolf.git
 [submodule "site-lisp/bash-completion"]
         path = site-lisp/bash-completion
         url = https://github.com/szermatt/emacs-bash-completion.git
@@ -68,29 +59,44 @@
         path = site-lisp/feature-mode
         url = https://github.com/michaelklishin/cucumber.el.git
 [submodule "site-lisp/wrap-region"]
-	path = site-lisp/wrap-region
-	url = https://github.com/magnars/wrap-region.git
+        path = site-lisp/wrap-region
+        url = https://github.com/magnars/wrap-region.git
 [submodule "site-lisp/browse-kill-ring"]
-	path = site-lisp/browse-kill-ring
-	url = https://github.com/T-J-Teru/browse-kill-ring.git
+        path = site-lisp/browse-kill-ring
+        url = https://github.com/T-J-Teru/browse-kill-ring.git
 [submodule "site-lisp/find-file-in-project"]
-	path = site-lisp/find-file-in-project
-	url = https://github.com/technomancy/find-file-in-project
+        path = site-lisp/find-file-in-project
+        url = https://github.com/technomancy/find-file-in-project
 [submodule "site-lisp/wgrep"]
-	path = site-lisp/wgrep
-	url = https://github.com/magnars/Emacs-wgrep
+        path = site-lisp/wgrep
+        url = https://github.com/magnars/Emacs-wgrep
 [submodule "site-lisp/smex"]
-	path = site-lisp/smex
-	url = https://github.com/nonsequitur/smex.git
+        path = site-lisp/smex
+        url = https://github.com/nonsequitur/smex.git
 [submodule "site-lisp/annoying-arrows-mode"]
-	path = site-lisp/annoying-arrows-mode
-	url = git://github.com/magnars/annoying-arrows-mode.el.git
-[submodule "site-lisp/replace-plus"]
-	path = site-lisp/replace-plus
-	url = https://github.com/emacsmirror/replace-plus.git
+        path = site-lisp/annoying-arrows-mode
+        url = https://github.com/magnars/annoying-arrows-mode.el.git
 [submodule "site-lisp/fill-column-indicator"]
-	path = site-lisp/fill-column-indicator
-	url = https://github.com/alpaker/Fill-Column-Indicator.git
-[submodule "site-lisp/projectile"]
-	path = site-lisp/projectile
-	url = git://github.com/bbatsov/projectile.git
+        path = site-lisp/fill-column-indicator
+        url = https://github.com/alpaker/Fill-Column-Indicator.git
+[submodule "site-lisp/smart-forward"]
+        path = site-lisp/smart-forward
+        url = https://github.com/magnars/smart-forward.el.git
+[submodule "site-lisp/ido-ubiquitous"]
+        path = site-lisp/ido-ubiquitous
+        url = https://github.com/DarwinAwardWinner/ido-ubiquitous.git
+[submodule "site-lisp/buster-mode"]
+        path = site-lisp/buster-mode
+        url = https://github.com/magnars/buster-mode.git
+[submodule "site-lisp/ruby-end"]
+        path = site-lisp/ruby-end
+        url = https://github.com/rejeep/ruby-end.git
+[submodule "site-lisp/zencoding"]
+        path = site-lisp/zencoding
+        url = https://github.com/rooney/zencoding.git
+[submodule "site-lisp/change-inner"]
+        path = site-lisp/change-inner
+        url = https://github.com/magnars/change-inner.el.git
+[submodule "site-lisp/crappy-jsp-mode"]
+	path = site-lisp/crappy-jsp-mode
+	url = git://github.com/magnars/crappy-jsp-mode.git

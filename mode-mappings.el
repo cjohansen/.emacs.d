@@ -3,6 +3,9 @@
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
+;; CSS
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+
 ;; Cucumber
 (autoload 'feature-mode "feature-mode")
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
@@ -19,14 +22,17 @@
 
 ;; HTML
 (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp$" . html-mode))
-(add-to-list 'auto-mode-alist '("\\.jspf$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.vm$" . html-mode))
 (add-hook 'sgml-mode-hook
           (lambda ()
             (require 'rename-sgml-tag)
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
+
+;; JSP
+(autoload 'crappy-jsp-mode "crappy-jsp-mode")
+(add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode))
+(add-to-list 'auto-mode-alist '("\\.jspf$" . crappy-jsp-mode))
 
 ;; Ruby
 (autoload 'rhtml-mode "rhtml-mode")
@@ -72,6 +78,8 @@
 ;; Markdown
 (autoload 'markdown-mode "markdown-mode")
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-hook 'markdown-mode-hook (lambda () (define-key markdown-mode-map (kbd "<tab>") 'yas/expand)))
 
 ;; PHP
 (autoload 'php-mode "php-mode")

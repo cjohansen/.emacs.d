@@ -18,18 +18,71 @@
 
 (define-key persp-mode-map (kbd "C-x p i") 'custom-persp/intelliadv)
 
+;; Emacs Rocks
+
+(defun custom-persp/emacsrocks ()
+  (interactive)
+  (custom-persp "emacsrocks"
+                (find-file "~/projects/emacsrocks/site/lib/episodes.rb")))
+
+(define-key persp-mode-map (kbd "C-x p r") 'custom-persp/emacsrocks)
+
+(project-specifics "projects/emacsrocks"
+                   (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
+                   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
+
+;; zombietdd.com
+
+(defun custom-persp/zombietdd.com ()
+  (interactive)
+  (custom-persp "zombietdd.com"
+                (find-file "~/projects/site-ztdd/lib/episodes.rb")))
+
+(define-key persp-mode-map (kbd "C-x p s") 'custom-persp/zombietdd.com)
+
+(project-specifics "projects/site-ztdd"
+                   (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
+                   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
+
+;; Blockout
+
+(defun custom-persp/blockout ()
+  (interactive)
+  (custom-persp "blockout"
+                (find-file "~/projects/blockout/")))
+
+(define-key persp-mode-map (kbd "C-x p bl") 'custom-persp/blockout)
+
+(project-specifics "projects/blockout"
+                   (set (make-local-variable 'slime-js-target-url) "http://localhost:8000/")
+                   (set (make-local-variable 'slime-js-browser-command) "open -a \"Google Chrome\"")
+                   (ffip-local-patterns "*.js" "*.css"))
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/blockout" (buffer-file-name))
+              (setq js2-additional-externs '("BLOCKS"))
+              (set (make-local-variable 'buster-default-global) "BLOCKS")
+              (set (make-local-variable 'buster-add-default-global-to-iife) t)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'buster-test-prefix) "")
+              (set (make-local-variable 'js2r-use-strict) t))))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
   (interactive)
   (custom-persp "oppdrag"
-                (find-file "~/projects/finn-oppdrag/oppdrag-services/app-main/web/")))
+                (find-file "~/Dropbox/projects/finn-oppdrag/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
 (require 'oppdrag-mode)
 
 (project-specifics "oppdrag-services"
+                   (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/")
+                   (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
+                   (set (make-local-variable 'slime-js-starting-url) "/oppdrag/")
                    (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
                    (oppdrag-mode))
 
@@ -43,6 +96,7 @@
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
 (project-specifics "projects/zombietdd"
+                   (set (make-local-variable 'slime-js-target-url) "http://localhost:3000/")
                    (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
 
 (add-hook 'js2-mode-hook
@@ -56,6 +110,28 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; creator
+
+(defun custom-persp/creator ()
+  (interactive)
+  (custom-persp "creator"
+                (find-file "~/projects/creator/README.md")))
+
+(define-key persp-mode-map (kbd "C-x p cr") 'custom-persp/creator)
+
+(project-specifics "projects/creator"
+                   (ffip-local-patterns "*.js" "*.md"))
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/creator" (buffer-file-name))
+              (fci-mode 1)
+              (set (make-local-variable 'buster-default-global) "creator")
+              (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'buster-test-prefix) "")
+              (set (make-local-variable 'js2r-use-strict) t))))
+
 ;; culljs
 
 (defun custom-persp/culljs ()
@@ -63,7 +139,7 @@
   (custom-persp "culljs"
                 (find-file "~/projects/culljs/todo.org")))
 
-(define-key persp-mode-map (kbd "C-x p c") 'custom-persp/culljs)
+(define-key persp-mode-map (kbd "C-x p cu") 'custom-persp/culljs)
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -76,6 +152,7 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2-basic-offset) 4)
               (set (make-local-variable 'js2r-use-strict) t))))
+
 ;; buster
 
 (defun custom-persp/buster ()
@@ -83,7 +160,7 @@
   (custom-persp "buster"
                 (find-file "~/stuff/fs-watch-tree/todo.org")))
 
-(define-key persp-mode-map (kbd "C-x p b") 'custom-persp/buster)
+(define-key persp-mode-map (kbd "C-x p bu") 'custom-persp/buster)
 
 (add-hook 'js2-mode-hook
           (lambda ()

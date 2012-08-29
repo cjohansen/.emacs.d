@@ -61,9 +61,10 @@ in an exploded war, re-deploy the file."
 
 (defun oppdrag--setup-js-quirks ()
   (when (string-match-p "oppdrag-services" (buffer-file-name))
-    (setq js2-additional-externs '("FINN" "testCase" "cull" "buster" "_"))
+    (fci-mode 1)
+    (setq js2-additional-externs '("FINN" "testCase" "cull"))
     (setq js2r-path-to-tests "/test/javascript/tests/")
-    (setq js2r-path-to-sources "/main/webapp/scripts/")
+    (setq js2r-path-to-sources "/main/webapp/oppdrag/scripts/")
     (setq js2r-test-suffix "Test")
     (setq buster-default-global "FINN.oppdrag")
     (setq buster-add-default-global-to-iife t)
@@ -73,6 +74,10 @@ in an exploded war, re-deploy the file."
     (set (make-local-variable 'sgml-basic-offset) 4)
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)))
+
+(eval-after-load "grep"
+  '(progn (add-to-list 'grep-find-ignored-directories "ckeditor")
+          (add-to-list 'grep-find-ignored-directories "external")))
 
 (add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
 

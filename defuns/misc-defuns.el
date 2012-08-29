@@ -17,12 +17,52 @@
 (create-simple-keybinding-command f11 "<f11>")
 (create-simple-keybinding-command f12 "<f12>")
 
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
+;; Add spaces and proper formatting to linum-mode. It uses more room than
+;; necessary, but that's not a problem since it's only in use when going to
+;; lines.
+(setq linum-format (lambda (line)
+  (propertize
+   (format (concat " %"
+                   (number-to-string
+                    (length (number-to-string
+                             (line-number-at-pos (point-max)))))
+                   "d ")
+           line)
+   'face 'linum)))
+
 (defun isearch-yank-selection ()
   "Put selection from buffer into search string."
   (interactive)
   (when (region-active-p)
     (deactivate-mark))
   (isearch-yank-internal (lambda () (mark))))
+
+(defun region-as-string ()
+  (buffer-substring (region-beginning)
+                    (region-end)))
+
+(defun isearch-forward-use-region ()
+  (interactive)
+  (when (region-active-p)
+    (add-to-history 'search-ring (region-as-string))
+    (deactivate-mark))
+  (call-interactively 'isearch-forward))
+
+(defun isearch-backward-use-region ()
+  (interactive)
+  (when (region-active-p)
+    (add-to-history 'search-ring (region-as-string))
+    (deactivate-mark))
+  (call-interactively 'isearch-backward))
 
 (defun view-url ()
   "Open a new buffer containing the contents of URL."

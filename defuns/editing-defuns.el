@@ -1,5 +1,22 @@
 ;; Basic text editing defuns
 
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines 1))
+    (forward-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
 (defun new-line-below ()
   (interactive)
   (if (eolp)
@@ -12,7 +29,7 @@
   (interactive)
   (beginning-of-line)
   (newline)
-  (previous-line)
+  (forward-line -1)
   (indent-for-tab-command))
 
 (defun new-line-in-between ()
@@ -27,9 +44,10 @@
   "Duplicates the current line or region ARG times.
 If there's no region, the current line will be duplicated."
   (interactive "p")
-  (if (region-active-p)
-      (duplicate-region arg)
-    (duplicate-current-line arg)))
+  (save-excursion
+    (if (region-active-p)
+        (duplicate-region arg)
+      (duplicate-current-line arg))))
 
 (defun duplicate-region (num &optional start end)
   "Duplicates the region bounded by START and END NUM times.
@@ -40,7 +58,7 @@ region-end is used. Adds the duplicated text to the kill ring."
          (end (or end (region-end)))
          (region (buffer-substring start end)))
     (kill-ring-save start end)
-    (goto-char end)
+    (goto-char start)
     (dotimes (i num)
       (insert region))))
 
@@ -51,8 +69,7 @@ region-end is used. Adds the duplicated text to the kill ring."
     (goto-char (point-max))
     (newline)
     (forward-char -1))
-  (duplicate-region num (point-at-bol) (1+ (point-at-eol)))
-  (goto-char (1- (point))))
+  (duplicate-region num (point-at-bol) (1+ (point-at-eol))))
 
 (defun yank-indented ()
   (interactive)
@@ -107,21 +124,10 @@ region-end is used. Adds the duplicated text to the kill ring."
       (kill-region (region-beginning) (region-end))
     (backward-kill-word 1)))
 
-;; Slightly more useful C-a and C-e
-
-(defun move-end-of-line-or-next-line ()
+(defun kill-to-beginning-of-line ()
   (interactive)
-  (if (and (eolp)
-           (eq last-command 'move-end-of-line-or-next-line))
-      (move-end-of-line 2)
-    (move-end-of-line nil)))
-
-(defun move-start-of-line-or-prev-line ()
-  (interactive)
-  (if (and (bolp)
-           (eq last-command 'move-start-of-line-or-prev-line))
-      (move-beginning-of-line 0)
-    (move-beginning-of-line nil)))
+  (kill-region (save-excursion (beginning-of-line) (point))
+               (point)))
 
 ;; copy region if active
 ;; otherwise copy to end of current line
@@ -158,6 +164,13 @@ region-end is used. Adds the duplicated text to the kill ring."
   (interactive)
   (back-to-indentation)
   (kill-line))
+
+(defun back-to-indentation-or-beginning ()
+   (interactive)
+   (if (or (looking-back "^\s*")
+           (eq last-command 'back-to-indentation-or-beginning))
+       (beginning-of-line)
+     (back-to-indentation)))
 
 (defun camelize-buffer ()
   (interactive)
