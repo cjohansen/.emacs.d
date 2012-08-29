@@ -217,4 +217,14 @@
 ;; Find file in project
 (global-set-key (kbd "C-x o") 'find-file-in-project)
 
+(global-set-key (kbd "M-{") '(lambda ()
+                               (interactive)
+                               (if (search-forward "{" nil t)
+                                   (backward-char 1))))
+
+(global-set-key (kbd "M-}") '(lambda ()
+                               (interactive)
+                               (if (search-forward "}" nil t)
+                                   (backward-char 1))))
+
 (provide 'key-bindings)
