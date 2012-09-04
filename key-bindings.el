@@ -158,6 +158,10 @@
 (global-set-key (kbd "C-s") 'isearch-forward-use-region)
 (global-set-key (kbd "C-r") 'isearch-backward-use-region)
 
+;; Like isearch-*-use-region, but doesn't fuck with the active region
+(global-set-key (kbd "C-S-s") 'isearch-forward)
+(global-set-key (kbd "C-S-r") 'isearch-backward)
+
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
