@@ -43,8 +43,8 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
-;; Rebind C-a to mean back-to-indentation first, then beginning-of-line
-(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
+;; M-i for back-to-indentation
+(global-set-key (kbd "M-i") 'back-to-indentation)
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
@@ -86,8 +86,8 @@
 (global-set-key (kbd "M-M") 'jump-char-backward)
 
 ;; vim's ci and co commands
-(global-set-key (kbd "M-i") 'change-inner)
-(global-set-key (kbd "M-o") 'change-outer)
+(global-set-key (kbd "M-I") 'change-inner)
+(global-set-key (kbd "M-O") 'change-outer)
 
 ;; Create new frame
 (define-key global-map (kbd "C-x C-n") 'make-frame-command)
