@@ -72,6 +72,10 @@
 (require 'setup-ffip)
 (require 'setup-zencoding)
 
+;; Load slime-js when asked for
+(autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
+(autoload 'slime-js-jack-in-node "setup-slime-js" nil t)
+
 ;; Map files to modes
 (require 'mode-mappings)
 
@@ -130,12 +134,6 @@
 (require 'diminish)
 (diminish 'wrap-region-mode)
 (diminish 'yas/minor-mode)
-
-;; Setup slime-js if it is installed
-(add-hook 'after-init-hook
-          #'(lambda ()
-              (when (locate-library "slime-js")
-                (require 'setup-slime-js))))
 
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
