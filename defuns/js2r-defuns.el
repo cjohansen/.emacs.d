@@ -1,23 +1,11 @@
 (require 'cl)
+(require 's)
 
 (defun _any (pred seq)
   (< 0 (count-if pred seq)))
 
 (defun _partial (f &rest args)
   (apply 'apply-partially (cons f args)))
-
-(defun s-ends-with-p (s suffix)
-  "Does S end in SUFFIX?"
-  (let ((pos (- (length suffix))))
-    (and (>= (length s) (length suffix))
-         (string= suffix (substring s pos)))))
-
-(defun s-chop-suffix (s suffix)
-  "Remove string 'suffix' if it is at end of string 's'"
-  (let ((pos (- (length suffix))))
-    (if (s-ends-with-p s suffix)
-        (substring s 0 pos)
-      s)))
 
 (defvar js2r-path-to-tests "/test/"
   "Path to tests from a root shared with sources")
