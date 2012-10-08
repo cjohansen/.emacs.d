@@ -117,9 +117,6 @@
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
-;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x h") 'view-url)
-
 ;; Help should search more than just commands
 (global-set-key (kbd "<f1> a") 'apropos)
 
@@ -188,9 +185,6 @@
 (global-set-key (kbd "<s-left>") 'windmove-left)
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
-
-;; Mark all
-(global-set-key (kbd "C-c a") 'mark-whole-buffer)
 
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status) (autoload 'magit-status "magit")
