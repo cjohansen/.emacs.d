@@ -72,6 +72,7 @@
 (require 'setup-wrap-region)
 (require 'setup-ffip)
 (require 'setup-zencoding)
+(require 'setup-paredit)
 
 ;; Load slime-js when asked for
 (autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
