@@ -71,6 +71,7 @@
 
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
+(add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
 ;; Buster.JS
 ;(autoload 'buster-mode "buster-mode")
