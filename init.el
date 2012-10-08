@@ -55,6 +55,7 @@
  (cons 'elnode marmalade)
  (cons 'slime-js marmalade)
  (cons 'clojure-mode melpa)
+ (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa))
 
 ;; Setup extensions
