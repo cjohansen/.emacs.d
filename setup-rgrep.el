@@ -44,7 +44,7 @@
                                     nil default-directory t))
           (confirm (equal current-prefix-arg '(4))))
      (list regexp files dir confirm)))
-  (let ((command (format "cd %s && git grep %s -e %S -- '%s' " dir git-grep-switches regexp files))
+  (let ((command (format "cd %s && git --no-pager grep %s -e %S -- '%s' " dir git-grep-switches regexp files))
         (grep-use-null-device nil))
     (when confirm
       (setq command (read-shell-command "Run git-grep: " command 'git-grep-history)))
