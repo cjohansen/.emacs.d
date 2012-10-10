@@ -33,6 +33,27 @@
   (delete-other-windows)
   (message "Type C-x r j $ to return to pre-rgrep windows."))
 
+(defvar git-grep-switches "--extended-regexp -I -n --ignore-case"
+  "Switches to pass to `git grep'.")
+
+(defun git-grep-fullscreen (regexp &optional files dir confirm)
+  (interactive
+   (let* ((regexp (grep-read-regexp))
+          (files (grep-read-files regexp))
+          (dir (read-directory-name "Base directory: "
+                                    nil default-directory t))
+          (confirm (equal current-prefix-arg '(4))))
+     (list regexp files dir confirm)))
+  (let ((command (format "cd %s && git grep %s -e %S -- '%s' " dir git-grep-switches regexp files))
+        (grep-use-null-device nil))
+    (when confirm
+      (setq command (read-shell-command "Run git-grep: " command 'git-grep-history)))
+    (window-configuration-to-register ?$)
+    (grep command)
+    (switch-to-buffer "*grep*")
+    (delete-other-windows)
+    (beginning-of-buffer)))
+
 (eval-after-load "grep"
   '(progn
      ;; Don't recurse into some directories

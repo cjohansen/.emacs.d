@@ -227,6 +227,7 @@
 
 ;; Easy-mode fullscreen rgrep
 (global-set-key (kbd "M-s s") 'rgrep-fullscreen)
+(global-set-key (kbd "M-s g") 'git-grep-fullscreen)
 
 ;; Display and edit occurances of regexp in buffer
 (global-set-key (kbd "C-c o") 'occur)
