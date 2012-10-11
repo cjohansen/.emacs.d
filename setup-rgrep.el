@@ -40,6 +40,7 @@
   (interactive
    (let* ((regexp (grep-read-regexp))
           (files (grep-read-files regexp))
+          (files (if (string= "* .*" files) "*.*" files))
           (dir (read-directory-name "Base directory: "
                                     nil default-directory t))
           (confirm (equal current-prefix-arg '(4))))
