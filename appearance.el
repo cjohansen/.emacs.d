@@ -47,4 +47,8 @@
 ;; Make zooming affect frame instead of buffers
 (require 'zoom-frm)
 
+;; Sweet window-splits
+(defadvice split-window-right (after balance activate) (balance-windows))
+(defadvice delete-window (after balance activate) (balance-windows))
+
 (provide 'appearance)
