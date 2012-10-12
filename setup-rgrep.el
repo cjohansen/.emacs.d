@@ -1,3 +1,5 @@
+(require 's)
+
 (defun rgrep-fullscreen (regexp &optional files dir confirm)
   "Open grep in full screen, saving windows."
   (interactive
@@ -33,7 +35,7 @@
   (delete-other-windows)
   (message "Type C-x r j $ to return to pre-rgrep windows."))
 
-(defvar git-grep-switches "--extended-regexp -I -n --ignore-case"
+(defvar git-grep-switches "--extended-regexp -I -n"
   "Switches to pass to `git grep'.")
 
 (defun git-grep-fullscreen (regexp &optional files dir confirm)
@@ -45,7 +47,12 @@
                                     nil default-directory t))
           (confirm (equal current-prefix-arg '(4))))
      (list regexp files dir confirm)))
-  (let ((command (format "cd %s && git --no-pager grep %s -e %S -- '%s' " dir git-grep-switches regexp files))
+  (let ((command (format "cd %s && git --no-pager grep %s %s -e %S -- '%s' "
+                         dir
+                         git-grep-switches
+                         (if (s-lowercase? regexp) " --ignore-case" "")
+                         regexp
+                         files))
         (grep-use-null-device nil))
     (when confirm
       (setq command (read-shell-command "Run git-grep: " command 'git-grep-history)))
