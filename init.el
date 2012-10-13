@@ -51,6 +51,7 @@
 ;; Install extensions if they're missing
 (packages-install
  (cons 'magit melpa)
+ (cons 'paredit melpa)
  (cons 'elisp-slime-nav melpa)
  (cons 'elnode marmalade)
  (cons 'slime-js marmalade)
