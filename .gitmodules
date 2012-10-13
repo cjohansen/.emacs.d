@@ -100,3 +100,9 @@
 [submodule "site-lisp/crappy-jsp-mode"]
 	path = site-lisp/crappy-jsp-mode
 	url = git://github.com/magnars/crappy-jsp-mode.git
+[submodule "site-lisp/s"]
+	path = site-lisp/s
+	url = https://github.com/magnars/s.el.git
+[submodule "site-lisp/bang"]
+	path = site-lisp/bang
+	url = https://github.com/magnars/bang.el.git
