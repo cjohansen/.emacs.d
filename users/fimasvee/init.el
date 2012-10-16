@@ -2,6 +2,9 @@
 (setq-default js2-basic-offset 2)
 (setq js-indent-level 2)
 
+(setq expand-region-fast-keys-enabled nil)
+(setq er--show-expansion-message t)
+
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
 
