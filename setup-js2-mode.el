@@ -85,4 +85,51 @@
                        " *, *" t))
                 ))))
 
+(defun cjsp--eldoc-innards (beg)
+  (save-excursion
+    (goto-char beg)
+    (search-forward "=")
+    (let ((start (point)))
+      (search-forward "*/")
+      (forward-char -2)
+      (buffer-substring-no-properties start (point)))))
+
+(defun cjsp--indentation-of-html-line (html line-number)
+  (with-temp-buffer
+    (insert html)
+    (html-mode)
+    (indent-region (point-min) (point-max))
+    (goto-line line-number)
+    (back-to-indentation)
+    (current-column)))
+
+(defun cjsp--line-number-in-eldoc (p beg)
+  (save-excursion
+    (goto-char p)
+    (let ((l (line-number-at-pos)))
+      (goto-char beg)
+      (- l (line-number-at-pos) -1))))
+
+(defun js2-lineup-comment (parse-status)
+  "Indent a multi-line block comment continuation line."
+  (let* ((beg (nth 8 parse-status))
+         (first-line (js2-same-line beg))
+         (p (point))
+         (offset (save-excursion
+                   (goto-char beg)
+                   (cond
+
+                    ((looking-at "/\\*:DOC ")
+                     (+ 2 (current-column)
+                        (cjsp--indentation-of-html-line
+                         (cjsp--eldoc-innards beg)
+                         (cjsp--line-number-in-eldoc p beg))))
+
+                    ((looking-at "/\\*")
+                     (+ 1 (current-column)))
+
+                    (:else 0)))))
+    (unless first-line
+      (indent-line-to offset))))
+
 (provide 'setup-js2-mode)
