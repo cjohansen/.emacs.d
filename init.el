@@ -72,7 +72,7 @@
 (require 'setup-perspective)
 (require 'setup-wrap-region)
 (require 'setup-ffip)
-(require 'setup-zencoding)
+(require 'setup-html-mode)
 (require 'setup-paredit)
 
 ;; Load slime-js when asked for
