@@ -182,6 +182,16 @@
 
 (define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
 
+(project-specifics "adventur"
+                   (set (make-local-variable 'slime-js-target-url) "http://local.adventur.no/")
+                   (set (make-local-variable 'slime-js-connect-url) "http://local.adventur.no:8009")
+                   (ffip-local-patterns "*.js" "*.php" "*.css")
+                   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest"))
+
+(eval-after-load "grep"
+  '(progn
+     (add-to-list 'grep-find-ignored-directories "compiled_pages")))
+
 ;; Emacs
 
 (defun custom-persp/emacs ()

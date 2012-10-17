@@ -23,6 +23,11 @@
 ;; Experimental super on right command key. s-x is kill-region for instance.
 (setq mac-right-command-modifier 'super)
 
+;; PHP
+(autoload 'php+-mode "php+-mode")
+(add-to-list 'auto-mode-alist '("\\.php$" . php+-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl.php$" . html-mode))
+
 ;; Experimental: keep region when undoing in region
 (defadvice undo-tree-undo (around keep-region activate)
   (if (use-region-p)
