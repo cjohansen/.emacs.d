@@ -43,8 +43,8 @@
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
-;; Rebind C-a to mean back-to-indentation first, then beginning-of-line
-(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
+;; M-i for back-to-indentation
+(global-set-key (kbd "M-i") 'back-to-indentation)
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
@@ -86,8 +86,8 @@
 (global-set-key (kbd "M-M") 'jump-char-backward)
 
 ;; vim's ci and co commands
-(global-set-key (kbd "M-i") 'change-inner)
-(global-set-key (kbd "M-o") 'change-outer)
+(global-set-key (kbd "M-I") 'change-inner)
+(global-set-key (kbd "M-O") 'change-outer)
 
 ;; Font size
 (define-key global-map (kbd "C-+") 'zoom-frm-in)
@@ -120,9 +120,6 @@
 
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
-;; Fetch the contents at a URL, display it raw.
-(global-set-key (kbd "C-x h") 'view-url)
 
 ;; Help should search more than just commands
 (global-set-key (kbd "<f1> a") 'apropos)
@@ -195,9 +192,6 @@
 (global-set-key (kbd "<s-up>") 'windmove-up)
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
-;; Mark all
-(global-set-key (kbd "C-c a") 'mark-whole-buffer)
-
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status) (autoload 'magit-status "magit")
 
@@ -238,7 +232,8 @@
 (global-set-key (kbd "C-x M-j") '(lambda () (interactive) (dired-jump 1)))
 
 ;; Easy-mode fullscreen rgrep
-(global-set-key (kbd "M-s s") 'rgrep-fullscreen)
+(global-set-key (kbd "M-s s") 'git-grep-fullscreen)
+(global-set-key (kbd "M-s S") 'rgrep-fullscreen)
 
 ;; Display and edit occurances of regexp in buffer
 (global-set-key (kbd "C-c o") 'occur)
@@ -262,6 +257,7 @@
 (global-set-key (kbd "C-x C-o or") (ffip-create-pattern-file-finder "*.org"))
 (global-set-key (kbd "C-x C-o ph") (ffip-create-pattern-file-finder "*.php"))
 (global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
+(global-set-key (kbd "C-x C-o vm") (ffip-create-pattern-file-finder "*.vm"))
 
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)

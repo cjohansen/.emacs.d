@@ -1,21 +1,25 @@
-(require 'ruby-mode)
-(require 'ruby-end)
+(defun ruby--jump-to-test ()
+  (find-file
+   (replace-regexp-in-string
+    "/lib/" "/test/"
+    (replace-regexp-in-string
+     "/\\([^/]+\\).rb$" "/test_\\1.rb"
+     (buffer-file-name)))))
 
-(defun ruby-end-of-block-or-parens ()
+(defun ruby--jump-to-lib ()
+  (find-file
+   (replace-regexp-in-string
+    "/test/" "/lib/"
+    (replace-regexp-in-string
+     "/test_\\([^/]+\\).rb$" "/\\1.rb"
+     (buffer-file-name)))))
+
+(defun ruby-jump-to-other ()
   (interactive)
-  (if (looking-at "\[({[\]")
-      (forward-list)
-    (ruby-end-of-block)))
+  (if (string-match-p "/test/" (buffer-file-name))
+      (ruby--jump-to-lib)
+    (ruby--jump-to-test)))
 
-(defun ruby-beginning-of-block-or-parens ()
-  (interactive)
-  (let ((char (buffer-substring (1- (point)) (point))))
-    ;; Somehow I couldn't get (looking-at "\[)}]\]") to work...
-    (if (or (equal char ")")
-            (equal char "}")
-            (equal char "]"))
-        (backward-list)
-      (ruby-beginning-of-block))))
+(define-key ruby-mode-map (kbd "C-c t") 'ruby-jump-to-other)
 
-(define-key ruby-mode-map (kbd "C-M-n") 'ruby-end-of-block-or-parens)
-(define-key ruby-mode-map (kbd "C-M-p") 'ruby-beginning-of-block-or-parens)
+(provide 'setup-ruby-mode)

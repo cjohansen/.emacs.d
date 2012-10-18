@@ -2,6 +2,9 @@
 (setq-default js2-basic-offset 2)
 (setq js-indent-level 2)
 
+(setq expand-region-fast-keys-enabled nil)
+(setq er--show-expansion-message t)
+
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
 
@@ -19,6 +22,11 @@
 
 ;; Experimental super on right command key. s-x is kill-region for instance.
 (setq mac-right-command-modifier 'super)
+
+;; PHP
+(autoload 'php+-mode "php+-mode")
+(add-to-list 'auto-mode-alist '("\\.php$" . php+-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl.php$" . html-mode))
 
 ;; Experimental: keep region when undoing in region
 (defadvice undo-tree-undo (around keep-region activate)

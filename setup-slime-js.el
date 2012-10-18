@@ -31,13 +31,13 @@
 (require 'slime-js)
 (require 'js2-refactor)
 
-(setq slime-js-target-url "http://localhost:3000")
-(setq slime-js-connect-url "http://localhost:8009")
-(setq slime-js-starting-url "/")
-(setq slime-js-swank-command "swank-js")
-(setq slime-js-swank-args '())
-(setq slime-js-browser-command "open -a \"Google Chrome\"")
-(setq slime-js-browser-jacked-in-p nil)
+(set-default 'slime-js-target-url "http://localhost:3000")
+(set-default 'slime-js-connect-url "http://localhost:8009")
+(set-default 'slime-js-starting-url "/")
+(set-default 'slime-js-swank-command "swank-js")
+(set-default 'slime-js-swank-args '())
+(set-default 'slime-js-browser-command "open -a \"Google Chrome\"")
+(set-default 'slime-js-browser-jacked-in-p nil)
 
 (add-hook 'js2-mode-hook (lambda () (slime-js-minor-mode 1)))
 

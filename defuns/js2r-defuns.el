@@ -1,23 +1,11 @@
 (require 'cl)
+(require 's)
 
 (defun _any (pred seq)
   (< 0 (count-if pred seq)))
 
 (defun _partial (f &rest args)
   (apply 'apply-partially (cons f args)))
-
-(defun s-ends-with-p (s suffix)
-  "Does S end in SUFFIX?"
-  (let ((pos (- (length suffix))))
-    (and (>= (length s) (length suffix))
-         (string= suffix (substring s pos)))))
-
-(defun s-chop-suffix (s suffix)
-  "Remove string 'suffix' if it is at end of string 's'"
-  (let ((pos (- (length suffix))))
-    (if (s-ends-with-p s suffix)
-        (substring s 0 pos)
-      s)))
 
 (defvar js2r-path-to-tests "/test/"
   "Path to tests from a root shared with sources")
@@ -69,13 +57,16 @@
         (find-file-other-window file)
       (error "%s not found." file))))
 
+(defun js2r-chop-suffix (s suffix)
+  (s-chop-suffix suffix s))
+
 (defun guess-source-file ()
   (unless (looks-like-test-file-name (buffer-file-name))
     (error "This doesn't look like a test file."))
-  (format "%s/%s.js" (s-chop-suffix (guess-source-folder) "/") (guess-source-file-name)))
+  (format "%s/%s.js" (js2r-chop-suffix (guess-source-folder) "/") (guess-source-file-name)))
 
 (defun guess-source-file-name ()
-  (reduce 's-chop-suffix (possible-test-file-suffixes)
+  (reduce 'js2r-chop-suffix (possible-test-file-suffixes)
           :initial-value (file-name-nondirectory (buffer-file-name))))
 
 (defun guess-source-folder ()
@@ -120,10 +111,10 @@
     (if (file-exists-p file) file nil)))
 
 (defun test-file-name (suffix)
-  (format "%s/%s%s.js" (s-chop-suffix (guess-test-folder) "/") (test-file-name-stub) suffix))
+  (format "%s/%s%s.js" (js2r-chop-suffix (guess-test-folder) "/") (test-file-name-stub) suffix))
 
 (defun test-file-name-stub ()
-  (s-chop-suffix (file-name-nondirectory (buffer-file-name)) ".js"))
+  (js2r-chop-suffix (file-name-nondirectory (buffer-file-name)) ".js"))
 
 (defun guess-test-folder ()
   (let ((source-dir (file-name-directory (buffer-file-name))))

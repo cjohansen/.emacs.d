@@ -51,10 +51,12 @@
 ;; Install extensions if they're missing
 (packages-install
  (cons 'magit melpa)
+ (cons 'paredit melpa)
  (cons 'elisp-slime-nav melpa)
  (cons 'elnode marmalade)
  (cons 'slime-js marmalade)
  (cons 'clojure-mode melpa)
+ (cons 'clojure-test-mode melpa)
  (cons 'nrepl melpa))
 
 ;; Setup extensions
@@ -70,8 +72,13 @@
 (require 'setup-perspective)
 (require 'setup-wrap-region)
 (require 'setup-ffip)
-(require 'setup-zencoding)
 (require 'setup-mutt)
+(require 'setup-html-mode)
+(require 'setup-paredit)
+
+;; Load slime-js when asked for
+(autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
+(autoload 'slime-js-jack-in-node "setup-slime-js" nil t)
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -92,10 +99,6 @@
 (require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
-
-;; Predictive abbreviations while typing - an experiment (tab to complete)
-;(require 'pabbrev)
-;(global-pabbrev-mode 1)
 
 ;; Fill column indicator
 (require 'fill-column-indicator)
@@ -135,12 +138,6 @@
 (require 'diminish)
 (diminish 'wrap-region-mode)
 (diminish 'yas/minor-mode)
-
-;; Setup slime-js if it is installed
-(add-hook 'after-init-hook
-          #'(lambda ()
-              (when (locate-library "slime-js")
-                (require 'setup-slime-js))))
 
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
