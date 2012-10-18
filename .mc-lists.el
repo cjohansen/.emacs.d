@@ -45,9 +45,11 @@
         yas/expand))
 
 (setq mc/cmds-to-run-once
-      'eval-expression
-      quit-window
-      sgml-maybe-name-self
-      toggle-read-only
-      view-echo-area-messages
-      wgrep-change-to-wgrep-mode)
+      '(
+        eval-expression
+        quit-window
+        sgml-maybe-name-self
+        toggle-read-only
+        view-echo-area-messages
+        wgrep-change-to-wgrep-mode
+        ))
