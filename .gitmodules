@@ -3,7 +3,7 @@
         url = https://github.com/yoshiki/yaml-mode.git
 [submodule "site-lisp/undo-tree"]
         path = site-lisp/undo-tree
-        url = http://www.dr-qubit.org/git/undo-tree.git
+        url = git://github.com/emacsmirror/undo-tree.git
 [submodule "site-lisp/js2-mode"]
         path = site-lisp/js2-mode
         url = https://github.com/magnars/js2-mode
