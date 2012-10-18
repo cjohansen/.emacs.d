@@ -16,7 +16,8 @@
 
 ;; Preeeetty font in Emacs 24/Ubuntu
 (if is-mac nil
-  (set-face-attribute 'default nil :font "DejaVu Sans Mono"))
+  (set-default-font "DejaVu Sans Mono")
+  (set-face-attribute 'default nil :height 120))
 
 ;; org-mode colors
 (setq org-todo-keyword-faces
