@@ -71,6 +71,7 @@
 (require 'setup-wrap-region)
 (require 'setup-ffip)
 (require 'setup-zencoding)
+(require 'setup-mutt)
 
 ;; Map files to modes
 (require 'mode-mappings)
