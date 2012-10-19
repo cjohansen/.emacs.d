@@ -49,15 +49,22 @@
 (require 'setup-package)
 
 ;; Install extensions if they're missing
-(packages-install
- (cons 'magit melpa)
- (cons 'paredit melpa)
- (cons 'elisp-slime-nav melpa)
- (cons 'elnode marmalade)
- (cons 'slime-js marmalade)
- (cons 'clojure-mode melpa)
- (cons 'clojure-test-mode melpa)
- (cons 'nrepl melpa))
+(defun init--install-packages ()
+  (packages-install
+   (cons 'magit melpa)
+   (cons 'paredit melpa)
+   (cons 'elisp-slime-nav melpa)
+   (cons 'elnode marmalade)
+   (cons 'slime-js marmalade)
+   (cons 'clojure-mode melpa)
+   (cons 'clojure-test-mode melpa)
+   (cons 'nrepl melpa)))
+
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
