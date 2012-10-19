@@ -51,6 +51,7 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
+   (cons 'exec-path-from-shell melpa)
    (cons 'magit melpa)
    (cons 'paredit melpa)
    (cons 'elisp-slime-nav melpa)
@@ -65,6 +66,9 @@
   (error
    (package-refresh-contents)
    (init--install-packages)))
+
+;; Setup environment variables from the user's shell.
+(when is-mac (exec-path-from-shell-initialize))
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
