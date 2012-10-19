@@ -106,6 +106,3 @@
 [submodule "site-lisp/bang"]
 	path = site-lisp/bang
 	url = https://github.com/magnars/bang.el.git
-[submodule "site-lisp/emacs-eclim"]
-	path = site-lisp/emacs-eclim
-	url = https://github.com/senny/emacs-eclim
