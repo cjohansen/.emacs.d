@@ -27,6 +27,8 @@
 (autoload 'php+-mode "php+-mode")
 (add-to-list 'auto-mode-alist '("\\.php$" . php+-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl.php$" . html-mode))
+(eval-after-load "php+-mode"
+  '(define-key php+-mode-map [tab] nil))
 
 ;; Experimental: keep region when undoing in region
 (defadvice undo-tree-undo (around keep-region activate)
