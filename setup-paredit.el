@@ -1,7 +1,6 @@
 ;; My keybindings for paredit
 
 (require 'paredit)
-(require 'bang)
 
 (defun setup-paredit-for-mode-map (mode-map)
   (define-key mode-map (kbd "s-<up>") 'paredit-raise-sexp)

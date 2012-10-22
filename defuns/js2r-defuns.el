@@ -1,6 +1,6 @@
 (require 'cl)
 (require 's)
-(require 'bang)
+(require 'dash)
 
 (defvar js2r-path-to-tests "/test/"
   "Path to tests from a root shared with sources")
@@ -42,7 +42,7 @@
         '("Test.js" "_test.js" "-test.js")))
 
 (defun looks-like-test-file-name (file-name)
-  (!!any? (s-ends-with-p it file-name) (possible-test-file-suffixes)))
+  (--any? (s-ends-with-p it file-name) (possible-test-file-suffixes)))
 
 (defun jump-to-source-file-other-window (arg)
   (interactive "P")

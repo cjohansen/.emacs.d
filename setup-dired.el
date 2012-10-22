@@ -1,5 +1,5 @@
 (require 'dired)
-(require 'bang)
+(require 'dash)
 
 ;; Make dired less verbose
 (require 'dired-details)
@@ -7,7 +7,7 @@
 (dired-details-install)
 
 ;; Reload dired after making changes
-(!!each '(dired-do-rename
+(--each '(dired-do-rename
           dired-create-directory
           wdired-abort-changes)
         (eval `(defadvice ,it (after revert-buffer activate)
