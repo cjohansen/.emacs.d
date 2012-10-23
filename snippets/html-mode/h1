@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: h1
+# key: h1
+# --
+<h1>$0</h1>
