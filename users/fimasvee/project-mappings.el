@@ -192,6 +192,15 @@
   '(progn
      (add-to-list 'grep-find-ignored-directories "compiled_pages")))
 
+;; Adventur Master
+
+(defun custom-persp/adventur-master ()
+  (interactive)
+  (custom-persp "adventur-master"
+                (find-file "~/projects/adventur/eventyr/master/notat.adv")))
+
+(define-key persp-mode-map (kbd "C-x p m") 'custom-persp/adventur-master)
+
 ;; Emacs
 
 (defun custom-persp/emacs ()

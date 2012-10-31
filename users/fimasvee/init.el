@@ -25,7 +25,8 @@
 
 ;; PHP
 (autoload 'php-mode "php-mode")
-(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(setq php-file-patterns nil)
+(add-to-list 'auto-mode-alist '("[^.][^t][^p][^l]\\.php$" . php-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl.php$" . html-mode))
 (eval-after-load "php-mode"
   '(define-key php-mode-map (kbd "C-.") nil))
