@@ -4,7 +4,7 @@
 (global-set-key (kbd "C-x C-c") 'delete-frame)
 
 ;; Completion that uses many different methods to find options.
-(global-set-key (kbd "C-.") 'hippie-expand)
+(global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
 
 ;; Smart M-x

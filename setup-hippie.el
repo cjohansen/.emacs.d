@@ -14,4 +14,9 @@
                                             try-expand-line-all-buffers)))
     (hippie-expand nil)))
 
+(defun hippie-expand-no-case-fold ()
+  (interactive)
+  (let ((case-fold-search nil))
+    (hippie-expand nil)))
+
 (provide 'setup-hippie)
