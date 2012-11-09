@@ -20,31 +20,14 @@
 
 ;;; Code:
 
-(defun oppdrag--string-replace (from to string &optional re)
-  "Replace all occurrences of FROM with TO in STRING.
-All arguments are strings.
-When optional fourth argument is non-nil, treat the from as a regular expression."
-  (let ((pos 0)
-        (res "")
-        (from (if re from (regexp-quote from))))
-    (while (< pos (length string))
-      (if (setq beg (string-match from string pos))
-          (progn
-            (setq res (concat res
-                              (substring string pos (match-beginning 0))
-                              to))
-            (setq pos (match-end 0)))
-        (progn
-          (setq res (concat res (substring string pos (length string))))
-          (setq pos (length string)))))
-    res))
+(require 's)
 
 (defun oppdrag-hot-deploy-buffer-file ()
   "If the current buffer is visiting a file, and that file is deployed
 in an exploded war, re-deploy the file."
   (interactive)
   (let* ((source (buffer-file-name))
-         (target (oppdrag--string-replace "src/main/webapp" "target/oppdrag" source)))
+         (target (s-replace "src/main/webapp" "target/oppdrag" source)))
     (if (and (file-writable-p target)
              (not (string= source target)))
         (progn
@@ -80,6 +63,39 @@ in an exploded war, re-deploy the file."
           (add-to-list 'grep-find-ignored-directories "external")))
 
 (add-hook 'js2-mode-hook 'oppdrag--setup-js-quirks)
+
+(defun strapon-transform-mod ()
+  (interactive)
+  (save-excursion
+    (let (internal extra-bg beg)
+      (end-of-line)
+      (search-backward "class=\"mod")
+      (search-forward "mod mod")
+      (setq internal (looking-at "_2nd"))
+      (setq extra-bg (cond
+                      ((looking-at "_3rd") " bg-pale-blue")
+                      ((looking-at "Att") " bg-pissyellow")
+                      ((looking-at "Tip") " bg-snotgreen")
+                      ((looking-at "Admin") " bg-firm contrast")
+                      ((looking-at "Neutral") " bg-lt-gray")
+                      (t "")))
+      (er/mark-symbol)
+      (delete-region (region-beginning) (region-end))
+      (delete-char -1)
+      (when internal
+        (insert " internal"))
+      (setq beg (point))
+      (search-forward ">")
+      (er/mark-inner-tag)
+      (kill-region (region-beginning) (region-end))
+      (newline)
+      (insert "<div class=\"inner" extra-bg "\">")
+      (yank)
+      (insert "</div>")
+      (newline)
+      (indent-region beg (1+ (point))))))
+
+(f6 (strapon-transform-mod))
 
 (provide 'oppdrag-mode)
 ;;; oppdrag-mode.el ends here
