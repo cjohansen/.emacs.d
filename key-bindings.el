@@ -116,6 +116,9 @@
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
 
+;; Copy file path to kill ring
+(global-set-key (kbd "C-x M-w") 'copy-current-file-path)
+
 ;; Window switching
 (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x -") 'rotate-windows)
