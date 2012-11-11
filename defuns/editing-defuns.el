@@ -261,3 +261,23 @@ Goes backward if ARG is negative; error if CHAR not found."
                          (search-forward (char-to-string char) nil nil arg)
                          (goto-char (if (> arg 0) (1- (point)) (1+ (point))))
                          (point))))
+
+(defun css-expand-statement ()
+  (interactive)
+  (save-excursion
+    (end-of-line)
+    (search-backward "{")
+    (forward-char 1)
+    (let ((beg (point)))
+      (newline)
+      (er/mark-inside-pairs)
+      (replace-regexp ";" ";\n" nil (region-beginning) (region-end))
+      (indent-region beg (point)))))
+
+(defun css-contract-statement ()
+  (interactive)
+  (end-of-line)
+  (search-backward "{")
+  (while (not (looking-at "}"))
+    (join-line -1))
+  (back-to-indentation))
