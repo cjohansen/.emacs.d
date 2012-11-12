@@ -54,6 +54,9 @@
 ;; Don't redefine C-a for me please, js2-mode
 (define-key js2-mode-map (kbd "C-a") nil)
 
+;; When renaming js-files, check for corresponding testfile
+(define-key js2-mode-map (kbd "C-x C-r") 'js2r-rename-current-buffer-file)
+
 ;; Use lambda for anonymous functions
 (font-lock-add-keywords
  'js2-mode `(("\\(function\\) *("

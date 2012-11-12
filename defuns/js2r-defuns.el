@@ -28,11 +28,58 @@
       (jump-to-source-file-other-window arg)
     (jump-to-test-file-other-window arg)))
 
+;; Rename tests and sources
+
+(defun js2r--rename-file (old-name new-name)
+  (let ((modified-p (buffer-modified-p)))
+    (rename-file old-name new-name 1)
+    (rename-buffer new-name)
+    (set-visited-file-name new-name)
+    (set-buffer-modified-p modified-p)))
+
+(defun also-rename-other (old-name new-name)
+  (let (old-other new-other)
+    (condition-case nil
+        (progn
+          (if (and (looks-like-test-file-name old-name)
+                   (looks-like-test-file-name new-name))
+              (setq old-other (guess-source-file old-name)
+                    new-other (guess-source-file new-name))
+            (setq old-other (guess-test-file old-name)
+                  new-other (guess-test-file new-name))))
+      (error nil))
+
+    (when (and old-other new-other
+               (file-exists-p old-other)
+               (not (file-exists-p new-other))
+               (yes-or-no-p (format "Also rename %S to %S?" old-other new-other)))
+
+      (let ((b (find-buffer-visiting old-other)))
+        (if b
+            (with-current-buffer b
+              (js2r--rename-file old-other new-other))
+          (rename-file old-other new-other 1))))))
+
+(defun js2r-rename-current-buffer-file ()
+  "Renames current buffer and file it is visiting."
+  (interactive)
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (let ((new-name (read-file-name "New name: " filename)))
+        (cond ((get-buffer new-name)
+               (error "A buffer named '%s' already exists!" new-name))
+              (t
+               (js2r--rename-file filename new-name)
+               (also-rename-other filename new-name)
+               (message "File '%s' successfully renamed to '%s'" name (file-name-nondirectory new-name))))))))
+
 ;; Jump to source-file
 
 (defun jump-to-source-file (arg)
   (interactive "P")
-  (let ((file (guess-source-file)))
+  (let ((file (guess-source-file (buffer-file-name))))
     (if (or (file-exists-p file) arg)
         (find-file file)
       (error "%s not found." file))))
@@ -46,21 +93,21 @@
 
 (defun jump-to-source-file-other-window (arg)
   (interactive "P")
-  (let ((file (guess-source-file)))
+  (let ((file (guess-source-file (buffer-file-name))))
     (if (or (file-exists-p file) arg)
         (find-file-other-window file)
       (error "%s not found." file))))
 
-(defun guess-source-file ()
-  (unless (looks-like-test-file-name (buffer-file-name))
+(defun guess-source-file (file-name)
+  (unless (looks-like-test-file-name file-name)
     (error "This doesn't look like a test file."))
-  (format "%s/%s.js" (s-chop-suffix "/" (guess-source-folder)) (guess-source-file-name)))
+  (format "%s/%s.js" (s-chop-suffix "/" (guess-source-folder file-name)) (guess-source-file-name file-name)))
 
-(defun guess-source-file-name ()
-  (s-chop-suffixes (possible-test-file-suffixes) (file-name-nondirectory (buffer-file-name))))
+(defun guess-source-file-name (file-name)
+  (s-chop-suffixes (possible-test-file-suffixes) (file-name-nondirectory file-name)))
 
-(defun guess-source-folder ()
-  (let ((test-dir (file-name-directory (buffer-file-name))))
+(defun guess-source-folder (file-name)
+  (let ((test-dir (file-name-directory file-name)))
     (when (not (string-match-p js2r-path-to-tests test-dir))
       (error "Unable to locate source folder. Set js2r-path-to-tests and -sources."))
     (let ((source-dir (replace-regexp-in-string
@@ -76,38 +123,38 @@
 
 (defun jump-to-test-file (arg)
   (interactive "P")
-  (let ((file (guess-test-file)))
+  (let ((file (guess-test-file (buffer-file-name))))
     (if (or (file-exists-p file) arg)
         (find-file file)
       (error "%s not found." file))))
 
 (defun jump-to-test-file-other-window (arg)
   (interactive "P")
-  (let ((file (guess-test-file)))
+  (let ((file (guess-test-file (buffer-file-name))))
     (if (or (file-exists-p file) arg)
         (find-file-other-window file)
       (error "%s not found." file))))
 
-(defun guess-test-file ()
-  (when (looks-like-test-file-name (buffer-file-name))
+(defun guess-test-file (file-name)
+  (when (looks-like-test-file-name file-name)
     (error "Looks like you're already in the test file."))
-  (or (test-file-that-exists "-test")
-      (test-file-that-exists "_test")
-      (test-file-that-exists "Test")
-      (test-file-name js2r-test-suffix)))
+  (or (test-file-that-exists file-name "-test")
+      (test-file-that-exists file-name "_test")
+      (test-file-that-exists file-name "Test")
+      (test-file-name file-name js2r-test-suffix)))
 
-(defun test-file-that-exists (suffix)
-  (let ((file (test-file-name suffix)))
+(defun test-file-that-exists (file-name suffix)
+  (let ((file (test-file-name file-name suffix)))
     (if (file-exists-p file) file nil)))
 
-(defun test-file-name (suffix)
-  (format "%s/%s%s.js" (s-chop-suffix "/" (guess-test-folder)) (test-file-name-stub) suffix))
+(defun test-file-name (file-name suffix)
+  (format "%s/%s%s.js" (s-chop-suffix "/" (guess-test-folder file-name)) (test-file-name-stub file-name) suffix))
 
-(defun test-file-name-stub ()
-  (s-chop-suffix ".js" (file-name-nondirectory (buffer-file-name))))
+(defun test-file-name-stub (file-name)
+  (s-chop-suffix ".js" (file-name-nondirectory file-name)))
 
-(defun guess-test-folder ()
-  (let ((source-dir (file-name-directory (buffer-file-name))))
+(defun guess-test-folder (file-name)
+  (let ((source-dir (file-name-directory file-name)))
     (when (not (string-match-p js2r-path-to-sources source-dir))
       (error "Unable to locate test folder. Set js2r-path-to-tests and -sources."))
     (let ((test-dir (replace-regexp-in-string
