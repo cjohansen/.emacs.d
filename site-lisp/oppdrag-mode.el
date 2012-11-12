@@ -98,7 +98,7 @@ in an exploded war, re-deploy the file."
 (defun strapon-transform-request-mapping ()
   (interactive)
   (save-excursion
-    (let (method-name method-signature return-stmt beg)
+    (let (method-name method-signature beg)
       (end-of-line)
 
       (search-backward "@RequestMapping")
@@ -120,11 +120,6 @@ in an exploded war, re-deploy the file."
       (setq method-name (buffer-substring (region-beginning) (region-end)))
       (deactivate-mark)
 
-      (search-forward "return ")
-      (setq beg (point))
-      (search-forward ";")
-      (setq return-file (buffer-substring beg (1- (point))))
-
       (search-backward "@RequestMapping")
       (setq beg (point))
       (search-forward "{")
@@ -140,8 +135,7 @@ in an exploded war, re-deploy the file."
 
         (insert "
              model.addAttribute(\"strappedOn\", true);
-             " method-name "(" method-signature ");
-             return " return-file " + \"-strapon\";
+             return " method-name "(" method-signature ") + \"-strapon\";
          }")
 
         (search-backward "@RequestMapping")
@@ -154,8 +148,15 @@ in an exploded war, re-deploy the file."
         (search-forward "@RequestMapping")
         (indent-region p (point))))))
 
+(defun strapon-create-strapon-jsp ()
+  (interactive)
+  (write-file
+   (s-replace ".jsp" "-strapon.jsp" (buffer-file-name))
+   t))
+
 (f6 (strapon-transform-mod))
 (f7 (strapon-transform-request-mapping))
+(f12 (strapon-create-strapon-jsp))
 
 (provide 'oppdrag-mode)
 ;;; oppdrag-mode.el ends here
