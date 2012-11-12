@@ -47,6 +47,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        copy-current-file-path
         eval-expression
         quit-window
         toggle-read-only
