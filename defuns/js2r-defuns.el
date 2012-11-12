@@ -40,13 +40,12 @@
 (defun also-rename-other (old-name new-name)
   (let (old-other new-other)
     (condition-case nil
-        (progn
-          (if (and (looks-like-test-file-name old-name)
-                   (looks-like-test-file-name new-name))
-              (setq old-other (guess-source-file old-name)
-                    new-other (guess-source-file new-name))
-            (setq old-other (guess-test-file old-name)
-                  new-other (guess-test-file new-name))))
+        (if (and (looks-like-test-file-name old-name)
+                 (looks-like-test-file-name new-name))
+            (setq old-other (guess-source-file old-name)
+                  new-other (guess-source-file new-name))
+          (setq old-other (guess-test-file old-name)
+                new-other (guess-test-file new-name)))
       (error nil))
 
     (when (and old-other new-other
@@ -74,6 +73,40 @@
                (js2r--rename-file filename new-name)
                (also-rename-other filename new-name)
                (message "File '%s' successfully renamed to '%s'" name (file-name-nondirectory new-name))))))))
+
+;; Delete tests and sources
+
+(defun also-delete-other (file-name)
+  (let (other-name)
+    (condition-case nil
+        (setq other-name
+              (if (looks-like-test-file-name file-name)
+                  (guess-source-file file-name)
+                (guess-test-file file-name)))
+      (error nil))
+
+    (when (and other-name
+               (file-exists-p other-name)
+               (yes-or-no-p (format "Also delete %S?" other-name)))
+
+      (let ((b (find-buffer-visiting other-name)))
+        (when b (kill-buffer b)))
+
+      (delete-file other-name))))
+
+(defun js2r-delete-current-buffer-file ()
+  "Removes file connected to current buffer and kills buffer."
+  (interactive)
+  (let ((filename (buffer-file-name))
+        (buffer (current-buffer))
+        (name (buffer-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (ido-kill-buffer)
+      (when (yes-or-no-p "Are you sure you want to remove this file? ")
+        (delete-file filename)
+        (also-delete-other filename)
+        (kill-buffer buffer)
+        (message "File '%s' successfully removed" filename)))))
 
 ;; Jump to source-file
 
