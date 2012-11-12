@@ -30,11 +30,11 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; UTF-8 please
-(setq locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
 
 ;; Show active region
 (transient-mark-mode 1)
@@ -97,7 +97,7 @@
 (setq ediff-split-window-function 'split-window-horizontally)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; Nic says eval-expression-print-level needs to be set to 0 (turned off) so
+;; Nic says eval-expression-print-level needs to be set to nil (turned off) so
 ;; that you can always see what's happening.
 (setq eval-expression-print-level nil)
 
