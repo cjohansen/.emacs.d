@@ -95,7 +95,67 @@ in an exploded war, re-deploy the file."
       (newline)
       (indent-region beg (1+ (point))))))
 
+(defun strapon-transform-request-mapping ()
+  (interactive)
+  (save-excursion
+    (let (method-name method-signature return-stmt beg)
+      (end-of-line)
+
+      (search-backward "@RequestMapping")
+      (forward-line 1)
+      (search-forward "(")
+      (er/mark-inside-pairs)
+      (setq method-signature
+            (let (case-fold-search)
+              (--> (buffer-substring (region-beginning) (region-end))
+                (split-string it "\\s ")
+                (--select (s-matches? "^[a-z]" it) it)
+                (--reject (s-matches? "long" it) it)
+                (s-join " " it)
+                (s-collapse-whitespace it))))
+      (deactivate-mark)
+
+      (forward-char -1)
+      (er/mark-symbol)
+      (setq method-name (buffer-substring (region-beginning) (region-end)))
+      (deactivate-mark)
+
+      (search-forward "return ")
+      (setq beg (point))
+      (search-forward ";")
+      (setq return-file (buffer-substring beg (1- (point))))
+
+      (search-backward "@RequestMapping")
+      (setq beg (point))
+      (search-forward "{")
+      (while (er--point-inside-string-p)
+        (search-forward "{"))
+      (copy-region-as-kill beg (point))
+      (goto-char beg)
+
+      (new-line-above)
+      (new-line-above)
+      (let ((p (point)))
+        (yank)
+
+        (insert "
+             model.addAttribute(\"strappedOn\", true);
+             " method-name "(" method-signature ");
+             return " return-file " + \"-strapon\";
+         }")
+
+        (search-backward "@RequestMapping")
+        (search-forward "\.")
+        (replace-match "-strapon.")
+
+        (forward-line 1)
+        (search-forward "(")
+        (replace-match "Strapon(")
+        (search-forward "@RequestMapping")
+        (indent-region p (point))))))
+
 (f6 (strapon-transform-mod))
+(f7 (strapon-transform-request-mapping))
 
 (provide 'oppdrag-mode)
 ;;; oppdrag-mode.el ends here
