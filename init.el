@@ -36,9 +36,6 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" dotfiles-dir))
 
-;; Lets start with a smattering of sanity
-(require 'sane-defaults)
-
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
@@ -69,6 +66,9 @@
   (error
    (package-refresh-contents)
    (init--install-packages)))
+
+;; Lets start with a smattering of sanity
+(require 'sane-defaults)
 
 ;; Setup environment variables from the user's shell.
 (when is-mac (exec-path-from-shell-initialize))
