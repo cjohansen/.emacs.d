@@ -145,8 +145,8 @@ string).  It returns t if a new completion is found, nil otherwise."
         t))))
 
 ;; Hippie expand: sometimes too hip
-(setq hippie-expand-try-functions-list '(try-complete-file-name
-                                         try-expand-dabbrev-closest-first
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev-closest-first
+                                         try-complete-file-name
                                          try-expand-dabbrev-all-buffers
                                          try-expand-dabbrev-from-kill
                                          try-expand-all-abbrevs
