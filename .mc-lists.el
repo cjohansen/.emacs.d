@@ -38,6 +38,8 @@
         orgtbl-self-insert-command
         quoted-insert
         save-region-or-current-line
+        new-line-above
+        sgml-delete-tag
         sgml-slash
         slime-space
         wrap-region-trigger
