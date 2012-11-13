@@ -112,6 +112,7 @@
 (require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
+(require 'multifiles)
 
 ;; Fill column indicator
 (require 'fill-column-indicator)

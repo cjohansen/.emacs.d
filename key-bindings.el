@@ -125,6 +125,9 @@
 (global-set-key (kbd "C-x C--") 'toggle-window-split)
 (global-unset-key (kbd "C-x C-+")) ;; don't zoom like this
 
+;; Add region to *multifile*
+(global-set-key (kbd "C-!") 'mf/mirror-region-in-multifile)
+
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
