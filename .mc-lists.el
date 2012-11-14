@@ -30,6 +30,7 @@
         markdown-enter-key
         move-line-down
         move-line-up
+        new-line-above
         org-delete-backward-char
         org-metaleft
         org-metaright
@@ -38,7 +39,6 @@
         orgtbl-self-insert-command
         quoted-insert
         save-region-or-current-line
-        new-line-above
         sgml-delete-tag
         sgml-slash
         slime-space
