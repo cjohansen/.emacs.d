@@ -52,7 +52,6 @@
    (cons 'magit melpa)
    (cons 'paredit melpa)
    (cons 'gist melpa)
-   (cons 'undo-tree melpa)
    (cons 'htmlize melpa)
    (cons 'elisp-slime-nav melpa)
    (cons 'elnode marmalade)
