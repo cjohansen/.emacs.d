@@ -83,6 +83,10 @@
     (yank)
     (insert (concat "\">" text "</a>"))))
 
+(defun buffer-to-html (buffer)
+  (with-current-buffer (htmlize-buffer buffer)
+    (buffer-string)))
+
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."
   (interactive)
