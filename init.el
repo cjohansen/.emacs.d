@@ -88,6 +88,11 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 
+;; Language specific setup files
+(eval-after-load 'js2-mode '(require 'setup-js2-mode))
+(eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
+(eval-after-load 'clojure-mode '(require 'setup-clojure-mode))
+
 ;; Load slime-js when asked for
 (autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
 (autoload 'slime-js-jack-in-node "setup-slime-js" nil t)

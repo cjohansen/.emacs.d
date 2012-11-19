@@ -12,7 +12,6 @@
 (setq-default js2-include-gears-externs nil)
 (setq-default js2-concat-multiline-strings 'eol)
 
-(require 'js2-mode)
 (require 'js2-refactor)
 
 (require 'js2-imenu-extras)
