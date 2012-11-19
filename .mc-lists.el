@@ -32,6 +32,7 @@
         move-line-up
         new-line-above
         org-delete-backward-char
+        org-delete-char
         org-metaleft
         org-metaright
         org-self-insert-command
@@ -49,10 +50,7 @@
 
 (setq mc/cmds-to-run-once
       '(
-        copy-current-file-path
-        eval-expression
-        quit-window
-        toggle-read-only
-        view-echo-area-messages
+        js2r-extract-var
+        js2r-rename-var
         wgrep-change-to-wgrep-mode
         ))
