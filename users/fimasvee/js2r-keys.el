@@ -53,6 +53,13 @@
      (define-key js2-mode-map (my-js2-keys "uw") 'js2r-unwrap)
      (define-key js2-mode-map (my-js2-keys "wl") 'js2r-wrap-in-for-loop)
      (define-key js2-mode-map (my-js2-keys "3i") 'js2r-ternary-to-if)
+     (define-key js2-mode-map (my-js2-keys "jt") 'jump-to-test-file)
+     (define-key js2-mode-map (my-js2-keys "ot") 'jump-to-test-file-other-window)
+     (define-key js2-mode-map (my-js2-keys "js") 'jump-to-source-file)
+     (define-key js2-mode-map (my-js2-keys "os") 'jump-to-source-file-other-window)
+     (define-key js2-mode-map (my-js2-keys "jo") 'jump-between-source-and-test-files)
+     (define-key js2-mode-map (my-js2-keys "oo") 'jump-between-source-and-test-files-other-window)
+     (define-key js2-mode-map (my-js2-keys "ta") 'toggle-assert-refute)
      ))
 
 ;; (f6
