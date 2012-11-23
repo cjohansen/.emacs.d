@@ -274,4 +274,7 @@
                                (if (search-forward "}" nil t)
                                    (backward-char 1))))
 
+;; Convert ANSI SGR colored output to faces
+(global-set-key (kbd "C-c C-k") 'colorize-ansi-region)
+
 (provide 'key-bindings)
