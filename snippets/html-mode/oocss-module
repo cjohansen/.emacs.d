@@ -2,8 +2,10 @@
 # name: oocss-module
 # key: mod
 # --
-<div class="mod mod_${1:1st}">
-  <div class="bd">
-    $0
+<div class="mod${1: internal}">
+  <div class="inner">
+    <div class="bd">
+      $0
+    </div>
   </div>
 </div>

@@ -64,6 +64,11 @@
     (deactivate-mark))
   (call-interactively 'isearch-backward))
 
+(eval-after-load "multiple-cursors"
+  '(progn
+     (unsupported-cmd isearch-forward-use-region ".")
+     (unsupported-cmd isearch-backward-use-region ".")))
+
 (defun view-url ()
   "Open a new buffer containing the contents of URL."
   (interactive)
@@ -82,6 +87,10 @@
     (insert "<a href=\"")
     (yank)
     (insert (concat "\">" text "</a>"))))
+
+(defun buffer-to-html (buffer)
+  (with-current-buffer (htmlize-buffer buffer)
+    (buffer-string)))
 
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."

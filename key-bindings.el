@@ -4,7 +4,7 @@
 (global-set-key (kbd "C-x C-c") 'delete-frame)
 
 ;; Completion that uses many different methods to find options.
-(global-set-key (kbd "C-.") 'hippie-expand)
+(global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
 
 ;; Smart M-x
@@ -24,11 +24,19 @@
 (global-set-key (kbd "C-S-c C-a") 'mc/edit-beginnings-of-lines)
 
 ;; Mark additional regions matching current region
-(global-set-key (kbd "M-æ") 'mc/mark-all-like-this)
+(global-set-key (kbd "M-æ") 'mc/mark-all-like-this-dwim)
 (global-set-key (kbd "C-å") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-æ") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-Æ") 'mc/mark-more-like-this-extended)
 (global-set-key (kbd "M-å") 'mc/mark-all-in-region)
+
+;; Symbol and word specific mark-more
+(global-set-key (kbd "s-æ") 'mc/mark-next-word-like-this)
+(global-set-key (kbd "s-å") 'mc/mark-previous-word-like-this)
+(global-set-key (kbd "M-s-æ") 'mc/mark-all-words-like-this)
+(global-set-key (kbd "s-Æ") 'mc/mark-next-symbol-like-this)
+(global-set-key (kbd "s-Å") 'mc/mark-previous-symbol-like-this)
+(global-set-key (kbd "M-s-Æ") 'mc/mark-all-symbols-like-this)
 
 ;; Set anchor to start rectangular-region-mode
 (global-set-key (kbd "C-M-SPC") 'set-rectangular-region-anchor)
@@ -112,11 +120,17 @@
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
 
+;; Copy file path to kill ring
+(global-set-key (kbd "C-x M-w") 'copy-current-file-path)
+
 ;; Window switching
 (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x -") 'rotate-windows)
 (global-set-key (kbd "C-x C--") 'toggle-window-split)
 (global-unset-key (kbd "C-x C-+")) ;; don't zoom like this
+
+;; Add region to *multifile*
+(global-set-key (kbd "C-!") 'mf/mirror-region-in-multifile)
 
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))

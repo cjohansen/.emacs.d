@@ -36,9 +36,6 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" dotfiles-dir))
 
-;; Lets start with a smattering of sanity
-(require 'sane-defaults)
-
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
@@ -49,15 +46,34 @@
 (require 'setup-package)
 
 ;; Install extensions if they're missing
-(packages-install
- (cons 'magit melpa)
- (cons 'paredit melpa)
- (cons 'elisp-slime-nav melpa)
- (cons 'elnode marmalade)
- (cons 'slime-js marmalade)
- (cons 'clojure-mode melpa)
- (cons 'clojure-test-mode melpa)
- (cons 'nrepl melpa))
+(defun init--install-packages ()
+  (packages-install
+   (cons 'exec-path-from-shell melpa)
+   (cons 'magit melpa)
+   (cons 'paredit melpa)
+   (cons 'gist melpa)
+   (cons 'htmlize melpa)
+   (cons 'elisp-slime-nav melpa)
+   (cons 'elnode marmalade)
+   (cons 'slime-js marmalade)
+   (cons 'git-commit-mode)
+   (cons 'gitconfig-mode)
+   (cons 'gitignore-mode)
+   (cons 'clojure-mode melpa)
+   (cons 'clojure-test-mode melpa)
+   (cons 'nrepl melpa)))
+
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
+
+;; Lets start with a smattering of sanity
+(require 'sane-defaults)
+
+;; Setup environment variables from the user's shell.
+(when is-mac (exec-path-from-shell-initialize))
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
@@ -65,8 +81,8 @@
 (eval-after-load 'dired '(require 'setup-dired))
 (eval-after-load 'magit '(require 'setup-magit))
 (eval-after-load 'grep '(require 'setup-rgrep))
-(eval-after-load 'hippie-exp '(require 'setup-hippie))
 (eval-after-load 'shell '(require 'setup-shell))
+(require 'setup-hippie)
 (require 'setup-yasnippet)
 (require 'setup-ace-jump-mode)
 (require 'setup-perspective)
@@ -75,6 +91,11 @@
 (require 'setup-mutt)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+
+;; Language specific setup files
+(eval-after-load 'js2-mode '(require 'setup-js2-mode))
+(eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
+(eval-after-load 'clojure-mode '(require 'setup-clojure-mode))
 
 ;; Load slime-js when asked for
 (autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
@@ -99,6 +120,7 @@
 (require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
+(require 'multifiles)
 
 ;; Fill column indicator
 (require 'fill-column-indicator)

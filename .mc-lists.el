@@ -2,7 +2,8 @@
 ;; It keeps track of your preferences for running commands with multiple cursors.
 
 (setq mc/cmds-to-run-for-all
-      '(ac-complete
+      '(
+        ac-complete
         back-to-indentation-or-beginning
         c-electric-backspace
         c-electric-delete-forward
@@ -30,7 +31,9 @@
         markdown-enter-key
         move-line-down
         move-line-up
+        new-line-above
         org-delete-backward-char
+        org-delete-char
         org-metaleft
         org-metaright
         org-self-insert-command
@@ -38,14 +41,18 @@
         orgtbl-self-insert-command
         quoted-insert
         save-region-or-current-line
+        sgml-delete-tag
         sgml-slash
         slime-space
         wrap-region-trigger
         yank-indented
-        yas/expand))
+        yas/expand
+        ))
 
 (setq mc/cmds-to-run-once
       '(
+        js2r-extract-var
+        js2r-rename-var
         eval-expression
         quit-window
         sgml-maybe-name-self

@@ -186,11 +186,20 @@
                    (set (make-local-variable 'slime-js-target-url) "http://local.adventur.no/")
                    (set (make-local-variable 'slime-js-connect-url) "http://local.adventur.no:8009")
                    (ffip-local-patterns "*.js" "*.php" "*.css")
-                   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest"))
+                   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest" "compressed"))
 
 (eval-after-load "grep"
   '(progn
      (add-to-list 'grep-find-ignored-directories "compiled_pages")))
+
+;; Adventur Master
+
+(defun custom-persp/adventur-master ()
+  (interactive)
+  (custom-persp "adventur-master"
+                (find-file "~/projects/eventyr/master/notat.adv")))
+
+(define-key persp-mode-map (kbd "C-x p m") 'custom-persp/adventur-master)
 
 ;; Emacs
 
