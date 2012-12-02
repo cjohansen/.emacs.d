@@ -84,7 +84,6 @@
 (eval-after-load 'shell '(require 'setup-shell))
 (require 'setup-hippie)
 (require 'setup-yasnippet)
-(require 'setup-ace-jump-mode)
 (require 'setup-perspective)
 (require 'setup-wrap-region)
 (require 'setup-ffip)

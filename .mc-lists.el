@@ -20,6 +20,7 @@
         duplicate-current-line-or-region
         eval-and-replace
         forward-paragraph
+        html-wrap-in-tag
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
