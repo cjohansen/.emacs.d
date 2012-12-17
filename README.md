@@ -2,6 +2,7 @@
 
 An ever-changing set of emacs settings. Micro-optimizations are super fun.
 These are used in the [Emacs Rocks](http://emacsrocks.com) screencasts.
+You can also see some thoughts behind the settings on my [What the .emacs.d!?](http://whattheemacsd.com)-blog.
 
 ## Setup
 
