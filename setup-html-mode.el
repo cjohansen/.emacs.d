@@ -34,6 +34,7 @@
      (require 'tagedit)
      (define-key html-mode-map (kbd "s-<right>") 'tagedit-forward-slurp-tag)
      (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
+     (define-key html-mode-map (kbd "s-k") 'tagedit-kill-attribute)
      ))
 
 (autoload 'zencoding-mode "zencoding-mode")
@@ -47,6 +48,7 @@
 
 (defun --setup-zencoding-mode ()
   (zencoding-mode)
+  (add-to-list 'zencoding-self-closing-tags "hr")
   (set (make-local-variable 'yas/fallback-behavior)
        '(apply zencoding-expand-or-indent-for-tab)))
 
