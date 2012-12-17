@@ -92,11 +92,6 @@
   (with-current-buffer (htmlize-buffer buffer)
     (buffer-string)))
 
-(defun recompile-init ()
-  "Byte-compile all your dotfiles again."
-  (interactive)
-  (byte-recompile-directory dotfiles-dir 0))
-
 (defun sudo-edit (&optional arg)
   (interactive "p")
   (if (or arg (not buffer-file-name))
