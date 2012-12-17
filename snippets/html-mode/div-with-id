@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: div-with-id
-# key: divi
-# --
-<div id="$1">
-     $0
-</div>

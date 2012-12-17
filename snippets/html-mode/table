@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: table
-# key: table
-# --
-<table>$0</table>

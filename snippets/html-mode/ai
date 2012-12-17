@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: ai
-# key: ai
-# --
-<a href="$1" id="$2">$0</a>

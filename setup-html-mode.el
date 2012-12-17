@@ -34,13 +34,28 @@
 (autoload 'zencoding-mode "zencoding-mode")
 (autoload 'zencoding-expand-line "zencoding-mode")
 
-(add-hook 'sgml-mode-hook 'zencoding-mode)
+(defun zencoding-expand-or-indent-for-tab ()
+  (interactive)
+  (unless (and (memq last-command yas/expand-only-for-last-commands)
+               (zencoding-expand-yas))
+    (indent-for-tab-command)))
+
+(defun --setup-zencoding-mode ()
+  (zencoding-mode)
+  (set (make-local-variable 'yas/fallback-behavior)
+       '(apply zencoding-expand-or-indent-for-tab)))
+
+(add-hook 'sgml-mode-hook '--setup-zencoding-mode)
 
 (eval-after-load 'zencoding-mode
   '(progn
      (define-key zencoding-mode-keymap (kbd "C-j") nil)
      (define-key zencoding-mode-keymap (kbd "<C-return>") nil)
      (define-key zencoding-mode-keymap (kbd "C-c C-j") 'zencoding-expand-line)
+
+     (defun zencoding-transform-yas (ast)
+       (let ((zencoding-leaf-function (lambda () "$0")))
+         (zencoding-transform ast)))
 
      (defun zencoding-indent (text)
        "Indent the text"
