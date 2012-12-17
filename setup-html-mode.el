@@ -29,7 +29,12 @@
   '(progn
      (define-key html-mode-map (kbd "C-<down>") 'skip-to-next-blank-line)
      (define-key html-mode-map (kbd "C-<up>") 'skip-to-previous-blank-line)
-     (define-key html-mode-map (kbd "C-c C-w") 'html-wrap-in-tag)))
+     (define-key html-mode-map (kbd "C-c C-w") 'html-wrap-in-tag)
+
+     (require 'tagedit)
+     (define-key html-mode-map (kbd "s-<right>") 'tagedit-forward-slurp-tag)
+     (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
+     ))
 
 (autoload 'zencoding-mode "zencoding-mode")
 (autoload 'zencoding-expand-line "zencoding-mode")
