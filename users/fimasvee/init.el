@@ -23,6 +23,14 @@
 ;; Experimental super on right command key. s-x is kill-region for instance.
 (setq mac-right-command-modifier 'super)
 
+;; Edit in Chrome
+
+(when (require 'edit-server nil t)
+  (edit-server-start))
+
+(setq edit-server-url-major-mode-alist
+      '(("github\\.com" . markdown-mode)))
+
 ;; PHP
 (autoload 'php-mode "php-mode")
 (setq php-file-patterns nil)
