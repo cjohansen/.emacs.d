@@ -31,6 +31,9 @@
      (define-key html-mode-map (kbd "C-<up>") 'skip-to-previous-blank-line)
      (define-key html-mode-map (kbd "C-c C-w") 'html-wrap-in-tag)
 
+     ;; Don't show buggy matching of slashes
+     (define-key html-mode-map (kbd "/") nil)
+
      (require 'tagedit)
      (define-key html-mode-map (kbd "s-<right>") 'tagedit-forward-slurp-tag)
      (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
