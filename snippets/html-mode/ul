@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: ul
-# key: ul
-# --
-<ul>
-  li$0
-</ul>

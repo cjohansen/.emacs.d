@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: div-with-class
-# key: divc
-# --
-<div class="$1">
-     $0
-</div>

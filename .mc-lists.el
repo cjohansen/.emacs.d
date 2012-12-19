@@ -21,6 +21,7 @@
         eval-and-replace
         forward-paragraph
         isearch-forward-use-region
+        html-wrap-in-tag
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent

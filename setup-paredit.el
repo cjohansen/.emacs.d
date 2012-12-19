@@ -13,6 +13,8 @@
   (define-key mode-map (kbd "s-<up>") 'paredit-raise-sexp)
   (define-key mode-map (kbd "s-<right>") 'paredit-forward-slurp-sexp)
   (define-key mode-map (kbd "s-<left>") 'paredit-forward-barf-sexp)
+  (define-key mode-map (kbd "s-S-<left>") 'paredit-backward-slurp-sexp)
+  (define-key mode-map (kbd "s-S-<right>") 'paredit-backward-barf-sexp)
   (define-key mode-map (kbd "s-8") 'paredit-wrap-round)
   (define-key mode-map (kbd "s-9") 'paredit-wrap-round-from-behind)
   (define-key mode-map (kbd "s-<backspace>") 'paredit-splice-sexp-killing-backward)

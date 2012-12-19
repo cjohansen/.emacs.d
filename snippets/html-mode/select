@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: select
-# key: select
-# --
-<select name="$1">
-        option$0
-</select>
