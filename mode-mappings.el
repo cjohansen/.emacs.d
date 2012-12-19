@@ -69,6 +69,9 @@
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 
+;; Configuration files
+(add-to-list 'auto-mode-alist '("\\.offlineimaprc$" . conf-mode))
+
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
