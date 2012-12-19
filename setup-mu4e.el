@@ -1,0 +1,21 @@
+(require 'mu4e)
+(setq mu4e-get-mail-command "offlineimap")
+(setq message-kill-buffer-on-exit t)
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; Try to display images in mu4e
+(setq
+ mu4e-view-show-images t
+ mu4e-view-image-max-width 800)
+
+;; use imagemagick, if available
+(when (fboundp 'imagemagick-register-types)
+  (imagemagick-register-types))
+
+(setq mu4e-confirm-quit nil
+      mu4e-headers-date-format "%d/%b/%Y %H:%M" ; date format
+      mu4e-html2text-command "html2text -utf8 -width 72")
+
+(provide 'setup-mu4e)
