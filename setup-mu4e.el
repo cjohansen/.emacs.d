@@ -18,4 +18,21 @@
       mu4e-headers-date-format "%d/%b/%Y %H:%M" ; date format
       mu4e-html2text-command "html2text -utf8 -width 72")
 
+;; Start mu4e in fullscreen, immediately ping for new mail
+(defun mu4e-up-to-date-status ()
+  (interactive)
+  (window-configuration-to-register :mu4e-fullscreen)
+  (mu4e)
+  (mu4e-update-mail-show-window)
+  (delete-other-windows))
+
+;; Restore previous window configuration
+(defun mu4e-quit-session ()
+  "Restores the previous window configuration and kills the magit buffer"
+  (interactive)
+  (kill-buffer)
+  (jump-to-register :mu4e-fullscreen))
+
+(define-key mu4e-main-mode-map (kbd "q") 'mu4e-quit-session)
+
 (provide 'setup-mu4e)
