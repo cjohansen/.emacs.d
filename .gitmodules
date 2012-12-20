@@ -109,3 +109,6 @@
 [submodule "site-lisp/tagedit"]
 	path = site-lisp/tagedit
 	url = https://github.com/magnars/tagedit.git
+[submodule "site-lisp/fold-this"]
+	path = site-lisp/fold-this
+	url = https://github.com/magnars/fold-this.el.git
