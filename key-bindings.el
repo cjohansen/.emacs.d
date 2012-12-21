@@ -252,6 +252,10 @@
 (global-set-key (kbd "M-s s") 'git-grep-fullscreen)
 (global-set-key (kbd "M-s S") 'rgrep-fullscreen)
 
+;; Multi-occur
+(global-set-key (kbd "M-s m") 'multi-occur)
+(global-set-key (kbd "M-s M") 'multi-occur-in-matching-buffers)
+
 ;; Display and edit occurances of regexp in buffer
 (global-set-key (kbd "C-c o") 'occur)
 
