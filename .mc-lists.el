@@ -33,8 +33,10 @@
         move-line-down
         move-line-up
         new-line-above
+        org-beginning-of-line
         org-delete-backward-char
         org-delete-char
+        org-end-of-line
         org-metaleft
         org-metaright
         org-self-insert-command
