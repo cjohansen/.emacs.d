@@ -18,9 +18,12 @@
                     (search-forward "</pre>")
                     (forward-char -7)
                     (buffer-substring beg (point))))
-         (filename (wte--unique-filename (buffer-file-name-body))))
+         (filename (wte--unique-filename (buffer-file-name-body)))
+         (timestamp (floor (time-to-seconds (current-time)))))
     (find-file filename)
-    (insert (format "<p></p>
+    (insert (format "<!-- %S -->
+
+<p></p>
 
 <hr/>
 
@@ -29,7 +32,7 @@
 <hr/>
 
 <p></p>
-" example))
-    (goto-char 4)))
+" timestamp example))
+    (goto-char 25)))
 
 (provide 'my-defuns)
