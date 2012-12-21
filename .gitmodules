@@ -55,9 +55,6 @@
 [submodule "site-lisp/feature-mode"]
         path = site-lisp/feature-mode
         url = https://github.com/michaelklishin/cucumber.el.git
-[submodule "site-lisp/wrap-region"]
-        path = site-lisp/wrap-region
-        url = https://github.com/magnars/wrap-region.git
 [submodule "site-lisp/browse-kill-ring"]
         path = site-lisp/browse-kill-ring
         url = https://github.com/T-J-Teru/browse-kill-ring.git

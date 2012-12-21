@@ -13,7 +13,7 @@
 ;; Don't expand yasnippets in every setting
 (setq yas/expand-only-for-last-commands
       '(
-        self-insert-command wrap-region-trigger
+        self-insert-command
         yas/exit-all-snippets
         yas/abort-snippet
         yas/skip-and-clear-or-delete-char

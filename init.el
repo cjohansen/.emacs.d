@@ -90,7 +90,6 @@
 (require 'setup-hippie)
 (require 'setup-yasnippet)
 (require 'setup-perspective)
-(require 'setup-wrap-region)
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
@@ -165,7 +164,6 @@
 
 ;; Diminish modeline clutter
 (require 'diminish)
-(diminish 'wrap-region-mode)
 (diminish 'yas/minor-mode)
 
 ;; Conclude init by setting up specifics for the current user
