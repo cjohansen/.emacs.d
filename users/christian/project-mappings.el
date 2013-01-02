@@ -9,27 +9,12 @@
                (when (string-match-p ,name (dired-current-directory))
                  ,@body)))))
 
-;; FINN Oppdrag
-
-(defun custom-persp/oppdrag ()
-  (interactive)
-  (custom-persp "oppdrag"
-                (find-file "~/projects/oppdrag-services/app-main/web/src/test/javascript/todo.org")))
-
-(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
-
-(require 'oppdrag-mode)
-
-(project-specifics "oppdrag-services"
-                   (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
-                   (oppdrag-mode))
-
 ;; Buster
 
 (defun custom-persp/buster ()
   (interactive)
   (custom-persp "Buster"
-                (find-file "~/projects/busterjs/todo.org")))
+                (find-file "~/projects/busterjs/modules")))
 
 (define-key persp-mode-map (kbd "C-x p b") 'custom-persp/buster)
 
