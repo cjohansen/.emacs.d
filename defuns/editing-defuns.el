@@ -71,6 +71,8 @@ region-end is used. Adds the duplicated text to the kill ring."
 
 ;; automatically indenting yanked text if in programming-modes
 
+(require 'dash)
+
 (defvar yank-indent-modes '(prog-mode
                             js2-mode)
   "Modes in which to indent regions that are yanked (or yank-popped)")
