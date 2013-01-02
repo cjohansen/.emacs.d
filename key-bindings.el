@@ -208,8 +208,8 @@
 (global-set-key (kbd "C-x M") 'mu4e-up-to-date-status)
 
 ;; Clever newlines
-(global-set-key (kbd "<C-return>") 'new-line-below)
-(global-set-key (kbd "<C-S-return>") 'new-line-above)
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
 
 ;; Duplicate region
