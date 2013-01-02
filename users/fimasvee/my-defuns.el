@@ -35,4 +35,13 @@
 " timestamp example))
     (goto-char 25)))
 
+(defun what-the-emacsd-publish ()
+  (interactive)
+  (let ((filename (file-name-nondirectory (buffer-file-name))))
+    (save-buffer)
+    (compile
+     (format "git add %s && git ci -m %S && git push"
+             filename
+             filename) t)))
+
 (provide 'my-defuns)
