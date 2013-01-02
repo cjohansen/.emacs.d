@@ -37,5 +37,6 @@
   (jump-to-register :mu4e-fullscreen))
 
 (define-key mu4e-main-mode-map (kbd "q") 'mu4e-quit-session)
+(define-key mu4e-headers-mode-map (kbd "M-u") 'mu4e-update-mail-show-window)
 
 (provide 'setup-mu4e)
