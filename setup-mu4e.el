@@ -5,6 +5,9 @@
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 
+;; don't prompt for applying of marks, just apply
+(setq mu4e-headers-leave-behavior 'apply)
+
 ;; Try to display images in mu4e
 (setq
  mu4e-view-show-images t
