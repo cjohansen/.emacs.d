@@ -5,6 +5,9 @@
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 
+;; don't prompt for applying of marks, just apply
+(setq mu4e-headers-leave-behavior 'apply)
+
 ;; Try to display images in mu4e
 (setq
  mu4e-view-show-images t
@@ -34,5 +37,6 @@
   (jump-to-register :mu4e-fullscreen))
 
 (define-key mu4e-main-mode-map (kbd "q") 'mu4e-quit-session)
+(define-key mu4e-headers-mode-map (kbd "M-u") 'mu4e-update-mail-show-window)
 
 (provide 'setup-mu4e)

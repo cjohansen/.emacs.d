@@ -1,31 +1,12 @@
 ;; Basic text editing defuns
 
-(defun move-line-down ()
+(defun open-line-below ()
   (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (forward-line)
-      (transpose-lines 1))
-    (forward-line)
-    (move-to-column col)))
-
-(defun move-line-up ()
-  (interactive)
-  (let ((col (current-column)))
-    (save-excursion
-      (forward-line)
-      (transpose-lines -1))
-    (move-to-column col)))
-
-(defun new-line-below ()
-  (interactive)
-  (if (eolp)
-      (newline)
-    (end-of-line)
-    (newline))
+  (end-of-line)
+  (newline)
   (indent-for-tab-command))
 
-(defun new-line-above ()
+(defun open-line-above ()
   (interactive)
   (beginning-of-line)
   (newline)
@@ -72,6 +53,8 @@ region-end is used. Adds the duplicated text to the kill ring."
   (duplicate-region num (point-at-bol) (1+ (point-at-eol))))
 
 ;; automatically indenting yanked text if in programming-modes
+
+(require 'dash)
 
 (defvar yank-indent-modes '(prog-mode
                             js2-mode)

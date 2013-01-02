@@ -1,13 +1,14 @@
 (defmacro project-specifics (name &rest body)
+  (declare (indent 1))
   `(progn
      (add-hook 'find-file-hook
-             (lambda ()
-               (when (string-match-p ,name (buffer-file-name))
-                 ,@body)))
+               (lambda ()
+                 (when (string-match-p ,name (buffer-file-name))
+                   ,@body)))
      (add-hook 'dired-after-readin-hook
-             (lambda ()
-               (when (string-match-p ,name (dired-current-directory))
-                 ,@body)))))
+               (lambda ()
+                 (when (string-match-p ,name (dired-current-directory))
+                   ,@body)))))
 
 ;; Intelliadv
 
@@ -28,8 +29,8 @@
 (define-key persp-mode-map (kbd "C-x p r") 'custom-persp/emacsrocks)
 
 (project-specifics "projects/emacsrocks"
-                   (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
-                   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
+  (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
+  (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
 
 ;; zombietdd.com
 
@@ -41,8 +42,8 @@
 (define-key persp-mode-map (kbd "C-x p s") 'custom-persp/zombietdd.com)
 
 (project-specifics "projects/site-ztdd"
-                   (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
-                   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
+  (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
+  (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
 
 ;; Blockout
 
@@ -54,9 +55,9 @@
 (define-key persp-mode-map (kbd "C-x p bl") 'custom-persp/blockout)
 
 (project-specifics "projects/blockout"
-                   (set (make-local-variable 'slime-js-target-url) "http://localhost:8000/")
-                   (set (make-local-variable 'slime-js-browser-command) "open -a \"Google Chrome\"")
-                   (ffip-local-patterns "*.js" "*.css"))
+  (set (make-local-variable 'slime-js-target-url) "http://localhost:8000/")
+  (set (make-local-variable 'slime-js-browser-command) "open -a \"Google Chrome\"")
+  (ffip-local-patterns "*.js" "*.css"))
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -80,11 +81,11 @@
 (require 'oppdrag-mode)
 
 (project-specifics "oppdrag-services"
-                   (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/")
-                   (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
-                   (set (make-local-variable 'slime-js-starting-url) "/oppdrag/")
-                   (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
-                   (oppdrag-mode))
+  (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/")
+  (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
+  (set (make-local-variable 'slime-js-starting-url) "/oppdrag/")
+  (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
+  (oppdrag-mode))
 
 ;; Zombie TDD
 
@@ -96,8 +97,8 @@
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
 (project-specifics "projects/zombietdd"
-                   (set (make-local-variable 'slime-js-target-url) "http://localhost:3000/")
-                   (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
+  (set (make-local-variable 'slime-js-target-url) "http://localhost:3000/")
+  (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -120,7 +121,7 @@
 (define-key persp-mode-map (kbd "C-x p cr") 'custom-persp/creator)
 
 (project-specifics "projects/creator"
-                   (ffip-local-patterns "*.js" "*.md"))
+  (ffip-local-patterns "*.js" "*.md"))
 
 (add-hook 'js2-mode-hook
           (lambda ()
@@ -183,10 +184,10 @@
 (define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
 
 (project-specifics "adventur"
-                   (set (make-local-variable 'slime-js-target-url) "http://local.adventur.no/")
-                   (set (make-local-variable 'slime-js-connect-url) "http://local.adventur.no:8009")
-                   (ffip-local-patterns "*.js" "*.php" "*.css")
-                   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest" "compressed"))
+  (set (make-local-variable 'slime-js-target-url) "http://local.adventur.no/")
+  (set (make-local-variable 'slime-js-connect-url) "http://local.adventur.no:8009")
+  (ffip-local-patterns "*.js" "*.php" "*.css")
+  (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest" "compressed"))
 
 (eval-after-load "grep"
   '(progn
@@ -201,6 +202,10 @@
 
 (define-key persp-mode-map (kbd "C-x p m") 'custom-persp/adventur-master)
 
+;; What the emacs.d
+(project-specifics "projects/what-the-emacsd/posts"
+  (buffer-local-set-key (kbd "C-c C-c") 'what-the-emacsd-publish))
+
 ;; Emacs
 
 (defun custom-persp/emacs ()
@@ -209,8 +214,8 @@
                 (find-file "~/.emacs.d/init.el")))
 
 (project-specifics ".emacs.d"
-                   (ffip-local-excludes "swank")
-                   (ffip-local-patterns "*.el" "*.md" "*.org"))
+  (ffip-local-excludes "swank")
+  (ffip-local-patterns "*.el" "*.md" "*.org"))
 
 (define-key persp-mode-map (kbd "C-x p e") 'custom-persp/emacs)
 

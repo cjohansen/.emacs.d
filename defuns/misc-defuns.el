@@ -23,7 +23,7 @@
   (unwind-protect
       (progn
         (linum-mode 1)
-        (goto-line (read-number "Goto line: ")))
+        (call-interactively 'goto-line))
     (linum-mode -1)))
 
 ;; Add spaces and proper formatting to linum-mode. It uses more room than

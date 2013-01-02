@@ -142,7 +142,7 @@
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
 ;; Navigation bindings
-(global-set-key (vector 'remap 'goto-line) 'goto-line-with-feedback)
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 (global-set-key (kbd "<prior>") 'beginning-of-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
@@ -214,16 +214,16 @@
 (global-set-key (kbd "C-x M") 'mu4e-up-to-date-status)
 
 ;; Clever newlines
-(global-set-key (kbd "<C-return>") 'new-line-below)
-(global-set-key (kbd "<C-S-return>") 'new-line-above)
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)
 (global-set-key (kbd "<M-return>") 'new-line-in-between)
 
 ;; Duplicate region
 (global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 ;; Line movement
-(global-set-key (kbd "<C-S-down>") 'move-line-down)
-(global-set-key (kbd "<C-S-up>") 'move-line-up)
+(global-set-key (kbd "<C-S-down>") 'move-text-down)
+(global-set-key (kbd "<C-S-up>") 'move-text-up)
 
 ;; Fold the active region
 (global-set-key (kbd "C-c C-f") 'fold-this-all)
