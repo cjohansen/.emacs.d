@@ -19,6 +19,7 @@
         dired-back-to-start-of-files
         duplicate-current-line-or-region
         eval-and-replace
+        fold-this
         forward-paragraph
         isearch-forward-use-region
         html-wrap-in-tag
@@ -33,8 +34,10 @@
         move-line-down
         move-line-up
         new-line-above
+        org-beginning-of-line
         org-delete-backward-char
         org-delete-char
+        org-end-of-line
         org-metaleft
         org-metaright
         org-self-insert-command
@@ -59,5 +62,6 @@
         sgml-maybe-name-self
         toggle-read-only
         view-echo-area-messages
+        smex
         wgrep-change-to-wgrep-mode
         ))

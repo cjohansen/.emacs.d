@@ -8,9 +8,6 @@
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
 
-;; Don't screw up key bindings in magit-mode
-(add-to-list 'wrap-region-except-modes 'adventur-mode)
-
 ;; Font size
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
