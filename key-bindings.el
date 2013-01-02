@@ -138,7 +138,7 @@
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
 ;; Navigation bindings
-(global-set-key (vector 'remap 'goto-line) 'goto-line-with-feedback)
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 (global-set-key (kbd "<prior>") 'beginning-of-buffer)
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
