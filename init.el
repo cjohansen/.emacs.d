@@ -45,7 +45,7 @@
 (setq is-mac (equal system-type 'darwin))
 
 ;; Setup elnode before packages to stop it from starting a server
-(require 'setup-elnode)
+;;(require 'setup-elnode)
 
 ;; Setup packages
 (require 'setup-package)
@@ -60,7 +60,7 @@
    (cons 'gist melpa)
    (cons 'htmlize melpa)
    (cons 'elisp-slime-nav melpa)
-   (cons 'elnode marmalade)
+   ;(cons 'elnode marmalade)
    (cons 'slime-js marmalade)
    (cons 'git-commit-mode melpa)
    (cons 'gitconfig-mode melpa)
