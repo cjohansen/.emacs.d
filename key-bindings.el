@@ -304,4 +304,7 @@
 ;; Convert ANSI SGR colored output to faces
 (global-set-key (kbd "C-c C-k") 'colorize-ansi-region)
 
+;; org-agenda
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 (provide 'key-bindings)
