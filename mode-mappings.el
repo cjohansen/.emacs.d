@@ -32,6 +32,15 @@
             (require 'rename-sgml-tag)
             (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 
+;; RevealJS slide sets
+(add-hook 'sgml-mode-hook
+          (lambda ()
+            (save-excursion
+              (if (search-forward "class=\"reveal\"" nil t)
+                  (progn
+                    (require 'revealjs-mode)
+                    (revealjs-mode))))))
+
 ;; JSP
 (autoload 'crappy-jsp-mode "crappy-jsp-mode")
 (add-to-list 'auto-mode-alist '("\\.jsp$" . crappy-jsp-mode))
