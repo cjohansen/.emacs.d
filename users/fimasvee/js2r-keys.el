@@ -1,3 +1,6 @@
+(require 'dash)
+(require 's)
+
 (defun my-js2-keys (keys)
   (->> (string-to-list keys)
     (--map (concat "C-s-" (char-to-string it)))
