@@ -30,7 +30,7 @@
 
 (defun my-js2-keys (keys)
   (->> (string-to-list keys)
-    (--map (aget my-ctrl-option-mapping (char-to-string it)))
+    (--map (concat "C-s-" (char-to-string it)))
     (s-join " ")
     (read-kbd-macro)))
 
@@ -62,7 +62,7 @@
      (define-key js2-mode-map (my-js2-keys "jo") 'jump-between-source-and-test-files)
      (define-key js2-mode-map (my-js2-keys "oo") 'jump-between-source-and-test-files-other-window)
      (define-key js2-mode-map (my-js2-keys "ta") 'toggle-assert-refute)
-     (define-key js2-mode-map (my-js2-keys " " ) 'js2r-split-string)
+     (define-key js2-mode-map (kbd "C-s-SPC") 'js2r-split-string)
      ))
 
 ;; (f6
