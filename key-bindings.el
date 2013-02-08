@@ -170,11 +170,10 @@
 (global-set-key (kbd "C-S-r") 'isearch-backward)
 
 ;; Move more quickly
-(global-set-key (kbd "C-S-n") (lambda () (interactive) (next-line 5)))
-(global-set-key (kbd "C-S-p") (lambda () (interactive) (previous-line 5)))
-(global-set-key (kbd "C-S-f") (lambda () (interactive) (forward-char 5)))
-(global-set-key (kbd "C-S-b") (lambda () (interactive) (backward-char 5)))
-;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
+(global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-S-p") (lambda () (interactive) (ignore-errors (previous-line 5))))
+(global-set-key (kbd "C-S-f") (lambda () (interactive) (ignore-errors (forward-char 5))))
+(global-set-key (kbd "C-S-b") (lambda () (interactive) (ignore-errors (backward-char 5))))
 
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
 (global-set-key (kbd "<XF86Forward>") 'scroll-up)
