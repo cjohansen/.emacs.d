@@ -9,6 +9,12 @@
 (defadvice nrepl-load-current-buffer (before save-first activate)
   (save-buffer))
 
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-modifier "C-s-")
+                               (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)))
+
 (eval-after-load "nrepl"
   '(progn
      (define-key nrepl-mode-map (kbd "C-,") 'complete-symbol)

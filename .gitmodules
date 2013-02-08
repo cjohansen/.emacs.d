@@ -109,3 +109,6 @@
 [submodule "site-lisp/fold-this"]
 	path = site-lisp/fold-this
 	url = https://github.com/magnars/fold-this.el.git
+[submodule "site-lisp/clj-refactor"]
+	path = site-lisp/clj-refactor
+	url = https://github.com/magnars/clj-refactor.el.git
