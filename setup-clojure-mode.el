@@ -6,6 +6,9 @@
 (defadvice clojure-test-run-tests (before save-first activate)
   (save-buffer))
 
+(defadvice nrepl-load-current-buffer (before save-first activate)
+  (save-buffer))
+
 (eval-after-load "nrepl"
   '(progn
      (define-key nrepl-mode-map (kbd "C-,") 'complete-symbol)
