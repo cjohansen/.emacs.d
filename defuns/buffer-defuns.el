@@ -34,6 +34,11 @@
     (emacs-lisp-mode)
     ))
 
+(defun split-window-right-and-move-there-dammit ()
+  (interactive)
+  (split-window-right)
+  (windmove-right))
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
