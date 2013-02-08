@@ -16,8 +16,7 @@
   "Given a set of names, will exclude results with those names in the path.
 
 Example:
-(ffip-local-excludes \"target\" \"overlays\")
-"
+(ffip-local-excludes \"target\" \"overlays\")"
   (set (make-local-variable 'ffip-find-options)
        (ffip--create-exclude-find-options names)))
 
@@ -25,8 +24,7 @@ Example:
   "An exhaustive list of file name patterns to look for.
 
 Example:
-(ffip-local-patterns \"*.js\" \"*.jsp\" \"*.css\")
-"
+(ffip-local-patterns \"*.js\" \"*.jsp\" \"*.css\")"
   (set (make-local-variable 'ffip-patterns) patterns))
 
 
