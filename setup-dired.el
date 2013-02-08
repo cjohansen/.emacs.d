@@ -20,12 +20,11 @@
 
 (define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
 
-;; M-up is nicer in dired if it moves to the third line - straight to the ".."
+;; M-up is nicer in dired if it moves to the fourth line - the first file
 (defun dired-back-to-top ()
   (interactive)
   (beginning-of-buffer)
-  (next-line 2)
-  (dired-back-to-start-of-files))
+  (dired-next-line 4))
 
 (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
 (define-key dired-mode-map (vector 'remap 'smart-up) 'dired-back-to-top)
@@ -34,8 +33,7 @@
 (defun dired-jump-to-bottom ()
   (interactive)
   (end-of-buffer)
-  (next-line -1)
-  (dired-back-to-start-of-files))
+  (dired-next-line -1))
 
 (define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 (define-key dired-mode-map (vector 'remap 'smart-down) 'dired-jump-to-bottom)
