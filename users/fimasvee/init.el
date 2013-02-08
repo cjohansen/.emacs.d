@@ -8,17 +8,28 @@
 ;; Disallow scrolling with mouse wheel
 (mouse-wheel-mode nil)
 
+;; Move M-s to s-s because of paredit
+(global-unset-key (kbd "s-s"))
+(global-set-key (kbd "s-s s--") 'snakeify-current-word)
+(global-set-key (kbd "s-s e") 'sudo-edit)
+(global-set-key (kbd "s-s l") 'sort-lines)
+(global-set-key (kbd "s-s s") 'git-grep-fullscreen)
+(global-set-key (kbd "s-s S") 'rgrep-fullscreen)
+(global-set-key (kbd "s-s m") 'multi-occur)
+(global-set-key (kbd "s-s M") 'multi-occur-in-matching-buffers)
+(global-set-key (kbd "s-s f") 'find-name-dired)
+
+;; Hardcore baby
+(setq too-hardcore-backspace t)
+(setq too-hardcore-return t)
+(require 'hardcore-mode)
+(add-hook 'prog-mode-hook (lambda () (hardcore-mode 1)))
+(add-hook 'js2-mode-hook (lambda () (hardcore-mode 1)))
+(add-hook 'sgml-mode-hook (lambda () (hardcore-mode 1)))
+
 ;; Font size
-(define-key global-map (kbd "M-s +") 'zoom-in)
-(define-key global-map (kbd "M-s -") 'zoom-out)
-
-;; Experimental rebind of C-b and C-f
-(fset 'quick-switch-buffer [?\C-x ?b return])
-(global-set-key (kbd "C-b") 'quick-switch-buffer) ;; toggle two most recent buffers
-(global-set-key (kbd "C-f") 'duplicate-current-line-or-region) ;; duplicate line
-
-;; Experimental super on right command key. s-x is kill-region for instance.
-(setq mac-right-command-modifier 'super)
+(define-key global-map (kbd "s-s +") 'zoom-in)
+(define-key global-map (kbd "s-s -") 'zoom-out)
 
 ;; Edit in Chrome
 
