@@ -66,7 +66,6 @@
    (cons 'gitconfig-mode melpa)
    (cons 'gitignore-mode melpa)
    (cons 'clojure-mode melpa)
-   (cons 'clojure-test-mode melpa)
    (cons 'nrepl melpa)))
 
 (condition-case nil

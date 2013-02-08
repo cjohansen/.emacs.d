@@ -1,32 +1,20 @@
-(defvar clj-project-name "intelliadv"
-  "Name of the project")
+(require 's)
 
-(make-variable-buffer-local 'clj-project-name)
+(defun clj--src-file-name-from-test (name)
+  (s-with name
+    (s-replace "/test/" "/src/")
+    (s-replace "_test.clj" ".clj")))
 
-(defun clj-source-path-snippet ()
-  (concat "/src/" clj-project-name "/"))
-
-(defun clj-test-path-snippet ()
-  (concat "/test/" clj-project-name "/test/"))
-
-(defun clj-in-source-file-p ()
-  (string-match-p (clj-source-path-snippet) (buffer-file-name)))
-
-(defun clj-in-test-file-p ()
-  (string-match-p (clj-test-path-snippet) (buffer-file-name)))
+(defun clj--test-file-name-from-src (name)
+  (s-with name
+    (s-replace "/src/" "/test/")
+    (s-replace ".clj" "_test.clj")))
 
 (defun clj-other-file-name ()
-  (when (not (or (clj-in-test-file-p)
-                 (clj-in-source-file-p)))
-    (error "I can't seem to find my bearings. Where are we again?"))
-  (or (and (clj-in-source-file-p)
-           (replace-regexp-in-string (clj-source-path-snippet)
-                                     (clj-test-path-snippet)
-                                     (buffer-file-name)))
-      (and (clj-in-test-file-p)
-           (replace-regexp-in-string (clj-test-path-snippet)
-                                     (clj-source-path-snippet)
-                                     (buffer-file-name)))))
+  (let ((name (buffer-file-name)))
+    (if (string-match-p "/test/" name)
+        (clj--src-file-name-from-test name)
+      (clj--test-file-name-from-src name))))
 
 (defun clj-jump-to-other-file (arg)
   (interactive "P")
