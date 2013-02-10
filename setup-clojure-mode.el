@@ -10,10 +10,11 @@
   (save-buffer))
 
 (require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-modifier "C-s-")
-                               (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)))
+
+(cljr-add-keybindings-with-modifier "C-s-")
+(define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
+
+(add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
 
 (eval-after-load "nrepl"
   '(progn
