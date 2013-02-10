@@ -55,6 +55,7 @@
         org-shiftright
         orgtbl-self-insert-command
         paredit-backward
+        paredit-close-square
         paredit-doublequote
         paredit-forward-delete
         paredit-forward-kill-word
@@ -90,6 +91,7 @@
 (setq mc/cmds-to-run-once
       '(
         dired-toggle-read-only
+        eval-expression
         goto-line-with-feedback
         ido-switch-buffer
         js2r-extract-var
