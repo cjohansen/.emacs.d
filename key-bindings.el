@@ -38,6 +38,11 @@
 (global-set-key (kbd "s-Å") 'mc/mark-previous-symbol-like-this)
 (global-set-key (kbd "M-s-Æ") 'mc/mark-all-symbols-like-this)
 
+;; Extra multiple cursors stuff
+(global-set-key (kbd "C-~") 'mc/reverse-regions)
+(global-set-key (kbd "M-~") 'mc/sort-regions)
+(global-set-key (kbd "H-~") 'mc/insert-numbers)
+
 ;; Set anchor to start rectangular-region-mode
 (global-set-key (kbd "H-SPC") 'set-rectangular-region-anchor)
 
