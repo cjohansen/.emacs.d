@@ -120,7 +120,7 @@
 
 ;; Revert without any fuss
 (global-set-key (kbd "M-<escape>")
-                (lambda () (interactive) (revert-buffer nil t)))
+                (lambda () (interactive) (revert-buffer t t)))
 
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
