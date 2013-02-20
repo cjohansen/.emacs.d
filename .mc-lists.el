@@ -54,6 +54,7 @@
         org-self-insert-command
         org-shiftright
         orgtbl-self-insert-command
+        paredit-backslash
         paredit-backward
         paredit-close-square
         paredit-doublequote
@@ -71,6 +72,7 @@
         paredit-raise-sexp
         paredit-semicolon
         paredit-splice-sexp
+        paredit-split-sexp
         paredit-wrap-round
         paredit-wrap-square
         quoted-insert
@@ -81,6 +83,7 @@
         slime-space
         sp-self-insert-command
         tagedit-kill-attribute
+        touch-buffer-file
         transpose-sexps
         wrap-region-trigger
         yank-indented
@@ -93,9 +96,15 @@
         dired-toggle-read-only
         eval-expression
         goto-line-with-feedback
+        handle-switch-frame
         ido-switch-buffer
         js2r-extract-var
         js2r-rename-var
+        magit-status
+        mc/add-cursor-on-click
+        mc/add-cursors-to-all-matches
         smex
         wgrep-change-to-wgrep-mode
+        wgrep-finish-edit
+        wgrep-save-all-buffers
         ))
