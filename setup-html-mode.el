@@ -27,19 +27,13 @@
 
 (eval-after-load "sgml-mode"
   '(progn
-     (define-key html-mode-map (kbd "C-<down>") 'skip-to-next-blank-line)
-     (define-key html-mode-map (kbd "C-<up>") 'skip-to-previous-blank-line)
+     (define-key html-mode-map [remap forward-paragraph] 'skip-to-next-blank-line)
+     (define-key html-mode-map [remap backward-paragraph] 'skip-to-previous-blank-line)
      (define-key html-mode-map (kbd "C-c C-w") 'html-wrap-in-tag)
-
-     ;; Don't show buggy matching of slashes
-     (define-key html-mode-map (kbd "/") nil)
+     (define-key html-mode-map (kbd "/") nil) ;; no buggy matching of slashes
 
      (require 'tagedit)
-     (define-key html-mode-map (kbd "s-<right>") 'tagedit-forward-slurp-tag)
-     (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
-     (define-key html-mode-map (kbd "s-k") 'tagedit-kill-attribute)
-     (define-key html-mode-map (kbd "s-<return>") 'tagedit-toggle-multiline-tag)
-     ))
+     (tagedit-add-paredit-like-keybindings)))
 
 (autoload 'zencoding-mode "zencoding-mode")
 (autoload 'zencoding-expand-line "zencoding-mode")
