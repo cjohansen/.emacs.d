@@ -77,4 +77,43 @@
      ;; Use same keybinding as occur
      (setq wgrep-enable-key "e")))
 
+;; Command to add cursor to all matches in wgrep
+
+(require 'dash)
+
+(defvar grep-match-positions nil)
+(make-variable-buffer-local 'grep-match-positions)
+
+(defun grep-register-match-positions ()
+  (save-excursion
+    (forward-line 0)
+    (let ((end (point)) beg)
+      (goto-char compilation-filter-start)
+      (forward-line 0)
+      (setq beg (point))
+      ;; Only operate on whole lines so we don't get caught with part of an
+      ;; escape sequence in one chunk and the rest in another.
+      (when (< (point) end)
+        (setq end (copy-marker end))
+        ;; Register all positions of matches
+        (while (re-search-forward "\033\\[0?1;31m\\(.*?\\)\033\\[[0-9]*m" end 1)
+          (add-to-list 'grep-match-positions (set-marker (make-marker) (match-beginning 1))))))))
+
+(eval-after-load "grep"
+  '(defadvice grep-mode (after grep-register-match-positions activate)
+     (add-hook 'compilation-filter-hook 'grep-register-match-positions nil t)))
+
+(defun mc/add-cursors-to-all-matches ()
+  (interactive)
+  (--each grep-match-positions
+    (unless (= 0 it-index)
+      (mc/create-fake-cursor-at-point))
+    (goto-char it))
+  (mc/maybe-multiple-cursors-mode))
+
+(add-to-list 'mc--default-cmds-to-run-once 'mc/add-cursors-to-all-matches)
+
+(eval-after-load "wgrep"
+  '(define-key wgrep-mode-map (kbd "C-c C-æ") 'mc/add-cursors-to-all-matches))
+
 (provide 'setup-rgrep)
