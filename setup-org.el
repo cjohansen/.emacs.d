@@ -1,8 +1,9 @@
 (defun myorg-update-parent-cookie ()
   (when (equal major-mode 'org-mode)
     (save-excursion
-      (org-back-to-heading)
-      (org-update-parent-todo-statistics))))
+      (ignore-errors
+        (org-back-to-heading)
+        (org-update-parent-todo-statistics)))))
 
 (defadvice org-kill-line (after fix-cookies activate)
   (myorg-update-parent-cookie))
