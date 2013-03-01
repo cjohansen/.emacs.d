@@ -1,0 +1,10 @@
+{
+    "name": "testing",
+    "version": "0.0.1",
+    "description": "testing",
+    "author": { "name": "Magnar Sveen" },
+    "devDependencies": {
+        "buster": "~0.6",
+        "buster-lint": "~0"
+    }
+}
