@@ -4,6 +4,11 @@
 (setq mc/cmds-to-run-for-all
       '(
         ac-complete
+        adv-dash
+        adv-dot
+        adv-enter
+        adv-open-curly
+        adv-tab
         back-to-indentation-or-beginning
         backward-sexp
         c-electric-backspace
@@ -58,6 +63,7 @@
         paredit-backward
         paredit-close-square
         paredit-doublequote
+        paredit-forward
         paredit-forward-delete
         paredit-forward-kill-word
         paredit-forward-slurp-sexp
@@ -74,6 +80,7 @@
         paredit-splice-sexp
         paredit-split-sexp
         paredit-wrap-round
+        paredit-wrap-round-from-behind
         paredit-wrap-square
         quoted-insert
         save-region-or-current-line
@@ -93,6 +100,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        adv-insert-new-number
         dired-toggle-read-only
         eval-expression
         goto-line-with-feedback
