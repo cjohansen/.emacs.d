@@ -6,6 +6,8 @@
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
+
+(require 'misc)
 (global-set-key (kbd "s-.") 'copy-from-above-command)
 
 ;; Smart M-x
