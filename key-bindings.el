@@ -46,6 +46,8 @@
 (global-set-key (kbd "M-~") 'mc/sort-regions)
 (global-set-key (kbd "H-~") 'mc/insert-numbers)
 
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+
 ;; Set anchor to start rectangular-region-mode
 (global-set-key (kbd "H-SPC") 'set-rectangular-region-anchor)
 
