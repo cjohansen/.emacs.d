@@ -33,7 +33,17 @@
      (define-key html-mode-map (kbd "/") nil) ;; no buggy matching of slashes
 
      (require 'tagedit)
-     (tagedit-add-paredit-like-keybindings)))
+
+     ;; paredit lookalikes
+     (define-key html-mode-map (kbd "s-<right>") 'tagedit-forward-slurp-tag)
+     (define-key html-mode-map (kbd "C-)") 'tagedit-forward-slurp-tag)
+     (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
+     (define-key html-mode-map (kbd "C-}") 'tagedit-forward-barf-tag)
+     (define-key html-mode-map (kbd "s-r") 'tagedit-raise-tag)
+
+     ;; no paredit equivalents
+     (define-key html-mode-map (kbd "s-k") 'tagedit-kill-attribute)
+     (define-key html-mode-map (kbd "s-<return>") 'tagedit-toggle-multiline-tag)))
 
 (autoload 'zencoding-mode "zencoding-mode")
 (autoload 'zencoding-expand-line "zencoding-mode")
