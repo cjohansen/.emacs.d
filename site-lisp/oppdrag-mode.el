@@ -45,7 +45,7 @@ in an exploded war, re-deploy the file."
 (defun oppdrag--setup-js-quirks ()
   (when (string-match-p "oppdrag-services" (buffer-file-name))
     (fci-mode 1)
-    (setq js2-additional-externs '("FINN" "testCase" "cull"))
+    (setq js2-additional-externs '("FINN" "testCase" "cull" "bane"))
     (setq js2r-path-to-tests "/test/javascript/tests/")
     (setq js2r-path-to-sources "/main/webapp/oppdrag/scripts/")
     (setq js2r-test-suffix "Test")
