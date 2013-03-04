@@ -39,7 +39,6 @@
   '(("M-s"         "s-s"         paredit-splice-sexp)
     ("M-<up>"      "s-<up>"      paredit-splice-sexp-killing-backward)
     ("M-<down>"    "s-<down>"    paredit-splice-sexp-killing-forward)
-    ("M-r"         "s-r"         paredit-raise-sexp)
     ("C-<right>"   "s-<right>"   paredit-forward-slurp-sexp)
     ("C-<left>"    "s-<left>"    paredit-forward-barf-sexp)
     ("C-M-<left>"  "s-S-<left>"  paredit-backward-slurp-sexp)
@@ -59,5 +58,19 @@
 (put 'paredit-forward-delete 'delete-selection 'supersede)
 (put 'paredit-backward-delete 'delete-selection 'supersede)
 (put 'paredit-newline 'delete-selection t)
+
+;; functions in smartparens that do not have an equivalent in paredit - take a look at them
+(when nil
+  '(sp-beginning-of-sexp
+    sp-end-of-sexp
+    sp-next-sexp
+    sp-previous-sexp
+    sp-kill-sexp
+    sp-unwrap-sexp
+    sp-backward-unwrap-sexp
+    sp-select-next-thing-exchange
+    sp-select-next-thing
+    sp-forward-symbol
+    sp-backward-symbol))
 
 (provide 'setup-paredit)
