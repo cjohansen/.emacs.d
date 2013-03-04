@@ -132,6 +132,10 @@
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; toggle two most recent buffers
+(fset 'quick-switch-buffer [?\C-x ?b return])
+(global-set-key (kbd "s-j") 'quick-switch-buffer)
+
 ;; Revert without any fuss
 (global-set-key (kbd "M-<escape>")
                 (lambda () (interactive) (revert-buffer t t)))
