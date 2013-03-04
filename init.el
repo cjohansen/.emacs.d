@@ -57,7 +57,6 @@
    (cons 'magit melpa)
    (cons 'paredit melpa)
    (cons 'move-text melpa)
-   (cons 'autopair melpa)
    (cons 'gist melpa)
    (cons 'htmlize melpa)
    (cons 'elisp-slime-nav melpa)
@@ -77,11 +76,6 @@
 
 ;; Lets start with a smattering of sanity
 (require 'sane-defaults)
-
-;; Autopair when outside of paredit
-(require 'autopair)
-(autopair-global-mode)
-(setq autopair-blink nil) ;; no no NO BLINKING!
 
 ;; Setup environment variables from the user's shell.
 (when is-mac (exec-path-from-shell-initialize))
@@ -155,7 +149,6 @@
 (require 'diminish)
 (diminish 'yas/minor-mode)
 (diminish 'eldoc-mode)
-(diminish 'autopair-mode)
 (diminish 'paredit-mode)
 
 ;; Elisp go-to-definition with M-. and back again with M-,
