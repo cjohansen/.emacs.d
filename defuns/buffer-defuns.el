@@ -145,14 +145,13 @@ Symbols matching the text at point are put first in the completion list."
 Does not indent buffer, because it is used for a before-save-hook, and that
 might be bad."
   (interactive)
-  (untabify-buffer)
-  (delete-trailing-whitespace)
-  (set-buffer-file-coding-system 'utf-8))
+  (delete-trailing-whitespace))
 
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer.
 Including indent-buffer, which should not be called automatically on save."
   (interactive)
+  (untabify-buffer)
   (cleanup-buffer-safe)
   (indent-buffer))
 
