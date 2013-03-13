@@ -28,6 +28,17 @@
       (jump-to-source-file-other-window arg)
     (jump-to-test-file-other-window arg)))
 
+;; Duplicate object property node
+
+(defun js2r-duplicate-object-property-node ()
+  (interactive)
+  (js2r--guard)
+  (let ((node (js2r--closest 'js2-object-prop-node-p)))
+    (goto-char (js2-node-abs-pos node))
+    (skip-syntax-backward " >")
+    (insert (buffer-substring (point) (js2-node-abs-end node)) ",")
+    (skip-syntax-forward " >")))
+
 ;; Rename tests and sources
 
 (defun js2r--rename-file (old-name new-name)
