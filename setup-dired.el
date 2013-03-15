@@ -6,6 +6,9 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
+;; Move files between split panes
+(setq dired-dwim-target t)
+
 ;; Reload dired after making changes
 (--each '(dired-do-rename
           dired-create-directory
