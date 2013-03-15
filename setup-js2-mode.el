@@ -13,6 +13,7 @@
 (setq-default js2-concat-multiline-strings 'eol)
 
 (require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (require 'js2-imenu-extras)
 (js2-imenu-extras-setup)
