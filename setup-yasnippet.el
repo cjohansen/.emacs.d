@@ -10,16 +10,6 @@
 ;; Jump to end of snippet definition
 (define-key yas/keymap (kbd "<return>") 'yas/exit-all-snippets)
 
-;; Don't expand yasnippets in every setting
-(setq yas/expand-only-for-last-commands
-      '(
-        self-insert-command
-        yas/exit-all-snippets
-        yas/abort-snippet
-        yas/skip-and-clear-or-delete-char
-        yas/next-field-or-maybe-expand
-        ))
-
 ;; Inter-field navigation
 (defun yas/goto-end-of-active-field ()
   (interactive)
