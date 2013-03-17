@@ -112,3 +112,6 @@
 [submodule "site-lisp/clj-refactor"]
 	path = site-lisp/clj-refactor
 	url = https://github.com/magnars/clj-refactor.el.git
+[submodule "site-lisp/showcss-mode"]
+	path = site-lisp/showcss-mode
+	url = https://github.com/smmcg/showcss-mode.git
