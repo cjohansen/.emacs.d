@@ -158,6 +158,7 @@ string).  It returns t if a new completion is found, nil otherwise."
   (interactive)
   (let ((hippie-expand-try-functions-list '(try-expand-line-closest-first
                                             try-expand-line-all-buffers)))
+    (end-of-line)
     (hippie-expand nil)))
 
 ;; Don't case-fold when expanding with hippe
