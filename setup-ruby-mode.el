@@ -1,3 +1,6 @@
+;; avoid ridiculous ruby indentation
+(setq ruby-deep-indent-paren nil)
+
 (defun ruby--jump-to-test ()
   (find-file
    (replace-regexp-in-string
