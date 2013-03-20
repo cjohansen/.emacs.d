@@ -7,7 +7,7 @@ end
 
 def run_all_tests
   system('clear')
-  result = run "buster test -F warning"
+  result = run "./run-tests.sh"
   puts result
 end
 

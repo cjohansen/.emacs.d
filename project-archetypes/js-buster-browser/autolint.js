@@ -3,7 +3,9 @@ module.exports = {
     "test/**/*.js",
     "lib/**/*.js"
   ],
+
   "linterOptions": {
+    "indent": 2,
     "vars": true,
     "nomen": true,
     "sloppy": true,
@@ -14,8 +16,11 @@ module.exports = {
       "buster",
       "cull",
       "dome",
-      "document"
+      "__GLOBAL__"
     ]
   },
-  "excludes": []
+
+  "excludes": [
+    "external"
+  ]
 };
