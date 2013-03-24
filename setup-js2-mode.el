@@ -32,6 +32,8 @@
 (defadvice js2r-inline-var (after reindent-buffer activate)
   (cleanup-buffer))
 
+(add-hook 'js2-mode-hook (lambda () (smartparens-mode 1)))
+
 (defun js2-hide-test-functions ()
   (interactive)
   (save-excursion
