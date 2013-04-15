@@ -2,9 +2,20 @@
 
 ;; Subtler highlight
 (set-face-background 'magit-item-highlight "#121212")
+(set-face-background 'diff-file-header "#121212")
 (set-face-foreground 'diff-context "#666666")
 (set-face-foreground 'diff-added "#00cc33")
 (set-face-foreground 'diff-removed "#ff0000")
+
+;; todo:
+;; diff-added-face 	diff-changed-face
+;; diff-context-face 	diff-file-header-face
+;; diff-function-face 	diff-header-face
+;; diff-hunk-header-face 	diff-index-face
+;; diff-indicator-added-face 	diff-indicator-changed-face
+;; diff-indicator-removed-face 	diff-nonexistent-face
+;; diff-removed-face
+
 
 ;; Load git configurations
 ;; For instance, to run magit-svn-mode in a project, do:
