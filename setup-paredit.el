@@ -50,6 +50,8 @@
     ("C-M-<left>"  "s-S-<left>"  paredit-backward-slurp-sexp)
     ("C-M-<right>" "s-S-<right>" paredit-backward-barf-sexp)))
 
+(define-key paredit-mode-map (kbd "s-r") 'paredit-raise-sexp)
+
 (--each my-nasty-paredit-keybindings-remappings
   (let ((original (car it))
         (replacement (cadr it))
