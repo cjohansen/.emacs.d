@@ -70,6 +70,12 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * Watch [emacsrocks.com](http://emacsrocks.com)
 
+### Additional setup
+
+If you want [tern](http://ternjs.net/) in your javascript, you need to
+install [node](http://nodejs.org) and run `npm install` in the
+`.emacs/site-lisp/tern` directory.
+
 ## Survival guide for the first week of emacs
 
 When you start using emacs for the first time, your habits fight you every inch

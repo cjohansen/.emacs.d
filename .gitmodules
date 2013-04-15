@@ -115,3 +115,6 @@
 [submodule "site-lisp/showcss-mode"]
 	path = site-lisp/showcss-mode
 	url = https://github.com/smmcg/showcss-mode.git
+[submodule "site-lisp/tern"]
+	path = site-lisp/tern
+	url = https://github.com/marijnh/tern.git
