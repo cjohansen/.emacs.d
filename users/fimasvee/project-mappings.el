@@ -1,15 +1,3 @@
-(defmacro project-specifics (name &rest body)
-  (declare (indent 1))
-  `(progn
-     (add-hook 'find-file-hook
-               (lambda ()
-                 (when (string-match-p ,name (buffer-file-name))
-                   ,@body)))
-     (add-hook 'dired-after-readin-hook
-               (lambda ()
-                 (when (string-match-p ,name (dired-current-directory))
-                   ,@body)))))
-
 ;; Intelliadv
 
 (defun custom-persp/intelliadv ()
@@ -69,6 +57,20 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; Oiiku
+
+(defun custom-persp/oiiku ()
+  (interactive)
+  (custom-persp "oiiku" (find-file "~/projects/oiiku/")))
+
+(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oiiku)
+
+(project-specifics "projects/oiiku"
+  (setq js2-additional-externs '("angular" "cull" "dome"))
+  (set (make-local-variable 'sgml-basic-offset) 2)
+  (make-variable-buffer-local 'js2-basic-offset)
+  (setq js2-basic-offset 4))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
@@ -76,7 +78,7 @@
   (custom-persp "oppdrag"
                 (find-file "~/Dropbox/projects/finn-oppdrag/todo.org")))
 
-(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
+;;(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
 (require 'oppdrag-mode)
 
@@ -88,6 +90,37 @@
   (add-to-list 'grep-find-ignored-directories "ckeditor")
   (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
   (oppdrag-mode))
+
+;; FINN Reise
+
+(defun custom-persp/travel ()
+  (interactive)
+  (custom-persp "travel"
+                (find-file "~/projects/finn-reise/travel-app/")))
+
+(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/travel)
+
+(require 'travel-mode)
+
+(project-specifics "travel-app"
+  (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:4000/")
+  (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
+  (set (make-local-variable 'slime-js-starting-url) "/reise/flybilletter")
+  (make-local-variable 'grep-find-ignored-directories)
+  ;;(add-to-list 'grep-find-ignored-directories "ckeditor")
+  (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jawr.properties")
+  (setq js2-additional-externs '("FINN" "buster" "cull" "dome" "bane"))
+  (setq js2r-path-to-tests "/test/javascript/tests/")
+  (setq js2r-path-to-sources "/main/webapp/clientscript/")
+  (setq js2r-test-suffix "Test")
+  (setq buster-default-global "FINN.travel")
+  (setq buster-add-default-global-to-iife t)
+  (set (make-local-variable 'buster-use-strict) t)
+  (set (make-local-variable 'js2r-use-strict) t)
+  (set (make-local-variable 'sgml-basic-offset) 2)
+  (make-variable-buffer-local 'js2-basic-offset)
+  (setq js2-basic-offset 4)
+  (travel-mode))
 
 ;; Zombie TDD
 
