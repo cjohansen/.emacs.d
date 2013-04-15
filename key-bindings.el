@@ -313,6 +313,7 @@
 (global-set-key (kbd "C-x C-o ph") (ffip-create-pattern-file-finder "*.php"))
 (global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
 (global-set-key (kbd "C-x C-o vm") (ffip-create-pattern-file-finder "*.vm"))
+(global-set-key (kbd "C-x C-o xm") (ffip-create-pattern-file-finder "*.xml"))
 
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
