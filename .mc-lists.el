@@ -78,6 +78,7 @@
         paredit-open-round
         paredit-open-square
         paredit-raise-sexp
+        paredit-reindent-defun
         paredit-semicolon
         paredit-splice-sexp
         paredit-split-sexp
@@ -90,10 +91,17 @@
         sgml-slash
         skeleton-pair-insert-maybe
         slime-space
+        sp--self-insert-command
+        sp-remove-active-pair-overlay
         sp-self-insert-command
+        tagedit-forward-slurp-tag
         tagedit-insert-equal
+        tagedit-insert-lt
+        tagedit-insert-quote
         tagedit-kill-attribute
+        tagedit-raise-tag
         touch-buffer-file
+        transpose-params
         transpose-sexps
         wrap-region-trigger
         yank-indented
@@ -111,6 +119,7 @@
         ido-switch-buffer
         js2r-extract-var
         js2r-rename-var
+        jump-between-source-and-test-files
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
