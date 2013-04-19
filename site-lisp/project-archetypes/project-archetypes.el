@@ -1,12 +1,29 @@
 (require 'dash)
 (require 's)
 
-(defvar pa-folder (expand-file-name "project-archetypes" user-emacs-directory))
-(defvar pa-project-folder (expand-file-name "projects" "~"))
-(defvar pa-out "*project-archetypes-output*")
+(defvar pa-project-archetypes nil
+  "The list of available project archetypes.")
+
+(defvar pa-folder (expand-file-name "project-archetypes" user-emacs-directory)
+  "The directory containing project archetypes.")
+
+(defvar pa-project-folder (expand-file-name "projects" "~")
+  "The directory where projects should be created.")
+
+(defvar pa-out "*project-archetypes-output*"
+  "Name of the buffer where output from the running process is displayed.")
+
+(defun pa-declare-project-archetype (name fn)
+  "Add project archetype to the list of available ones."
+  (add-to-list 'pa-project-archetypes (cons name fn)))
+
+(defun pa-create-project ()
+  (interactive)
+  (let ((name (completing-read "Archetype: " (-map 'car pa-project-archetypes) nil t)))
+    (call-interactively (cdr (assoc name pa-project-archetypes)))))
 
 (defun pa--join-patterns (patterns)
-  "Turn `ffip-paterns' into a string that `find' can use."
+  "Turn `patterns' into a string that `find' can use."
   (mapconcat (lambda (pat) (format "-name \"%s\"" pat))
              patterns " -or "))
 
@@ -32,7 +49,7 @@
 (defun pa-instantiate-template-directory (template folder &rest replacements)
   (let ((tmp-folder (expand-file-name (concat "__pa_tmp_" template) pa-project-folder)))
     (copy-directory (expand-file-name template pa-folder) tmp-folder nil nil t)
-    (--each (pa--files-matching (-map 'car replacements) tmp-folder)
+    (--each (pa--files-matching (--map (s-concat "*" (car it) "*") replacements) tmp-folder)
       (rename-file it (s-replace-all replacements it)))
     (--each (pa--files-matching ["*"] tmp-folder "-type f")
       (pa--instantiate-template-file it replacements))
@@ -52,6 +69,9 @@
        (pa-sh "git ci -m \"Initial commit\""))))
 
 (put 'pa-with-new-project 'lisp-indent-function 2)
+
+(when (file-exists-p pa-folder)
+  (-each (directory-files pa-folder nil "^[^#].*el$") 'load))
 
 (provide 'project-archetypes)
 ;;; project-archetypes.el ends here

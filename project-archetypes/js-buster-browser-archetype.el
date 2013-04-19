@@ -1,7 +1,5 @@
 (defun create-js-buster-browser (project-name description global)
-  (interactive "sProject name:
-sDescription:
-sGlobal namespace: ")
+  (interactive "sProject name: \nsDescription: \nsGlobal namespace: ")
   (pa-with-new-project project-name "js-buster-browser"
     ((cons "__project-name__" project-name)
      (cons "__description__" description)
@@ -10,5 +8,7 @@ sGlobal namespace: ")
     (magit-ignore-file "todo.org" nil t)
     (pa-sh "npm link buster")
     (pa-sh "npm install")))
+
+(pa-declare-project-archetype "js-buster-browser" 'create-js-buster-browser)
 
 (provide 'js-buster-browser-archetype)

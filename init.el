@@ -157,6 +157,7 @@
 (require 'key-bindings)
 
 ;; Misc
+(require 'project-archetypes)
 (require 'appearance)
 (require 'my-misc)
 (when is-mac (require 'mac))

@@ -9,4 +9,6 @@
   (create-clj-ring "test-test")
   (find-file-other-window "~/projects/test-test"))
 
+(pa-declare-project-archetype "clj-ring" 'create-clj-ring)
+
 (provide 'clj-ring-archetype)
