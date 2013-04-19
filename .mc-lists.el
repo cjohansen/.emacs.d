@@ -16,6 +16,7 @@
         c-electric-paren
         c-electric-semi&comma
         c-electric-slash
+        c-electric-star
         change-inner
         change-number-at-point
         change-outer
@@ -58,6 +59,7 @@
         org-return-indent
         org-self-insert-command
         org-shiftright
+        org-yank
         orgtbl-self-insert-command
         paredit-backslash
         paredit-backward

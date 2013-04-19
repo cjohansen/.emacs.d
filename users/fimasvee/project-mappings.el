@@ -115,6 +115,7 @@
   (setq js2r-test-suffix "Test")
   (setq buster-default-global "FINN.travel")
   (setq buster-add-default-global-to-iife t)
+  (setq buster-test-prefix "")
   (set (make-local-variable 'buster-use-strict) t)
   (set (make-local-variable 'js2r-use-strict) t)
   (set (make-local-variable 'sgml-basic-offset) 2)
