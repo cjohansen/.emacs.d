@@ -1,0 +1,7 @@
+(source "melpa" "http://melpa.milkbox.net/packages/")
+
+(package "__project-name__" "0.1.0" "__description__")
+
+(development
+  (depends-on "ecukes")
+  (depends-on "espuds"))
