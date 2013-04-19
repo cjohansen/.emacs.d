@@ -314,6 +314,7 @@
 (global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
 (global-set-key (kbd "C-x C-o vm") (ffip-create-pattern-file-finder "*.vm"))
 (global-set-key (kbd "C-x C-o xm") (ffip-create-pattern-file-finder "*.xml"))
+(global-set-key (kbd "C-x C-o pr") (ffip-create-pattern-file-finder "*.properties"))
 
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
