@@ -118,3 +118,6 @@
 [submodule "site-lisp/tern"]
 	path = site-lisp/tern
 	url = https://github.com/marijnh/tern.git
+[submodule "site-lisp/simplezen"]
+	path = site-lisp/simplezen
+	url = https://github.com/magnars/simplezen.el.git
