@@ -25,5 +25,4 @@
 ;;; Code:
 
 (provide '__project-name__)
-
 ;;; __project-name__.el ends here

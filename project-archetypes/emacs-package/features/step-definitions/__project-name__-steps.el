@@ -1,3 +1,5 @@
+(eval-when-compile (require 'cl))
+
 (When "^I place the cursor after \"\\(.+\\)\"$"
       (lambda (arg)
         (goto-char (point-min))
