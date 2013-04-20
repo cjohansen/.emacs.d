@@ -71,7 +71,8 @@
 (put 'pa-with-new-project 'lisp-indent-function 2)
 
 (when (file-exists-p pa-folder)
-  (-each (directory-files pa-folder nil "^[^#].*el$") 'load))
+  (--each (directory-files pa-folder nil "^[^#].*el$")
+    (load (expand-file-name it pa-folder))))
 
 (provide 'project-archetypes)
 ;;; project-archetypes.el ends here
