@@ -222,7 +222,6 @@
 (global-set-key (kbd "C-c u") 'uncomment-region)
 
 ;; Eval buffer
-(global-set-key (kbd "C-c v") 'eval-buffer)
 (global-set-key (kbd "C-c C-k") 'eval-buffer)
 
 ;; Create scratch buffer
