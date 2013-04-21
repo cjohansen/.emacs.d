@@ -17,16 +17,6 @@
 (eval-after-load "php-mode"
   '(define-key php-mode-map (kbd "C-.") nil))
 
-;; Experimental: keep region when undoing in region
-(defadvice undo-tree-undo (around keep-region activate)
-  (if (use-region-p)
-      (let ((m (set-marker (make-marker) (mark)))
-            (p (set-marker (make-marker) (point))))
-        ad-do-it
-        (goto-char p)
-        (set-marker (mark-marker) m))
-    ad-do-it))
-
 ;; Use GNU ls - install with:
 ;;    brew install xz coreutils
 (setq insert-directory-program "gls")
