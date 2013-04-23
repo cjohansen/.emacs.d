@@ -47,6 +47,7 @@
      (define-key html-mode-map (kbd "s-<left>") 'tagedit-forward-barf-tag)
      (define-key html-mode-map (kbd "C-}") 'tagedit-forward-barf-tag)
      (define-key html-mode-map (kbd "M-r") 'tagedit-raise-tag)
+     (define-key html-mode-map (kbd "s-s") 'tagedit-splice-tag)
 
      (tagedit-add-experimental-features)
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
