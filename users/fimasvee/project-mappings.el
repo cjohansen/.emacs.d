@@ -102,25 +102,27 @@
 
 (require 'travel-mode)
 
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "travel-app" (buffer-file-name))
+              (--each '("cull" "dome" "bane") (add-to-list 'js2-additional-externs it))
+              (js2-fetch-autolint-externs "~/projects/finn-reise/travel-app/web/src/autolint.js")
+              (setq js2r-path-to-tests "/test/javascript/tests/")
+              (setq js2r-path-to-sources "/main/webapp/scripts/")
+              (setq js2r-test-suffix "Test")
+              (setq buster-default-global "FINN.travel")
+              (setq buster-add-default-global-to-iife t)
+              (setq buster-test-prefix "")
+              (set (make-local-variable 'js2-basic-offset) 4)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'js2r-use-strict) t))))
+
 (project-specifics "travel-app"
   (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:4000/")
   (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
   (set (make-local-variable 'slime-js-starting-url) "/reise/flybilletter")
-  (make-local-variable 'grep-find-ignored-directories)
-  ;;(add-to-list 'grep-find-ignored-directories "ckeditor")
   (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jawr.properties")
-  (setq js2-additional-externs '("FINN" "buster" "cull" "dome" "bane"))
-  (setq js2r-path-to-tests "/test/javascript/tests/")
-  (setq js2r-path-to-sources "/main/webapp/clientscript/")
-  (setq js2r-test-suffix "Test")
-  (setq buster-default-global "FINN.travel")
-  (setq buster-add-default-global-to-iife t)
-  (setq buster-test-prefix "")
-  (set (make-local-variable 'buster-use-strict) t)
-  (set (make-local-variable 'js2r-use-strict) t)
   (set (make-local-variable 'sgml-basic-offset) 2)
-  (make-variable-buffer-local 'js2-basic-offset)
-  (setq js2-basic-offset 4)
   (travel-mode))
 
 ;; Zombie TDD

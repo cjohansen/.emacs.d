@@ -93,6 +93,27 @@
                        " *, *" t))
                 ))))
 
+(require 'json)
+
+(defun my-aget (key map)
+  (cdr (assoc key map)))
+
+(defun js2-fetch-autolint-externs (file)
+  (let* ((settings (with-temp-buffer
+                     (insert-file-literally "/Users/fimasvee/projects/finn-reise/travel-app/web/src/autolint.js")
+                     (javascript-mode)
+                     (let (kill-ring) (kill-comment 1000))
+                     (->> (buffer-substring (point-min) (point-max))
+                       (s-trim)
+                       (s-chop-prefix "module.exports = ")
+                       (s-chop-suffix ";")
+                       (json-read-from-string))))
+         (predef (->> settings
+                   (my-aget 'linterOptions)
+                   (my-aget 'predef))))
+    (--each (append predef nil)
+      (add-to-list 'js2-additional-externs it))))
+
 (defun cjsp--eldoc-innards (beg)
   (save-excursion
     (goto-char beg)
