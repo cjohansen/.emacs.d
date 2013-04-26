@@ -315,6 +315,7 @@
 (global-set-key (kbd "C-x C-o xm") (ffip-create-pattern-file-finder "*.xml"))
 (global-set-key (kbd "C-x C-o pr") (ffip-create-pattern-file-finder "*.properties"))
 (global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
+(global-set-key (kbd "C-x C-o gr") (ffip-create-pattern-file-finder "*.groovy"))
 
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
