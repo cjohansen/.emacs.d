@@ -3,5 +3,6 @@
 # key: f(
 # --
 (function (${2:${1:$(buster--shortcuts-for-globals yas/text)}}) {
-    $0
+    `(buster--maybe-use-strict)
+ `$0
 }(${1:`(if buster-add-default-global-to-iife buster-default-global)`}));
