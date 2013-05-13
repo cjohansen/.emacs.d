@@ -67,7 +67,8 @@
           (when timer (cancel-timer timer)))))))
 
 ;; mac friendly font
-(set-face-attribute 'default nil :font "Monaco-16")
+(when window-system
+  (set-face-attribute 'default nil :font "Monaco-16"))
 
 ;; keybinding to toggle full screen mode
 (global-set-key (quote [M-f10]) (quote ns-toggle-fullscreen))
