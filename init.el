@@ -44,9 +44,6 @@
 ;; Are we on a mac?
 (setq is-mac (equal system-type 'darwin))
 
-;; Setup elnode before packages to stop it from starting a server
-;;(require 'setup-elnode)
-
 ;; Setup packages
 (require 'setup-package)
 
@@ -63,7 +60,6 @@
    (cons 'smartparens melpa)
    (cons 'restclient melpa)
    (cons 'elisp-slime-nav melpa)
-   ;(cons 'elnode marmalade)
    (cons 'slime-js marmalade)
    (cons 'git-commit-mode melpa)
    (cons 'gitconfig-mode melpa)
@@ -117,12 +113,6 @@
 (require 'visual-regexp)
 (define-key global-map (kbd "M-&") 'vr/query-replace)
 (define-key global-map (kbd "M-/") 'vr/replace)
-
-;; Tern.js
-
-(add-to-list 'load-path (expand-file-name "tern/emacs" site-lisp-dir))
-(autoload 'tern-mode "tern.el" nil t)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
