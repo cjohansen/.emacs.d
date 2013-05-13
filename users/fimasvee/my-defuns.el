@@ -44,4 +44,16 @@
              filename
              filename) t)))
 
+(defun -flash-region (start end)
+  "Temporarily highlight region from START to END."
+  (let ((overlay (make-overlay start end)))
+    (overlay-put overlay 'face 'secondary-selection)
+    (overlay-put overlay 'priority 100)
+    (run-with-timer 0.2 nil 'delete-overlay overlay)))
+
+(defun js2r--flash-node (node)
+  (-flash-region (js2-node-abs-pos node)
+                 (js2-node-abs-end node))
+  nil)
+
 (provide 'my-defuns)

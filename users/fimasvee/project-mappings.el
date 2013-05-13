@@ -65,11 +65,16 @@
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oiiku)
 
+(defun js2-oiiku-settings ()
+  (when (string-match-p "projects/oiiku" (buffer-file-name))
+    (setq js2-additional-externs '("angular" "cull" "dome" "app" "expect" "it" "inject" "beforeEach" "describe"))
+    (make-variable-buffer-local 'js2-basic-offset)
+    (setq js2-basic-offset 4)))
+
+(add-hook 'js2-mode-hook 'js2-oiiku-settings)
+
 (project-specifics "projects/oiiku"
-  (setq js2-additional-externs '("angular" "cull" "dome"))
-  (set (make-local-variable 'sgml-basic-offset) 2)
-  (make-variable-buffer-local 'js2-basic-offset)
-  (setq js2-basic-offset 4))
+  (set (make-local-variable 'sgml-basic-offset) 2))
 
 ;; FINN Oppdrag
 
