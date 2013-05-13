@@ -100,7 +100,7 @@
 
 (defun js2-fetch-autolint-externs (file)
   (let* ((settings (with-temp-buffer
-                     (insert-file-literally "/Users/fimasvee/projects/finn-reise/travel-app/web/src/autolint.js")
+                     (insert-file-literally file)
                      (javascript-mode)
                      (let (kill-ring) (kill-comment 1000))
                      (->> (buffer-substring (point-min) (point-max))
