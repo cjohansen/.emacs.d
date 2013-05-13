@@ -195,10 +195,11 @@ region-end is used."
   (unless (or (looking-at "[0-9]")
               (looking-back "[0-9]"))
     (error "No number to change at point"))
-  (while (looking-back "[0-9]")
-    (forward-char -1))
-  (re-search-forward "[0-9]+" nil)
-  (replace-match (incs (match-string 0) arg) nil nil))
+  (save-excursion
+   (while (looking-back "[0-9]")
+     (forward-char -1))
+   (re-search-forward "[0-9]+" nil)
+   (replace-match (incs (match-string 0) arg) nil nil)))
 
 (defun replace-next-underscore-with-camel (arg)
   (interactive "p")
