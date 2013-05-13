@@ -4,7 +4,7 @@ __description__
 
 ## Installation
 
-I highly recommended installing __project-name__ through elpa.
+I highly recommend installing __project-name__ through elpa.
 
 It's available on [marmalade](http://marmalade-repo.org/) and
 [melpa](http://melpa.milkbox.net/):

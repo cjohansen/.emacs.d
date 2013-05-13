@@ -1,6 +1,6 @@
 (source "melpa" "http://melpa.milkbox.net/packages/")
 
-(package "__project-name__" "0.1.0" "__description__")
+(package-file "__project-name__.el")
 
 (development
   (depends-on "ecukes")
