@@ -48,6 +48,9 @@
      (define-key html-mode-map (kbd "C-}") 'tagedit-forward-barf-tag)
      (define-key html-mode-map (kbd "M-r") 'tagedit-raise-tag)
      (define-key html-mode-map (kbd "s-s") 'tagedit-splice-tag)
+     (define-key html-mode-map (kbd "M-S") 'tagedit-split-tag)
+     (define-key html-mode-map (kbd "M-J") 'tagedit-join-tags)
+     (define-key html-mode-map (kbd "M-?") 'tagedit-convolute-tags)
 
      (tagedit-add-experimental-features)
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
