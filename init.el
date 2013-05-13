@@ -61,6 +61,7 @@
    (cons 'htmlize melpa)
    (cons 'visual-regexp melpa)
    (cons 'smartparens melpa)
+   (cons 'restclient melpa)
    (cons 'elisp-slime-nav melpa)
    ;(cons 'elnode marmalade)
    (cons 'slime-js marmalade)

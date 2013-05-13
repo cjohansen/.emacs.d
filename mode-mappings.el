@@ -9,6 +9,9 @@
 ;; CSS
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 
+;; Restclient
+(add-to-list 'auto-mode-alist '("\\.restclient$" . restclient-mode))
+
 ;; Cucumber
 (autoload 'feature-mode "feature-mode")
 (add-to-list 'auto-mode-alist '("\\.feature$" . feature-mode))
