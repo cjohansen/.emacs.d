@@ -33,6 +33,9 @@
 ;; No dropdowns please, yas
 (setq yas/prompt-functions '(yas/ido-prompt yas/completing-prompt))
 
+;; No need to be so verbose
+(setq yas/verbosity 1)
+
 ;; Wrap around region
 (setq yas/wrap-around-region t)
 
