@@ -37,6 +37,7 @@
         js2-end-of-line
         js2-insert-and-indent
         js2r-inline-var
+        js2r-split-string
         js2r-var-to-this
         kill-and-retry-line
         kill-region-or-backward-word
@@ -65,6 +66,7 @@
         paredit-backward
         paredit-backward-up
         paredit-close-square
+        paredit-comment-dwim
         paredit-doublequote
         paredit-forward
         paredit-forward-delete
@@ -97,11 +99,19 @@
         sp-remove-active-pair-overlay
         sp-self-insert-command
         tagedit-forward-slurp-tag
+        tagedit-insert-dot
         tagedit-insert-equal
+        tagedit-insert-exclamation-mark
+        tagedit-insert-gt
+        tagedit-insert-hash
         tagedit-insert-lt
         tagedit-insert-quote
+        tagedit-kill
         tagedit-kill-attribute
+        tagedit-maybe-insert-slash
         tagedit-raise-tag
+        tagedit-splice-tag
+        tern-ac-dot-complete
         touch-buffer-file
         transpose-params
         transpose-sexps
@@ -114,7 +124,10 @@
 (setq mc/cmds-to-run-once
       '(
         adv-insert-new-number
+        cleanup-buffer
+        describe-key
         dired-toggle-read-only
+        edebug-next-mode
         eval-expression
         goto-line-with-feedback
         handle-switch-frame
@@ -125,6 +138,7 @@
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
+        shell
         smex
         wgrep-change-to-wgrep-mode
         wgrep-finish-edit
