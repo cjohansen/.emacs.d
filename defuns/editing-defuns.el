@@ -187,8 +187,15 @@ region-end is used."
                     (goto-char (point-max))
                     (line-number-at-pos)))))
 
+(require 's)
+
 (defun incs (s &optional num)
-  (number-to-string (+ (or num 1) (string-to-number s))))
+  (let* ((inc (or num 1))
+         (new-number (number-to-string (+ inc (string-to-number s))))
+         (zero-padded? (s-starts-with? "0" s)))
+    (if zero-padded?
+        (s-pad-left (length s) "0" new-number)
+      new-number)))
 
 (defun change-number-at-point (arg)
   (interactive "p")
