@@ -9,6 +9,10 @@
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
 
+;; No more scrolling surprises
+(global-unset-key (kbd "C-v"))
+(global-unset-key (kbd "M-v"))
+
 ;; PHP
 (autoload 'php-mode "php-mode")
 (setq php-file-patterns nil)
