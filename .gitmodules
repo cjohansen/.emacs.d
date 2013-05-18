@@ -124,3 +124,6 @@
 [submodule "site-lisp/angular-snippets"]
 	path = site-lisp/angular-snippets
 	url = https://github.com/magnars/angular-snippets.el.git
+[submodule "site-lisp/flx"]
+	path = site-lisp/flx
+	url = https://github.com/lewang/flx.git

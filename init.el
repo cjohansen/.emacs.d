@@ -58,6 +58,7 @@
    (cons 'htmlize melpa)
    (cons 'visual-regexp melpa)
    (cons 'smartparens melpa)
+   (cons 'ido-vertical-mode melpa)
    (cons 'simple-httpd melpa)
    (cons 'restclient melpa)
    (cons 'elisp-slime-nav melpa)

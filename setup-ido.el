@@ -10,6 +10,21 @@
       ido-use-filename-at-point nil
       ido-max-prospects 10)
 
+;; Try out flx-ido for better flex matching between words
+(require 'flx-ido)
+(setq flx-ido-use t)
+
+;; flx-ido looks better with ido-vertical-mode
+
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
+(defun sd/ido-define-keys () ;; C-n/p is more intuitive in vertical layout
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+  (define-key ido-completion-map (kbd "<up>") 'ido-prev-match))
+
 (add-hook
  'ido-setup-hook
  (lambda ()
