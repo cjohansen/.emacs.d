@@ -13,6 +13,9 @@
 (global-unset-key (kbd "C-v"))
 (global-unset-key (kbd "M-v"))
 
+;; No graphics please o.O
+(setq speedbar-use-images nil)
+
 ;; PHP
 (autoload 'php-mode "php-mode")
 (setq php-file-patterns nil)
