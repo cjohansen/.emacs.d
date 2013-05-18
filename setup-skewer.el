@@ -13,6 +13,10 @@
     (httpd-start)
     (message "Ready to skewer the browser. Now jack in with the bookmarklet.")))
 
-(defalias 'skewer-demo 'run-skewer)
+(defun skewer-demo ()
+  (interactive)
+  (let ((httpd-port 8024))
+    (run-skewer)
+    (skewer-repl)))
 
 (provide 'setup-skewer)
