@@ -96,6 +96,7 @@
 
 ;; Default setup of smartparens
 (require 'smartparens-config)
+(setq sp-autoescape-string-quote nil)
 
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
