@@ -7,6 +7,9 @@
 ;; Include snippets for Buster.js
 (require 'buster-snippets)
 
+;; Include snippets for Angular.js
+(require 'angular-snippets)
+
 ;; Jump to end of snippet definition
 (define-key yas/keymap (kbd "<return>") 'yas/exit-all-snippets)
 

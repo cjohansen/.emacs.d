@@ -121,3 +121,6 @@
 [submodule "site-lisp/simplezen"]
 	path = site-lisp/simplezen
 	url = https://github.com/magnars/simplezen.el.git
+[submodule "site-lisp/angular-snippets"]
+	path = site-lisp/angular-snippets
+	url = https://github.com/magnars/angular-snippets.el.git
