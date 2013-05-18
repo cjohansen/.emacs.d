@@ -27,7 +27,8 @@
                               ""])))
 
 ;; Various superfluous white-space. Just say no.
-(add-hook 'before-save-hook 'cleanup-buffer-safe)
+(add-hook 'before-save-hook 'whitespace-cleanup)
+(add-hook 'makefile-mode-hook 'indent-tabs-mode)
 
 ;; Newline after inserting closing tag in html-mode
 (defadvice sgml-close-tag (after close-tag-then-newline activate)
