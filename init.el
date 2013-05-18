@@ -58,6 +58,7 @@
    (cons 'htmlize melpa)
    (cons 'visual-regexp melpa)
    (cons 'smartparens melpa)
+   (cons 'simple-httpd melpa)
    (cons 'restclient melpa)
    (cons 'elisp-slime-nav melpa)
    (cons 'slime-js marmalade)
@@ -105,6 +106,10 @@
 ;; Load slime-js when asked for
 (autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
 (autoload 'slime-js-jack-in-node "setup-slime-js" nil t)
+
+;; Load skewer when asked for
+(autoload 'skewer-start "setup-skewer" nil t)
+(autoload 'skewer-demo "setup-skewer" nil t)
 
 ;; Map files to modes
 (require 'mode-mappings)
