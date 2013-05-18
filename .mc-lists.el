@@ -37,6 +37,7 @@
         js2-end-of-line
         js2-insert-and-indent
         js2r-inline-var
+        js2r-move-line-up
         js2r-split-string
         js2r-var-to-this
         kill-and-retry-line
