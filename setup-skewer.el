@@ -6,6 +6,8 @@
 
 (require 'skewer-mode)
 (require 'skewer-repl)
+(require 'skewer-html)
+(require 'skewer-css)
 
 (defun skewer-start ()
   (interactive)
