@@ -208,6 +208,10 @@ region-end is used."
    (re-search-forward "[0-9]+" nil)
    (replace-match (incs (match-string 0) arg) nil nil)))
 
+(defun subtract-number-at-point (arg)
+  (interactive "p")
+  (change-number-at-point (- arg)))
+
 (defun replace-next-underscore-with-camel (arg)
   (interactive "p")
   (if (> arg 0)
