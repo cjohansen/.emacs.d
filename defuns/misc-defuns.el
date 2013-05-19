@@ -27,13 +27,13 @@
     (linum-mode -1)))
 
 ;; start a httpd-server in current directory
-(defun httpd-start-here ()
-  (interactive)
-  (setq httpd-root default-directory)
-  (setq httpd-port 8017)
+(defun httpd-start-here (directory port)
+  (interactive (list (read-directory-name "Root directory: " default-directory nil t)
+                     (read-number "Port: " 8017)))
+  (setq httpd-root directory)
+  (setq httpd-port port)
   (httpd-start)
-  (kill-new "http://localhost:8017/")
-  (message "httpd started here. URL is in your clipboard. You're welcome."))
+  (browse-url (concat "http://localhost:" (number-to-string port) "/")))
 
 ;; Add spaces and proper formatting to linum-mode. It uses more room than
 ;; necessary, but that's not a problem since it's only in use when going to
