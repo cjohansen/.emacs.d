@@ -11,6 +11,7 @@
 (setq-default js2-include-rhino-externs nil)
 (setq-default js2-include-gears-externs nil)
 (setq-default js2-concat-multiline-strings 'eol)
+(setq-default js2-rebind-eol-bol-keys nil)
 
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -54,9 +55,6 @@
           (back-to-indentation)))))
 
 (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
-
-;; Don't redefine C-a for me please, js2-mode
-(define-key js2-mode-map (kbd "C-a") nil)
 
 ;; When renaming/deleting js-files, check for corresponding testfile
 (define-key js2-mode-map (kbd "C-x C-r") 'js2r-rename-current-buffer-file)
