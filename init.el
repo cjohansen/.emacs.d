@@ -14,6 +14,13 @@
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path site-lisp-dir)
 
+;; Keep emacs Custom-settings in separate file
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
+;; Set up appearance early
+(require 'appearance)
+
 ;; Settings for currently logged in user
 (setq user-settings-dir
       (concat user-emacs-directory "users/" user-login-name))
@@ -23,10 +30,6 @@
 (dolist (project (directory-files site-lisp-dir t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
-
-;; Keep emacs Custom-settings in separate file
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -159,7 +162,6 @@
 
 ;; Misc
 (require 'project-archetypes)
-(require 'appearance)
 (require 'my-misc)
 (when is-mac (require 'mac))
 
