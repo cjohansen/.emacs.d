@@ -140,6 +140,7 @@
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
+        persp-switch
         shell
         smex
         wgrep-change-to-wgrep-mode
