@@ -19,7 +19,7 @@
   (let* ((snippet (car (yas/snippets-at-point)))
         (position (yas/field-end (yas/snippet-active-field snippet))))
     (if (= (point) position)
-        (move-end-of-line)
+        (move-end-of-line 1)
       (goto-char position))))
 
 (defun yas/goto-start-of-active-field ()
@@ -27,7 +27,7 @@
   (let* ((snippet (car (yas/snippets-at-point)))
         (position (yas/field-start (yas/snippet-active-field snippet))))
     (if (= (point) position)
-        (move-beginning-of-line)
+        (move-beginning-of-line 1)
       (goto-char position))))
 
 (define-key yas/keymap (kbd "C-e") 'yas/goto-end-of-active-field)
