@@ -15,7 +15,6 @@
 (setq flx-ido-use t)
 
 ;; flx-ido looks better with ido-vertical-mode
-
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 

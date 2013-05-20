@@ -113,6 +113,9 @@
 (autoload 'skewer-start "setup-skewer" nil t)
 (autoload 'skewer-demo "setup-skewer" nil t)
 
+;; Load autocomplete on demand
+(autoload 'auto-complete-mode "auto-complete" nil t)
+
 ;; Map files to modes
 (require 'mode-mappings)
 
