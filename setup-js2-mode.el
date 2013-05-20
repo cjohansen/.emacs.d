@@ -13,6 +13,12 @@
 (setq-default js2-concat-multiline-strings 'eol)
 (setq-default js2-rebind-eol-bol-keys nil)
 
+;; Let flycheck handle parse errors
+;;(setq-default js2-show-parse-errors nil)
+;;(setq-default js2-strict-missing-semi-warning nil)
+;;(setq-default js2-strict-trailing-comma-warning nil) --> jshint does not warn about this now for some reason
+;;(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
@@ -96,7 +102,7 @@
 ;; Tern.JS
 (add-to-list 'load-path (expand-file-name "tern/emacs" site-lisp-dir))
 (autoload 'tern-mode "tern.el" nil t)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (eval-after-load 'auto-complete
   '(eval-after-load 'tern
      '(progn
