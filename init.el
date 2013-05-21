@@ -65,7 +65,6 @@
    (cons 'simple-httpd melpa)
    (cons 'restclient melpa)
    (cons 'elisp-slime-nav melpa)
-   (cons 'slime-js marmalade)
    (cons 'git-commit-mode melpa)
    (cons 'gitconfig-mode melpa)
    (cons 'gitignore-mode melpa)
@@ -107,10 +106,6 @@
 (eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
 (eval-after-load 'clojure-mode '(require 'setup-clojure-mode))
 (eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
-
-;; Load slime-js when asked for
-(autoload 'slime-js-jack-in-browser "setup-slime-js" nil t)
-(autoload 'slime-js-jack-in-node "setup-slime-js" nil t)
 
 ;; Load skewer when asked for
 (autoload 'skewer-start "setup-skewer" nil t)
