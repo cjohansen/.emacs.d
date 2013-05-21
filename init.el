@@ -53,23 +53,23 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   (cons 'exec-path-from-shell melpa)
-   (cons 'magit melpa)
-   (cons 'paredit melpa)
-   (cons 'move-text melpa)
-   (cons 'gist melpa)
-   (cons 'htmlize melpa)
-   (cons 'visual-regexp melpa)
-   (cons 'smartparens melpa)
-   (cons 'ido-vertical-mode melpa)
-   (cons 'simple-httpd melpa)
-   (cons 'restclient melpa)
-   (cons 'elisp-slime-nav melpa)
-   (cons 'git-commit-mode melpa)
-   (cons 'gitconfig-mode melpa)
-   (cons 'gitignore-mode melpa)
-   (cons 'clojure-mode melpa)
-   (cons 'nrepl melpa)))
+   '(exec-path-from-shell
+     magit
+     paredit
+     move-text
+     gist
+     htmlize
+     visual-regexp
+     smartparens
+     ido-vertical-mode
+     simple-httpd
+     restclient
+     elisp-slime-nav
+     git-commit-mode
+     gitconfig-mode
+     gitignore-mode
+     clojure-mode
+     nrepl)))
 
 (condition-case nil
     (init--install-packages)
