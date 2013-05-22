@@ -160,16 +160,9 @@
 (require 'my-misc)
 (when is-mac (require 'mac))
 
-;; Diminish modeline clutter
-(require 'diminish)
-(diminish 'yas/minor-mode)
-(diminish 'eldoc-mode)
-(diminish 'paredit-mode)
-
 ;; Elisp go-to-definition with M-. and back again with M-,
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
-(eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
 
 ;; Email, baby
 (require 'setup-mu4e)
