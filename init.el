@@ -181,6 +181,7 @@
 
 ;; Run at full power please
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 (put 'narrow-to-region 'disabled nil)
 
 ;; Conclude init by setting up specifics for the current user
