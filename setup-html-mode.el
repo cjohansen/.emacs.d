@@ -61,4 +61,8 @@
      (define-key html-mode-map (kbd "s-k") 'tagedit-kill-attribute)
      (define-key html-mode-map (kbd "s-<return>") 'tagedit-toggle-multiline-tag)))
 
+;; after deleting a tag, indent properly
+(defadvice sgml-delete-tag (after reindent activate)
+  (indent-region (point-min) (point-max)))
+
 (provide 'setup-html-mode)
