@@ -127,3 +127,6 @@
 [submodule "site-lisp/flx"]
 	path = site-lisp/flx
 	url = https://github.com/lewang/flx.git
+[submodule "site-lisp/flycheck"]
+	path = site-lisp/flycheck
+	url = https://github.com/lunaryorn/flycheck.git
