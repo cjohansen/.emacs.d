@@ -6,6 +6,9 @@
 (when window-system
   (mouse-wheel-mode -1))
 
+;; Monday ftw
+(set-variable 'calendar-week-start-day 1)
+
 ;; Font size
 (define-key global-map (kbd "M-s +") 'zoom-in)
 (define-key global-map (kbd "M-s -") 'zoom-out)
