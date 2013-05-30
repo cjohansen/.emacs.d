@@ -27,8 +27,12 @@ If there's no region, the current line will be duplicated."
   (interactive "p")
   (save-excursion
     (if (region-active-p)
-        (duplicate-region arg)
+        (let (deactivate-mark)
+          (save-excursion (duplicate-region arg)))
       (duplicate-current-line arg))))
+
+(require 'repeatable)
+(repeatable-command-advice duplicate-current-line-or-region)
 
 (defun duplicate-region (num &optional start end)
   "Duplicates the region bounded by START and END NUM times.
@@ -38,7 +42,7 @@ region-end is used."
   (let* ((start (or start (region-beginning)))
          (end (or end (region-end)))
          (region (buffer-substring start end)))
-    (goto-char start)
+    (goto-char end)
     (dotimes (i num)
       (insert region))))
 
