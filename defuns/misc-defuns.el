@@ -35,6 +35,12 @@
   (httpd-start)
   (browse-url (concat "http://localhost:" (number-to-string port) "/")))
 
+;; command to help set up magit-gh-pulls
+(defun magit-gh-pulls-setup (repoid)
+  (interactive "suser/repo: ")
+  (shell-command "git config --add magit.extension gh-pulls")
+  (shell-command (concat "git config magit.gh-pulls-repo " repoid)))
+
 ;; Increase/decrease selective display
 (defun inc-selective-display (arg)
   (interactive "P")
