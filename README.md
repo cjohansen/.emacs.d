@@ -6,14 +6,7 @@ You can also see some thoughts behind the settings on my [What the .emacs.d!?](h
 
 ## Setup
 
-To grab all the dependencies, either:
-
-    git clone git://github.com/magnars/.emacs.d.git
-    cd .emacs.d
-    git submodule init
-    git submodule update
-
-or on git v1.6.5 or later:
+To grab all the dependencies:
 
     git clone --recursive git://github.com/magnars/.emacs.d.git
 
@@ -22,20 +15,15 @@ that are best handled by the package manager.
 
 ## Install emacs on mac
 
-I use Cocoa Emacs, installed like this:
-
-    brew install emacs --cocoa
-
-You can also get the very latest Emacs:
-
-    brew install emacs --cocoa --use-git-head --HEAD
-
-To open it with Alfred or Quicksilver, you have to copy `Emacs.app` into
-`/Applications` instead of the symlink that brew places there.
+I use [Emacs For Mac OS X](http://emacsformacosx.com).
 
 ## Tips for using these emacs settings
 
 If you want to use my settings straight out of the box, here are some things to note:
+
+ * I recommend starting with a blank emacs +
+   [Technomancy's better-defaults package](https://github.com/technomancy/better-defaults),
+   and then dig through this repo for useful nuggets.
 
  * The key bindings are optimized for a norwegian keyboard layout.
 
@@ -49,18 +37,13 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * `C-h` is rebound to backspace, like in the shell. Get help on `F1` instead.
 
- * Autocomplete with `C-.`
+ * Autocomplete with `C-.` (autocomplete entire lines with `C-:`)
 
  * expand-region is your friend. Find its bound key by doing `F1 f er/expand-region`
 
- * annoying-arrows suggests alternative ways of moving around if you use the
-   arrow keys excessively.
-
  * Undo with `C-_` and redo with `M-_`. Watch the undo-tree with `C-x u`
 
- * Easily add functions to the F-keys with `M-: (f5 <sexps here>)`, example `(f5 (flush-lines "console.log"))`
-
- * Quickly jump anywhere in the buffer by pressing `fn` plus the starting letter of a word.
+ * Quickly jump anywhere in the buffer with `C-ø` then the starting letter of a word.
 
  * Indent and clean up white space in the entire buffer with `C-c n`
 
