@@ -100,6 +100,10 @@
 ;; Default setup of smartparens
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
+(--each '(js2-mode-hook
+          css-mode-hook
+          restclient-mode-hook)
+  (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))

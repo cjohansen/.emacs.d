@@ -11,7 +11,6 @@
 
 ;; Restclient
 (add-to-list 'auto-mode-alist '("\\.restclient$" . restclient-mode))
-(add-hook 'restclient-mode-hook (lambda () (smartparens-mode 1)))
 
 ;; Cucumber
 (autoload 'feature-mode "feature-mode")
