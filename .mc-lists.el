@@ -114,6 +114,7 @@
         tagedit-raise-tag
         tagedit-splice-tag
         tern-ac-dot-complete
+        toggle-quotes
         touch-buffer-file
         transpose-params
         transpose-sexps
