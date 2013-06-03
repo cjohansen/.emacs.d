@@ -1,3 +1,5 @@
+(require 'magit)
+
 (defun create-js-buster-browser (project-name description global)
   (interactive "sProject name: \nsDescription: \nsGlobal namespace: ")
   (pa-with-new-project project-name "js-buster-browser"
