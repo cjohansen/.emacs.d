@@ -35,7 +35,8 @@
                 (not (or (looking-at "if ")
                          (looking-at "function ")
                          (looking-at "for ")
-                         (looking-at "while "))))))
+                         (looking-at "while ")
+                         (looking-at "try "))))))
 
 (defun js2r--setup-wrapping-pair (open close semicolonp)
   (define-key js2-mode-map (kbd open) (λ (js2r--self-insert-wrapping open close semicolonp)))
