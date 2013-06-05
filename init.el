@@ -64,6 +64,7 @@
      ido-vertical-mode
      simple-httpd
      restclient
+     highlight-escape-sequences
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode
@@ -118,6 +119,11 @@
 
 ;; Map files to modes
 (require 'mode-mappings)
+
+;; Highlight escape sequences
+(require 'highlight-escape-sequences)
+(hes-mode)
+(put 'font-lock-regexp-grouping-backslash 'face-alias 'font-lock-builtin-face)
 
 ;; Visual regexp
 (require 'visual-regexp)
