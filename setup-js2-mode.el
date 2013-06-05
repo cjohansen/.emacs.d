@@ -29,18 +29,15 @@
 
 ;; Set up wrapping of pairs, with the possiblity of semicolons thrown into the mix
 
-(defun js2r--needs-semi ()
-  (and (eolp) (save-excursion
-                (back-to-indentation)
-                (not (or (looking-at "if ")
-                         (looking-at "function ")
-                         (looking-at "for ")
-                         (looking-at "while ")
-                         (looking-at "try "))))))
-
 (defun js2r--setup-wrapping-pair (open close semicolonp)
   (define-key js2-mode-map (kbd open) (λ (js2r--self-insert-wrapping open close semicolonp)))
-  (define-key js2-mode-map (kbd close) (λ (js2r--self-insert-closing open close))))
+  (unless (s-equals? open close)
+    (define-key js2-mode-map (kbd close) (λ (js2r--self-insert-closing open close)))))
+
+(define-key js2-mode-map (kbd ";")
+  (λ (if (looking-at ";")
+         (forward-char)
+       (funcall 'self-insert-command 1))))
 
 (defun js2r--self-insert-wrapping (open close semicolonp)
   (cond
@@ -53,13 +50,26 @@
         (goto-char beg)
         (insert open))))
 
-   ((funcall semicolonp)
-    (insert open close ";")
-    (backward-char (1+ (length close))))
+   ((and (s-equals? open close)
+         (looking-back (regexp-quote open))
+         (looking-at (regexp-quote close)))
+    (forward-char (length close)))
+
+   ((js2-mode-inside-comment-or-string)
+    (funcall 'self-insert-command 1))
 
    (:else
-    (insert open close)
-    (backward-char (length close)))))
+    (let ((end (js2r--something-to-close-statement)))
+      (insert open close end)
+      (backward-char (+ (length close) (length end)))
+      (js2r--remove-all-this-cruft-on-backward-delete)))))
+
+(defun js2r--remove-all-this-cruft-on-backward-delete ()
+  (set-temporary-overlay-map
+   (let ((map (make-sparse-keymap)))
+     (define-key map (kbd "DEL") 'undo-tree-undo)
+     (define-key map (kbd "C-h") 'undo-tree-undo)
+     map) nil))
 
 (defun js2r--self-insert-closing (open close)
   (if (and (looking-back (regexp-quote open))
@@ -67,11 +77,30 @@
       (forward-char (length close))
     (funcall 'self-insert-command 1)))
 
+(defun js2r--does-not-need-semi ()
+  (save-excursion
+    (back-to-indentation)
+    (or (looking-at "if ")
+        (looking-at "function ")
+        (looking-at "for ")
+        (looking-at "while ")
+        (looking-at "try ")
+        (looking-at "} else "))))
+
+(defun js2r--something-to-close-statement ()
+  (cond
+   ((not (eolp)) "")
+   ((js2-object-prop-node-p (js2-node-at-point)) ",")
+   ((js2r--does-not-need-semi) "")
+   (:else ";")))
+
 (js2r--setup-wrapping-pair "(" ")" 'js2r--needs-semi)
 (js2r--setup-wrapping-pair "{" "}" 'js2r--needs-semi)
 (js2r--setup-wrapping-pair "[" "]" 'eolp)
 (js2r--setup-wrapping-pair "\"" "\"" 'eolp)
 (js2r--setup-wrapping-pair "'" "'" 'eolp)
+
+;; no semicolon inside object literals
 
 ;;
 
