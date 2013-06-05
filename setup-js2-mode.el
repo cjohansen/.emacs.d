@@ -115,18 +115,18 @@
 (define-key js2-mode-map (kbd "C-x C-k") 'js2r-delete-current-buffer-file)
 
 ;; Use lambda for anonymous functions
-;; (font-lock-add-keywords
-;;  'js2-mode `(("\\(function\\) *("
-;;               (0 (progn (compose-region (match-beginning 1)
-;;                                         (match-end 1) "\u0192")
-;;                         nil)))))
+(font-lock-add-keywords
+ 'js2-mode `(("\\(function\\) *("
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u0192")
+                        nil)))))
 
 ;; Use right arrow for return in one-line functions
-;; (font-lock-add-keywords
-;;  'js2-mode `(("function *([^)]*) *{ *\\(return\\) "
-;;               (0 (progn (compose-region (match-beginning 1)
-;;                                         (match-end 1) "\u2190")
-;;                         nil)))))
+(font-lock-add-keywords
+ 'js2-mode `(("function *([^)]*) *{ *\\(return\\) "
+              (0 (progn (compose-region (match-beginning 1)
+                                        (match-end 1) "\u2190")
+                        nil)))))
 
 ;; After js2 has parsed a js file, we look for jslint globals decl comment ("/* global Fred, _, Harry */") and
 ;; add any symbols to a buffer-local var of acceptable global vars
