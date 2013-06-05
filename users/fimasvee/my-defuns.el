@@ -54,6 +54,6 @@
 (defun js2r--flash-node (node)
   (-flash-region (js2-node-abs-pos node)
                  (js2-node-abs-end node))
-  nil)
+  (js2-node-short-name node))
 
 (provide 'my-defuns)

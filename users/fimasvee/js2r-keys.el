@@ -39,6 +39,7 @@
      (define-key js2-mode-map (my-js2-keys "lt") 'js2r-log-this)
      (define-key js2-mode-map (kbd "C-s-SPC") 'js2r-split-string)
      (define-key js2-mode-map (kbd "s-<right>") 'js2r-forward-slurp)
+     (define-key js2-mode-map (kbd "s-<left>") 'js2r-forward-barf)
 
      (define-key js2-mode-map (kbd "s-j") 'jump-between-source-and-test-files)
 
