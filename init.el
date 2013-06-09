@@ -63,6 +63,7 @@
      smartparens
      ido-vertical-mode
      simple-httpd
+     nodejs-repl
      restclient
      highlight-escape-sequences
      elisp-slime-nav
