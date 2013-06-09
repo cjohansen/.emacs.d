@@ -42,6 +42,7 @@
         js2r-var-to-this
         kill-and-retry-line
         kill-region-or-backward-word
+        kill-sexp
         magit-stage-item
         markdown-enter-key
         move-line-down
@@ -66,6 +67,7 @@
         paredit-backslash
         paredit-backward
         paredit-backward-up
+        paredit-close-round
         paredit-close-square
         paredit-comment-dwim
         paredit-doublequote
