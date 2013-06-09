@@ -104,7 +104,8 @@
 (setq sp-autoescape-string-quote nil)
 (--each '(css-mode-hook
           restclient-mode-hook
-          js-mode-hook)
+          js-mode-hook
+          markdown-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
