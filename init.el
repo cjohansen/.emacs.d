@@ -103,7 +103,8 @@
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
 (--each '(css-mode-hook
-          restclient-mode-hook)
+          restclient-mode-hook
+          js-mode-hook)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
