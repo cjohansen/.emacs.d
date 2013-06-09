@@ -69,9 +69,9 @@ to work, you need to:
  - Go to `.emacs.d/site-lisp/nrepl-inspect` and do `lein install`
  - Configure your `~/.lein/profiles.clj`:
 
-    {:user {:dependencies [[nrepl-inspect "0.3.0"]]
-            :repl-options {:nrepl-middleware
-                          [inspector.middleware/wrap-inspect]}}}
+        {:user {:dependencies [[nrepl-inspect "0.3.0"]]
+                :repl-options {:nrepl-middleware
+                              [inspector.middleware/wrap-inspect]}}}
 
 ## Survival guide for the first week of emacs
 
