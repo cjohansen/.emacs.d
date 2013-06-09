@@ -165,6 +165,16 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; jztdd
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/jz-tdd" (buffer-file-name))
+              (--each '("cull" "app" "JZTDD" "angular") (add-to-list 'js2-additional-externs it))
+              (set (make-local-variable 'buster-default-global) "")
+              (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+              (set (make-local-variable 'buster-test-prefix) ""))))
+
 ;; culljs
 
 (defun custom-persp/culljs ()
