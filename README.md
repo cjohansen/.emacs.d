@@ -55,9 +55,23 @@ If you want to use my settings straight out of the box, here are some things to 
 
 ### Additional setup
 
+#### tern.js
+
 If you want [tern](http://ternjs.net/) in your javascript, you need to
 install [node](http://nodejs.org) and run `npm install` in the
 `.emacs/site-lisp/tern` directory.
+
+#### nrepl-inspect
+
+If you want [nrepl-inspect](https://github.com/vitalreactor/nrepl-inspect)
+to work, you need to:
+
+ - Go to `.emacs.d/site-lisp/nrepl-inspect` and do `lein install`
+ - Configure your `~/.lein/profiles.clj`:
+
+    {:user {:dependencies [[nrepl-inspect "0.3.0"]]
+            :repl-options {:nrepl-middleware
+                          [inspector.middleware/wrap-inspect]}}}
 
 ## Survival guide for the first week of emacs
 

@@ -17,6 +17,9 @@
 
 (require 'nrepl)
 
+(define-key nrepl-mode-map (kbd "C-,") 'complete-symbol)
+(define-key nrepl-interaction-mode-map (kbd "C-,") 'complete-symbol)
+
 ;; Configure nrepl.el
 (setq nrepl-hide-special-buffers t)
 (setq nrepl-popup-stacktraces-in-repl t)
@@ -29,7 +32,8 @@
             (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
             (nrepl-enable-on-existing-clojure-buffers)))
 
-(define-key nrepl-mode-map (kbd "C-,") 'complete-symbol)
-(define-key nrepl-interaction-mode-map (kbd "C-,") 'complete-symbol)
+;; Setup nrepl-inspect
+(require 'nrepl-inspect)
+(define-key nrepl-mode-map (kbd "C-c C-i") 'nrepl-inspect)
 
 (provide 'setup-clojure-mode)

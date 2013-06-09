@@ -130,3 +130,6 @@
 [submodule "site-lisp/flycheck"]
 	path = site-lisp/flycheck
 	url = https://github.com/lunaryorn/flycheck.git
+[submodule "site-lisp/nrepl-inspect"]
+	path = site-lisp/nrepl-inspect
+	url = https://github.com/vitalreactor/nrepl-inspect.git
