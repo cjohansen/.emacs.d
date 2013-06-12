@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-long
+# key: dst
+# --
+:db.type/long

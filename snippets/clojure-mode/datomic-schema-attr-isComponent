@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-isComponent
+# key: :db
+# --
+:db/isComponent true

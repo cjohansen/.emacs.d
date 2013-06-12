@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-ref
+# key: dst
+# --
+:db.type/ref

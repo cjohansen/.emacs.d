@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-function
+# key: dsf
+# --
+{:db/id #db/id[:db.part/user]
+ :db/ident :${1:ident}
+ :db/doc "$2"
+ :db/fn #db/fn {:lang "clojure"
+                :params [db $3]
+                :code ($0)}}

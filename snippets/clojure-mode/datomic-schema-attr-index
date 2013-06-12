@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-index
+# key: :db
+# --
+:db/index true

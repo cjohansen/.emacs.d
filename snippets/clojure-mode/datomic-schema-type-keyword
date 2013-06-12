@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-keyword
+# key: dst
+# --
+:db.type/keyword

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-boolean
+# key: dst
+# --
+:db.type/boolean
