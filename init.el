@@ -53,8 +53,7 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(exec-path-from-shell
-     magit
+   '(magit
      paredit
      move-text
      gist
@@ -83,7 +82,9 @@
 (require 'sane-defaults)
 
 ;; Setup environment variables from the user's shell.
-(when is-mac (exec-path-from-shell-initialize))
+(when is-mac
+  (require-package 'exec-path-from-shell)
+  (exec-path-from-shell-initialize))
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
