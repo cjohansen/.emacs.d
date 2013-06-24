@@ -92,44 +92,47 @@
         path = site-lisp/change-inner
         url = https://github.com/magnars/change-inner.el.git
 [submodule "site-lisp/crappy-jsp-mode"]
-	path = site-lisp/crappy-jsp-mode
-	url = git://github.com/magnars/crappy-jsp-mode.git
+        path = site-lisp/crappy-jsp-mode
+        url = git://github.com/magnars/crappy-jsp-mode.git
 [submodule "site-lisp/s"]
-	path = site-lisp/s
-	url = https://github.com/magnars/s.el.git
+        path = site-lisp/s
+        url = https://github.com/magnars/s.el.git
 [submodule "site-lisp/dash"]
-	path = site-lisp/dash
-	url = https://github.com/magnars/dash.el.git
+        path = site-lisp/dash
+        url = https://github.com/magnars/dash.el.git
 [submodule "site-lisp/multifiles"]
-	path = site-lisp/multifiles
-	url = https://github.com/magnars/multifiles.el.git
+        path = site-lisp/multifiles
+        url = https://github.com/magnars/multifiles.el.git
 [submodule "site-lisp/tagedit"]
-	path = site-lisp/tagedit
-	url = https://github.com/magnars/tagedit.git
+        path = site-lisp/tagedit
+        url = https://github.com/magnars/tagedit.git
 [submodule "site-lisp/fold-this"]
-	path = site-lisp/fold-this
-	url = https://github.com/magnars/fold-this.el.git
+        path = site-lisp/fold-this
+        url = https://github.com/magnars/fold-this.el.git
 [submodule "site-lisp/clj-refactor"]
-	path = site-lisp/clj-refactor
-	url = https://github.com/magnars/clj-refactor.el.git
+        path = site-lisp/clj-refactor
+        url = https://github.com/magnars/clj-refactor.el.git
 [submodule "site-lisp/showcss-mode"]
-	path = site-lisp/showcss-mode
-	url = https://github.com/smmcg/showcss-mode.git
+        path = site-lisp/showcss-mode
+        url = https://github.com/smmcg/showcss-mode.git
 [submodule "site-lisp/tern"]
-	path = site-lisp/tern
-	url = https://github.com/marijnh/tern.git
+        path = site-lisp/tern
+        url = https://github.com/marijnh/tern.git
 [submodule "site-lisp/simplezen"]
-	path = site-lisp/simplezen
-	url = https://github.com/magnars/simplezen.el.git
+        path = site-lisp/simplezen
+        url = https://github.com/magnars/simplezen.el.git
 [submodule "site-lisp/angular-snippets"]
-	path = site-lisp/angular-snippets
-	url = https://github.com/magnars/angular-snippets.el.git
+        path = site-lisp/angular-snippets
+        url = https://github.com/magnars/angular-snippets.el.git
 [submodule "site-lisp/flx"]
-	path = site-lisp/flx
-	url = https://github.com/lewang/flx.git
+        path = site-lisp/flx
+        url = https://github.com/lewang/flx.git
 [submodule "site-lisp/flycheck"]
-	path = site-lisp/flycheck
-	url = https://github.com/lunaryorn/flycheck.git
+        path = site-lisp/flycheck
+        url = https://github.com/lunaryorn/flycheck.git
 [submodule "site-lisp/nrepl-inspect"]
-	path = site-lisp/nrepl-inspect
-	url = https://github.com/vitalreactor/nrepl-inspect.git
+        path = site-lisp/nrepl-inspect
+        url = https://github.com/vitalreactor/nrepl-inspect.git
+[submodule "site-lisp/datomic-snippets"]
+        path = site-lisp/datomic-snippets
+        url = https://github.com/magnars/datomic-snippets.git

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: datomic-schema-attr-unique
-# key: :db
-# --
-:db/unique :db.unique/value
