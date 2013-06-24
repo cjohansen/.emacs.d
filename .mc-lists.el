@@ -27,6 +27,7 @@
         duplicate-current-line-or-region
         end-of-buffer
         eval-and-replace
+        eval-last-sexp
         fold-this
         forward-paragraph
         forward-sentence
@@ -116,6 +117,7 @@
         tagedit-raise-tag
         tagedit-splice-tag
         tern-ac-dot-complete
+        toggle-assert-refute
         toggle-quotes
         touch-buffer-file
         transpose-params
