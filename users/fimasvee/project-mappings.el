@@ -167,13 +167,16 @@
 
 ;; jztdd
 
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (when (string-match-p "projects/jz-tdd" (buffer-file-name))
-              (--each '("cull" "app" "JZTDD" "angular") (add-to-list 'js2-additional-externs it))
-              (set (make-local-variable 'buster-default-global) "")
-              (set (make-local-variable 'buster-add-default-global-to-iife) nil)
-              (set (make-local-variable 'buster-test-prefix) ""))))
+(defun magnars/jztdd-setup ()
+  (when (string-match-p "projects/jz-tdd" (buffer-file-name))
+    (--each '("cull" "app" "JZTDD" "angular") (add-to-list 'js2-additional-externs it))
+    (setq js2r-path-to-tests "/test/")
+    (setq js2r-path-to-sources "/public/")
+    (set (make-local-variable 'buster-default-global) "")
+    (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+    (set (make-local-variable 'buster-test-prefix) "")))
+
+(add-hook 'js2-mode-hook 'magnars/jztdd-setup)
 
 ;; culljs
 
