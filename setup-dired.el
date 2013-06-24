@@ -11,6 +11,7 @@
 
 ;; Reload dired after making changes
 (--each '(dired-do-rename
+          dired-do-copy
           dired-create-directory
           wdired-abort-changes)
         (eval `(defadvice ,it (after revert-buffer activate)
