@@ -51,6 +51,13 @@ If there's no region, the current line will be duplicated."
      (define-key map (kbd key) command)
      map) t))
 
+(defun replace-region-by (fn)
+  (let* ((beg (region-beginning))
+         (end (region-end))
+         (contents (buffer-substring beg end)))
+    (delete-region beg end)
+    (insert (funcall fn contents))))
+
 (defun duplicate-region (&optional num start end)
   "Duplicates the region bounded by START and END NUM times.
 If no START and END is provided, the current region-beginning and
