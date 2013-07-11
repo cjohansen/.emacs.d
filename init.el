@@ -59,6 +59,7 @@
      gist
      htmlize
      visual-regexp
+     flycheck
      smartparens
      ido-vertical-mode
      simple-httpd
