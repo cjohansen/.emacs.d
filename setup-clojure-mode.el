@@ -17,6 +17,7 @@
 
 (require 'nrepl)
 
+(define-key nrepl-mode-map (kbd "<home>") nil)
 (define-key nrepl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key nrepl-interaction-mode-map (kbd "C-,") 'complete-symbol)
 
