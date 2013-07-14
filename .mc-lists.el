@@ -21,8 +21,9 @@
         eval-and-replace
         fold-this
         forward-paragraph
-        isearch-forward-use-region
+        hippie-expand-no-case-fold
         html-wrap-in-tag
+        isearch-forward-use-region
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
@@ -44,6 +45,7 @@
         org-shiftright
         orgtbl-self-insert-command
         quoted-insert
+        ruby-electric-brace
         save-region-or-current-line
         sgml-delete-tag
         sgml-slash
@@ -55,13 +57,14 @@
 
 (setq mc/cmds-to-run-once
       '(
+        ace-jump-mode
+        eval-expression
         js2r-extract-var
         js2r-rename-var
-        eval-expression
         quit-window
         sgml-maybe-name-self
+        smex
         toggle-read-only
         view-echo-area-messages
-        smex
         wgrep-change-to-wgrep-mode
         ))
