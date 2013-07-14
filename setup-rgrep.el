@@ -111,7 +111,8 @@
     (goto-char it))
   (mc/maybe-multiple-cursors-mode))
 
-(add-to-list 'mc--default-cmds-to-run-once 'mc/add-cursors-to-all-matches)
+(eval-after-load "multiple-cursors"
+  '(add-to-list 'mc--default-cmds-to-run-once 'mc/add-cursors-to-all-matches))
 
 (eval-after-load "wgrep"
   '(define-key wgrep-mode-map (kbd "C-c C-æ") 'mc/add-cursors-to-all-matches))
