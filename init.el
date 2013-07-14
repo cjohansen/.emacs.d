@@ -145,8 +145,6 @@
     (load file)))
 
 (require 'expand-region)
-(require 'mark-more-like-this)
-(require 'inline-string-rectangle)
 (require 'multiple-cursors)
 (require 'delsel)
 (require 'jump-char)
