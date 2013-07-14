@@ -35,6 +35,10 @@
 
 (define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gitorious)
 
+(project-specifics "gitorious/gitorious"
+  (ffip-local-excludes "db/migrate")
+  (setq tags-file-name "/home/christian/projects/gitorious/gitorious/TAGS"))
+
 ;; Emacs
 
 (defun custom-persp/emacs ()
