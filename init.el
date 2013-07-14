@@ -108,6 +108,9 @@
 ;; Map files to modes
 (require 'mode-mappings)
 
+;; Calendar stuff
+(require 'setup-calendar)
+
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
 (dolist (file (directory-files defuns-dir t "\\w+"))
