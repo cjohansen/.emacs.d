@@ -1,8 +1,7 @@
-# -*- mode: snippet -*-
-# name: oocss-module
 # key: mod
+# name: oocss-module
 # --
-<div class="mod${1: internal}">
+<div class="mod">
   <div class="inner">
     <div class="bd">
       $0

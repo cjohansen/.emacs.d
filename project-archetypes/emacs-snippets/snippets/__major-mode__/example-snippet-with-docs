@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: example
+# key: example
+# --
+example`
+(__target__-snippets/show-docs "example")`

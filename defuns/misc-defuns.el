@@ -26,18 +26,72 @@
         (call-interactively 'goto-line))
     (linum-mode -1)))
 
+;; start a httpd-server in current directory
+(defun httpd-start-here (directory port)
+  (interactive (list (read-directory-name "Root directory: " default-directory nil t)
+                     (read-number "Port: " 8017)))
+  (setq httpd-root directory)
+  (setq httpd-port port)
+  (httpd-start)
+  (browse-url (concat "http://localhost:" (number-to-string port) "/")))
+
+;; shorthand for interactive lambdas
+(defmacro λ (&rest body)
+  `(lambda ()
+     (interactive)
+     ,@body))
+
+(global-set-key (kbd "s-l") (λ (insert "\u03bb")))
+
+;; command to help set up magit-gh-pulls
+(defun magit-gh-pulls-setup (repoid)
+  (interactive "suser/repo: ")
+  (shell-command "git config --add magit.extension gh-pulls")
+  (shell-command (concat "git config magit.gh-pulls-repo " repoid)))
+
+;; Increase/decrease selective display
+(defun inc-selective-display (arg)
+  (interactive "P")
+  (if (numberp arg)
+      (set-selective-display arg)
+    (if (numberp selective-display)
+        (set-selective-display (+ 2 selective-display))
+      (set-selective-display 2)))
+  (create-temp-selective-display-keymap))
+
+(defun dec-selective-display ()
+  (interactive)
+  (when (and (numberp selective-display)
+             (> selective-display 2))
+    (set-selective-display (- selective-display 2)))
+  (create-temp-selective-display-keymap))
+
+(defun clear-selective-display ()
+  (interactive)
+  (when (numberp selective-display)
+    (set-selective-display nil)))
+
+(defun create-temp-selective-display-keymap ()
+  (set-temporary-overlay-map
+   (let ((map (make-sparse-keymap)))
+     (define-key map (kbd "+") 'inc-selective-display)
+     (define-key map (kbd "-") 'dec-selective-display)
+     (define-key map (kbd "0") 'clear-selective-display)
+     map))
+  (message "Type + to reveal more, - for less, 0 to reset."))
+
 ;; Add spaces and proper formatting to linum-mode. It uses more room than
 ;; necessary, but that's not a problem since it's only in use when going to
 ;; lines.
 (setq linum-format (lambda (line)
-  (propertize
-   (format (concat " %"
-                   (number-to-string
-                    (length (number-to-string
-                             (line-number-at-pos (point-max)))))
-                   "d ")
-           line)
-   'face 'linum)))
+                     (propertize
+                      (format (concat " %"
+                                      (number-to-string
+                                       (length (number-to-string
+                                                (line-number-at-pos (point-max)))))
+                                      "d ")
+                              line)
+                      'face 'linum)))
 
 (defun isearch-yank-selection ()
   "Put selection from buffer into search string."

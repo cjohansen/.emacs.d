@@ -4,7 +4,9 @@
 
 ;; Shortcuts
 (setq mu4e-maildir-shortcuts
-      '(("/gmail/inbox" . ?i)))
+      '(("/gmail/inbox" . ?i)
+        ("/todo" . ?t)
+        ("/readme" . ?r)))
 
 ;; sending mail
 (setq message-send-mail-function 'message-send-mail-with-sendmail

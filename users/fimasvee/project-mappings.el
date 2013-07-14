@@ -1,15 +1,3 @@
-(defmacro project-specifics (name &rest body)
-  (declare (indent 1))
-  `(progn
-     (add-hook 'find-file-hook
-               (lambda ()
-                 (when (string-match-p ,name (buffer-file-name))
-                   ,@body)))
-     (add-hook 'dired-after-readin-hook
-               (lambda ()
-                 (when (string-match-p ,name (dired-current-directory))
-                   ,@body)))))
-
 ;; Intelliadv
 
 (defun custom-persp/intelliadv ()
@@ -29,7 +17,6 @@
 (define-key persp-mode-map (kbd "C-x p r") 'custom-persp/emacsrocks)
 
 (project-specifics "projects/emacsrocks"
-  (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
 
 ;; zombietdd.com
@@ -42,7 +29,6 @@
 (define-key persp-mode-map (kbd "C-x p s") 'custom-persp/zombietdd.com)
 
 (project-specifics "projects/site-ztdd"
-  (set (make-local-variable 'slime-js-target-url) "http://localhost:4567/")
   (ffip-local-patterns "*.js" "*.scss" "*.org" "*.rb" "*.erb"))
 
 ;; Blockout
@@ -55,8 +41,6 @@
 (define-key persp-mode-map (kbd "C-x p bl") 'custom-persp/blockout)
 
 (project-specifics "projects/blockout"
-  (set (make-local-variable 'slime-js-target-url) "http://localhost:8000/")
-  (set (make-local-variable 'slime-js-browser-command) "open -a \"Google Chrome\"")
   (ffip-local-patterns "*.js" "*.css"))
 
 (add-hook 'js2-mode-hook
@@ -69,6 +53,25 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; Oiiku
+
+(defun custom-persp/oiiku ()
+  (interactive)
+  (custom-persp "oiiku" (find-file "~/projects/oiiku/")))
+
+(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oiiku)
+
+(defun js2-oiiku-settings ()
+  (when (string-match-p "projects/oiiku" (buffer-file-name))
+    (setq js2-additional-externs '("angular" "cull" "dome" "app" "expect" "it" "inject" "beforeEach" "describe"))
+    (make-variable-buffer-local 'js2-basic-offset)
+    (setq js2-basic-offset 4)))
+
+(add-hook 'js2-mode-hook 'js2-oiiku-settings)
+
+(project-specifics "projects/oiiku"
+  (set (make-local-variable 'sgml-basic-offset) 2))
+
 ;; FINN Oppdrag
 
 (defun custom-persp/oppdrag ()
@@ -76,16 +79,46 @@
   (custom-persp "oppdrag"
                 (find-file "~/Dropbox/projects/finn-oppdrag/todo.org")))
 
-(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
+;;(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
 
 (require 'oppdrag-mode)
 
 (project-specifics "oppdrag-services"
-  (set (make-local-variable 'slime-js-target-url) "http://local.finn.no:8080/")
-  (set (make-local-variable 'slime-js-connect-url) "http://local.finn.no:8009")
-  (set (make-local-variable 'slime-js-starting-url) "/oppdrag/")
-  (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
+  (make-local-variable 'grep-find-ignored-directories)
+  (add-to-list 'grep-find-ignored-directories "ckeditor")
+  (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
   (oppdrag-mode))
+
+;; FINN Reise
+
+(defun custom-persp/travel ()
+  (interactive)
+  (custom-persp "travel"
+                (find-file "~/projects/finn-reise/travel-app/")))
+
+(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/travel)
+
+(require 'travel-mode)
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "travel-app" (buffer-file-name))
+              (--each '("cull" "dome" "bane") (add-to-list 'js2-additional-externs it))
+              (js2-fetch-autolint-externs "~/projects/finn-reise/travel-app/web/src/autolint.js")
+              (setq js2r-path-to-tests "/test/javascript/tests/")
+              (setq js2r-path-to-sources "/main/webapp/scripts/")
+              (setq js2r-test-suffix "Test")
+              (setq buster-default-global "FINN.travel")
+              (setq buster-add-default-global-to-iife t)
+              (setq buster-test-prefix "")
+              (set (make-local-variable 'js2-basic-offset) 4)
+              (set (make-local-variable 'buster-use-strict) t)
+              (set (make-local-variable 'js2r-use-strict) t))))
+
+(project-specifics "travel-app"
+  (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jawr.properties")
+  (set (make-local-variable 'sgml-basic-offset) 2)
+  (travel-mode))
 
 ;; Zombie TDD
 
@@ -97,7 +130,6 @@
 (define-key persp-mode-map (kbd "C-x p z") 'custom-persp/zombie)
 
 (project-specifics "projects/zombietdd"
-  (set (make-local-variable 'slime-js-target-url) "http://localhost:3000/")
   (ffip-local-patterns "*.js" "*.jade" "*.css" "*.json" "*.md"))
 
 (add-hook 'js2-mode-hook
@@ -132,6 +164,19 @@
               (set (make-local-variable 'buster-use-strict) t)
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
+
+;; jztdd
+
+(defun magnars/jztdd-setup ()
+  (when (string-match-p "projects/jz-tdd" (buffer-file-name))
+    (--each '("cull" "app" "JZTDD" "angular") (add-to-list 'js2-additional-externs it))
+    (setq js2r-path-to-tests "/test/")
+    (setq js2r-path-to-sources "/public/")
+    (set (make-local-variable 'buster-default-global) "")
+    (set (make-local-variable 'buster-add-default-global-to-iife) nil)
+    (set (make-local-variable 'buster-test-prefix) "")))
+
+(add-hook 'js2-mode-hook 'magnars/jztdd-setup)
 
 ;; culljs
 
@@ -184,8 +229,6 @@
 (define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
 
 (project-specifics "adventur"
-  (set (make-local-variable 'slime-js-target-url) "http://local.adventur.no/")
-  (set (make-local-variable 'slime-js-connect-url) "http://local.adventur.no:8009")
   (ffip-local-patterns "*.js" "*.php" "*.css")
   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest" "compressed"))
 
@@ -198,7 +241,8 @@
 (defun custom-persp/adventur-master ()
   (interactive)
   (custom-persp "adventur-master"
-                (find-file "~/projects/eventyr/master/notat.adv")))
+                (require 'adventur-mode)
+                (find-file "~/projects/eventyr/master/notat.org")))
 
 (define-key persp-mode-map (kbd "C-x p m") 'custom-persp/adventur-master)
 

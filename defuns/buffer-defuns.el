@@ -34,6 +34,11 @@
     (emacs-lisp-mode)
     ))
 
+(defun split-window-right-and-move-there-dammit ()
+  (interactive)
+  (split-window-right)
+  (windmove-right))
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
@@ -127,37 +132,6 @@ Symbols matching the text at point are put first in the completion list."
       (push-mark (point))
       (goto-char position))))
 
-;;; These belong in coding-hook:
-
-;; We have a number of turn-on-* functions since it's advised that lambda
-;; functions not go in hooks. Repeatedly evaling an add-to-list with a
-;; hook value will repeatedly add it since there's no way to ensure
-;; that a lambda doesn't already exist in the list.
-
-(defun local-column-number-mode ()
-  (make-local-variable 'column-number-mode)
-  (column-number-mode t))
-
-(defun local-comment-auto-fill ()
-  (set (make-local-variable 'comment-auto-fill-only-comments) t)
-  (auto-fill-mode t))
-
-(defun turn-on-hl-line-mode ()
-  (if window-system (hl-line-mode t)))
-
-(defun turn-on-save-place-mode ()
-  (setq save-place t))
-
-(defun turn-on-whitespace ()
-  (whitespace-mode t))
-
-(defun turn-off-tool-bar ()
-  (tool-bar-mode -1))
-
-(add-hook 'coding-hook 'local-column-number-mode)
-(add-hook 'coding-hook 'local-comment-auto-fill)
-(add-hook 'coding-hook 'turn-on-hl-line-mode)
-
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
@@ -166,28 +140,27 @@ Symbols matching the text at point are put first in the completion list."
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun cleanup-buffer-safe ()
-  "Perform a bunch of safe operations on the whitespace content of a buffer.
-Does not indent buffer, because it is used for a before-save-hook, and that
-might be bad."
-  (interactive)
-  (untabify-buffer)
-  (delete-trailing-whitespace)
-  (set-buffer-file-coding-system 'utf-8))
-
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer.
 Including indent-buffer, which should not be called automatically on save."
   (interactive)
-  (cleanup-buffer-safe)
+  (untabify-buffer)
+  (delete-trailing-whitespace)
   (indent-buffer))
 
 (defun file-name-with-one-directory (file-name)
   (concat (cadr (reverse (split-string file-name "/"))) "/"
           (file-name-nondirectory file-name)))
 
+(require 's)
+
+(defvar user-home-directory (concat (expand-file-name "~") "/"))
+
+(defun shorter-file-name (file-name)
+  (s-chop-prefix user-home-directory file-name))
+
 (defun recentf--file-cons (file-name)
-  (cons (file-name-with-one-directory file-name) file-name))
+  (cons (shorter-file-name file-name) file-name))
 
 (defun recentf-ido-find-file ()
   "Find a recent file using ido."
