@@ -29,6 +29,9 @@
              (cc (or (save-restriction
                        (message-narrow-to-headers)
                        (message-fetch-field "cc")) ""))
+             (to (or (save-restriction
+                       (message-narrow-to-headers)
+                       (message-fetch-field "to")) ""))
              (account
               (cond
                ((or (string-match "christian@shortcut.no" from)
@@ -39,6 +42,8 @@
                     (string-match "christian@gitorious.org" cc)
                     (string-match "team@gitorious.com" from)
                     (string-match "team@gitorious.com" cc)) "gitorious")
+               ((string-match "sinonjs@googlegroups.com" to) "gmail")
+               ((string-match "gitorious@googlegroups.com" to) "gmail")
                (t "cjohansen"))))
           (setq message-sendmail-extra-arguments (list '"-a" account))))))
 (setq message-sendmail-envelope-from 'header)
@@ -74,6 +79,10 @@
                           "christian@cjohansen.no")
                          ((mu4e-message-contact-field-matches msg :cc "chrisjoha@gmail.com")
                           "christian@cjohansen.no")
+                         ((mu4e-message-contact-field-matches msg :to "sinonjs@googlegroups.com")
+                          "chrisjoha@gmail.com")
+                         ((mu4e-message-contact-field-matches msg :to "gitorious@googlegroups.com")
+                          "chrisjoha@gmail.com")
                          (t "christian@cjohansen.no")))))))
 
 ;; Smart refile locations
