@@ -107,7 +107,8 @@
 (--each '(css-mode-hook
           restclient-mode-hook
           js-mode-hook
-          markdown-mode)
+          markdown-mode
+          ruby-mode-hook)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
