@@ -7,6 +7,7 @@
         adv-dash
         adv-dot
         adv-enter
+        adv-gt
         adv-open-curly
         adv-tab
         back-to-indentation-or-beginning
@@ -145,6 +146,7 @@
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
+        multiple-cursors-mode
         persp-switch
         shell
         smex
