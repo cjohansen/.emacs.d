@@ -12,7 +12,10 @@
 
 ;; Try out flx-ido for better flex matching between words
 (require 'flx-ido)
-(setq flx-ido-use t)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
 
 ;; flx-ido looks better with ido-vertical-mode
 (require 'ido-vertical-mode)
