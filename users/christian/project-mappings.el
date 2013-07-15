@@ -31,7 +31,7 @@
 (defun custom-persp/gitorious ()
   (interactive)
   (custom-persp "Gts"
-                (find-file "~/projects/gitorious/org/christian.org")))
+                (find-file "~/projects/gitorious/gitorious/todo.org")))
 
 (define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gitorious)
 
