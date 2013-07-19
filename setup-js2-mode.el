@@ -90,6 +90,7 @@
 (defun js2r--something-to-close-statement ()
   (cond
    ((not (eolp)) "")
+   ((js2-array-node-p (js2-node-at-point)) ",")
    ((js2-object-prop-node-p (js2-node-at-point)) ",")
    ((js2r--does-not-need-semi) "")
    (:else ";")))
