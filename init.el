@@ -60,6 +60,8 @@
      htmlize
      visual-regexp
      flycheck
+     flx
+     flx-ido
      smartparens
      ido-vertical-mode
      simple-httpd
