@@ -34,6 +34,10 @@
 (defadvice sgml-close-tag (after close-tag-then-newline activate)
   (newline-and-indent))
 
+;; Trademark on C-x 8 t m
+
+(global-set-key (kbd "C-x 8 t m") (λ (insert "™")))
+
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
 
