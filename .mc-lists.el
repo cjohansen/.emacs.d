@@ -137,6 +137,7 @@
         dired-toggle-read-only
         edebug-next-mode
         eval-expression
+        god-mode-self-insert
         goto-line-with-feedback
         handle-switch-frame
         ido-switch-buffer

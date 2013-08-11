@@ -20,6 +20,9 @@
 ;; No graphics please o.O
 (setq speedbar-use-images nil)
 
+;; god-mode always on
+(god-mode)
+
 ;; PHP
 (autoload 'php-mode "php-mode")
 (setq php-file-patterns nil)
