@@ -33,6 +33,7 @@
         forward-paragraph
         forward-sentence
         forward-sexp
+        god-mode-repeat
         hippie-expand-no-case-fold
         html-wrap-in-tag
         js2-beginning-of-line
@@ -137,7 +138,6 @@
         dired-toggle-read-only
         edebug-next-mode
         eval-expression
-        god-mode-self-insert
         goto-line-with-feedback
         handle-switch-frame
         ido-switch-buffer
@@ -148,6 +148,7 @@
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         multiple-cursors-mode
+        god-local-mode
         persp-switch
         shell
         smex
