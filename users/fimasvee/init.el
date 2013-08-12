@@ -22,6 +22,27 @@
 
 ;; god-mode always on
 (god-mode)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+(add-hook 'post-command-hook 'my-update-cursor)
+
+(defun my-delete-region-and-go-to-insert-mode ()
+  (delete-region (region-beginning) (region-end))
+  (god-local-mode -1))
+
+(defun my-insert-just-one-char ()
+  (setq cursor-type 'bar)
+  (let ((c (read-char-exclusive)))
+    (insert (char-to-string c)))
+  (setq cursor-type 'box))
+
+(define-key god-local-mode-map (kbd "'")
+  (λ (if (use-region-p)
+         (my-delete-region-and-go-to-insert-mode)
+       (my-insert-just-one-char))))
 
 ;; PHP
 (autoload 'php-mode "php-mode")
