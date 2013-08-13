@@ -26,6 +26,11 @@
         (call-interactively 'goto-line))
     (linum-mode -1)))
 
+(defun open-line-and-indent ()
+  (interactive)
+  (newline-and-indent)
+  (end-of-line 0))
+
 ;; start a httpd-server in current directory
 (defun httpd-start-here (directory port)
   (interactive (list (read-directory-name "Root directory: " default-directory nil t)
