@@ -29,8 +29,8 @@
 
 ;; Set up wrapping of pairs, with the possiblity of semicolons thrown into the mix
 
-(defun js2r--setup-wrapping-pair (open close semicolonp)
-  (define-key js2-mode-map (kbd open) (λ (js2r--self-insert-wrapping open close semicolonp)))
+(defun js2r--setup-wrapping-pair (open close)
+  (define-key js2-mode-map (kbd open) (λ (js2r--self-insert-wrapping open close)))
   (unless (s-equals? open close)
     (define-key js2-mode-map (kbd close) (λ (js2r--self-insert-closing open close)))))
 
@@ -39,7 +39,7 @@
          (forward-char)
        (funcall 'self-insert-command 1))))
 
-(defun js2r--self-insert-wrapping (open close semicolonp)
+(defun js2r--self-insert-wrapping (open close)
   (cond
    ((use-region-p)
     (save-excursion
@@ -94,6 +94,7 @@
 
 (defun js2r--something-to-close-statement ()
   (cond
+   ((and (js2-block-node-p (js2-node-at-point)) (looking-at " *}")) ";")
    ((not (eolp)) "")
    ((js2-array-node-p (js2-node-at-point)) (js2r--comma-unless "]"))
    ((js2-object-node-p (js2-node-at-point)) (concat ": " (js2r--comma-unless "}")))
@@ -102,11 +103,11 @@
    ((js2r--does-not-need-semi) "")
    (:else ";")))
 
-(js2r--setup-wrapping-pair "(" ")" 'js2r--needs-semi)
-(js2r--setup-wrapping-pair "{" "}" 'js2r--needs-semi)
-(js2r--setup-wrapping-pair "[" "]" 'eolp)
-(js2r--setup-wrapping-pair "\"" "\"" 'eolp)
-(js2r--setup-wrapping-pair "'" "'" 'eolp)
+(js2r--setup-wrapping-pair "(" ")")
+(js2r--setup-wrapping-pair "{" "}")
+(js2r--setup-wrapping-pair "[" "]")
+(js2r--setup-wrapping-pair "\"" "\"")
+(js2r--setup-wrapping-pair "'" "'")
 
 ;;
 
