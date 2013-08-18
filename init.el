@@ -65,6 +65,7 @@
      flx-ido
      smartparens
      ido-vertical-mode
+     ido-at-point
      simple-httpd
      guide-key
      nodejs-repl

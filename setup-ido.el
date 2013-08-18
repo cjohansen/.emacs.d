@@ -55,6 +55,10 @@
 (add-to-list 'ido-ignore-directories "target")
 (add-to-list 'ido-ignore-directories "node_modules")
 
+;; Ido at point (C-,)
+(require 'ido-at-point)
+(ido-at-point-mode)
+
 ;; Use ido everywhere
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
