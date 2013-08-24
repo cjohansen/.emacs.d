@@ -91,6 +91,7 @@
         paredit-reindent-defun
         paredit-semicolon
         paredit-splice-sexp
+        paredit-splice-sexp-killing-backward
         paredit-split-sexp
         paredit-wrap-round
         paredit-wrap-round-from-behind
