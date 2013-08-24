@@ -8,12 +8,12 @@
 (set-face-foreground 'diff-removed "#ff0000")
 
 ;; todo:
-;; diff-added-face 	diff-changed-face
-;; diff-context-face 	diff-file-header-face
-;; diff-function-face 	diff-header-face
-;; diff-hunk-header-face 	diff-index-face
-;; diff-indicator-added-face 	diff-indicator-changed-face
-;; diff-indicator-removed-face 	diff-nonexistent-face
+;; diff-added-face      diff-changed-face
+;; diff-context-face    diff-file-header-face
+;; diff-function-face   diff-header-face
+;; diff-hunk-header-face        diff-index-face
+;; diff-indicator-added-face    diff-indicator-changed-face
+;; diff-indicator-removed-face  diff-nonexistent-face
 ;; diff-removed-face
 
 
@@ -23,6 +23,26 @@
 ;;     git config --add magit.extension svn
 ;;
 (add-hook 'magit-mode-hook 'magit-load-config-extensions)
+
+(defun magit-save-and-exit-commit-mode ()
+  (interactive)
+  (save-buffer)
+  (server-edit)
+  (delete-window))
+
+(defun magit-exit-commit-mode ()
+  (interactive)
+  (kill-buffer)
+  (delete-window))
+
+(eval-after-load "git-commit-mode"
+  '(define-key git-commit-mode-map (kbd "C-c C-k") 'magit-exit-commit-mode))
+
+(defun magit-commit-mode-init ()
+  (when (looking-at "\n")
+    (open-line 1)))
+
+(add-hook 'git-commit-mode-hook 'magit-commit-mode-init)
 
 ;; C-x C-k to kill file on line
 
@@ -49,6 +69,11 @@
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+
+;; close popup when commiting
+
+(defadvice git-commit-commit (after delete-window activate)
+  (delete-window))
 
 ;; full screen vc-annotate
 
