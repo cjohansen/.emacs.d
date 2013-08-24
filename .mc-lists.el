@@ -127,7 +127,7 @@
         transpose-sexps
         wrap-region-trigger
         yank-indented
-        yas/expand
+        yas-expand
         zap-up-to-char
         ))
 

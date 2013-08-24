@@ -63,6 +63,7 @@
      flycheck
      flx
      flx-ido
+     yasnippet
      smartparens
      ido-vertical-mode
      ido-at-point

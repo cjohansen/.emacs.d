@@ -27,7 +27,7 @@
 
 (defun --setup-simplezen ()
   (require 'simplezen)
-  (set (make-local-variable 'yas/fallback-behavior)
+  (set (make-local-variable 'yas-fallback-behavior)
        '(apply simplezen-expand-or-indent-for-tab)))
 
 (add-hook 'sgml-mode-hook '--setup-simplezen)

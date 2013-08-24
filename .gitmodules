@@ -13,9 +13,6 @@
 [submodule "site-lisp/buster-snippets"]
         path = site-lisp/buster-snippets
         url = https://github.com/magnars/buster-snippets.el.git
-[submodule "site-lisp/yasnippet"]
-        path = site-lisp/yasnippet
-        url = https://github.com/capitaomorte/yasnippet.git
 [submodule "site-lisp/expand-region"]
         path = site-lisp/expand-region
         url = https://github.com/magnars/expand-region.el.git
