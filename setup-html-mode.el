@@ -34,6 +34,9 @@
 
 (eval-after-load "sgml-mode"
   '(progn
+     ;; don't include equal sign in symbols
+     (modify-syntax-entry ?= "." html-mode-syntax-table)
+
      (define-key html-mode-map [remap forward-paragraph] 'skip-to-next-blank-line)
      (define-key html-mode-map [remap backward-paragraph] 'skip-to-previous-blank-line)
      (define-key html-mode-map (kbd "C-c C-w") 'html-wrap-in-tag)
