@@ -73,6 +73,7 @@
      nodejs-repl
      restclient
      highlight-escape-sequences
+     whitespace-cleanup-mode
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode

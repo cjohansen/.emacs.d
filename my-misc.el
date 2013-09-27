@@ -26,16 +26,13 @@
                               "http://www.urbandictionary.com/define.php?term="
                               ""])))
 
-;; Various superfluous white-space. Just say no.
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;; Fix whitespace on save, but only if the file was clean
+(global-whitespace-cleanup-mode)
+
+;; Use normal tabs in makefiles
 (add-hook 'makefile-mode-hook 'indent-tabs-mode)
 
-;; Newline after inserting closing tag in html-mode
-(defadvice sgml-close-tag (after close-tag-then-newline activate)
-  (newline-and-indent))
-
 ;; Trademark on C-x 8 t m
-
 (global-set-key (kbd "C-x 8 t m") (λ (insert "™")))
 
 ;; Add JSP expansions to html-mode
