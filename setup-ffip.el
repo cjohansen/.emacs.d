@@ -34,20 +34,13 @@
                (concat "-not -regex \".*" name ".*\"")) names " "))
 
 (defun ffip-local-excludes (&rest names)
-  "Given a set of names, will exclude results with those names in the path.
-
-Example:
-(ffip-local-excludes \"target\" \"overlays\")"
+  "Given a set of names, will exclude results with those names in the path."
   (set (make-local-variable 'ffip-find-options)
        (ffip--create-exclude-find-options names)))
 
 (defun ffip-local-patterns (&rest patterns)
-  "An exhaustive list of file name patterns to look for.
-
-Example:
-(ffip-local-patterns \"*.js\" \"*.jsp\" \"*.css\")"
+  "An exhaustive list of file name patterns to look for."
   (set (make-local-variable 'ffip-patterns) patterns))
-
 
 ;; Function to create new functions that look for a specific pattern
 (defun ffip-create-pattern-file-finder (&rest patterns)
@@ -64,6 +57,7 @@ Example:
        '("node_modules"
          "target"
          "overlays"
+         "build"
          "vendor")))
 
 (provide 'setup-ffip)
