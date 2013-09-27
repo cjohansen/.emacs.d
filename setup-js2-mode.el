@@ -97,7 +97,7 @@
    ((and (js2-block-node-p (js2-node-at-point)) (looking-at " *}")) ";")
    ((not (eolp)) "")
    ((js2-array-node-p (js2-node-at-point)) (js2r--comma-unless "]"))
-   ((js2-object-node-p (js2-node-at-point)) (concat ": " (js2r--comma-unless "}")))
+   ((js2-object-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-object-prop-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-call-node-p (js2-node-at-point)) (js2r--comma-unless ")"))
    ((js2r--does-not-need-semi) "")
