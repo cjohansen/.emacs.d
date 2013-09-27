@@ -125,6 +125,7 @@
 (--each '(css-mode-hook
           restclient-mode-hook
           js-mode-hook
+          ruby-mode
           markdown-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
