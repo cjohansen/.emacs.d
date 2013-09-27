@@ -1,5 +1,3 @@
-(require 'magit-svn)
-
 ;; Subtler highlight
 (set-face-background 'magit-item-highlight "#121212")
 (set-face-background 'diff-file-header "#121212")
@@ -38,12 +36,6 @@
 (eval-after-load "git-commit-mode"
   '(define-key git-commit-mode-map (kbd "C-c C-k") 'magit-exit-commit-mode))
 
-(defun magit-commit-mode-init ()
-  (when (looking-at "\n")
-    (open-line 1)))
-
-(add-hook 'git-commit-mode-hook 'magit-commit-mode-init)
-
 ;; C-x C-k to kill file on line
 
 (defun magit-kill-file-on-line ()
@@ -69,11 +61,6 @@
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
-;; close popup when commiting
-
-(defadvice git-commit-commit (after delete-window activate)
-  (delete-window))
 
 ;; full screen vc-annotate
 
