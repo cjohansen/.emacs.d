@@ -71,8 +71,7 @@
      git-commit-mode
      gitconfig-mode
      gitignore-mode
-     clojure-mode
-     nrepl)))
+     clojure-mode)))
 
 (condition-case nil
     (init--install-packages)
