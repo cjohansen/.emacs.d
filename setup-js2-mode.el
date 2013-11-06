@@ -201,7 +201,7 @@
   (let* ((settings (with-temp-buffer
                      (insert-file-literally file)
                      (javascript-mode)
-                     (let (kill-ring) (kill-comment 1000))
+                     (let (kill-ring kill-ring-yank-pointer) (kill-comment 1000))
                      (->> (buffer-substring (point-min) (point-max))
                        (s-trim)
                        (s-chop-prefix "module.exports = ")
