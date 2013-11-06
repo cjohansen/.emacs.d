@@ -79,7 +79,8 @@
      gitconfig-mode
      gitignore-mode
      clojure-mode
-     nrepl)))
+     cider
+     cider-tracing)))
 
 (condition-case nil
     (init--install-packages)
