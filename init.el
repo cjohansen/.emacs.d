@@ -121,6 +121,9 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 
+;; Font lock dash.el
+(eval-after-load "dash" '(dash-enable-font-lock))
+
 ;; Default setup of smartparens
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
