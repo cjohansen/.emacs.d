@@ -90,6 +90,13 @@
 (global-set-key (kbd "C-c C--") 'replace-next-underscore-with-camel)
 (global-set-key (kbd "M-s M--") 'snakeify-current-word)
 
+;; Change word separators
+(global-unset-key (kbd "C-x +")) ;; used to be balance-windows
+(global-set-key (kbd "C-x + -") (λ (replace-region-by 's-dashed-words)))
+(global-set-key (kbd "C-x + _") (λ (replace-region-by 's-snake-case)))
+(global-set-key (kbd "C-x + c") (λ (replace-region-by 's-lower-camel-case)))
+(global-set-key (kbd "C-x + C") (λ (replace-region-by 's-upper-camel-case)))
+
 ;; Killing text
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
