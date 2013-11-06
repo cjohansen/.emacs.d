@@ -72,23 +72,6 @@
 (project-specifics "projects/oiiku"
   (set (make-local-variable 'sgml-basic-offset) 2))
 
-;; FINN Oppdrag
-
-(defun custom-persp/oppdrag ()
-  (interactive)
-  (custom-persp "oppdrag"
-                (find-file "~/Dropbox/projects/finn-oppdrag/todo.org")))
-
-;;(define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oppdrag)
-
-(require 'oppdrag-mode)
-
-(project-specifics "oppdrag-services"
-  (make-local-variable 'grep-find-ignored-directories)
-  (add-to-list 'grep-find-ignored-directories "ckeditor")
-  (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jsTestDriver.conf" "*jawr.properties")
-  (oppdrag-mode))
-
 ;; FINN Reise
 
 (defun custom-persp/travel ()
@@ -178,6 +161,16 @@
 
 (add-hook 'js2-mode-hook 'magnars/jztdd-setup)
 
+;; kodemake
+
+(defun magnars/kodemake-setup ()
+  (when (string-match-p "projects/kodemake" (buffer-file-name))
+    (setq js2r-path-to-sources "/source/javascripts/")
+    (set (make-local-variable 'buster-default-global) "MAKE")
+    (set (make-local-variable 'buster-test-prefix) "")))
+
+(add-hook 'js2-mode-hook 'magnars/kodemake-setup)
+
 ;; culljs
 
 (defun custom-persp/culljs ()
@@ -219,6 +212,19 @@
               (set (make-local-variable 'js2-basic-offset) 4)
               (set (make-local-variable 'js2r-use-strict) nil))))
 
+;; no-adventur
+
+(defun custom-persp/no-adventur ()
+  (interactive)
+  (custom-persp "no-adventur"
+                (find-file "~/projects/no-adventur/")))
+
+(define-key persp-mode-map (kbd "C-x p n") 'custom-persp/no-adventur)
+
+(project-specifics "no-adventur"
+  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn")
+  (ffip-local-excludes "target"))
+
 ;; Adventur
 
 (defun custom-persp/adventur ()
@@ -228,7 +234,7 @@
 
 (define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
 
-(project-specifics "adventur"
+(project-specifics "adventur/nettsidene/adventur_no/"
   (ffip-local-patterns "*.js" "*.php" "*.css")
   (ffip-local-excludes "compiled_pages" "compiler_test_files" "simpletest" "compressed"))
 
