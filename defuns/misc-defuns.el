@@ -29,7 +29,8 @@
 (defun open-line-and-indent ()
   (interactive)
   (newline-and-indent)
-  (end-of-line 0))
+  (end-of-line 0)
+  (indent-for-tab-command))
 
 ;; start a httpd-server in current directory
 (defun httpd-start-here (directory port)
