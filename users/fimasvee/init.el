@@ -20,6 +20,24 @@
 ;; No graphics please o.O
 (setq speedbar-use-images nil)
 
+;; god-mode tweaks
+;(god-mode)
+(defun my-update-cursor ()
+  (setq cursor-type (if (or (not god-global-mode)
+                            god-local-mode
+                            buffer-read-only)
+                        'box 'bar)))
+
+;(add-hook 'post-command-hook 'my-update-cursor)
+
+(defun my-delete-region-and-go-to-insert-mode ()
+  (delete-region (region-beginning) (region-end))
+  (god-local-mode -1))
+
+(define-key god-local-mode-map (kbd "'")
+  (λ (when (use-region-p)
+         (my-delete-region-and-go-to-insert-mode))))
+
 ;; PHP
 (autoload 'php-mode "php-mode")
 (setq php-file-patterns nil)

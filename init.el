@@ -56,22 +56,31 @@
    '(magit
      paredit
      move-text
+     god-mode
      gist
      htmlize
      visual-regexp
      flycheck
+     flx
+     flx-ido
+     css-eldoc
+     yasnippet
      smartparens
      ido-vertical-mode
+     ido-at-point
      simple-httpd
      guide-key
      nodejs-repl
      restclient
      highlight-escape-sequences
+     whitespace-cleanup-mode
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode
      gitignore-mode
-     clojure-mode)))
+     clojure-mode
+     cider
+     cider-tracing)))
 
 (condition-case nil
     (init--install-packages)
@@ -89,11 +98,14 @@
 
 ;; guide-key
 (require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8"))
+(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
 (guide-key-mode 1)
-(setq guide-key/highlight-command-regexp "bookmark")
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
+
+;; god-mode
+(require 'god-mode)
+(global-set-key (kbd "<escape>") 'god-local-mode)
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
@@ -109,14 +121,17 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 
+;; Font lock dash.el
+(eval-after-load "dash" '(dash-enable-font-lock))
+
 ;; Default setup of smartparens
 (require 'smartparens-config)
 (setq sp-autoescape-string-quote nil)
 (--each '(css-mode-hook
           restclient-mode-hook
           js-mode-hook
-          markdown-mode
-          ruby-mode-hook)
+          ruby-mode
+          markdown-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files

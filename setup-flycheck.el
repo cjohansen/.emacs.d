@@ -6,7 +6,7 @@
 This lets us fix any errors as quickly as possible, but in a
 clean buffer we're an order of magnitude laxer about checking."
   (setq flycheck-idle-change-delay
-        (if flycheck-current-errors 0.5 5.0)))
+        (if flycheck-current-errors 0.5 30.0)))
 
 ;; Each buffer gets its own idle-change-delay because of the
 ;; buffer-sensitive adjustment above.

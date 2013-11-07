@@ -12,7 +12,7 @@
 
 (defun snippet--function-punctuation ()
   (if (js-method-p)
-      (when (not (looking-at "[ \n\t\r]*}"))
+      (when (not (looking-at "[ \n\t\r]*[},]"))
         (insert ","))
     (unless (js-function-declaration-p)
       (if (looking-at "$") (insert ";")))))

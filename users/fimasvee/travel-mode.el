@@ -5,7 +5,7 @@
 in an exploded war, re-deploy the file."
   (interactive)
   (let* ((source (buffer-file-name))
-         (target (s-replace "src/main/webapp" "target/web" source)))
+         (target (s-replace "src/main/webapp" "build/exploded" source)))
     (if (and (file-writable-p target)
              (not (string= source target)))
         (progn

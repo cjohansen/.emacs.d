@@ -15,6 +15,7 @@
         c-electric-backspace
         c-electric-delete-forward
         c-electric-paren
+        c-electric-pound
         c-electric-semi&comma
         c-electric-slash
         c-electric-star
@@ -24,6 +25,7 @@
         cua-replace-region
         cua-set-mark
         delete-blank-lines
+        delete-indentation
         dired-back-to-start-of-files
         duplicate-current-line-or-region
         end-of-buffer
@@ -33,9 +35,11 @@
         forward-paragraph
         forward-sentence
         forward-sexp
+        god-mode-repeat
         hippie-expand-no-case-fold
         html-wrap-in-tag
         isearch-forward-use-region
+        insert-postfix-whitespace
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
@@ -69,12 +73,15 @@
         orgtbl-self-insert-command
         paredit-backslash
         paredit-backward
+        paredit-backward-barf-sexp
+        paredit-backward-slurp-sexp
         paredit-backward-up
         paredit-close-round
         paredit-close-square
         paredit-comment-dwim
         paredit-doublequote
         paredit-forward
+        paredit-forward-barf-sexp
         paredit-forward-delete
         paredit-forward-down
         paredit-forward-kill-word
@@ -91,6 +98,7 @@
         paredit-reindent-defun
         paredit-semicolon
         paredit-splice-sexp
+        paredit-splice-sexp-killing-backward
         paredit-split-sexp
         paredit-wrap-round
         paredit-wrap-round-from-behind
@@ -127,7 +135,7 @@
         transpose-sexps
         wrap-region-trigger
         yank-indented
-        yas/expand
+        yas-expand
         zap-up-to-char
         ))
 
@@ -139,16 +147,20 @@
         dired-toggle-read-only
         edebug-next-mode
         eval-expression
+        find-tag
+        god-local-mode
         goto-line-with-feedback
         handle-switch-frame
         ido-switch-buffer
         js2r-extract-var
         js2r-rename-var
         jump-between-source-and-test-files
+        kmacro-end-or-call-macro
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         multiple-cursors-mode
+        ns-prev-frame
         persp-switch
         shell
         smex
