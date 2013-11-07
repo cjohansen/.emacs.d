@@ -54,3 +54,20 @@
   (custom-persp "org"
                 (find-file "~/Dropbox/org/")))
 (define-key persp-mode-map (kbd "C-<f6>") 'custom-persp/org)
+
+;; Småjobber
+(require 'smajobber-mode)
+
+(defun custom-persp/smajobber ()
+  (interactive)
+  (custom-persp "smajobber"
+                (find-file "~/projects/smajobber/")))
+
+(define-key persp-mode-map (kbd "C-x p s") 'custom-persp/smajobber)
+
+(require 'smajobber-mode)
+
+(project-specifics "smajobber"
+  (ffip-local-patterns "*.js" "*.jsp" "*.css" "*.org" "*.vm" "*.xml" "*.properties")
+  (ffip-local-excludes "node_modules")
+  (smajobber-mode))
