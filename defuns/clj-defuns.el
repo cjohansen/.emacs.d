@@ -19,9 +19,11 @@
 (defun clj-jump-to-other-file (arg)
   (interactive "P")
   (let ((file (clj-other-file-name)))
-    (if (or (file-exists-p file) arg)
-        (find-file file)
-      (error "%s not found." file))))
+    (cond
+     ((file-exists-p file) (find-file file))
+     (arg (find-file file)
+          (save-buffer))
+     (t (error "%s not found." file)))))
 
 (defun clj-jump-to-other-file-other-window (arg)
   (interactive "P")
