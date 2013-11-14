@@ -58,6 +58,7 @@
         move-to-window-line-top-bottom
         new-line-above
         open-line-above
+        open-line-and-indent
         open-line-below
         org-beginning-of-line
         org-delete-backward-char
