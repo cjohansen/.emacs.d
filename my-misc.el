@@ -35,6 +35,9 @@
 ;; Trademark on C-x 8 t m
 (global-set-key (kbd "C-x 8 t m") (λ (insert "™")))
 
+;; Copyright on C-x 8 (c)
+(global-set-key (kbd "C-x 8 ( c )") (λ (insert "©")))
+
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
 
