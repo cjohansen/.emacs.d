@@ -79,6 +79,7 @@
      gitconfig-mode
      gitignore-mode
      clojure-mode
+     groovy-mode
      cider
      cider-tracing)))
 
@@ -131,7 +132,8 @@
           restclient-mode-hook
           js-mode-hook
           ruby-mode
-          markdown-mode)
+          markdown-mode
+          groovy-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
