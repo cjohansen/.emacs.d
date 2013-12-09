@@ -13,6 +13,9 @@
 
 (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
 
+(define-key clojure-mode-map (kbd "C->") 'cljr-thread)
+(define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
+
 (define-key clojure-mode-map (kbd "s-j") 'clj-jump-to-other-file)
 
 (require 'cider)
@@ -20,6 +23,8 @@
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-mode-map (kbd "C-,") 'complete-symbol)
+(define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
+(define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
@@ -41,82 +46,5 @@
 
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-
-;; Thread and unwind
-
-(defun cljr--unwind-first ()
-  (paredit-forward)
-  (save-excursion
-    (let* ((beg (point))
-           (end (progn (paredit-forward)
-                       (point)))
-           (contents (buffer-substring beg end)))
-      (delete-region beg end)
-      (join-line -1)
-      (paredit-forward-down)
-      (paredit-forward)
-      (insert contents)))
-  (forward-char))
-
-(defun cljr--unwind-last ()
-  (paredit-forward)
-  (save-excursion
-    (let* ((beg (point))
-           (end (progn (paredit-forward)
-                       (point)))
-           (contents (buffer-substring beg end)))
-      (delete-region beg end)
-      (join-line -1)
-      (paredit-forward)
-      (paredit-backward-down)
-      (insert contents)))
-  (forward-char))
-
-(defun cljr-unwind ()
-  (interactive)
-  (forward-char 3)
-  (search-backward "(->")
-  (paredit-forward-down)
-  (cond
-   ((looking-at "->\\s ") (cljr--unwind-first))
-   ((looking-at "->>\\s ") (cljr--unwind-last))))
-
-(defun cljr--thread-first ()
-  (paredit-forward-down)
-  (paredit-forward)
-  (let* ((beg (point))
-         (end (progn (paredit-forward)
-                     (point)))
-         (contents (buffer-substring beg end)))
-    (delete-region beg end)
-    (paredit-backward-up)
-    (just-one-space 0)
-    (insert contents)
-    (newline-and-indent)))
-
-(defun cljr--thread-last ()
-  (paredit-forward 2)
-  (paredit-backward-down)
-  (let* ((end (point))
-         (beg (progn (paredit-backward)
-                     (point)))
-         (contents (buffer-substring beg end)))
-    (delete-region beg end)
-    (just-one-space 0)
-    (paredit-backward-up)
-    (insert contents)
-    (newline-and-indent)))
-
-(defun cljr-thread ()
-  (interactive)
-  (forward-char 3)
-  (search-backward "(->")
-  (paredit-forward-down)
-  (cond
-   ((looking-at "->\\s ") (cljr--thread-first))
-   ((looking-at "->>\\s ") (cljr--thread-last))))
-
-(define-key clojure-mode-map (kbd "C->") 'cljr-thread)
-(define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 
 (provide 'setup-clojure-mode)
