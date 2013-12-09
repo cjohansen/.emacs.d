@@ -150,6 +150,8 @@
 (fset 'quick-switch-buffer [?\C-x ?b return])
 (global-set-key (kbd "s-b") 'quick-switch-buffer)
 
+(global-set-key (kbd "s-y") 'bury-buffer)
+
 ;; Revert without any fuss
 (global-set-key (kbd "M-<escape>") (λ (revert-buffer t t)))
 
