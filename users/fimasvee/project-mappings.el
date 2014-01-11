@@ -72,6 +72,143 @@
 (project-specifics "projects/oiiku"
   (set (make-local-variable 'sgml-basic-offset) 2))
 
+(project-specifics "projects/oiiku"
+  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html")
+  (ffip-local-excludes "target"))
+
+(defmacro comment (&rest ignore))
+
+(defface prodigy-dull-face
+  '((((class color)) :foreground "#999999"))
+  "Gray color indicating waiting."
+  :group 'prodigy)
+
+(prodigy-define-status :id 'running :face 'prodigy-dull-face)
+(prodigy-define-status :id 'exception :face 'prodigy-red-face)
+
+(prodigy-define-tag
+  :name 'ring
+  :on-output (lambda (service output)
+               (when (s-matches? "Started server on port" output)
+                 (prodigy-set-status service 'ready))
+               (when (s-matches? "Exception" output)
+                 (prodigy-set-status service 'exception))))
+
+(prodigy-define-service
+  :name "kodemaker.no"
+  :cwd "~/projects/kodemaker.no/"
+  :command "lein"
+  :args '("ring" "server-headless")
+  :port 3333
+  :tags '(ring))
+
+(comment
+ (prodigy-define-service
+   :name "datomic oiiku-central-api"
+   :cwd "~/data/datomic-free-0.8.4218"
+   :path '("~/data/datomic-free-0.8.4218/bin")
+   :command "transactor"
+   :args '("../../projects/oiiku/oiiku-central-api/oiiku-central-api-server/config/datomic-transactor-free.properties")
+   :tags '(oiiku datomic pillar))
+
+ (prodigy-define-service
+   :name "datomic oiiku-badges-app"
+   :cwd "~/data/datomic-free-0.8.4218"
+   :path '("~/data/datomic-free-0.8.4218/bin")
+   :command "transactor"
+   :args '("../../projects/oiiku/oiiku-badges-app/config/datomic-transactor-free.properties")
+   :tags '(oiiku datomic pillar))
+
+ (prodigy-define-service
+   :name "datomic oiiku-screen-admin"
+   :cwd "~/data/datomic-free-0.8.4218"
+   :path '("~/data/datomic-free-0.8.4218/bin")
+   :command "transactor"
+   :args '("../../projects/oiiku/oiiku-screen-admin-app/config/datomic-transactor-free.properties")
+   :tags '(oiiku datomic pillar))
+
+ (prodigy-define-service
+   :name "elasticsearch"
+   :cwd "~/data/elasticsearch-1.0.0.Beta1/"
+   :path '("~/data/elasticsearch-1.0.0.Beta1/bin/")
+   :command "elasticsearch"
+   :args '("-f")
+   :tags '(oiiku elasticsearch pillar)
+   :on-output (lambda (service output)
+                (when (s-matches? "] started" output)
+                  (prodigy-set-status service 'ready))))
+
+ (prodigy-define-service
+   :name "oiiku-central-api"
+   :cwd "~/projects/oiiku/oiiku-central-api/oiiku-central-api-server/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku pillar))
+
+ (prodigy-define-service
+   :name "oiiku-sso"
+   :cwd "~/projects/oiiku/oiiku-sso/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku pillar))
+
+ (prodigy-define-service
+   :name "oiiku-event-admin"
+   :cwd "~/projects/oiiku/oiiku-event-admin/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku pillar))
+
+ (prodigy-define-service
+   :name "oiiku-attendants-app"
+   :cwd "~/projects/oiiku/oiiku-attendants-app/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku pillar))
+
+ (prodigy-define-service
+   :name "oiiku-messages-app"
+   :cwd "~/projects/oiiku/oiiku-messages-app/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku messages))
+
+ (prodigy-define-service
+   :name "oiiku-messages-gateway"
+   :cwd "~/projects/oiiku/oiiku-messages-gateway/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku messages))
+
+ (prodigy-define-service
+   :name "oiiku-messages-dummy"
+   :cwd "~/projects/oiiku/oiiku-messages-dummy/"
+   :path '("~/projects/oiiku/oiiku-messages-dummy/")
+   :command "gradlew"
+   :args '("run")
+   :tags '(oiiku messages))
+
+ (prodigy-define-service
+   :name "oiiku-badges-app"
+   :cwd "~/projects/oiiku/oiiku-badges-app/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku))
+
+ (prodigy-define-service
+   :name "oiiku-invitations-app"
+   :cwd "~/projects/oiiku/oiiku-invitations-app/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku))
+
+ (prodigy-define-service
+   :name "oiiku-screen-admin-app"
+   :cwd "~/projects/oiiku/oiiku-screen-admin-app/"
+   :command "lein"
+   :args '("ring" "server-headless")
+   :tags '(oiiku)))
+
 ;; FINN Reise
 
 (defun custom-persp/travel ()
