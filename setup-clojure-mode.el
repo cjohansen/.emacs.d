@@ -18,6 +18,15 @@
 
 (define-key clojure-mode-map (kbd "s-j") 'clj-jump-to-other-file)
 
+(define-key clojure-mode-map (kbd "C-.") 'clj-hippie-expand-no-case-fold)
+
+(defun clj-hippie-expand-no-case-fold ()
+  (interactive)
+  (let ((old-syntax (char-to-string (char-syntax ?/))))
+    (modify-syntax-entry ?/ " ")
+    (hippie-expand-no-case-fold)
+    (modify-syntax-entry ?/ old-syntax)))
+
 (require 'cider)
 
 (define-key cider-repl-mode-map (kbd "<home>") nil)
