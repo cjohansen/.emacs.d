@@ -56,6 +56,10 @@
 (recentf-mode 1)
 (setq recentf-max-saved-items 100) ;; just 20 is too recent
 
+;; Save minibuffer history
+(savehist-mode 1)
+(setq history-length 1000)
+
 ;; Undo/redo window configuration with C-c <left>/<right>
 (winner-mode 1)
 
