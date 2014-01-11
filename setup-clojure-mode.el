@@ -88,4 +88,26 @@
     (goto-char original-point)))
 
 (define-key clojure-mode-map (kbd "C-´") 'live-cycle-clj-coll)
+
+;; Warn about missing nREPL instead of doing stupid things
+
+(defun nrepl-warn-when-not-connected ()
+  (interactive)
+  (message "Oops! You're not connected to an nREPL server. Please run M-x cider or M-x cider-jack-in to connect."))
+
+(define-key clojure-mode-map (kbd "C-M-x")   'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-x C-e") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-e") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-l") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-r") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-z") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)
+
+;; ------------
+
+;; TODO: Loot more stuff from:
+;;  - https://github.com/overtone/emacs-live/blob/master/packs/dev/clojure-pack/config/paredit-conf.el
+
+
 (provide 'setup-clojure-mode)
