@@ -52,12 +52,13 @@
 
 ;; Default excludes - override with ffip-local-excludes
 
-(setq ffip-find-options
-      (ffip--create-exclude-find-options
-       '("node_modules"
-         "target"
-         "overlays"
-         "build"
-         "vendor")))
+(setq-default ffip-find-options
+              (ffip--create-exclude-find-options
+               '("node_modules"
+                 "target"
+                 "overlays"
+                 "build"
+                 "vendor"
+                 ".cask")))
 
 (provide 'setup-ffip)
