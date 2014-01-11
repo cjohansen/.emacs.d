@@ -79,6 +79,7 @@
      gitignore-mode
      clojure-mode
      groovy-mode
+     prodigy
      cider
      cider-tracing)))
 
@@ -116,6 +117,9 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+
+(require 'prodigy)
+(global-set-key (kbd "C-x M-m") 'prodigy)
 
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
