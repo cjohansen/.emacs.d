@@ -56,4 +56,36 @@
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
+;; Cycle between () {} []
+
+(defun live-delete-and-extract-sexp ()
+  "Delete the sexp and return it."
+  (interactive)
+  (let* ((begin (point)))
+    (forward-sexp)
+    (let* ((result (buffer-substring-no-properties begin (point))))
+      (delete-region begin (point))
+      result)))
+
+(defun live-cycle-clj-coll ()
+  "convert the coll at (point) from (x) -> {x} -> [x] -> (x) recur"
+  (interactive)
+  (let* ((original-point (point)))
+    (while (and (> (point) 1)
+                (not (equal "(" (buffer-substring-no-properties (point) (+ 1 (point)))))
+                (not (equal "{" (buffer-substring-no-properties (point) (+ 1 (point)))))
+                (not (equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))))
+      (backward-char))
+    (cond
+     ((equal "(" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (insert "{" (substring (live-delete-and-extract-sexp) 1 -1) "}"))
+     ((equal "{" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (insert "[" (substring (live-delete-and-extract-sexp) 1 -1) "]"))
+     ((equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (insert "(" (substring (live-delete-and-extract-sexp) 1 -1) ")"))
+     ((equal 1 (point))
+      (message "beginning of file reached, this was probably a mistake.")))
+    (goto-char original-point)))
+
+(define-key clojure-mode-map (kbd "C-´") 'live-cycle-clj-coll)
 (provide 'setup-clojure-mode)
