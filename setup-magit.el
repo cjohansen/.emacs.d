@@ -6,6 +6,7 @@
 (set-face-foreground 'diff-removed "#ff0000")
 
 (set-default 'magit-stage-all-confirm nil)
+(set-default 'magit-unstage-all-confirm nil)
 
 ;; todo:
 ;; diff-added-face      diff-changed-face
