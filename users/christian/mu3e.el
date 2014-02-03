@@ -10,7 +10,7 @@
 
 ;; sending mail
 (setq message-send-mail-function 'message-send-mail-with-sendmail
-      sendmail-program "/usr/bin/msmtp"
+      sendmail-program "/usr/local/bin/msmtp"
       user-full-name "Christian Johansen")
 
 ;; Borrowed from http://ionrock.org/emacs-email-and-mu.html

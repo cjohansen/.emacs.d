@@ -44,6 +44,8 @@
   (set-default-font "DejaVu Sans Mono")
   (set-face-attribute 'default nil :height 105))
 
+(set-default-font "Source Code Pro Medium")
+
 ;; Don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)
 
