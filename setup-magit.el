@@ -130,4 +130,9 @@
 (require-package 'git-messenger)
 (global-set-key (kbd "C-x v p") #'git-messenger:popup-message)
 
+;; Don't bother me with flyspell keybindings
+
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-.") nil))
+
 (provide 'setup-magit)
