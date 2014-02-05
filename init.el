@@ -217,7 +217,7 @@
 
 ;; Diminish modeline clutter
 (require 'diminish)
-(diminish 'yas/minor-mode)
+(diminish 'yas-minor-mode)
 
 ;; Unicode without the hassle
 (require 'unicode-mode)
