@@ -240,6 +240,11 @@
   (set (make-local-variable 'sgml-basic-offset) 2)
   (travel-mode))
 
+;; kodemaker.no
+
+(project-specifics "projects/kodemaker.no"
+  (ffip-local-patterns "*.js" "*.css" "*.edn" "*.adoc" "*.clj" "*.md"))
+
 ;; Zombie TDD
 
 (defun custom-persp/zombie ()
