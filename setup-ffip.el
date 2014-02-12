@@ -1,9 +1,5 @@
 (require 'find-file-in-project)
 (require 's)
-(require 'eproject)
-
-;; Use eproject to find project root
-(setq ffip-project-root-function 'eproject-root)
 
 ;; No need to be stingy
 (setq ffip-limit 4096)
@@ -14,7 +10,7 @@
   "Return an alist of all filenames in the project and their path."
   (let ((file-alist nil))
     (mapcar (lambda (file)
-              (let ((file-cons (cons (s-chop-prefix (eproject-root) (expand-file-name file))
+              (let ((file-cons (cons (s-chop-prefix (file-truename (ffip-project-root)) (expand-file-name file))
                                      (expand-file-name file))))
                 (add-to-list 'file-alist file-cons)
                 file-cons))
@@ -52,12 +48,13 @@
 
 ;; Default excludes - override with ffip-local-excludes
 
-(setq ffip-find-options
-      (ffip--create-exclude-find-options
-       '("node_modules"
-         "target"
-         "overlays"
-         "build"
-         "vendor")))
+(setq-default ffip-find-options
+              (ffip--create-exclude-find-options
+               '("node_modules"
+                 "target"
+                 "overlays"
+                 "build"
+                 "vendor"
+                 ".cask")))
 
 (provide 'setup-ffip)

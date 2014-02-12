@@ -1,6 +1,6 @@
 (defun wte--unique-filename (stub &optional index)
   (setq index (or index 1))
-  (let ((filename (concat "~/projects/what-the-emacsd/posts/"
+  (let ((filename (concat "~/stuff/what-the-emacsd/resources/posts/"
                           stub
                           ".el"
                           (if (< index 10) "-0" "-")

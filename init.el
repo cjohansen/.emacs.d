@@ -56,7 +56,6 @@
    '(magit
      paredit
      move-text
-     god-mode
      gist
      htmlize
      visual-regexp
@@ -79,6 +78,8 @@
      gitconfig-mode
      gitignore-mode
      clojure-mode
+     groovy-mode
+     prodigy
      cider
      cider-tracing
      textile-mode)))
@@ -118,6 +119,9 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 
+(require 'prodigy)
+(global-set-key (kbd "C-x M-m") 'prodigy)
+
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
 
@@ -128,7 +132,8 @@
           restclient-mode-hook
           js-mode-hook
           ruby-mode
-          markdown-mode)
+          markdown-mode
+          groovy-mode)
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files

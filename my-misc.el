@@ -32,8 +32,12 @@
 ;; Use normal tabs in makefiles
 (add-hook 'makefile-mode-hook 'indent-tabs-mode)
 
-;; Trademark on C-x 8 t m
+;; More neat bindings for C-x 8
 (global-set-key (kbd "C-x 8 t m") (λ (insert "™")))
+(global-set-key (kbd "C-x 8 ( c )") (λ (insert "©")))
+(global-set-key (kbd "C-x 8 - >") (λ (insert "→")))
+(global-set-key (kbd "C-x 8 8") (λ (insert "∞")))
+(global-set-key (kbd "C-x 8 ( c )") (λ (insert "©")))
 
 ;; Add JSP expansions to html-mode
 (eval-after-load "sgml-mode" '(require 'jsp-expansions))
