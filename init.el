@@ -130,6 +130,7 @@
 (--each '(css-mode-hook
           restclient-mode-hook
           js-mode-hook
+          java-mode
           ruby-mode
           markdown-mode
           groovy-mode)
