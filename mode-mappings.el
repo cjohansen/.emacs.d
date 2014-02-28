@@ -62,6 +62,7 @@
 ;; Clojure
 (autoload 'clojure-mode "clojure-mode")
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 
 ;; SVG
 (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode))
