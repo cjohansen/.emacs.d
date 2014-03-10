@@ -324,6 +324,7 @@
 (global-set-key (kbd "C-x C-o ft") (ffip-create-pattern-file-finder "*.feature"))
 (global-set-key (kbd "C-x C-o cl") (ffip-create-pattern-file-finder "*.clj"))
 (global-set-key (kbd "C-x C-o el") (ffip-create-pattern-file-finder "*.el"))
+(global-set-key (kbd "C-x C-o ed") (ffip-create-pattern-file-finder "*.edn"))
 (global-set-key (kbd "C-x C-o md") (ffip-create-pattern-file-finder "*.md"))
 (global-set-key (kbd "C-x C-o rb") (ffip-create-pattern-file-finder "*.rb"))
 (global-set-key (kbd "C-x C-o or") (ffip-create-pattern-file-finder "*.org"))
