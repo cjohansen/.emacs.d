@@ -25,12 +25,14 @@
         change-outer
         cider-eval-last-sexp
         clj-hippie-expand-no-case-fold
+        cljr-cycle-coll
         cljr-unwind
         cua-replace-region
         cua-set-mark
         delete-blank-lines
         delete-indentation
         dired-back-to-start-of-files
+        down-list
         duplicate-current-line-or-region
         end-of-buffer
         eval-and-replace

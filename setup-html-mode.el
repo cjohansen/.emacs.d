@@ -61,7 +61,7 @@
      (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
 
      ;; no paredit equivalents
-     (define-key html-mode-map (kbd "s-k") 'tagedit-kill-attribute)
+     (define-key html-mode-map (kbd "M-k") 'tagedit-kill-attribute)
      (define-key html-mode-map (kbd "s-<return>") 'tagedit-toggle-multiline-tag)))
 
 ;; after deleting a tag, indent properly

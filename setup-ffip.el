@@ -52,9 +52,12 @@
               (ffip--create-exclude-find-options
                '("node_modules"
                  "target"
+                 "out"
                  "overlays"
                  "build"
+                 "dist"
                  "vendor"
-                 ".cask")))
+                 ".cask"
+                 ".repl")))
 
 (provide 'setup-ffip)
