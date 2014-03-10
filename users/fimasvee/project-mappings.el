@@ -245,6 +245,11 @@
 (project-specifics "projects/kodemaker.no"
   (ffip-local-patterns "*.js" "*.css" "*.edn" "*.adoc" "*.clj" "*.md"))
 
+;; Zombie CLJ
+
+(project-specifics "zombieclj"
+  (ffip-local-patterns "*.js" "*.css" "*.edn" "*.clj" "*.cljs" "*.md" "*.html"))
+
 ;; Zombie TDD
 
 (defun custom-persp/zombie ()
