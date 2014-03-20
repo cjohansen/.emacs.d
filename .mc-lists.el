@@ -26,6 +26,7 @@
         cider-eval-last-sexp
         clj-hippie-expand-no-case-fold
         cljr-cycle-coll
+        cljr-raise-sexp
         cljr-unwind
         cua-replace-region
         cua-set-mark
@@ -45,8 +46,8 @@
         hippie-expand-no-case-fold
         html-paragraph
         html-wrap-in-tag
-        isearch-forward-use-region
         insert-postfix-whitespace
+        isearch-forward-use-region
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
@@ -174,6 +175,7 @@
         mc/add-cursors-to-all-matches
         multiple-cursors-mode
         ns-prev-frame
+        paredit-backward-kill-word
         persp-switch
         shell
         smex
