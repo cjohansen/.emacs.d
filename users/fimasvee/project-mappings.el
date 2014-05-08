@@ -359,6 +359,13 @@
               (set (make-local-variable 'js2-basic-offset) 4)
               (set (make-local-variable 'js2r-use-strict) nil))))
 
+;; SPiD
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/spid" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 4))))
+
 ;; no-adventur
 
 (defun custom-persp/no-adventur ()
