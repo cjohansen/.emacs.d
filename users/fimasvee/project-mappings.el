@@ -366,6 +366,16 @@
             (when (string-match-p "projects/spid" (buffer-file-name))
               (set (make-local-variable 'js2-basic-offset) 4))))
 
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/spid/reckoning" (buffer-file-name))
+              (require 'single-quotes-mode)
+              (single-quotes-mode 1))))
+
+(project-specifics "spid/reckoning"
+  (ffip-local-patterns "*.scss" "*.html" "*.js")
+  (set (make-local-variable 'css-indent-offset) 2))
+
 ;; no-adventur
 
 (defun custom-persp/no-adventur ()
