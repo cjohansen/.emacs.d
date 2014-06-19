@@ -51,6 +51,7 @@
 (setq-default ffip-find-options
               (ffip--create-exclude-find-options
                '("/node_modules"
+                 "/bower_components"
                  "/target"
                  "/out"
                  "/overlays"
@@ -59,6 +60,7 @@
                  "/vendor"
                  "/.cask"
                  "/generated"
-                 "/.repl")))
+                 "/.repl"
+                 "/.tmp")))
 
 (provide 'setup-ffip)
