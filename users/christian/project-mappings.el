@@ -76,14 +76,15 @@
 
 (add-hook 'js2-mode-hook
           (lambda ()
-            (when (string-match-p "projects/spid" (buffer-file-name))
-              (set (make-local-variable 'js2-basic-offset) 4))))
+            (when (string-match-p "projects/spid/tech-docs" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
 
 (add-hook 'js2-mode-hook
           (lambda ()
             (when (string-match-p "projects/spid/reckoning" (buffer-file-name))
               (require 'single-quotes-mode)
-              (single-quotes-mode 1))))
+              (single-quotes-mode 1)
+              (set (make-local-variable 'js2-basic-offset) 4))))
 
 (project-specifics "spid/reckoning"
   (ffip-local-patterns "*.scss" "*.html" "*.js")
