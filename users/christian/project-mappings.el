@@ -89,3 +89,9 @@
 (project-specifics "spid/reckoning"
   (ffip-local-patterns "*.scss" "*.html" "*.js")
   (set (make-local-variable 'css-indent-offset) 2))
+
+;; My tomatoes
+
+(project-specifics "mytomatoes"
+  (ffip-local-patterns "*.css" "*.html" "*.js" "*.cljs?")
+  (set (make-local-variable 'css-indent-offset) 2))

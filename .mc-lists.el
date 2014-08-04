@@ -120,6 +120,7 @@
         paredit-wrap-round
         paredit-wrap-round-from-behind
         paredit-wrap-square
+        previous-error-no-select
         quoted-insert
         ruby-electric-brace
         save-region-or-current-line

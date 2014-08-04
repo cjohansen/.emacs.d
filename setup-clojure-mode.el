@@ -35,6 +35,28 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
+(defun cider-repl-restart ()
+  "Assumes that tools.namespace is used to reload everything on
+   the classpath (which is why we save buffers first)"
+  (interactive)
+  (save-some-buffers)
+  (set-buffer (cider-current-repl-buffer))
+  (goto-char (point-max))
+  (insert "(user/reset!)")
+  (cider-repl-return))
+
+(defun cider-repl-compile-and-restart ()
+  "Compile the current file and restart the app"
+  (interactive)
+  (cider-load-current-buffer)
+  (set-buffer (cider-current-repl-buffer))
+  (goto-char (point-max))
+  (insert "(user/restart!)")
+  (cider-repl-return))
+
+(define-key cider-mode-map (kbd "C-c M-r") 'cider-repl-reset)
+(define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
+
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
 
