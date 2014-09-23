@@ -95,3 +95,17 @@
 (project-specifics "mytomatoes"
   (ffip-local-patterns "*.css" "*.html" "*.js" "*.cljs?")
   (set (make-local-variable 'css-indent-offset) 2))
+
+;; Eve
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/eve" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
+
+;; Bidrag
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/bidrag" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
