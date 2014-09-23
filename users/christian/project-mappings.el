@@ -90,15 +90,6 @@
   (ffip-local-patterns "*.scss" "*.html" "*.js")
   (set (make-local-variable 'css-indent-offset) 2))
 
-;; Potion
-
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (when (string-match-p "projects" (buffer-file-name))
-              (require 'single-quotes-mode)
-              (single-quotes-mode 1)
-              (set (make-local-variable 'js2-basic-offset) 2))))
-
 ;; My tomatoes
 
 (project-specifics "mytomatoes"
