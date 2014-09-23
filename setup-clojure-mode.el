@@ -36,7 +36,6 @@
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
 (defun cider-repl-command (cmd)
-  (save-some-buffers)
   (set-buffer (cider-current-repl-buffer))
   (goto-char (point-max))
   (insert cmd)
