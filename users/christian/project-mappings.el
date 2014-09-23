@@ -1,13 +1,13 @@
 (defmacro project-specifics (name &rest body)
   `(progn
      (add-hook 'find-file-hook
-             (lambda ()
-               (when (string-match-p ,name (buffer-file-name))
-                 ,@body)))
+               (lambda ()
+                 (when (string-match-p ,name (buffer-file-name))
+                   ,@body)))
      (add-hook 'dired-after-readin-hook
-             (lambda ()
-               (when (string-match-p ,name (dired-current-directory))
-                 ,@body)))))
+               (lambda ()
+                 (when (string-match-p ,name (dired-current-directory))
+                   ,@body)))))
 
 ;; Buster
 
@@ -89,6 +89,15 @@
 (project-specifics "spid/reckoning"
   (ffip-local-patterns "*.scss" "*.html" "*.js")
   (set (make-local-variable 'css-indent-offset) 2))
+
+;; Potion
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects" (buffer-file-name))
+              (require 'single-quotes-mode)
+              (single-quotes-mode 1)
+              (set (make-local-variable 'js2-basic-offset) 2))))
 
 ;; My tomatoes
 

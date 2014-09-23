@@ -173,6 +173,7 @@
         goto-line-with-feedback
         handle-switch-frame
         ido-switch-buffer
+        js2-enter-key
         js2r-extract-var
         js2r-rename-var
         jump-between-source-and-test-files
