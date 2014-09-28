@@ -17,14 +17,11 @@
 ;; Default theme
 (defun use-presentation-theme ()
   (interactive)
-  (disable-theme 'default-black)
-  (load-theme 'prez)
   (when (boundp 'magnars/presentation-font)
     (set-face-attribute 'default nil :font magnars/presentation-font)))
 
 (defun use-default-theme ()
   (interactive)
-  (disable-theme 'prez)
   (load-theme 'default-black)
   (when (boundp 'magnars/default-font)
     (set-face-attribute 'default nil :font magnars/default-font)))
