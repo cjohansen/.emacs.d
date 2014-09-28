@@ -85,6 +85,7 @@
         (looking-at "for ")
         (looking-at "while ")
         (looking-at "try ")
+        (looking-at "} catch ")
         (looking-at "} else "))))
 
 (defun js2r--comma-unless (delimiter)
