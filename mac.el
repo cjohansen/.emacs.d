@@ -88,4 +88,11 @@
 ;; Use aspell for spell checking: brew install aspell --lang=en
 (setq ispell-program-name "/usr/local/bin/aspell")
 
+;; Open files
+(defun mac-open-current-file ()
+  (interactive)
+  (shell-command (concat "open " (buffer-file-name))))
+
+(global-set-key (kbd "C-c C-S-o") 'mac-open-current-file)
+
 (provide 'mac)
