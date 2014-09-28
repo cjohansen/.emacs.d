@@ -177,6 +177,12 @@
 (require 'change-inner)
 (require 'multifiles)
 
+;; Don't use expand-region fast keys
+(setq expand-region-fast-keys-enabled nil)
+
+;; Show expand-region command used
+(setq er--show-expansion-message t)
+
 ;; Fill column indicator
 (require 'fill-column-indicator)
 (setq fci-rule-color "#111122")
