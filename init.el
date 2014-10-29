@@ -81,7 +81,6 @@
      groovy-mode
      prodigy
      cider
-     cider-tracing
      textile-mode)))
 
 (condition-case nil
