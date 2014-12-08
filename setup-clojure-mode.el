@@ -104,6 +104,14 @@
 (define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)
 
+(setq cljr-magic-require-namespaces
+      '(("io"   . "clojure.java.io")
+        ("set"  . "clojure.set")
+        ("str"  . "clojure.string")
+        ("walk" . "clojure.walk")
+        ("zip"  . "clojure.zip")
+        ("time" . "clj-time.core")))
+
 ;; ------------
 
 ;; TODO: Loot more stuff from:
