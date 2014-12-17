@@ -50,6 +50,9 @@
 ;; Setup packages
 (require 'setup-package)
 
+;; Edit plists
+;(require 'setup-plist)
+
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
