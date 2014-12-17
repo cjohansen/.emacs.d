@@ -112,6 +112,10 @@
         ("zip"  . "clojure.zip")
         ("time" . "clj-time.core")))
 
+;; (require 'squiggly-clojure)
+;; (add-hook 'clojure-mode-hook (lambda () (flycheck-mode 1)))
+;; (setq squiggly-clojure-chatty nil)
+
 ;; ------------
 
 ;; TODO: Loot more stuff from:
