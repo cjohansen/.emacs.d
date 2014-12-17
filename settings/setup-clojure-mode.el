@@ -112,8 +112,9 @@
         ("zip"  . "clojure.zip")
         ("time" . "clj-time.core")))
 
-;; (require 'squiggly-clojure)
-;; (add-hook 'clojure-mode-hook (lambda () (flycheck-mode 1)))
+(require 'squiggly-clojure)
+(setq squiggly-clojure-checkers '(eastwood))
+(add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
 ;; (setq squiggly-clojure-chatty nil)
 
 ;; ------------
