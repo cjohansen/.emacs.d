@@ -69,7 +69,7 @@
 ;; mac friendly font
 (when window-system
   (setq magnars/default-font "-apple-Monaco-medium-normal-normal-*-16-*-*-*-m-0-iso10646-1")
-  (setq magnars/presentation-font "-apple-Monaco-medium-normal-normal-*-28-*-*-*-m-0-iso10646-1")
+  (setq magnars/presentation-font "-apple-Monaco-medium-normal-normal-*-21-*-*-*-m-0-iso10646-1")
   (set-face-attribute 'default nil :font magnars/default-font))
 
 ;; keybinding to toggle full screen mode
@@ -87,5 +87,12 @@
 
 ;; Use aspell for spell checking: brew install aspell --lang=en
 (setq ispell-program-name "/usr/local/bin/aspell")
+
+;; Open files
+(defun mac-open-current-file ()
+  (interactive)
+  (shell-command (concat "open " (buffer-file-name))))
+
+(global-set-key (kbd "C-c C-S-o") 'mac-open-current-file)
 
 (provide 'mac)

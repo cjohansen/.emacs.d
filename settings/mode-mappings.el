@@ -56,6 +56,7 @@
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Vagrantfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("capfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
 
@@ -67,6 +68,12 @@
 (autoload 'groovy-mode "groovy-mode")
 (add-to-list 'auto-mode-alist '("\\.groovy$" . groovy-mode))
 (add-to-list 'auto-mode-alist '("\\.gradle$" . groovy-mode))
+
+;; Scala
+(autoload 'scala-mode "scala-mode2")
+(add-to-list 'auto-mode-alist '("\\.scala$" . scala-mode))
+(autoload 'ensime-scala-mode-hook "ensime")
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;; Clojure
 (autoload 'clojure-mode "clojure-mode")
@@ -100,7 +107,6 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.m(ark)?down$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-hook 'markdown-mode-hook (lambda () (define-key markdown-mode-map (kbd "<tab>") 'yas-expand)))
 
 ;; Textile
 (add-to-list 'auto-mode-alist '("\\.textile$" . textile-mode))

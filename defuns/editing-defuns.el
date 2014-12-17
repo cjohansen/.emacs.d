@@ -228,11 +228,25 @@ region-end is used."
         (s-pad-left (length s) "0" new-number)
       new-number)))
 
+(defun goto-closest-number ()
+  (interactive)
+  (let ((closest-behind (save-excursion (search-backward-regexp "[0-9]" nil t)))
+        (closest-ahead (save-excursion (search-forward-regexp "[0-9]" nil t))))
+    (push-mark)
+    (goto-char
+     (cond
+      ((and (not closest-ahead) (not closest-behind)) (error "No numbers in buffer"))
+      ((and closest-ahead (not closest-behind)) closest-ahead)
+      ((and closest-behind (not closest-ahead)) closest-behind)
+      ((> (- closest-ahead (point)) (- (point) closest-behind)) closest-behind)
+      ((> (- (point) closest-behind) (- closest-ahead (point))) closest-ahead)
+      :else closest-ahead))))
+
 (defun change-number-at-point (arg)
   (interactive "p")
   (unless (or (looking-at "[0-9]")
               (looking-back "[0-9]"))
-    (error "No number to change at point"))
+    (goto-closest-number))
   (save-excursion
     (while (looking-back "[0-9]")
       (forward-char -1))

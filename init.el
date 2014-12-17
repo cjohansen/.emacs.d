@@ -10,8 +10,11 @@
 (setq site-lisp-dir
       (expand-file-name "site-lisp" user-emacs-directory))
 
+(setq settings-dir
+      (expand-file-name "settings" user-emacs-directory))
+
 ;; Set up load path
-(add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path settings-dir)
 (add-to-list 'load-path site-lisp-dir)
 
 ;; Keep emacs Custom-settings in separate file
@@ -62,7 +65,10 @@
      gist
      htmlize
      visual-regexp
+     markdown-mode
+     fill-column-indicator
      flycheck
+     flycheck-pos-tip
      flx
      flx-ido
      css-eldoc
@@ -183,6 +189,12 @@
 (require 'change-inner)
 (require 'multifiles)
 
+;; Don't use expand-region fast keys
+(setq expand-region-fast-keys-enabled nil)
+
+;; Show expand-region command used
+(setq er--show-expansion-message t)
+
 ;; Fill column indicator
 (require 'fill-column-indicator)
 (setq fci-rule-color "#111122")
@@ -206,9 +218,6 @@
 ;; Elisp go-to-definition with M-. and back again with M-,
 (autoload 'elisp-slime-nav-mode "elisp-slime-nav")
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
-
-;; Email, baby
-(require 'setup-mu4e)
 
 ;; Emacs server
 (require 'server)

@@ -17,14 +17,11 @@
 ;; Default theme
 (defun use-presentation-theme ()
   (interactive)
-  (disable-theme 'default-black)
-  (load-theme 'prez)
   (when (boundp 'magnars/presentation-font)
     (set-face-attribute 'default nil :font magnars/presentation-font)))
 
 (defun use-default-theme ()
   (interactive)
-  (disable-theme 'prez)
   (load-theme 'default-black)
   (when (boundp 'magnars/default-font)
     (set-face-attribute 'default nil :font magnars/default-font)))
@@ -84,6 +81,9 @@
 (eval-after-load "skewer-html" '(diminish 'skewer-html-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))
 (eval-after-load "guide-key" '(diminish 'guide-key-mode))
+(eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
+(eval-after-load "whitespace-cleanup-mode" '(diminish 'whitespace-cleanup-mode))
+(eval-after-load "subword" '(diminish 'subword-mode))
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name

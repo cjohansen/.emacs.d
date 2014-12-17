@@ -76,6 +76,9 @@
 
 (global-set-key (kbd "M-h") 'kill-region-or-backward-word)
 
+;; Manipulate whitespace
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
+
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
 (global-set-key (kbd "M-t l") 'transpose-lines)
@@ -259,9 +262,6 @@
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status)
 (autoload 'magit-status "magit")
-
-;; Mu4e
-(global-set-key (kbd "C-x M") 'mu4e-up-to-date-status)
 
 ;; Clever newlines
 (global-set-key (kbd "C-o") 'open-line-and-indent)
