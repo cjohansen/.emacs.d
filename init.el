@@ -59,6 +59,8 @@
      gist
      htmlize
      visual-regexp
+     markdown-mode
+     fill-column-indicator
      flycheck
      flx
      flx-ido
