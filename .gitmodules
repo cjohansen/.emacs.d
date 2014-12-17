@@ -112,3 +112,6 @@
 [submodule "site-lisp/datomic-snippets"]
         path = site-lisp/datomic-snippets
         url = https://github.com/magnars/datomic-snippets.git
+[submodule "site-lisp/squiggly-clojure"]
+	path = site-lisp/squiggly-clojure
+	url = git@github.com:pnf/squiggly-clojure.git

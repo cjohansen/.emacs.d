@@ -11,6 +11,7 @@
         adv-open-curly
         adv-tab
         back-to-indentation-or-beginning
+        backward-kill-sexp
         backward-sexp
         c-electric-backspace
         c-electric-colon
@@ -42,6 +43,7 @@
         end-of-buffer
         eval-and-replace
         eval-last-sexp
+        fill-paragraph
         fold-this
         forward-paragraph
         forward-sentence
