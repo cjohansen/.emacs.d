@@ -188,3 +188,5 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (ansi-color-apply-on-region start end))
 
 (autoload 'colorize-ansi-region "ansi-color")
+
+(defmacro comment (&rest ignore))
