@@ -76,8 +76,6 @@
   (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html")
   (ffip-local-excludes "target"))
 
-(defmacro comment (&rest ignore))
-
 (defface prodigy-dull-face
   '((((class color)) :foreground "#999999"))
   "Gray color indicating waiting."
