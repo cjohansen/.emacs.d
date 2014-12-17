@@ -21,6 +21,10 @@ clean buffer we're an order of magnitude laxer about checking."
                                             idle-change
                                             mode-enabled))
 
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+
 (defun flycheck-handle-idle-change ()
   "Handle an expired idle time since the last change.
 

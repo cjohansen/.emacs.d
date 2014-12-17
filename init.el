@@ -62,6 +62,7 @@
      markdown-mode
      fill-column-indicator
      flycheck
+     flycheck-pos-tip
      flx
      flx-ido
      css-eldoc
