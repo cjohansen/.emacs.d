@@ -151,8 +151,8 @@
 ;; Load stuff on demand
 (autoload 'skewer-start "setup-skewer" nil t)
 (autoload 'skewer-demo "setup-skewer" nil t)
-(autoload 'flycheck-mode "setup-flycheck" nil t)
 (autoload 'auto-complete-mode "auto-complete" nil t)
+(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)
