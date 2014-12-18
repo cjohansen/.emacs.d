@@ -13,6 +13,8 @@
 
 (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
 
+(add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
+
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 
