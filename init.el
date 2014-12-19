@@ -68,6 +68,7 @@
      flycheck-pos-tip
      flx
      flx-ido
+     dired-details
      css-eldoc
      yasnippet
      smartparens
