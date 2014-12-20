@@ -117,7 +117,7 @@
 (require 'squiggly-clojure)
 (setq squiggly-clojure-checkers '(eastwood))
 (add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
-;; (setq squiggly-clojure-chatty nil)
+(setq squiggly-clojure-chat-level 0)
 
 ;; ------------
 
