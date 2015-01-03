@@ -83,6 +83,7 @@
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode
+     dockerfile-mode
      gitignore-mode
      clojure-mode
      groovy-mode
