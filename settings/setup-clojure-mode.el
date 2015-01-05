@@ -13,6 +13,8 @@
 
 (add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
 
+(add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
+
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 
@@ -141,9 +143,26 @@
         ("zip"  . "clojure.zip")
         ("time" . "clj-time.core")))
 
-;; (require 'squiggly-clojure)
-;; (add-hook 'clojure-mode-hook (lambda () (flycheck-mode 1)))
-;; (setq squiggly-clojure-chatty nil)
+;; Set up linting of clojure code with eastwood
+
+;; Make sure to add [acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
+;; to your :user :dependencies in .lein/profiles.clj
+
+(require 'squiggly-clojure)
+(add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
+
+(eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
+
+;; Make some clj-refactor commands more snappy by populating caches in the
+;; background:
+
+(add-hook 'nrepl-connected-hook #'cljr-update-artifact-cache)
+(add-hook 'nrepl-connected-hook #'cljr-warm-ast-cache)
+
+;; Make q quit out of find-usages to previous window config
+
+(defadvice cljr-find-usages (before setup-grep activate)
+  (window-configuration-to-register ?$))
 
 ;; ------------
 

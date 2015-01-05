@@ -71,6 +71,7 @@
      flycheck-pos-tip
      flx
      flx-ido
+     dired-details
      css-eldoc
      yasnippet
      smartparens
@@ -85,6 +86,7 @@
      elisp-slime-nav
      git-commit-mode
      gitconfig-mode
+     dockerfile-mode
      gitignore-mode
      clojure-mode
      groovy-mode
@@ -155,8 +157,8 @@
 ;; Load stuff on demand
 (autoload 'skewer-start "setup-skewer" nil t)
 (autoload 'skewer-demo "setup-skewer" nil t)
-(autoload 'flycheck-mode "setup-flycheck" nil t)
 (autoload 'auto-complete-mode "auto-complete" nil t)
+(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)

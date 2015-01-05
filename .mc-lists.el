@@ -35,6 +35,7 @@
         complete-symbol
         cua-replace-region
         cua-set-mark
+        cycle-spacing
         delete-blank-lines
         delete-indentation
         dired-back-to-start-of-files
@@ -63,6 +64,7 @@
         js2r-var-to-this
         jump-char-forward
         jump-char-process-char
+        keyboard-escape-quit
         kill-and-retry-line
         kill-region-or-backward-word
         kill-sexp
@@ -97,6 +99,7 @@
         paredit-backward-down
         paredit-backward-slurp-sexp
         paredit-backward-up
+        paredit-close-curly
         paredit-close-round
         paredit-close-square
         paredit-comment-dwim
@@ -111,6 +114,7 @@
         paredit-join-sexps
         paredit-kill
         paredit-kill-region-or-backward-word
+        paredit-meta-doublequote
         paredit-newline
         paredit-open-curly
         paredit-open-round
