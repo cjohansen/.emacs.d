@@ -53,6 +53,17 @@
               (set (make-local-variable 'buster-test-prefix) "")
               (set (make-local-variable 'js2r-use-strict) t))))
 
+;; kodemaker.no
+
+(defun custom-persp/kodemaker ()
+  (interactive)
+  (custom-persp "kodemaker" (find-file "~/projects/kodemaker.no/")))
+
+(define-key persp-mode-map (kbd "C-x p k") 'custom-persp/kodemaker)
+
+(project-specifics "projects/kodemaker.no"
+  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html"))
+
 ;; Oiiku
 
 (defun custom-persp/oiiku ()
