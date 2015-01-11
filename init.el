@@ -66,6 +66,7 @@
      fill-column-indicator
      flycheck
      flycheck-pos-tip
+     flycheck-clojure
      flx
      flx-ido
      dired-details
