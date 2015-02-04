@@ -141,6 +141,7 @@
         sp-remove-active-pair-overlay
         sp-self-insert-command
         subtract-number-at-point
+        tagedit-forward-barf-tag
         tagedit-forward-slurp-tag
         tagedit-insert-dot
         tagedit-insert-equal
@@ -202,6 +203,7 @@
         shell
         skewer-load-buffer
         smex
+        subword-left
         toggle-read-only
         view-echo-area-messages
         wgrep-change-to-wgrep-mode
