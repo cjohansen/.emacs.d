@@ -33,6 +33,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . crappy-jsp-mode))
 (add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
 (add-to-list 'auto-mode-alist '("\\.vm$" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs$" . html-mode))
 
 ;; JSP
 (autoload 'crappy-jsp-mode "crappy-jsp-mode")
