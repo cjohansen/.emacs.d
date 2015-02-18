@@ -82,9 +82,7 @@
   (yesqlg-remove-overlays)
   (save-excursion
     (goto-char (point-min))
-    (let ((continue t))
-      (while continue
-        (setq continue (yesqlg-display-next-queries))))))
+    (while (yesqlg-display-next-queries))))
 
 (defun yesqlg-auto-show-ghosts ()
   (when (and cider-mode yesqlg-show-ghosts-automatically)
