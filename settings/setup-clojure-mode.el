@@ -37,6 +37,8 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
+(require 'setup-yesqlg)
+
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
 
