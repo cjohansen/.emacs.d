@@ -109,3 +109,24 @@
           (lambda ()
             (when (string-match-p "projects/bidrag" (buffer-file-name))
               (set (make-local-variable 'js2-basic-offset) 2))))
+
+;; Radioarkivet
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/radio" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
+
+;; Functional js video
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/functional-js-video" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
+
+;;
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (when (string-match-p "projects/react-sweeper" (buffer-file-name))
+              (set (make-local-variable 'js2-basic-offset) 2))))
