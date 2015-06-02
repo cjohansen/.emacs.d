@@ -76,9 +76,6 @@
 
 (global-set-key (kbd "M-h") 'kill-region-or-backward-word)
 
-;; Manipulate whitespace
-(global-set-key (kbd "M-SPC") 'cycle-spacing)
-
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
 (global-set-key (kbd "M-t l") 'transpose-lines)
@@ -347,6 +344,8 @@
 (global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
 (global-set-key (kbd "C-x C-o gr") (ffip-create-pattern-file-finder "*.groovy"))
 (global-set-key (kbd "C-x C-o ga") (ffip-create-pattern-file-finder "*.gradle"))
+(global-set-key (kbd "C-x C-o sc") (ffip-create-pattern-file-finder "*.scala"))
+(global-set-key (kbd "C-x C-o co") (ffip-create-pattern-file-finder "*.conf"))
 (global-set-key (kbd "C-x C-o !") (ffip-create-pattern-file-finder "*"))
 
 ;; View occurrence in occur mode

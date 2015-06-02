@@ -30,6 +30,7 @@
         cljr-raise-sexp
         cljr-slash
         cljr-splice-sexp-killing-backward
+        cljr-thread-first-all
         cljr-unwind
         clojure-toggle-keyword-string
         complete-symbol

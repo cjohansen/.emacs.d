@@ -66,6 +66,8 @@
 (define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
 (define-key cider-mode-map (kbd "C-c t") 'cider-repl-run-clj-test)
 
+(require 'setup-yesqlg)
+
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
 
@@ -148,7 +150,7 @@
 ;; Make sure to add [acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
 ;; to your :user :dependencies in .lein/profiles.clj
 
-(require 'squiggly-clojure)
+(require 'flycheck-clojure)
 (add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
 
 (eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
