@@ -93,7 +93,8 @@
      groovy-mode
      prodigy
      cider
-     textile-mode)))
+     textile-mode
+     editorconfig)))
 
 (condition-case nil
     (init--install-packages)
