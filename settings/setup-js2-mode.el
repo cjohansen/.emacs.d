@@ -1,16 +1,32 @@
 ;;; setup-js2-mode.el --- tweak js2 settings -*- lexical-binding: t; -*-
 
+;;; magnars/js2-mode deps
+(defsubst js2-mode-inside-comment-or-string ()
+  "Return non-nil if inside a comment or string."
+  (or
+   (let ((comment-start
+          (save-excursion
+            (goto-char (point-at-bol))
+            (if (re-search-forward "//" (point-at-eol) t)
+                (match-beginning 0)))))
+     (and comment-start
+          (<= comment-start (point))))
+   (let ((parse-state (save-excursion
+                        (syntax-ppss (point)))))
+     (or (nth 3 parse-state)
+         (nth 4 parse-state)))))
+;;;
+
 (setq-default js2-allow-rhino-new-expr-initializer nil)
 (setq-default js2-auto-indent-p nil)
 (setq-default js2-enter-indents-newline nil)
-(setq-default js2-global-externs '("Buffer" "history" "process" "module" "exports" "require" "jQuery" "$" "_" "buster" "sinon" "assert" "refute" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location" "__dirname" "console" "JSON" "describe" "it" "expect" "before" "after" "beforeEach" "afterEach" "global"))
+(setq-default js2-global-externs '("Audio" "history" "setTimeout" "clearTimeout" "setInterval" "clearInterval" "location"))
 (setq-default js2-idle-timer-delay 0.1)
 (setq-default js2-indent-on-enter-key nil)
 (setq-default js2-mirror-mode nil)
 (setq-default js2-strict-inconsistent-return-warning nil)
 (setq-default js2-auto-indent-p t)
-(setq-default js2-include-rhino-externs nil)
-(setq-default js2-include-gears-externs nil)
+(setq-default js2-include-node-externs t)
 (setq-default js2-concat-multiline-strings 'eol)
 (setq-default js2-rebind-eol-bol-keys nil)
 
@@ -113,6 +129,7 @@
 
 ;;
 
+(define-key js2-mode-map (kbd "M-j") (λ (join-line -1))) ;; Don't steal my join line
 (define-key js2-mode-map (kbd "C-c RET jt") 'jump-to-test-file)
 (define-key js2-mode-map (kbd "C-c RET ot") 'jump-to-test-file-other-window)
 (define-key js2-mode-map (kbd "C-c RET js") 'jump-to-source-file)
