@@ -135,4 +135,6 @@
 (eval-after-load "flyspell"
   '(define-key flyspell-mode-map (kbd "C-.") nil))
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'setup-magit)

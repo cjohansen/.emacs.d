@@ -130,7 +130,7 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
-(require 'setup-desktop)
+(require 'setup-editorconfig)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
