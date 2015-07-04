@@ -2,23 +2,28 @@
 (require 'ansi-color)
 
 (setq clj-autotest-run-expectations
-      '(do
-           (require 'clojure.tools.namespace.repl)
-           (require 'expectations)
-         (with-out-str
-          (clojure.tools.namespace.repl/refresh))
-         (let [all (->> (all-ns)
-                        (mapcat (comp vals ns-interns)))
-                   previously-ran-tests (filter (comp :expectations/run meta) all)]
-           (doseq [test previously-ran-tests]
-                  (alter-meta! test dissoc :expectations/run :status)))
-         (expectations/run-all-tests)))
+      "(do
+        (require 'clojure.tools.namespace.repl)
+        (require 'expectations)
+        (reset! expectations/run-tests-on-shutdown false)
+
+        (let [all (->> (all-ns)
+                       (mapcat (comp vals ns-interns)))
+              previously-ran-tests (filter (comp :expectations/run meta) all)]
+          (doseq [test previously-ran-tests]
+            (alter-meta! test dissoc :expectations/run :status)))
+
+        (let [result (binding [*out* (new java.io.StringWriter)]
+                       (clojure.tools.namespace.repl/refresh))]
+          (if (= :ok result)
+            (expectations/run-all-tests)
+            (println \"Error refreshing environment: \" clojure.core/*e))))")
 
 (defun clja--clear-buffer ()
   (delete-region (point-min) (point-max)))
 
 (defun clja--run-expectations ()
-  (nrepl-send-string-sync (format "%s" clj-autotest-run-expectations)))
+  (nrepl-send-string-sync clj-autotest-run-expectations))
 
 (defun clja--get-output (result)
   (s-trim (nrepl-dict-get result "out")))
@@ -59,8 +64,11 @@
     (clja--run-expectations))
    (clja--ansi-colorize-buffer)
    (clja--fit-window-snuggly 16)
-   (goto-char (point-max))
-   (clja--recenter-bottom)))
+   (goto-char (point-min))
+   (if (looking-at "Error refreshing environment")
+       (search-forward "cause")
+     (goto-char (point-max))
+     (clja--recenter-bottom))))
 
 (defun clja--run-tests-hook ()
   (when (bound-and-true-p cider-mode)

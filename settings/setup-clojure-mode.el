@@ -70,6 +70,8 @@
 
 ;; Some expectations features
 
+(require 'clj-autotest)
+
 (defun my-toggle-expect-focused ()
   (interactive)
   (save-excursion
