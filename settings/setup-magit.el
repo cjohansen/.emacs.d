@@ -6,6 +6,11 @@
   (unless prefix
     (delete-other-windows)))
 
+;; don't prompt me
+
+(set-default 'magit-unstage-all-confirm nil)
+(set-default 'magit-stage-all-confirm nil)
+
 ;; full screen vc-annotate
 
 (defun vc-annotate-quit ()
