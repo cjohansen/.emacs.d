@@ -62,6 +62,9 @@
 ;; Pretty print results in repl
 (setq cider-repl-use-pretty-printing t)
 
+;; Don't prompt for symbols
+(setq cider-prompt-for-symbol nil)
+
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook #'eldoc-mode)
 
