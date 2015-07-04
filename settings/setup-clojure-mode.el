@@ -59,6 +59,9 @@
 ;; Prevent the auto-display of the REPL buffer in a separate window after connection is established
 (setq cider-repl-pop-to-buffer-on-connect nil)
 
+;; Pretty print results in repl
+(setq cider-repl-use-pretty-printing t)
+
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
