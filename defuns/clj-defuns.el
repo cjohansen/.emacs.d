@@ -23,7 +23,7 @@
      ((file-exists-p file) (find-file file))
      (arg (find-file file)
           (save-buffer))
-     (t (error "%s not found." file)))))
+     (t (ido-find-file-in-dir (file-name-directory file))))))
 
 (defun clj-jump-to-other-file-other-window (arg)
   (interactive "P")
