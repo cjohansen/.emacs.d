@@ -88,6 +88,7 @@
      prodigy
      cider
      yesql-ghosts
+     string-edit
      )))
 
 (condition-case nil
