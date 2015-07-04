@@ -447,6 +447,20 @@
 (project-specifics "projects/what-the-emacsd/posts"
   (buffer-local-set-key (kbd "C-c C-c") 'what-the-emacsd-publish))
 
+;; Hafslund
+
+(defun js2-hafslund-settings ()
+  (when (string-match-p "projects/hafslund" (buffer-file-name))
+    (make-variable-buffer-local 'js2-basic-offset)
+    (setq js2-basic-offset 4)
+    (require 'single-quotes-mode)
+    (single-quotes-mode 1)))
+
+(add-hook 'js2-mode-hook 'js2-hafslund-settings)
+
+(project-specifics "/link-gatekeeper/"
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css"))
+
 ;; Emacs
 
 (defun custom-persp/emacs ()
