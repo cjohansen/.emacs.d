@@ -59,6 +59,7 @@
         js2-end-of-line
         js2-insert-and-indent
         js2r-inline-var
+        js2r-kill
         js2r-move-line-up
         js2r-split-string
         js2r-var-to-this
@@ -71,6 +72,7 @@
         live-cycle-clj-coll
         magit-stage-item
         markdown-enter-key
+        markdown-exdent-or-delete
         markdown-insert-link
         move-line-down
         move-line-up
@@ -133,6 +135,7 @@
         sgml-delete-tag
         sgml-maybe-name-self
         sgml-slash
+        sh-assignment
         skeleton-pair-insert-maybe
         slime-space
         sp--self-insert-command
