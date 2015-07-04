@@ -63,7 +63,7 @@
 (setq cider-repl-use-pretty-printing t)
 
 ;; Enable eldoc in Clojure buffers
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
 
 ;; Cycle between () {} []
 
