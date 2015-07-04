@@ -130,7 +130,9 @@
 ;; to your :user :dependencies in .lein/profiles.clj
 
 (require 'flycheck-clojure)
-(add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
+(add-hook 'cider-mode-hook (lambda ()
+                             (when (s-ends-with-p ".clj" (buffer-file-name))
+                               (flycheck-mode 1))))
 
 (eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
 
