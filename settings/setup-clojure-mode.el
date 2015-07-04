@@ -96,7 +96,7 @@
       (message "beginning of file reached, this was probably a mistake.")))
     (goto-char original-point)))
 
-(define-key clojure-mode-map (kbd "C-´") 'live-cycle-clj-coll)
+(define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
 
 ;; Warn about missing nREPL instead of doing stupid things
 
