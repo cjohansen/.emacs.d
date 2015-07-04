@@ -115,7 +115,9 @@
         ("str"  . "clojure.string")
         ("walk" . "clojure.walk")
         ("zip"  . "clojure.zip")
-        ("time" . "clj-time.core")))
+        ("time" . "clj-time.core")
+        ("log"  . "taoensso.timbre")
+        ("json" . "cheshire.core")))
 
 ;; Set up linting of clojure code with eastwood
 
