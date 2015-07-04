@@ -58,7 +58,7 @@
                  "/build"
                  "/dist"
                  "/vendor"
-                 "/.cask"
+                 ".cask"
                  "/generated"
                  "/.repl"
                  "/.tmp")))
