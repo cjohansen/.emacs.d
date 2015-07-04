@@ -84,6 +84,7 @@
      elisp-slime-nav
      dockerfile-mode
      clojure-mode
+     clojure-mode-extra-font-locking
      groovy-mode
      prodigy
      cider

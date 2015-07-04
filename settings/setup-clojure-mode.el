@@ -1,4 +1,5 @@
 (require 'clojure-mode)
+(require 'clojure-mode-extra-font-locking)
 
 (defadvice clojure-test-run-tests (before save-first activate)
   (save-buffer))
