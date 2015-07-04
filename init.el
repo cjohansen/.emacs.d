@@ -90,6 +90,7 @@
      groovy-mode
      prodigy
      cider
+     yesql-ghosts
      )))
 
 (condition-case nil
