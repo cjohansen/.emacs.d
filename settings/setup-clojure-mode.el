@@ -68,6 +68,31 @@
 ;; Enable eldoc in Clojure buffers
 (add-hook 'cider-mode-hook #'eldoc-mode)
 
+;; Some expectations features
+
+(defun my-toggle-expect-focused ()
+  (interactive)
+  (save-excursion
+    (search-backward "(expect" (cljr--point-after 'cljr--goto-toplevel))
+    (forward-word)
+    (if (looking-at "-focused")
+        (paredit-forward-kill-word)
+      (insert "-focused"))))
+
+(defun my-remove-all-focused ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "(expect-focused" nil t)
+      (delete-char -8))))
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "xf") 'my-toggle-expect-focused)
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
+
+
 ;; Cycle between () {} []
 
 (defun live-delete-and-extract-sexp ()
