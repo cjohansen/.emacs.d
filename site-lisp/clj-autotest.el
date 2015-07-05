@@ -71,7 +71,8 @@
      (clja--recenter-bottom))))
 
 (defun clja--run-tests-hook ()
-  (when (bound-and-true-p cider-mode)
+  (when (and (bound-and-true-p cider-mode)
+             (s-ends-with? ".clj" (buffer-file-name)))
     (clja--run-tests)))
 
 (defun clj-autotest-init ()
