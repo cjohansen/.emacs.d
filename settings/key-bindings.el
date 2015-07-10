@@ -257,8 +257,8 @@
 (global-set-key (kbd "<s-down>") 'windmove-down)
 
 ;; Magit
-(global-set-key (kbd "C-x m") 'magit-status)
-(autoload 'magit-status "magit")
+(global-set-key (kbd "C-x m") 'magit-status-fullscreen)
+(autoload 'magit-status-fullscreen "magit")
 
 ;; Clever newlines
 (global-set-key (kbd "C-o") 'open-line-and-indent)
@@ -346,6 +346,8 @@
 (global-set-key (kbd "C-x C-o ga") (ffip-create-pattern-file-finder "*.gradle"))
 (global-set-key (kbd "C-x C-o sc") (ffip-create-pattern-file-finder "*.scala"))
 (global-set-key (kbd "C-x C-o co") (ffip-create-pattern-file-finder "*.conf"))
+(global-set-key (kbd "C-x C-o j2") (ffip-create-pattern-file-finder "*.j2"))
+(global-set-key (kbd "C-x C-o sh") (ffip-create-pattern-file-finder "*.sh"))
 (global-set-key (kbd "C-x C-o !") (ffip-create-pattern-file-finder "*"))
 
 ;; View occurrence in occur mode

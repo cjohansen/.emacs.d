@@ -1,4 +1,5 @@
 (require 'clojure-mode)
+(require 'clojure-mode-extra-font-locking)
 
 (defadvice clojure-test-run-tests (before save-first activate)
   (save-buffer))
@@ -7,6 +8,8 @@
   (save-buffer))
 
 (require 'clj-refactor)
+
+(setq cljr-favor-prefix-notation nil)
 
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
@@ -66,7 +69,7 @@
 (define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
 (define-key cider-mode-map (kbd "C-c t") 'cider-repl-run-clj-test)
 
-(require 'setup-yesqlg)
+(require 'yesql-ghosts)
 
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
@@ -86,8 +89,41 @@
 ;; Prevent the auto-display of the REPL buffer in a separate window after connection is established
 (setq cider-repl-pop-to-buffer-on-connect nil)
 
+;; Pretty print results in repl
+(setq cider-repl-use-pretty-printing t)
+
+;; Don't prompt for symbols
+(setq cider-prompt-for-symbol nil)
+
 ;; Enable eldoc in Clojure buffers
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
+
+;; Some expectations features
+
+(require 'clj-autotest)
+
+(defun my-toggle-expect-focused ()
+  (interactive)
+  (save-excursion
+    (search-backward "(expect" (cljr--point-after 'cljr--goto-toplevel))
+    (forward-word)
+    (if (looking-at "-focused")
+        (paredit-forward-kill-word)
+      (insert "-focused"))))
+
+(defun my-remove-all-focused ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "(expect-focused" nil t)
+      (delete-char -8))))
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "xf") 'my-toggle-expect-focused)
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
+
 
 ;; Cycle between () {} []
 
@@ -120,7 +156,7 @@
       (message "beginning of file reached, this was probably a mistake.")))
     (goto-char original-point)))
 
-(define-key clojure-mode-map (kbd "C-´") 'live-cycle-clj-coll)
+(define-key clojure-mode-map (kbd "C-`") 'live-cycle-clj-coll)
 
 ;; Warn about missing nREPL instead of doing stupid things
 
@@ -136,6 +172,7 @@
 (define-key clojure-mode-map (kbd "C-c C-z") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-q") 'nrepl-warn-when-not-connected)
 
 (setq cljr-magic-require-namespaces
       '(("io"   . "clojure.java.io")
@@ -143,7 +180,9 @@
         ("str"  . "clojure.string")
         ("walk" . "clojure.walk")
         ("zip"  . "clojure.zip")
-        ("time" . "clj-time.core")))
+        ("time" . "clj-time.core")
+        ("log"  . "taoensso.timbre")
+        ("json" . "cheshire.core")))
 
 ;; Set up linting of clojure code with eastwood
 
@@ -151,15 +190,11 @@
 ;; to your :user :dependencies in .lein/profiles.clj
 
 (require 'flycheck-clojure)
-(add-hook 'cider-mode-hook (lambda () (flycheck-mode 1)))
+(add-hook 'cider-mode-hook (lambda ()
+                             (when (s-ends-with-p ".clj" (buffer-file-name))
+                               (flycheck-mode 1))))
 
 (eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
-
-;; Make some clj-refactor commands more snappy by populating caches in the
-;; background:
-
-(add-hook 'nrepl-connected-hook #'cljr-update-artifact-cache)
-(add-hook 'nrepl-connected-hook #'cljr-warm-ast-cache)
 
 ;; Make q quit out of find-usages to previous window config
 
