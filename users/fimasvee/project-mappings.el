@@ -461,6 +461,11 @@
 (project-specifics "/link-gatekeeper/"
   (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css"))
 
+;; Parens of the Dead
+
+(project-specifics "/parens-of-the-dead/"
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.html"))
+
 ;; Emacs
 
 (defun custom-persp/emacs ()
