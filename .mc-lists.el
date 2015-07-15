@@ -142,6 +142,7 @@
         sp-remove-active-pair-overlay
         sp-self-insert-command
         subtract-number-at-point
+        subword-right
         tagedit-forward-slurp-tag
         tagedit-insert-dot
         tagedit-insert-equal
