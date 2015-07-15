@@ -63,7 +63,7 @@
    (clja--insert-output
     (clja--run-expectations))
    (clja--ansi-colorize-buffer)
-   (clja--fit-window-snuggly 16)
+   (clja--fit-window-snuggly 10)
    (goto-char (point-min))
    (if (looking-at "Error refreshing environment")
        (search-forward "cause")
