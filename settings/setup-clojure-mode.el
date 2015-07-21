@@ -14,7 +14,10 @@
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
 
-(add-hook 'clojure-mode-hook (lambda () (clj-refactor-mode 1)))
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (clj-refactor-mode 1)
+            (core-async-mode 1)))
 
 (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
 
