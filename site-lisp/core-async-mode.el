@@ -10,7 +10,7 @@
    "<!" "<!!" ">!" ">!!" "admix" "alt!" "alt!!" "alts!" "alts!!" "buffer"
    "chan" "close!" "do-alts" "dropping-buffer" "mix" "mult" "offer!"
    "onto-chan" "pipe" "pipeline" "pipeline-async" "pipeline-blocking"
-   "poll!" "pub" "put!" "sliding-buffer" "solo-mode" "sub" "take" "take!"
+   "poll!" "pub" "put!" "sliding-buffer" "solo-mode" "sub" "take!"
    "tap" "thread" "thread-call" "timeout" "to-chan" "unblocking-buffer?"
    "unmix" "unmix-all" "unsub" "unsub-all" "untap" "untap-all"))
 
