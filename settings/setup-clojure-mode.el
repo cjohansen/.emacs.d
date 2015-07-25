@@ -22,6 +22,11 @@
             (clj-refactor-mode 1)
             (core-async-mode 1)))
 
+(require 'symbol-focus)
+
+(define-key clojure-mode-map (kbd "M-s-f") 'sf/focus-at-point)
+(define-key clojure-mode-map (kbd "M-s-b") 'sf/back)
+
 (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
 
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
