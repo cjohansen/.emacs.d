@@ -1,3 +1,9 @@
+;; symbol-focus
+;;
+;; Hides all top-level forms that does not contain the given symbol.
+;;
+;; Usage: `sf/focus-at-point' to focus. `sf/back' to return.
+
 (defun sf/skip-to-next-sexp ()
   (paredit-forward)
   (skip-syntax-forward " >"))
@@ -9,6 +15,17 @@
     (overlay-put o 'display " ")
     (overlay-put o 'evaporate t)))
 
+(defun sf/depth-at-point ()
+  "Returns the depth in s-expressions, or strings, at point."
+  (let ((depth (car (paredit-current-parse-state))))
+    (if (paredit-in-string-p)
+        (1+ depth)
+      depth)))
+
+(defun sf/goto-toplevel ()
+  (paredit-backward-up (sf/depth-at-point))
+  (backward-char (current-column)))
+
 (defun sf/hide-mismatches (symbol)
   (let ((re (regexp-opt (list symbol) 'symbols)))
     (save-excursion
@@ -16,7 +33,7 @@
       (while (not (= (point) (point-max)))
         (let ((beg (point)))
           (if (re-search-forward re nil t)
-              (progn (cljr--goto-toplevel)
+              (progn (sf/goto-toplevel)
                      (backward-char))
             (goto-char (point-max)))
           (unless (= beg (point))
@@ -57,9 +74,17 @@
   (unless (string= (car sf/history) symbol)
     (push symbol sf/history)))
 
+(defun sf/symbol-at-point ()
+  (save-excursion
+    (when (looking-back "\\s_\\|\\sw")
+      (paredit-backward))
+    (let ((beg (point)))
+      (paredit-forward)
+      (buffer-substring-no-properties beg (point)))))
+
 (defun sf/focus-at-point ()
   (interactive)
-  (sf/focus (cljr--find-symbol-at-point)))
+  (sf/focus (sf/symbol-at-point)))
 
 (defun sf/back ()
   (interactive)
