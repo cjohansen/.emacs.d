@@ -4,6 +4,9 @@
 ;;
 ;; Usage: `sf/focus-at-point' to focus. `sf/back' to return.
 
+(require 'paredit)
+(require 'thingatpt)
+
 (defun sf/skip-to-next-sexp ()
   (paredit-forward)
   (skip-syntax-forward " >"))
@@ -74,17 +77,9 @@
   (unless (string= (car sf/history) symbol)
     (push symbol sf/history)))
 
-(defun sf/symbol-at-point ()
-  (save-excursion
-    (when (looking-back "\\s_\\|\\sw")
-      (paredit-backward))
-    (let ((beg (point)))
-      (paredit-forward)
-      (buffer-substring-no-properties beg (point)))))
-
 (defun sf/focus-at-point ()
   (interactive)
-  (sf/focus (sf/symbol-at-point)))
+  (sf/focus (thing-at-point 'symbol)))
 
 (defun sf/back ()
   (interactive)
