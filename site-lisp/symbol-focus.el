@@ -90,7 +90,8 @@
 
 (defun sf/reset ()
   (remove-overlays nil nil 'sf/hidden t)
-  (remove-overlays nil nil 'sf/highlight t))
+  (remove-overlays nil nil 'sf/highlight t)
+  (symbol-focus-mode 0))
 
 (defvar sf/history nil)
 (make-variable-buffer-local 'sf/history)
@@ -100,7 +101,9 @@
   (sf/hide-mismatches symbol)
   (sf/highlight-symbol symbol)
   (unless (string= (car sf/history) symbol)
-    (push symbol sf/history)))
+    (push symbol sf/history))
+  (symbol-focus-mode 1)
+  (recenter-top-bottom))
 
 (defun sf/focus-at-point ()
   (interactive)
@@ -134,5 +137,22 @@
                     (- (overlay-end o) (point))
                   0)))
     (goto-char (- prev offset))))
+
+(defvar symbol-focus-mode-map (make-sparse-keymap)
+  "symbol-focus-mode keymap")
+
+(define-key symbol-focus-mode-map (kbd "M-s-b") 'sf/back)
+(define-key symbol-focus-mode-map (kbd "M-s-n") 'sf/next)
+(define-key symbol-focus-mode-map (kbd "M-s-p") 'sf/prev)
+(define-key symbol-focus-mode-map (kbd "M-s-r") 'sf/reset)
+
+(define-minor-mode symbol-focus-mode
+  "Focuses on a symbol, hides all top-level forms that does not
+  include it. Easily jump between them. Change the symbol in one
+  place, update all."
+  nil " Focus" symbol-focus-mode-map
+  (if symbol-focus-mode
+      (add-hook 'before-revert-hook 'sf/reset)
+    (remove-hook 'before-revert-hook 'sf/reset)))
 
 (provide 'symbol-focus)
