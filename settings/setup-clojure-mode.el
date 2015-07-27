@@ -23,9 +23,17 @@
             (core-async-mode 1)))
 
 (require 'symbol-focus)
-
 (define-key clojure-mode-map (kbd "M-s-f") 'sf/focus-at-point)
 (define-key clojure-mode-map (kbd "M-s-b") 'sf/back)
+
+(defun clj-duplicate-top-level-form ()
+  (interactive)
+  (save-excursion
+    (cljr--goto-toplevel)
+    (insert (cljr--extract-sexp) "\n")
+    (cljr--just-one-blank-line)))
+
+(define-key clojure-mode-map (kbd "M-s-d") 'clj-duplicate-top-level-form)
 
 (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
 
