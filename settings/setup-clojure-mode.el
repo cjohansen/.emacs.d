@@ -25,6 +25,8 @@
 (require 'symbol-focus)
 (define-key clojure-mode-map (kbd "M-s-f") 'sf/focus-at-point)
 (define-key clojure-mode-map (kbd "M-s-b") 'sf/back)
+(define-key clojure-mode-map (kbd "M-s-n") 'sf/next)
+(define-key clojure-mode-map (kbd "M-s-p") 'sf/prev)
 
 (defun clj-duplicate-top-level-form ()
   (interactive)
