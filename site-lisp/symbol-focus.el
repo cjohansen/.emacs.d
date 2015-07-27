@@ -49,11 +49,36 @@
   '((t (:background "#33c")))
   "The face used to highlight symbol")
 
+(defun sf/highlight-overlays ()
+  (--filter (overlay-get it 'sf/highlight)
+            (overlays-in (point-min) (point-max))))
+
+(defun sf/highlight-overlay-at-point ()
+  (--first (overlay-get it 'sf/highlight)
+           (overlays-in (1- (point)) (1+ (point)))))
+
+(defun sf/on-modification (overlay after? beg end &optional length)
+  (when after?
+    (let ((contents (buffer-substring-no-properties (overlay-start overlay)
+                                                    (overlay-end overlay)))
+          (inhibit-modification-hooks t))
+      (save-excursion
+        (--each (sf/highlight-overlays)
+          (when (not (eq overlay it))
+            (let ((beg (overlay-start it))
+                  (end (overlay-end it)))
+              (goto-char beg)
+              (insert contents)
+              (delete-char (- end beg)))))))))
+
 (defun sf/highlight (beg end)
   (let ((o (make-overlay beg end (current-buffer) nil t)))
     (overlay-put o 'sf/highlight t)
     (overlay-put o 'face 'sf/highlight-face)
-    (overlay-put o 'evaporate t)))
+    (overlay-put o 'evaporate t)
+    (overlay-put o 'modification-hooks '(sf/on-modification))
+    (overlay-put o 'insert-in-front-hooks '(sf/on-modification))
+    (overlay-put o 'insert-behind-hooks '(sf/on-modification))))
 
 (defun sf/highlight-symbol (symbol)
   (let ((l (length symbol))
