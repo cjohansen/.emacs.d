@@ -23,7 +23,7 @@
   (delete-region (point-min) (point-max)))
 
 (defun clja--run-expectations ()
-  (nrepl-send-string-sync clj-autotest-run-expectations))
+  (nrepl-sync-request:eval clj-autotest-run-expectations))
 
 (defun clja--get-output (result)
   (s-trim (nrepl-dict-get result "out")))
