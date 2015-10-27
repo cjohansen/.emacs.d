@@ -10,6 +10,7 @@
 
 (set-default 'magit-unstage-all-confirm nil)
 (set-default 'magit-stage-all-confirm nil)
+(set-default 'magit-push-always-verify nil)
 (set-default 'magit-revert-buffers 'silent)
 
 ;; full screen vc-annotate
