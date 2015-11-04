@@ -18,16 +18,21 @@
   (list "go" "go-loop"))
 
 (defvar core-async--functions-re
-  (concat "(" (regexp-opt (-concat core-async--functions
-                                   core-async--macros)
-                          'symbols)))
+  (concat (regexp-opt '("(" "["))
+          (regexp-opt (-concat core-async--functions
+                               core-async--macros)
+                      'symbols)))
+
+(defun core-async--in-comment? ()
+  (nth 4 (syntax-ppss)))
 
 (defun core-async--find-usages ()
   (let (result)
     (save-excursion
       (goto-char (point-min))
       (while (re-search-forward core-async--functions-re nil t)
-        (!cons (cljr--find-symbol-at-point) result)))
+        (unless (core-async--in-comment?)
+          (!cons (cider-symbol-at-point) result))))
     (-distinct result)))
 
 (defun core-async--remove-from-ns (type s)
