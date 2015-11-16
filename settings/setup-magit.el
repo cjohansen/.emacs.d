@@ -29,4 +29,13 @@
 
      (define-key vc-annotate-mode-map (kbd "q") 'vc-annotate-quit)))
 
+;; move cursor into position when entering commit message
+
+(defun my/magit-cursor-fix ()
+  (beginning-of-buffer)
+  (when (looking-at "#")
+    (forward-line 1)))
+
+(add-hook 'git-commit-mode-hook 'my/magit-cursor-fix)
+
 (provide 'setup-magit)

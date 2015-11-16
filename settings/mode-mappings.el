@@ -91,6 +91,8 @@
 (add-to-list 'auto-mode-alist '("\\.es6?$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.jshintrc$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.jscsrc$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.babelrc$" . javascript-mode))
 (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
 
 ;; Configuration files

@@ -103,7 +103,9 @@
         (looking-at "while ")
         (looking-at "try ")
         (looking-at "} catch ")
-        (looking-at "} else "))))
+        (looking-at "} else ")
+        (looking-at "export")
+        (looking-at "[^ ]+("))))
 
 (defun js2r--comma-unless (delimiter)
   (if (looking-at (concat "[\n\t\r ]*" (regexp-quote delimiter)))
@@ -112,7 +114,6 @@
 
 (defun js2r--something-to-close-statement ()
   (cond
-   ((and (js2-block-node-p (js2-node-at-point)) (looking-at " *}")) ";")
    ((not (eolp)) "")
    ((js2-array-node-p (js2-node-at-point)) (js2r--comma-unless "]"))
    ((js2-object-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
@@ -224,13 +225,13 @@
                      (javascript-mode)
                      (let (kill-ring kill-ring-yank-pointer) (kill-comment 1000))
                      (->> (buffer-substring (point-min) (point-max))
-                       (s-trim)
-                       (s-chop-prefix "module.exports = ")
-                       (s-chop-suffix ";")
-                       (json-read-from-string))))
+                          (s-trim)
+                          (s-chop-prefix "module.exports = ")
+                          (s-chop-suffix ";")
+                          (json-read-from-string))))
          (predef (->> settings
-                   (my-aget 'linterOptions)
-                   (my-aget 'predef))))
+                      (my-aget 'linterOptions)
+                      (my-aget 'predef))))
     (--each (append predef nil)
       (add-to-list 'js2-additional-externs it))))
 
