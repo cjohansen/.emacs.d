@@ -29,6 +29,7 @@
 (setq-default js2-include-node-externs t)
 (setq-default js2-concat-multiline-strings 'eol)
 (setq-default js2-rebind-eol-bol-keys nil)
+(setq-default js2-basic-offset 2)
 
 ;; Let flycheck handle parse errors
 (setq-default js2-show-parse-errors nil)
@@ -72,8 +73,8 @@
          (looking-at (regexp-quote close)))
     (forward-char (length close)))
 
-   ((js2-mode-inside-comment-or-string)
-    (funcall 'self-insert-command 1))
+   ;; ((js2-mode-inside-comment-or-string)
+   ;;  (funcall 'self-insert-command 1))
 
    (:else
     (let ((end (js2r--something-to-close-statement)))
@@ -141,6 +142,8 @@
 (define-key js2-mode-map (kbd "C-c RET dp") 'js2r-duplicate-object-property-node)
 
 (define-key js2-mode-map (kbd "C-c RET ta") 'toggle-assert-refute)
+
+(define-key js2-mode-map (kbd "M-j") (λ (join-line -1)))
 
 (defadvice js2r-inline-var (after reindent-buffer activate)
   (cleanup-buffer))

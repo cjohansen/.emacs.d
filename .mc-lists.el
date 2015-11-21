@@ -146,7 +146,10 @@
         sp-self-insert-command
         subtract-number-at-point
         subword-right
+<<<<<<< HEAD
         tagedit-forward-barf-tag
+=======
+>>>>>>> Various... stuff
         tagedit-forward-slurp-tag
         tagedit-insert-dot
         tagedit-insert-equal
@@ -194,6 +197,7 @@
         ido-switch-buffer
         js2-enter-key
         js2r-expand-object
+        js2r-add-to-globals-annotation
         js2r-extract-var
         js2r-rename-var
         jump-between-source-and-test-files
