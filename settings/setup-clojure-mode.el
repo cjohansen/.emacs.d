@@ -63,6 +63,31 @@
 
 (require 'yesql-ghosts)
 
+;; indent [quiescent.dom :as d] specially
+
+(define-clojure-indent
+  (d/a 1)
+  (d/button 1)
+  (d/div 1)
+  (d/form 1)
+  (d/h1 1)
+  (d/h2 1)
+  (d/h3 1)
+  (d/h4 1)
+  (d/h5 1)
+  (d/hr 1)
+  (d/img 1)
+  (d/label 1)
+  (d/li 1)
+  (d/option 1)
+  (d/p 1)
+  (d/pre 1)
+  (d/select 1)
+  (d/small 1)
+  (d/span 1)
+  (d/strong 1)
+  (d/ul 1))
+
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
 
@@ -115,7 +140,6 @@
 
 (define-key clj-refactor-map
   (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
-
 
 ;; Cycle between () {} []
 
