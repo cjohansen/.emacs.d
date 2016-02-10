@@ -413,7 +413,7 @@
 (define-key persp-mode-map (kbd "C-x p n") 'custom-persp/no-adventur)
 
 (project-specifics "no-adventur"
-  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn")
+  (ffip-local-patterns "*.clj" "*.cljs" "*.css" "*.edn")
   (ffip-local-excludes "target"))
 
 ;; Adventur
@@ -421,7 +421,7 @@
 (defun custom-persp/adventur ()
   (interactive)
   (custom-persp "adventur"
-                (find-file "~/projects/adventur/nettsidene/adventur_no/source/backlog.txt")))
+                (find-file "~/stuff/Adventur-Delux/nettsidene/adventur_no/source/backlog.txt")))
 
 (define-key persp-mode-map (kbd "C-x p a") 'custom-persp/adventur)
 
@@ -449,17 +449,34 @@
 
 ;; Hafslund
 
+(defun custom-persp/gatekeeper ()
+  (interactive)
+  (custom-persp "gatekeeper"
+                (find-file "~/projects/hafslund/link-gatekeeper/project.clj")))
+
+(define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gatekeeper)
+
 (defun js2-hafslund-settings ()
   (when (string-match-p "projects/hafslund" (buffer-file-name))
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)
+    (--each '("angular" "moment" "_") (add-to-list 'js2-additional-externs it))
     (require 'single-quotes-mode)
     (single-quotes-mode 1)))
 
-(add-hook 'js2-mode-hook 'js2-hafslund-settings)
+(add-hook 'js2-init-hook 'js2-hafslund-settings)
 
 (project-specifics "/link-gatekeeper/"
-  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css"))
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.sh"))
+
+(project-specifics "/cljs-app/"
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.sh"))
+
+(project-specifics "projects/hafslund/link-app"
+  (set (make-local-variable 'sgml-basic-offset) 4))
+
+(project-specifics "projects/hafslund/cljs-app"
+  (set (make-local-variable 'sgml-basic-offset) 2))
 
 ;; Parens of the Dead
 
