@@ -20,10 +20,12 @@
 
 (require 'core-async-mode)
 
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (clj-refactor-mode 1)
-            (core-async-mode 1)))
+(defun enable-clojure-mode-stuff ()
+  (clj-refactor-mode 1)
+  (when (not (s-ends-with-p "/dev/user.clj" (buffer-file-name)))
+    (core-async-mode 1)))
+
+(add-hook 'clojure-mode-hook 'enable-clojure-mode-stuff)
 
 (require 'symbol-focus)
 (define-key clojure-mode-map (kbd "M-s-f") 'sf/focus-at-point)
