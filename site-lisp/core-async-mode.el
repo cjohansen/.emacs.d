@@ -4,6 +4,7 @@
 
 (require 'dash)
 (require 'clj-refactor)
+(require 'old-clj-refactor-stuff)
 
 (defvar core-async--functions
   (list
@@ -53,10 +54,10 @@
         (cljr--insert-in-ns ":require")
         (insert "[clojure.core.async :refer [")
         (apply 'insert (->> usages
-                            (-sort cljr-sort-comparator)
+                            (-sort ocljr-sort-comparator)
                             (-interpose " ")))
         (insert "]]")))
-    (cljr-sort-ns)))
+    (ocljr-sort-ns)))
 
 (defun core-async--update-cljs-namespace ()
   (save-excursion
@@ -70,7 +71,7 @@
         (just-one-space)
         (insert "[cljs.core.async :refer [")
         (apply 'insert (->> used-fns
-                            (-sort cljr-sort-comparator)
+                            (-sort ocljr-sort-comparator)
                             (-interpose " ")))
         (insert "]]"))
       (when used-macros
@@ -78,10 +79,10 @@
         (just-one-space)
         (insert "[cljs.core.async.macros :refer [")
         (apply 'insert (->> used-macros
-                            (-sort cljr-sort-comparator)
+                            (-sort ocljr-sort-comparator)
                             (-interpose " ")))
         (insert "]]"))
-      (cljr-sort-ns))))
+      (ocljr-sort-ns))))
 
 (defun core-async-update-namespace ()
   (interactive)
