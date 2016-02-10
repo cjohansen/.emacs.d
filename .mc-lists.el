@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        abbrev-prefix-mark
         ac-complete
         adv-dash
         adv-dot
@@ -32,6 +33,8 @@
         cljr-splice-sexp-killing-backward
         cljr-thread-first-all
         cljr-unwind
+        clojure-backward-logical-sexp
+        clojure-forward-logical-sexp
         clojure-toggle-keyword-string
         complete-symbol
         cua-replace-region
@@ -42,6 +45,7 @@
         dired-back-to-start-of-files
         down-list
         duplicate-current-line-or-region
+        electric-newline-and-maybe-indent
         end-of-buffer
         eval-and-replace
         eval-last-sexp
@@ -142,6 +146,7 @@
         sp-remove-active-pair-overlay
         sp-self-insert-command
         subtract-number-at-point
+        subword-left
         subword-right
         tagedit-forward-slurp-tag
         tagedit-insert-dot
@@ -178,6 +183,8 @@
         beginning-of-buffer
         cider-eval-ns-form
         cleanup-buffer
+        clj-jump-to-other-file
+        custom-persp/emacs
         describe-key
         dired-toggle-read-only
         edebug-next-mode
@@ -192,6 +199,7 @@
         jump-between-source-and-test-files
         kill-this-buffer
         kmacro-end-or-call-macro
+        magit-copy-buffer-revision
         magit-status
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
