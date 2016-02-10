@@ -288,6 +288,15 @@ region-end is used."
          (snakified (snake-case current-word)))
     (replace-string current-word snakified nil beg end)))
 
+(defun kebab-current-word ()
+  (interactive)
+  (er/mark-word)
+  (let* ((beg (region-beginning))
+         (end (region-end))
+         (current-word (buffer-substring-no-properties beg end))
+         (kebabed (s-dashed-words current-word)))
+    (replace-string current-word kebabed nil beg end)))
+
 (defun transpose-params ()
   "Presumes that params are in the form (p, p, p) or {p, p, p} or [p, p, p]"
   (interactive)
