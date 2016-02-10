@@ -1,6 +1,7 @@
 ;; YAML
 (autoload 'yaml-mode "yaml-mode")
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("jsTestDriver\\.conf$" . yaml-mode))
 
 ;; Emacs lisp
@@ -68,7 +69,7 @@
 ;; Clojure
 (autoload 'clojure-mode "clojure-mode")
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("\\.cljc$" . clojure-mode))
 
 ;; SVG
