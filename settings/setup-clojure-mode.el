@@ -15,6 +15,9 @@
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
 
+(define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
+(define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
+
 (require 'core-async-mode)
 
 (add-hook 'clojure-mode-hook
