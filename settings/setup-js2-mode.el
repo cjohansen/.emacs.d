@@ -55,7 +55,8 @@
          (looking-at (regexp-quote close)))
     (forward-char (length close)))
 
-   ((js2-mode-inside-comment-or-string)
+   ((and (er--point-inside-string-p)
+         (er--point-is-in-comment-p))
     (funcall 'self-insert-command 1))
 
    (:else
@@ -153,6 +154,8 @@
 
 (define-key js2-mode-map (kbd "C-k") 'js2r-kill)
 
+(define-key js2-mode-map (kbd "M-j") (λ (join-line -1)))
+
 (comment ;; avoid confusing shorthands
  ;; Use lambda for anonymous functions
  (font-lock-add-keywords
@@ -172,7 +175,7 @@
 ;; add any symbols to a buffer-local var of acceptable global vars
 ;; Note that we also support the "symbol: true" way of specifying names via a hack (remove any ":true"
 ;; to make it look like a plain decl, and any ':false' are left behind so they'll effectively be ignored as
-;; you can;t have a symbol called "someName:false"
+;; you can't have a symbol called "someName:false"
 (add-hook 'js2-post-parse-callbacks
           (lambda ()
             (when (> (buffer-size) 0)
