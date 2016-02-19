@@ -32,7 +32,7 @@ If you want to use my settings straight out of the box, here are some things to 
 
  * The key bindings are optimized for a norwegian keyboard layout.
 
- * Start by reading up on all the cool stuff in key-bindings.el.
+ * Start by reading up on all the cool stuff in [key-bindings.el](settings/key-bindings.el).
 
  * You quit emacs with `C-x r q`, mnemonic *Really Quit*.
 
