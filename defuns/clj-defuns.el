@@ -10,11 +10,32 @@
     (s-replace "/src/" "/test/")
     (s-replace ".clj" "_test.clj")))
 
+(defun clj--src-file-name-from-cards (name)
+  (s-with name
+    (s-replace "/devcards/" "/src/")
+    (s-replace "_cards.clj" ".clj")))
+
+(defun clj--cards-file-name-from-src (name)
+  (s-with name
+    (s-replace "/src/" "/devcards/")
+    (s-replace ".clj" "_cards.clj")))
+
+(defun clj--is-test? (name)
+  (string-match-p "/test/" name))
+
+(defun clj--is-card? (name)
+  (string-match-p "/devcards/" name))
+
+(defun clj--is-component? (name)
+  (string-match-p "/components/" name))
+
 (defun clj-other-file-name ()
   (let ((name (buffer-file-name)))
-    (if (string-match-p "/test/" name)
-        (clj--src-file-name-from-test name)
-      (clj--test-file-name-from-src name))))
+    (cond
+     ((clj--is-test? name) (clj--src-file-name-from-test name))
+     ((clj--is-card? name) (clj--src-file-name-from-cards name))
+     ((clj--is-component? name) (clj--cards-file-name-from-src name))
+     (:else (clj--test-file-name-from-src name)))))
 
 (defun clj-find-alternative-name (file)
   (cond

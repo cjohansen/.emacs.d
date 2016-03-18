@@ -18,6 +18,8 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
+(setq cider-pprint-fn 'pprint)
+
 (require 'core-async-mode)
 
 (defun enable-clojure-mode-stuff ()
@@ -88,7 +90,22 @@
   (d/small 1)
   (d/span 1)
   (d/strong 1)
-  (d/ul 1))
+  (d/ul 1)
+  (d/svg 1)
+
+  ;; Hafslund specifics
+  (e/prose 1)
+  (e/value 1)
+  (e/section 1)
+  (e/section-prose 1)
+  (e/page 1))
+
+;; Don't warn me about the dangers of clj-refactor, fire the missiles!
+(setq cljr-warn-on-eval nil)
+
+;; Use figwheel for cljs repl
+
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; Indent and highlight more commands
 (put-clojure-indent 'match 'defun)
@@ -199,8 +216,64 @@
         ("walk" . "clojure.walk")
         ("zip"  . "clojure.zip")
         ("time" . "clj-time.core")
-        ("log"  . "taoensso.timbre")
+        ("log"  . "clojure.tools.logging")
         ("json" . "cheshire.core")))
+
+;; refer all from expectations
+
+(setq cljr-expectations-test-declaration "[expectations :refer :all]")
+
+;; Add requires to blank devcards files
+
+(defun cljr--find-source-ns-of-devcard-ns (test-ns test-file)
+  (let* ((ns-chunks (split-string test-ns "[.]" t))
+         (test-name (car (last ns-chunks)))
+         (src-dir-name (s-replace "devcards/" "src/" (file-name-directory test-file)))
+         (replace-underscore (-partial 's-replace "_" "-"))
+         (src-ns (car (--filter (or (s-prefix-p it test-name)
+                                    (s-suffix-p it test-name))
+                                (-map (lambda (file-name)
+                                        (funcall replace-underscore
+                                                 (file-name-sans-extension file-name)))
+                                      (directory-files src-dir-name))))))
+    (when src-ns
+      (mapconcat 'identity (append (butlast ns-chunks) (list src-ns)) "."))))
+
+(defun clj--find-devcards-component-name ()
+  (or
+   (ignore-errors
+     (with-current-buffer
+         (find-file-noselect (clj--src-file-name-from-cards (buffer-file-name)))
+       (save-excursion
+         (goto-char (point-max))
+         (search-backward "defcomponent ")
+         (clojure-forward-logical-sexp)
+         (skip-syntax-forward " ")
+         (let ((beg (point))
+               (end (progn (re-search-forward "\\w+")
+                           (point))))
+           (buffer-substring-no-properties beg end)))))
+   ""))
+
+(defun cljr--add-card-declarations ()
+  (save-excursion
+    (let* ((ns (clojure-find-ns))
+           (source-ns (cljr--find-source-ns-of-devcard-ns ns (buffer-file-name))))
+      (cljr--insert-in-ns ":require")
+      (when source-ns
+        (insert "[" source-ns " :refer [" (clj--find-devcards-component-name) "]]"))
+      (cljr--insert-in-ns ":require")
+      (insert "[devcards.core :refer-macros [defcard]]"))
+    (indent-region (point-min) (point-max))))
+
+(defadvice cljr--add-ns-if-blank-clj-file (around add-devcards activate)
+  (ignore-errors
+    (when (and cljr-add-ns-to-blank-clj-files
+               (cljr--clojure-ish-filename-p (buffer-file-name))
+               (= (point-min) (point-max)))
+      ad-do-it
+      (when (clj--is-card? (buffer-file-name))
+        (cljr--add-card-declarations)))))
 
 ;; Set up linting of clojure code with eastwood
 
@@ -210,9 +283,10 @@
 (require 'flycheck-clojure)
 
 (defun my-cider-mode-enable-flycheck ()
-  (when (and (s-ends-with-p ".clj" (buffer-file-name))
-             (not (s-ends-with-p "/dev/user.clj" (buffer-file-name))))
-    (flycheck-mode 1)))
+  ;; (when (and (s-ends-with-p ".clj" (buffer-file-name))
+  ;;            (not (s-ends-with-p "/dev/user.clj" (buffer-file-name))))
+  ;;   (flycheck-mode 1))
+  )
 
 (add-hook 'cider-mode-hook 'my-cider-mode-enable-flycheck)
 
