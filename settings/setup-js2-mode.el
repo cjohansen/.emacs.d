@@ -106,6 +106,7 @@
         (looking-at "} catch ")
         (looking-at "} else ")
         (looking-at "export")
+        (looking-at "[^ ]:")
         (looking-at "[^ ]+("))))
 
 (defun js2r--comma-unless (delimiter)
