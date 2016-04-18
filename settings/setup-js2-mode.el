@@ -129,6 +129,7 @@
 (js2r--setup-wrapping-pair "[" "]")
 (js2r--setup-wrapping-pair "\"" "\"")
 (js2r--setup-wrapping-pair "'" "'")
+(js2r--setup-wrapping-pair "`" "`")
 
 ;;
 
