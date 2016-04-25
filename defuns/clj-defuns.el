@@ -26,15 +26,15 @@
 (defun clj--is-card? (name)
   (string-match-p "/devcards/" name))
 
-(defun clj--is-component? (name)
-  (string-match-p "/components/" name))
+(defun clj--is-ui? (name)
+  (string-match-p "/ui/" name))
 
 (defun clj-other-file-name ()
   (let ((name (buffer-file-name)))
     (cond
      ((clj--is-test? name) (clj--src-file-name-from-test name))
      ((clj--is-card? name) (clj--src-file-name-from-cards name))
-     ((clj--is-component? name) (clj--cards-file-name-from-src name))
+     ((clj--is-ui? name) (clj--cards-file-name-from-src name))
      (:else (clj--test-file-name-from-src name)))))
 
 (defun clj-find-alternative-name (file)
