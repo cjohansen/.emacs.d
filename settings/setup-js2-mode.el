@@ -103,6 +103,7 @@
         (looking-at "for ")
         (looking-at "while ")
         (looking-at "try ")
+        (looking-at "class ")
         (looking-at "} catch ")
         (looking-at "} else ")
         (looking-at "export")
@@ -121,8 +122,8 @@
    ((js2-object-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-object-prop-node-p (js2-node-at-point)) (js2r--comma-unless "}"))
    ((js2-call-node-p (js2-node-at-point)) (js2r--comma-unless ")"))
-   ((js2r--does-not-need-semi) "")
-   (:else ";")))
+   ;;((js2r--does-not-need-semi) "")
+   (:else "")))
 
 (js2r--setup-wrapping-pair "(" ")")
 (js2r--setup-wrapping-pair "{" "}")
