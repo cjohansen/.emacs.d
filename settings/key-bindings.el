@@ -184,6 +184,7 @@
 
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
+(global-set-key (kbd "M-s-e") 'eval-and-replace)
 
 ;; Navigation bindings
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
@@ -325,6 +326,7 @@
 (global-unset-key (kbd "C-x C-o")) ;; which used to be delete-blank-lines (also bound to C-c C-<return>)
 (global-set-key (kbd "C-x C-o ja") (ffip-create-pattern-file-finder "*.java"))
 (global-set-key (kbd "C-x C-o js") (ffip-create-pattern-file-finder "*.js"))
+(global-set-key (kbd "C-x C-o jn") (ffip-create-pattern-file-finder "*.json"))
 (global-set-key (kbd "C-x C-o ht") (ffip-create-pattern-file-finder "*.html"))
 (global-set-key (kbd "C-x C-o jp") (ffip-create-pattern-file-finder "*.jsp"))
 (global-set-key (kbd "C-x C-o cs") (ffip-create-pattern-file-finder "*.css"))
@@ -345,9 +347,12 @@
 (global-set-key (kbd "C-x C-o gr") (ffip-create-pattern-file-finder "*.groovy"))
 (global-set-key (kbd "C-x C-o ga") (ffip-create-pattern-file-finder "*.gradle"))
 (global-set-key (kbd "C-x C-o sc") (ffip-create-pattern-file-finder "*.scala"))
+(global-set-key (kbd "C-x C-o ss") (ffip-create-pattern-file-finder "*.scss"))
 (global-set-key (kbd "C-x C-o co") (ffip-create-pattern-file-finder "*.conf"))
 (global-set-key (kbd "C-x C-o j2") (ffip-create-pattern-file-finder "*.j2"))
 (global-set-key (kbd "C-x C-o sh") (ffip-create-pattern-file-finder "*.sh"))
+(global-set-key (kbd "C-x C-o ic") (ffip-create-pattern-file-finder "*.ico"))
+(global-set-key (kbd "C-x C-o sv") (ffip-create-pattern-file-finder "*.svg"))
 (global-set-key (kbd "C-x C-o !") (ffip-create-pattern-file-finder "*"))
 
 ;; View occurrence in occur mode

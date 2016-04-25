@@ -71,6 +71,7 @@
      flycheck-pos-tip
      flycheck-clojure
      flx
+     f
      flx-ido
      dired-details
      css-eldoc

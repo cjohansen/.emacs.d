@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: cljsbuild
+# key: cljsbuild
+# --
+:cljsbuild {:builds [{:source-paths ["src" "dev"]
+                      :compiler {:output-to "target/classes/public/app.js"
+                      :output-dir "target/classes/public/out"
+                      :optimizations :none
+                      :recompile-dependents true
+                      :source-map true}}]}

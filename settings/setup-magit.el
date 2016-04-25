@@ -10,7 +10,17 @@
 
 (set-default 'magit-unstage-all-confirm nil)
 (set-default 'magit-stage-all-confirm nil)
+(set-default 'magit-push-always-verify nil)
 (set-default 'magit-revert-buffers 'silent)
+
+;; move cursor into position when entering commit message
+
+(defun my/magit-cursor-fix ()
+  (beginning-of-buffer)
+  (when (looking-at "#")
+    (forward-line 2)))
+
+(add-hook 'git-commit-mode-hook 'my/magit-cursor-fix)
 
 ;; full screen vc-annotate
 

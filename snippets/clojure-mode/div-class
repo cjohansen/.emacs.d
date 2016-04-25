@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: div-class
+# key: d.
+# --
+(d/div {:className "$1"}$0)

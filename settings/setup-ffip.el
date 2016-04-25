@@ -60,6 +60,7 @@
                  "/vendor"
                  ".cask"
                  "/generated"
+                 "/resources/public/js/compiled"
                  "/.repl"
                  "/.tmp")))
 
