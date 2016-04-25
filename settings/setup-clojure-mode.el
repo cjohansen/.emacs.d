@@ -98,7 +98,15 @@
   (e/value 1)
   (e/section 1)
   (e/section-prose 1)
-  (e/page 1))
+  (e/page 1)
+  (e/instructions 1)
+  (l/padded 1)
+  (l/bubble-grid 1)
+  (l/slider 1)
+  (l/bottom-fixed 1)
+  (c/box 1)
+  (c/group 1)
+  (c/list 1))
 
 ;; Don't warn me about the dangers of clj-refactor, fire the missiles!
 (setq cljr-warn-on-eval nil)

@@ -457,7 +457,7 @@
 (define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gatekeeper)
 
 (defun js2-hafslund-settings ()
-  (when (string-match-p "projects/hafslund" (buffer-file-name))
+  (when (string-match-p "projects/hafslund/link-app" (buffer-file-name))
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)
     (--each '("angular" "moment" "_") (add-to-list 'js2-additional-externs it))
@@ -477,6 +477,14 @@
 
 (project-specifics "projects/hafslund/cljs-app"
   (set (make-local-variable 'sgml-basic-offset) 2))
+
+(defun custom-persp/cljs-app ()
+  (interactive)
+  (custom-persp "cljs-app"
+                (find-file "~/projects/hafslund/cljs-app/project.clj")))
+
+(define-key persp-mode-map (kbd "C-x p h") 'custom-persp/cljs-app)
+
 
 ;; Parens of the Dead
 
