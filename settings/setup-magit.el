@@ -8,10 +8,10 @@
 
 ;; don't prompt me
 
-(set-default 'magit-unstage-all-confirm nil)
-(set-default 'magit-stage-all-confirm nil)
 (set-default 'magit-push-always-verify nil)
 (set-default 'magit-revert-buffers 'silent)
+(set-default 'magit-no-confirm '(stage-all-changes
+                                 unstage-all-changes))
 
 ;; move cursor into position when entering commit message
 
