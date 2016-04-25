@@ -60,6 +60,9 @@
 (defun init--install-packages ()
   (packages-install
    '(magit
+     edn
+     inflections
+     hydra
      paredit
      move-text
      gist
