@@ -1,4 +1,5 @@
 (require 'flycheck)
+(require 'flycheck-pos-tip)
 
 (defun magnars/adjust-flycheck-automatic-syntax-eagerness ()
   "Adjust how often we check for errors based on if there are any.
