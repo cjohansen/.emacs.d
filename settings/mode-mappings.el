@@ -75,12 +75,6 @@
 (autoload 'ensime-scala-mode-hook "ensime")
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-;; Clojure
-(autoload 'clojure-mode "clojure-mode")
-(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs$" . clojurescript-mode))
-(add-to-list 'auto-mode-alist '("\\.cljc$" . clojure-mode))
-
 ;; SVG
 (add-to-list 'auto-mode-alist '("\\.svg$" . image-mode))
 

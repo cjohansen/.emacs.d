@@ -355,6 +355,9 @@
 (global-set-key (kbd "C-x C-o sv") (ffip-create-pattern-file-finder "*.svg"))
 (global-set-key (kbd "C-x C-o !") (ffip-create-pattern-file-finder "*"))
 
+;; Set macro counters
+(global-set-key (kbd "<f5>") 'kmacro-set-counter)
+
 ;; View occurrence in occur mode
 (define-key occur-mode-map (kbd "v") 'occur-mode-display-occurrence)
 (define-key occur-mode-map (kbd "n") 'next-line)

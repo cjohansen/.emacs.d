@@ -61,9 +61,11 @@
 
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
+(define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
 (define-key cider-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
+(define-key cider-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
 
 (defun cider-repl-command (cmd)
   (set-buffer (cider-current-repl-buffer))
