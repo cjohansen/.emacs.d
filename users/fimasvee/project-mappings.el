@@ -243,7 +243,7 @@
   (custom-persp "travel"
                 (find-file "~/projects/finn-reise/travel-app/")))
 
-(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/travel)
+;;(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/travel)
 
 (require 'travel-mode)
 
@@ -413,7 +413,7 @@
 (define-key persp-mode-map (kbd "C-x p n") 'custom-persp/no-adventur)
 
 (project-specifics "no-adventur"
-  (ffip-local-patterns "*.clj" "*.cljs" "*.css" "*.edn")
+  (ffip-local-patterns "*.clj" "*.cljs" "*.cljc" "*.css" "*.edn")
   (ffip-local-excludes "target"))
 
 ;; Adventur
@@ -447,14 +447,47 @@
 (project-specifics "projects/what-the-emacsd/posts"
   (buffer-local-set-key (kbd "C-c C-c") 'what-the-emacsd-publish))
 
-;; Hafslund
+;; MUME
 
-(defun custom-persp/gatekeeper ()
+(project-specifics "projects/mume-scripts/scripts"
+  (when (s-ends-with? ".txt" (buffer-file-name))
+    (require 'jmc-mode)
+    (jmc-mode)))
+
+;; Norled
+
+(defun custom-persp/norled-vessel ()
   (interactive)
-  (custom-persp "gatekeeper"
-                (find-file "~/projects/hafslund/link-gatekeeper/project.clj")))
+  (custom-persp "vessel"
+                (find-file "~/projects/norled/vessel/project.clj")))
 
-(define-key persp-mode-map (kbd "C-x p g") 'custom-persp/gatekeeper)
+(defun reload-norled-vessel ()
+  (save-buffer)
+  (cider-load-buffer)
+  (with-current-buffer "*cider-repl vessel*"
+    (cider-nrepl-sync-request:eval "(refresh-curators)" "norled.dev")))
+
+(defun setup-vessel-project-specifics ()
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css")
+  (f6 (reload-norled-vessel)))
+
+(project-specifics "/vessel/" (setup-vessel-project-specifics))
+
+(define-key persp-mode-map (kbd "C-x p v") 'custom-persp/norled-vessel)
+
+(defun custom-persp/norled-tic-tac ()
+  (interactive)
+  (custom-persp "tic-tac"
+                (find-file "~/projects/norled/tic-tac/project.clj")))
+
+(defun setup-tic-tac-project-specifics ()
+  (ffip-local-patterns "*.cljs" "*.edn" "*.css"))
+
+(project-specifics "/tic-tac/" (setup-tic-tac-project-specifics))
+
+(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/norled-tic-tac)
+
+;; Hafslund
 
 (defun js2-hafslund-settings ()
   (when (string-match-p "projects/hafslund/link-app" (buffer-file-name))
@@ -470,21 +503,13 @@
   (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.sh"))
 
 (project-specifics "/cljs-app/"
-  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.sh"))
+  (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css" "*.sh" "*.html"))
 
 (project-specifics "projects/hafslund/link-app"
   (set (make-local-variable 'sgml-basic-offset) 4))
 
 (project-specifics "projects/hafslund/cljs-app"
   (set (make-local-variable 'sgml-basic-offset) 2))
-
-(defun custom-persp/cljs-app ()
-  (interactive)
-  (custom-persp "cljs-app"
-                (find-file "~/projects/hafslund/cljs-app/project.clj")))
-
-(define-key persp-mode-map (kbd "C-x p h") 'custom-persp/cljs-app)
-
 
 ;; Parens of the Dead
 
@@ -508,7 +533,6 @@
 
 (defun custom-persp/org ()
   (interactive)
-  (custom-persp "org")
-  (find-file "~/Dropbox/org/"))
+  (custom-persp "org" (find-file "~/Dropbox/org/")))
 
 (define-key persp-mode-map (kbd "C-<f6>") 'custom-persp/org)
