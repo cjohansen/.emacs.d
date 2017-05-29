@@ -54,6 +54,7 @@
                  "/bower_components"
                  "/target"
                  "/out"
+                 "/tests-out"
                  "/overlays"
                  "/build"
                  "/dist"
