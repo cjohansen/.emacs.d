@@ -47,6 +47,7 @@
         duplicate-current-line-or-region
         electric-newline-and-maybe-indent
         end-of-buffer
+        end-of-defun
         eval-and-replace
         eval-last-sexp
         fill-paragraph
@@ -58,6 +59,8 @@
         hippie-expand-no-case-fold
         html-paragraph
         html-wrap-in-tag
+        indent-for-tab-command
+        insert-parentheses
         insert-postfix-whitespace
         js2-beginning-of-line
         js2-end-of-line
@@ -75,6 +78,7 @@
         kill-sexp
         live-cycle-clj-coll
         magit-stage-item
+        markdown-cycle
         markdown-enter-key
         markdown-exdent-or-delete
         markdown-insert-link
@@ -85,6 +89,7 @@
         move-to-window-line-top-bottom
         new-line-above
         new-line-dwim
+        nxml-electric-slash
         open-line-above
         open-line-and-indent
         open-line-below
@@ -96,6 +101,7 @@
         org-metaright
         org-return-indent
         org-self-insert-command
+        org-shiftleft
         org-shiftright
         org-yank
         orgtbl-self-insert-command
@@ -135,6 +141,7 @@
         paredit-wrap-round-from-behind
         paredit-wrap-square
         quoted-insert
+        reverse-region
         save-region-or-current-line
         sgml-delete-tag
         sgml-maybe-name-self
@@ -201,6 +208,7 @@
         kmacro-end-or-call-macro
         magit-copy-buffer-revision
         magit-status
+        make-frame
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         multiple-cursors-mode
@@ -212,4 +220,5 @@
         wgrep-change-to-wgrep-mode
         wgrep-finish-edit
         wgrep-save-all-buffers
+        yank-rectangle
         ))
