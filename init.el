@@ -67,6 +67,8 @@
 (defun init--install-packages ()
   (packages-install
    '(magit
+     shell-command
+     eproject
      edn
      inflections
      hydra
@@ -105,7 +107,11 @@
      yesql-ghosts
      string-edit
      textile-mode
-     editorconfig)))
+     editorconfig
+     diminish
+     zoom-frm
+     smooth-scrolling
+     undo-tree)))
 
 (condition-case nil
     (init--install-packages)
@@ -228,7 +234,7 @@
 (require 'key-bindings)
 
 ;; Misc
-(require 'project-archetypes)
+;(require 'project-archetypes)
 (require 'my-misc)
 (when is-mac (require 'mac))
 
