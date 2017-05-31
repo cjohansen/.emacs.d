@@ -16,3 +16,6 @@ site-lisp/adventur-mode
 /var/
 /.sx/
 /ensime/
+/history
+/ido.last
+/recentf
