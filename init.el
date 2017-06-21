@@ -59,6 +59,7 @@
 (defun init--install-packages ()
   (packages-install
    '(magit
+     wgrep
      edn
      inflections
      hydra
@@ -188,7 +189,6 @@
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
-(require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
 (require 'multifiles)
