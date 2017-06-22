@@ -459,7 +459,7 @@
 (defun custom-persp/norled-vessel ()
   (interactive)
   (custom-persp "vessel"
-                (find-file "~/projects/norled/vessel/project.clj")))
+                (find-file "~/work/trip-trap/project.clj")))
 
 (defun reload-norled-vessel ()
   (save-buffer)
@@ -471,14 +471,14 @@
   (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css")
   (f6 (reload-norled-vessel)))
 
-(project-specifics "/vessel/" (setup-vessel-project-specifics))
+(project-specifics "/trip-trap/" (setup-vessel-project-specifics))
 
 (define-key persp-mode-map (kbd "C-x p v") 'custom-persp/norled-vessel)
 
 (defun custom-persp/norled-tic-tac ()
   (interactive)
   (custom-persp "tic-tac"
-                (find-file "~/projects/norled/tic-tac/project.clj")))
+                (find-file "~/work/tic-tac/project.clj")))
 
 (defun setup-tic-tac-project-specifics ()
   (ffip-local-patterns "*.cljs" "*.edn" "*.css"))

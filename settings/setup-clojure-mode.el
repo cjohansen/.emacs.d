@@ -110,6 +110,7 @@
   (e/instructions 1)
   (e/setup-header 1)
   (l/padded 1)
+  (l/lightly-padded 1)
   (l/padded-all 1)
   (l/bubble-grid 1)
   (l/slider 1)
