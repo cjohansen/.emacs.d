@@ -5,6 +5,11 @@
 
 (package-initialize)
 
+;; Remove security vulnerability
+(eval-after-load "enriched"
+  '(defun enriched-decode-display-prop (start end &optional param)
+     (list start end)))
+
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
