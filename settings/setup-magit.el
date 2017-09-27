@@ -39,4 +39,6 @@
 
      (define-key vc-annotate-mode-map (kbd "q") 'vc-annotate-quit)))
 
+(set-default 'magit-diff-refine-hunk t)
+
 (provide 'setup-magit)
