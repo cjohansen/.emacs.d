@@ -86,22 +86,22 @@
 
 (defun custom-persp/oiiku ()
   (interactive)
-  (custom-persp "oiiku" (find-file "~/projects/oiiku/")))
+  (custom-persp "oiiku" (find-file "~/work/oiiku/")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oiiku)
 
 (defun js2-oiiku-settings ()
-  (when (string-match-p "projects/oiiku" (buffer-file-name))
+  (when (string-match-p "work/oiiku" (buffer-file-name))
     (setq js2-additional-externs '("angular" "cull" "dome" "app" "expect" "it" "inject" "beforeEach" "describe"))
     (make-variable-buffer-local 'js2-basic-offset)
     (setq js2-basic-offset 4)))
 
 (add-hook 'js2-mode-hook 'js2-oiiku-settings)
 
-(project-specifics "projects/oiiku"
+(project-specifics "work/oiiku"
   (set (make-local-variable 'sgml-basic-offset) 2))
 
-(project-specifics "projects/oiiku"
+(project-specifics "work/oiiku"
   (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html")
   (ffip-local-excludes "target"))
 
@@ -135,7 +135,7 @@
    :cwd "~/data/datomic-free-0.8.4218"
    :path '("~/data/datomic-free-0.8.4218/bin")
    :command "transactor"
-   :args '("../../projects/oiiku/oiiku-central-api/oiiku-central-api-server/config/datomic-transactor-free.properties")
+   :args '("../../work/oiiku/oiiku-central-api/oiiku-central-api-server/config/datomic-transactor-free.properties")
    :tags '(oiiku datomic pillar))
 
  (prodigy-define-service
@@ -143,7 +143,7 @@
    :cwd "~/data/datomic-free-0.8.4218"
    :path '("~/data/datomic-free-0.8.4218/bin")
    :command "transactor"
-   :args '("../../projects/oiiku/oiiku-badges-app/config/datomic-transactor-free.properties")
+   :args '("../../work/oiiku/oiiku-badges-app/config/datomic-transactor-free.properties")
    :tags '(oiiku datomic pillar))
 
  (prodigy-define-service
@@ -151,7 +151,7 @@
    :cwd "~/data/datomic-free-0.8.4218"
    :path '("~/data/datomic-free-0.8.4218/bin")
    :command "transactor"
-   :args '("../../projects/oiiku/oiiku-screen-admin-app/config/datomic-transactor-free.properties")
+   :args '("../../work/oiiku/oiiku-screen-admin-app/config/datomic-transactor-free.properties")
    :tags '(oiiku datomic pillar))
 
  (prodigy-define-service
@@ -167,71 +167,71 @@
 
  (prodigy-define-service
    :name "oiiku-central-api"
-   :cwd "~/projects/oiiku/oiiku-central-api/oiiku-central-api-server/"
+   :cwd "~/work/oiiku/oiiku-central-api/oiiku-central-api-server/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku pillar))
 
  (prodigy-define-service
    :name "oiiku-sso"
-   :cwd "~/projects/oiiku/oiiku-sso/"
+   :cwd "~/work/oiiku/oiiku-sso/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku pillar))
 
  (prodigy-define-service
    :name "oiiku-event-admin"
-   :cwd "~/projects/oiiku/oiiku-event-admin/"
+   :cwd "~/work/oiiku/oiiku-event-admin/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku pillar))
 
  (prodigy-define-service
    :name "oiiku-attendants-app"
-   :cwd "~/projects/oiiku/oiiku-attendants-app/"
+   :cwd "~/work/oiiku/oiiku-attendants-app/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku pillar))
 
  (prodigy-define-service
    :name "oiiku-messages-app"
-   :cwd "~/projects/oiiku/oiiku-messages-app/"
+   :cwd "~/work/oiiku/oiiku-messages-app/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku messages))
 
  (prodigy-define-service
    :name "oiiku-messages-gateway"
-   :cwd "~/projects/oiiku/oiiku-messages-gateway/"
+   :cwd "~/work/oiiku/oiiku-messages-gateway/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku messages))
 
  (prodigy-define-service
    :name "oiiku-messages-dummy"
-   :cwd "~/projects/oiiku/oiiku-messages-dummy/"
-   :path '("~/projects/oiiku/oiiku-messages-dummy/")
+   :cwd "~/work/oiiku/oiiku-messages-dummy/"
+   :path '("~/work/oiiku/oiiku-messages-dummy/")
    :command "gradlew"
    :args '("run")
    :tags '(oiiku messages))
 
  (prodigy-define-service
    :name "oiiku-badges-app"
-   :cwd "~/projects/oiiku/oiiku-badges-app/"
+   :cwd "~/work/oiiku/oiiku-badges-app/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku))
 
  (prodigy-define-service
    :name "oiiku-invitations-app"
-   :cwd "~/projects/oiiku/oiiku-invitations-app/"
+   :cwd "~/work/oiiku/oiiku-invitations-app/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku))
 
  (prodigy-define-service
    :name "oiiku-screen-admin-app"
-   :cwd "~/projects/oiiku/oiiku-screen-admin-app/"
+   :cwd "~/work/oiiku/oiiku-screen-admin-app/"
    :command "lein"
    :args '("trampoline" "ring" "server-headless")
    :tags '(oiiku)))
@@ -456,24 +456,24 @@
 
 ;; Norled
 
-(defun custom-persp/norled-vessel ()
+(defun custom-persp/norled-trip-trap ()
   (interactive)
-  (custom-persp "vessel"
+  (custom-persp "trip-trap"
                 (find-file "~/work/trip-trap/project.clj")))
 
-(defun reload-norled-vessel ()
+(defun reload-norled-trip-trap ()
   (save-buffer)
   (cider-load-buffer)
-  (with-current-buffer "*cider-repl vessel*"
-    (cider-nrepl-sync-request:eval "(refresh-curators)" "norled.dev")))
+  (with-current-buffer "*cider-repl trip-trap*"
+    (cider-nrepl-sync-request:eval "(refresh-curators)" nil "norled.dev")))
 
-(defun setup-vessel-project-specifics ()
+(defun setup-trip-trap-project-specifics ()
   (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css")
-  (f6 (reload-norled-vessel)))
+  (f6 (reload-norled-trip-trap)))
 
-(project-specifics "/trip-trap/" (setup-vessel-project-specifics))
+(project-specifics "/trip-trap/" (setup-trip-trap-project-specifics))
 
-(define-key persp-mode-map (kbd "C-x p v") 'custom-persp/norled-vessel)
+(define-key persp-mode-map (kbd "C-x p v") 'custom-persp/norled-trip-trap)
 
 (defun custom-persp/norled-tic-tac ()
   (interactive)
