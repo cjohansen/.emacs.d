@@ -102,6 +102,7 @@
      cider
      yesql-ghosts
      string-edit
+     beginend
      )))
 
 (condition-case nil
@@ -138,6 +139,7 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+(beginend-global-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
