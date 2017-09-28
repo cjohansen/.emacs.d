@@ -174,6 +174,7 @@
         touch-buffer-file
         transpose-params
         transpose-sexps
+        wdired-capitalize-word
         wdired-next-line
         wdired-previous-line
         wrap-region-trigger
@@ -189,6 +190,7 @@
         adv-insert-new-number
         beginning-of-buffer
         cider-eval-ns-form
+        cider-macroexpand-1
         cleanup-buffer
         clj-jump-to-other-file
         custom-persp/emacs
