@@ -99,6 +99,7 @@
      smartparens
      ido-vertical-mode
      ido-at-point
+     js2-refactor
      simple-httpd
      guide-key
      nodejs-repl
