@@ -41,6 +41,7 @@
 (require 'js2-mode)
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 (require 'js2-imenu-extras)
 (js2-imenu-extras-setup)
