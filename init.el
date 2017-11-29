@@ -10,6 +10,13 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+(package-initialize)
+
+;; Remove security vulnerability
+(eval-after-load "enriched"
+  '(defun enriched-decode-display-prop (start end &optional param)
+     (list start end)))
+
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
@@ -69,6 +76,7 @@
    '(magit
      shell-command
      eproject
+     wgrep
      edn
      inflections
      hydra
@@ -111,6 +119,7 @@
      diminish
      zoom-frm
      smooth-scrolling
+     beginend
      undo-tree)))
 
 (condition-case nil
@@ -139,8 +148,8 @@
 (eval-after-load 'org '(require 'setup-org))
 (eval-after-load 'dired '(require 'setup-dired))
 (eval-after-load 'magit '(require 'setup-magit))
-(eval-after-load 'grep '(require 'setup-rgrep))
 (eval-after-load 'shell '(require 'setup-shell))
+(require 'setup-rgrep)
 (require 'setup-hippie)
 (require 'setup-yasnippet)
 (require 'setup-perspective)
@@ -148,6 +157,7 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 (require 'setup-editorconfig)
+(beginend-global-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
@@ -208,7 +218,6 @@
 (require 'delsel)
 (require 'jump-char)
 (require 'eproject)
-(require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
 (require 'multifiles)

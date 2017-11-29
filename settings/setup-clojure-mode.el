@@ -123,13 +123,41 @@
   (d/strong 1)
   (d/ul 1)
   (d/svg 1)
-
-  ;; Hafslund specifics
+  (d/g 1)
+  (d/table 1)
+  (d/tbody 1)
+  (d/thead 1)
+  (d/tr 1)
+  (d/td 1)
+  (d/linearGradient 1)
+  (dd/measure! 2)
+  (dog/measure! 2)
   (e/prose 1)
   (e/value 1)
   (e/section 1)
   (e/section-prose 1)
-  (e/page 1))
+  (e/section-header 1)
+  (e/page 1)
+  (e/instructions 1)
+  (e/setup-header 1)
+  (l/padded 1)
+  (l/lightly-padded 1)
+  (l/padded-all 1)
+  (l/bubble-grid 1)
+  (l/slider 1)
+  (l/bottom-fixed 1)
+  (l/centered 1)
+  (c/box 1)
+  (c/square 1)
+  (c/box-with-subsection 1)
+  (c/embossed-section 1)
+  (c/embossed 1)
+  (c/group 1)
+  (c/list 1)
+  (c/split 1)
+
+  (add-watch 2)
+  (async 1))
 
 ;; Don't warn me about the dangers of clj-refactor, fire the missiles!
 (setq cljr-warn-on-eval nil)
@@ -294,15 +322,19 @@
       (when source-ns
         (insert "[" source-ns " :refer [" (clj--find-devcards-component-name) "]]"))
       (cljr--insert-in-ns ":require")
-      (insert "[devcards.core :refer-macros [defcard]]"))
+      (insert (if (cljr--project-depends-on-p "reagent")
+                  "[devcards.core :refer-macros [defcard-rg]]"
+                "[devcards.core :refer-macros [defcard]]")))
     (indent-region (point-min) (point-max))))
 
-(defadvice cljr--add-ns-if-blank-clj-file (around add-devcards activate)
+(defun cljr--add-ns-if-blank-clj-file ()
   (ignore-errors
     (when (and cljr-add-ns-to-blank-clj-files
                (cljr--clojure-ish-filename-p (buffer-file-name))
                (= (point-min) (point-max)))
-      ad-do-it
+      (insert (format "(ns %s)\n\n" (clojure-expected-ns)))
+      (when (cljr--in-tests-p)
+        (cljr--add-test-declarations))
       (when (clj--is-card? (buffer-file-name))
         (cljr--add-card-declarations)))))
 

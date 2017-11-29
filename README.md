@@ -19,9 +19,6 @@ I use Cocoa Emacs, installed like this:
 
     brew install emacs --cocoa
 
-To open it with Alfred or Quicksilver, you have to copy `Emacs.app` into
-`/Applications` instead of the symlink that brew places there.
-
 ## Tips for using these emacs settings
 
 If you want to use my settings straight out of the box, here are some things to note:

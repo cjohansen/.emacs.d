@@ -8,10 +8,10 @@
 
 ;; don't prompt me
 
-(set-default 'magit-unstage-all-confirm nil)
-(set-default 'magit-stage-all-confirm nil)
 (set-default 'magit-push-always-verify nil)
 (set-default 'magit-revert-buffers 'silent)
+(set-default 'magit-no-confirm '(stage-all-changes
+                                 unstage-all-changes))
 
 ;; move cursor into position when entering commit message
 
@@ -47,5 +47,6 @@
     (forward-line 1)))
 
 (add-hook 'git-commit-mode-hook 'my/magit-cursor-fix)
+(set-default 'magit-diff-refine-hunk t)
 
 (provide 'setup-magit)

@@ -48,6 +48,7 @@
         electric-newline-and-maybe-indent
         end-of-buffer
         end-of-visual-line
+        end-of-defun
         eval-and-replace
         eval-last-sexp
         fill-paragraph
@@ -59,6 +60,8 @@
         hippie-expand-no-case-fold
         html-paragraph
         html-wrap-in-tag
+        indent-for-tab-command
+        insert-parentheses
         insert-postfix-whitespace
         isearch-forward-use-region
         js2-beginning-of-line
@@ -77,6 +80,7 @@
         kill-sexp
         live-cycle-clj-coll
         magit-stage-item
+        markdown-cycle
         markdown-enter-key
         markdown-exdent-or-delete
         markdown-insert-link
@@ -87,6 +91,7 @@
         move-to-window-line-top-bottom
         new-line-above
         new-line-dwim
+        nxml-electric-slash
         open-line-above
         open-line-and-indent
         open-line-below
@@ -98,6 +103,7 @@
         org-metaright
         org-return-indent
         org-self-insert-command
+        org-shiftleft
         org-shiftright
         org-yank
         orgtbl-self-insert-command
@@ -139,6 +145,7 @@
         previous-error-no-select
         quoted-insert
         ruby-electric-brace
+        reverse-region
         save-region-or-current-line
         sgml-delete-tag
         sgml-maybe-name-self
@@ -173,7 +180,7 @@
         touch-buffer-file
         transpose-params
         transpose-sexps
-        undefined
+        wdired-capitalize-word
         wdired-next-line
         wdired-previous-line
         wrap-region-trigger
@@ -189,6 +196,7 @@
         adv-insert-new-number
         beginning-of-buffer
         cider-eval-ns-form
+        cider-macroexpand-1
         cleanup-buffer
         clj-jump-to-other-file
         custom-persp/emacs
@@ -212,6 +220,7 @@
         magit-copy-buffer-revision
         magit-status
         markdown-outdent-or-delete
+        make-frame
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         multiple-cursors-mode
@@ -227,4 +236,5 @@
         wgrep-change-to-wgrep-mode
         wgrep-finish-edit
         wgrep-save-all-buffers
+        yank-rectangle
         ))
