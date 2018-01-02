@@ -211,6 +211,3 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (back-to-indentation)
   (re-search-backward (s-concat "^" (s-repeat (current-column) " ") "[^ \t\r\n\v\f]"))
   (back-to-indentation))
-
-(f6 (goto-prev-line-with-same-indentation))
-(f7 (goto-next-line-with-same-indentation))
