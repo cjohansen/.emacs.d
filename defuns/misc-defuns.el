@@ -189,3 +189,16 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (let ((face (or (get-char-property pos 'read-face-name)
                   (get-char-property pos 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
+
+(defun goto-next-line-with-same-indentation ()
+  (interactive)
+  (back-to-indentation)
+  (re-search-forward (s-concat "^" (s-repeat (current-column) " ") "[^ \t\r\n\v\f]")
+                     nil nil (if (= 0 (current-column)) 2 1))
+  (back-to-indentation))
+
+(defun goto-prev-line-with-same-indentation ()
+  (interactive)
+  (back-to-indentation)
+  (re-search-backward (s-concat "^" (s-repeat (current-column) " ") "[^ \t\r\n\v\f]"))
+  (back-to-indentation))

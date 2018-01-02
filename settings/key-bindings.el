@@ -190,6 +190,8 @@
 (global-set-key (kbd "<end>") 'end-of-buffer)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "H-n") 'goto-next-line-with-same-indentation)
+(global-set-key (kbd "H-p") 'goto-prev-line-with-same-indentation)
 
 (global-set-key (kbd "M-<up>") 'smart-up)
 (global-set-key (kbd "M-<down>") 'smart-down)
@@ -216,9 +218,6 @@
 (global-set-key (kbd "C-S-p") (λ (ignore-errors (previous-line 5))))
 (global-set-key (kbd "C-S-f") (λ (ignore-errors (forward-char 5))))
 (global-set-key (kbd "C-S-b") (λ (ignore-errors (backward-char 5))))
-
-(global-set-key (kbd "H-*") 'beginning-of-buffer) ;; H-p
-(global-set-key (kbd "H-n") 'end-of-buffer)
 
 ;; Convenience on ThinkPad Keyboard: Use back/forward as pg up/down
 (global-set-key (kbd "<XF86Back>") 'scroll-down)
