@@ -120,7 +120,6 @@
      diminish
      zoom-frm
      smooth-scrolling
-     beginend
      undo-tree)))
 
 (condition-case nil
@@ -158,7 +157,6 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 (require 'setup-editorconfig)
-(beginend-global-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
