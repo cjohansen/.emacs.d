@@ -307,6 +307,15 @@
       (when (clj--is-card? (buffer-file-name))
         (cljr--add-card-declarations)))))
 
+(defun clojure-mode-indent-top-level-form ()
+  (interactive)
+  (save-excursion
+    (cljr--goto-toplevel)
+    (indent-region (point)
+                   (progn (paredit-forward) (point)))))
+
+(define-key clojure-mode-map (vector 'remap 'cleanup-buffer) 'clojure-mode-indent-top-level-form)
+
 ;; Set up linting of clojure code with eastwood
 
 ;; Make sure to add [acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
