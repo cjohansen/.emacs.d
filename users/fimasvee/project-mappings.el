@@ -7,6 +7,15 @@
 
 (define-key persp-mode-map (kbd "C-x p i") 'custom-persp/intelliadv)
 
+(defun cider-jack-in-adventur-server ()
+  (interactive)
+  (let ((cider-lein-parameters "with-profile +dev-server repl :headless"))
+    (cider-jack-in)))
+
+(add-hook 'clojure-mode-hook
+          (lambda ()
+            (define-key clojure-mode-map (kbd "C-c C-j M-j") 'cider-jack-in-adventur-server)))
+
 ;; Emacs Rocks
 
 (defun custom-persp/emacsrocks ()
@@ -408,7 +417,7 @@
 (defun custom-persp/no-adventur ()
   (interactive)
   (custom-persp "no-adventur"
-                (find-file "~/projects/no-adventur/")))
+                (find-file "~/projects/no-adventur/project.clj")))
 
 (define-key persp-mode-map (kbd "C-x p n") 'custom-persp/no-adventur)
 
@@ -465,7 +474,7 @@
   (save-buffer)
   (cider-load-buffer)
   (with-current-buffer "*cider-repl trip-trap*"
-    (cider-nrepl-sync-request:eval "(refresh-curators)" nil "norled.dev")))
+    (cider-nrepl-sync-request:eval "(refresh-curators)" "norled.dev")))
 
 (defun setup-trip-trap-project-specifics ()
   (ffip-local-patterns "*.cljs" "*.clj" "*.cljc" "*.edn" "*.css")

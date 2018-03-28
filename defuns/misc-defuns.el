@@ -197,8 +197,6 @@ Both PATTERN and CONTENTS are matched as regular expressions."
                   (get-char-property pos 'face))))
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
-;;
-
 (defun goto-next-line-with-same-indentation ()
   (interactive)
   (back-to-indentation)
