@@ -316,26 +316,33 @@
 
 (define-key clojure-mode-map (vector 'remap 'cleanup-buffer) 'clojure-mode-indent-top-level-form)
 
+(defun clojure-mode-paredit-wrap (pre post)
+  (unless (looking-back "[ #]" 1)
+    (insert " "))
+  (let ((beg (point))
+        (end nil))
+    (insert pre)
+    (save-excursion
+      (clojure-forward-logical-sexp 1)
+      (insert post)
+      (setq end (point)))
+    (indent-region beg end)))
+
 (defun clojure-mode-paredit-wrap-square ()
   (interactive)
-  (unless (looking-back " " 1)
-    (insert " "))
-  (insert "[")
-  (save-excursion
-    (clojure-forward-logical-sexp 1)
-    (insert "]")))
+  (clojure-mode-paredit-wrap "[" "]"))
 
 (defun clojure-mode-paredit-wrap-round ()
   (interactive)
-  (unless (looking-back " " 1)
-    (insert " "))
-  (insert "(")
-  (save-excursion
-    (clojure-forward-logical-sexp 1)
-    (insert ")")))
+  (clojure-mode-paredit-wrap "(" ")"))
+
+(defun clojure-mode-paredit-wrap-curly ()
+  (interactive)
+  (clojure-mode-paredit-wrap "{" "}"))
 
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-round) 'clojure-mode-paredit-wrap-round)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-square) 'clojure-mode-paredit-wrap-square)
+(define-key clojure-mode-map (vector 'remap 'paredit-wrap-curly) 'clojure-mode-paredit-wrap-curly)
 
 ;; Set up linting of clojure code with eastwood
 
