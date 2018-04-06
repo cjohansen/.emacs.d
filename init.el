@@ -178,6 +178,7 @@
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
+(require 'setup-go-mode)
 (eval-after-load 'js2-mode '(require 'setup-js2-mode))
 (eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
 (eval-after-load 'clojure-mode '(require 'setup-clojure-mode))
