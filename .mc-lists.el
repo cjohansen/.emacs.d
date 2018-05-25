@@ -47,8 +47,8 @@
         duplicate-current-line-or-region
         electric-newline-and-maybe-indent
         end-of-buffer
-        end-of-visual-line
         end-of-defun
+        end-of-visual-line
         eval-and-replace
         eval-last-sexp
         fill-paragraph
@@ -144,8 +144,8 @@
         paredit-wrap-square
         previous-error-no-select
         quoted-insert
-        ruby-electric-brace
         reverse-region
+        ruby-electric-brace
         save-region-or-current-line
         sgml-delete-tag
         sgml-maybe-name-self
@@ -199,6 +199,7 @@
         cider-macroexpand-1
         cleanup-buffer
         clj-jump-to-other-file
+        completion-at-point
         custom-persp/emacs
         describe-key
         dired-toggle-read-only
@@ -219,8 +220,8 @@
         kmacro-end-or-call-macro
         magit-copy-buffer-revision
         magit-status
-        markdown-outdent-or-delete
         make-frame
+        markdown-outdent-or-delete
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
         multiple-cursors-mode

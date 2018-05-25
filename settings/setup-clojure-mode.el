@@ -18,7 +18,7 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
-(setq cider-pprint-fn 'pprint)
+;;(setq cider-pprint-fn 'pprint)
 
 (require 'core-async-mode)
 
