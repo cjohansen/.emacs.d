@@ -117,7 +117,6 @@
      textile-mode
      editorconfig
      diminish
-     zoom-frm
      smooth-scrolling
      undo-tree)))
 
