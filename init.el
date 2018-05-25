@@ -93,7 +93,6 @@
      flx
      f
      flx-ido
-     dired-details
      css-eldoc
      yasnippet
      smartparens
