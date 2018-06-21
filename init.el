@@ -156,6 +156,7 @@
 (require 'setup-html-mode)
 (require 'setup-paredit)
 (require 'setup-editorconfig)
+(require 'setup-css-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
