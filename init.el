@@ -118,7 +118,8 @@
      editorconfig
      diminish
      smooth-scrolling
-     undo-tree)))
+     undo-tree
+     scala-mode)))
 
 (condition-case nil
     (init--install-packages)
