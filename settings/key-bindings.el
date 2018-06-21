@@ -223,6 +223,10 @@
 (global-set-key (kbd "C-S-s") 'isearch-forward)
 (global-set-key (kbd "C-S-r") 'isearch-backward)
 
+;; Search with deadgrep/ripgrep
+(require 'deadgrep)
+(global-set-key (kbd "<f6>") #'deadgrep)
+
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (λ (ignore-errors (next-line 5))))
 (global-set-key (kbd "C-S-p") (λ (ignore-errors (previous-line 5))))
