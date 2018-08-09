@@ -188,6 +188,30 @@
 (define-key clj-refactor-map
   (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
 
+;; Focus tests
+
+(defun my-toggle-focused-test ()
+  (interactive)
+  (save-excursion
+    (search-backward "(deftest " (cljr--point-after 'cljr--goto-toplevel))
+    (forward-word)
+    (if (looking-at " ^:test-refresh/focus")
+        (kill-sexp)
+      (insert " ^:test-refresh/focus"))))
+
+(defun my-blur-all-tests ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward " ^:test-refresh/focus" nil t)
+      (delete-region (match-beginning 0) (match-end 0)))))
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "ft") 'my-toggle-focused-test)
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "bt") 'my-blur-all-tests)
+
 ;; Cycle between () {} []
 
 (defun live-delete-and-extract-sexp ()
