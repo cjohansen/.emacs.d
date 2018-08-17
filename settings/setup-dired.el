@@ -23,6 +23,10 @@
 (define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
 (define-key dired-mode-map (kbd "k") 'dired-do-delete)
 
+;; Enable 'a'-keybinding in dired - which opens the file and closes dired buffer
+
+(put 'dired-find-alternate-file 'disabled nil)
+
 ;; Delete with C-x C-k to match file buffers and magit
 (define-key dired-mode-map (kbd "C-x C-k") 'dired-do-delete)
 
