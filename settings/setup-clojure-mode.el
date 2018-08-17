@@ -339,7 +339,7 @@
 (define-key clojure-mode-map (vector 'remap 'cleanup-buffer) 'clojure-mode-indent-top-level-form)
 
 (defun clojure-mode-paredit-wrap (pre post)
-  (unless (looking-back "[ #]" 1)
+  (unless (looking-back "[ #\(\[\{]" 1)
     (insert " "))
   (let ((beg (point))
         (end nil))
@@ -362,9 +362,15 @@
   (interactive)
   (clojure-mode-paredit-wrap "{" "}"))
 
+(defun clojure-mode-paredit-wrap-round-from-behind ()
+  (interactive)
+  (clojure-backward-logical-sexp 1)
+  (clojure-mode-paredit-wrap "(" ")"))
+
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-round) 'clojure-mode-paredit-wrap-round)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-square) 'clojure-mode-paredit-wrap-square)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-curly) 'clojure-mode-paredit-wrap-curly)
+(define-key clojure-mode-map (vector 'remap 'paredit-wrap-round-from-behind) 'clojure-mode-paredit-wrap-round-from-behind)
 
 ;; Set up linting of clojure code with eastwood
 
