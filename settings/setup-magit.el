@@ -41,4 +41,9 @@
 
 (set-default 'magit-diff-refine-hunk t)
 
+;; update diff-hl
+
+(global-diff-hl-mode)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
 (provide 'setup-magit)

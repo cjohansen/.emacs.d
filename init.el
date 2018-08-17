@@ -100,6 +100,7 @@
      prodigy
      cider
      yesql-ghosts
+     diff-hl
      ido-completing-read+
      perspective
      string-edit
