@@ -81,7 +81,6 @@
      flx
      f
      flx-ido
-     dired-details
      css-eldoc
      yasnippet
      smartparens
@@ -101,6 +100,8 @@
      prodigy
      cider
      yesql-ghosts
+     ido-completing-read+
+     perspective
      string-edit
      beginend
      )))

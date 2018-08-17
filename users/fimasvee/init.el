@@ -49,7 +49,3 @@
 ;; Use GNU ls - install with:
 ;;    brew install xz coreutils
 (setq insert-directory-program "gls")
-
-;; stop complaining, yas
-
-(add-to-list 'warning-suppress-types '(yasnippet backquote-change))

@@ -2,9 +2,7 @@
 (require 'dash)
 
 ;; Make dired less verbose
-(require 'dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 
 ;; Move files between split panes
 (setq dired-dwim-target t)
