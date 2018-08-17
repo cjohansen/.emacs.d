@@ -63,8 +63,6 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
-(require 'yesql-ghosts)
-
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
@@ -373,23 +371,6 @@
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-square) 'clojure-mode-paredit-wrap-square)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-curly) 'clojure-mode-paredit-wrap-curly)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-round-from-behind) 'clojure-mode-paredit-wrap-round-from-behind)
-
-;; Set up linting of clojure code with eastwood
-
-;; Make sure to add [acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
-;; to your :user :dependencies in .lein/profiles.clj
-
-(require 'flycheck-clojure)
-
-(defun my-cider-mode-enable-flycheck ()
-  ;; (when (and (s-ends-with-p ".clj" (buffer-file-name))
-  ;;            (not (s-ends-with-p "/dev/user.clj" (buffer-file-name))))
-  ;;   (flycheck-mode 1))
-  )
-
-(add-hook 'cider-mode-hook 'my-cider-mode-enable-flycheck)
-
-(eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
 
 ;; Make q quit out of find-usages to previous window config
 

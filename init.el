@@ -77,7 +77,6 @@
      fill-column-indicator
      flycheck
      flycheck-pos-tip
-     flycheck-clojure
      flx
      f
      flx-ido
@@ -99,7 +98,6 @@
      groovy-mode
      prodigy
      cider
-     yesql-ghosts
      diff-hl
      ido-completing-read+
      perspective
@@ -170,7 +168,6 @@
 (autoload 'skewer-start "setup-skewer" nil t)
 (autoload 'skewer-demo "setup-skewer" nil t)
 (autoload 'auto-complete-mode "auto-complete" nil t)
-(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -243,3 +240,4 @@
 ;; Conclude init by setting up specifics for the current user
 (when (file-exists-p user-settings-dir)
   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
+
