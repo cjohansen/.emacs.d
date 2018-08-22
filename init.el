@@ -82,7 +82,6 @@
      css-eldoc
      diminish
      diff-hl
-     dired-details
      dockerfile-mode
      editorconfig
      edn
@@ -95,7 +94,6 @@
      flx
      flx-ido
      flycheck
-     flycheck-clojure
      flycheck-pos-tip
      gist
      go-mode
@@ -118,10 +116,8 @@
      move-text
      nodejs-repl
      paredit
-     php+-mode
      perspective
      prodigy
-     project-archetypes
      queue
      request
      restclient
@@ -138,9 +134,7 @@
      visual-regexp
      wgrep
      whitespace-cleanup-mode
-     yasnippet
-     yesql-ghosts
-     zoom-frm)))
+     yasnippet)))
 
 (condition-case nil
     (init--install-packages)
@@ -176,11 +170,8 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
-<<<<<<< HEAD
 (require 'setup-editorconfig)
 (require 'setup-css-mode)
-=======
->>>>>>> magnars/master
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
@@ -296,8 +287,5 @@
 (when (file-exists-p user-settings-dir)
   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
 
-<<<<<<< HEAD
 ;; Slides
 (require 'slides)
-=======
->>>>>>> magnars/master

@@ -19,7 +19,6 @@
      css-eldoc
      diminish
      diff-hl
-     dired-details
      dockerfile-mode
      editorconfig
      edn
@@ -32,7 +31,6 @@
      flx
      flx-ido
      flycheck
-     flycheck-clojure
      flycheck-pos-tip
      gist
      go-mode
@@ -55,10 +53,8 @@
      move-text
      nodejs-repl
      paredit
-     php+-mode
      perspective
      prodigy
-     project-archetypes
      queue
      request
      restclient
@@ -75,9 +71,7 @@
      visual-regexp
      wgrep
      whitespace-cleanup-mode
-     yasnippet
-     yesql-ghosts
-     zoom-frm)))
+     yasnippet)))
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil
