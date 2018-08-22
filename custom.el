@@ -10,7 +10,74 @@
  '(ido-use-filename-at-point nil)
  '(package-selected-packages
    (quote
-    (minions scala-mode terraform-mode cider beginend wgrep php+-mode go-mode company elm-mode js2-refactor js2-mode shell-command project-archetypes eproject exec-path-from-shell undo-tree smooth-scrolling zoom-frm diminish editorconfig textile-mode string-edit yesql-ghosts prodigy groovy-mode clojure-mode-extra-font-locking dockerfile-mode elisp-slime-nav whitespace-cleanup-mode highlight-escape-sequences restclient nodejs-repl guide-key simple-httpd ido-at-point ido-vertical-mode smartparens yasnippet css-eldoc flx-ido f flx flycheck-clojure flycheck-pos-tip flycheck fill-column-indicator markdown-mode visual-regexp htmlize gist move-text paredit hydra inflections edn magit)))
+    (ansible
+     beginend
+     cider
+     clojure-mode
+     clojure-mode-extra-font-locking
+     company
+     css-eldoc
+     diminish
+     diff-hl
+     dired-details
+     dockerfile-mode
+     editorconfig
+     edn
+     elisp-slime-nav
+     elm-mode
+     eproject
+     exec-path-from-shell
+     f
+     fill-column-indicator
+     flx
+     flx-ido
+     flycheck
+     flycheck-clojure
+     flycheck-pos-tip
+     gist
+     go-mode
+     groovy-mode
+     guide-key
+     highlight-escape-sequences
+     htmlize
+     hydra
+     ido-at-point
+     ido-completing-read+
+     ido-vertical-mode
+     inflections
+     js2-mode
+     js2-refactor
+     less-css-mode
+     lorem-ipsum
+     magit
+     markdown-mode
+     minions
+     move-text
+     nodejs-repl
+     paredit
+     php+-mode
+     perspective
+     prodigy
+     project-archetypes
+     queue
+     request
+     restclient
+     scala-mode
+     shell-command
+     simple-httpd
+     smartparens
+     spinner
+     string-edit
+     systemd
+     terraform-mode
+     textile-mode
+     undo-tree
+     visual-regexp
+     wgrep
+     whitespace-cleanup-mode
+     yasnippet
+     yesql-ghosts
+     zoom-frm)))
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil

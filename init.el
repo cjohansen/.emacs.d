@@ -73,53 +73,74 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(magit
-     shell-command
-     eproject
-     wgrep
-     edn
-     inflections
-     hydra
-     paredit
-     move-text
-     gist
-     htmlize
-     visual-regexp
-     markdown-mode
-     fill-column-indicator
-     flycheck
-     flycheck-pos-tip
-     flycheck-clojure
-     flx
-     f
-     flx-ido
-     css-eldoc
-     yasnippet
-     smartparens
-     ido-vertical-mode
-     ido-at-point
-     js2-refactor
-     simple-httpd
-     guide-key
-     nodejs-repl
-     restclient
-     highlight-escape-sequences
-     whitespace-cleanup-mode
-     elisp-slime-nav
-     dockerfile-mode
+   '(ansible
+     beginend
+     cider
      clojure-mode
      clojure-mode-extra-font-locking
-     groovy-mode
-     prodigy
-     cider
-     yesql-ghosts
-     string-edit
-     textile-mode
-     editorconfig
+     company
+     css-eldoc
      diminish
-     smooth-scrolling
+     diff-hl
+     dired-details
+     dockerfile-mode
+     editorconfig
+     edn
+     elisp-slime-nav
+     elm-mode
+     eproject
+     exec-path-from-shell
+     f
+     fill-column-indicator
+     flx
+     flx-ido
+     flycheck
+     flycheck-clojure
+     flycheck-pos-tip
+     gist
+     go-mode
+     groovy-mode
+     guide-key
+     highlight-escape-sequences
+     htmlize
+     hydra
+     ido-at-point
+     ido-completing-read+
+     ido-vertical-mode
+     inflections
+     js2-mode
+     js2-refactor
+     less-css-mode
+     lorem-ipsum
+     magit
+     markdown-mode
+     minions
+     move-text
+     nodejs-repl
+     paredit
+     php+-mode
+     perspective
+     prodigy
+     project-archetypes
+     queue
+     request
+     restclient
+     scala-mode
+     shell-command
+     simple-httpd
+     smartparens
+     spinner
+     string-edit
+     systemd
+     terraform-mode
+     textile-mode
      undo-tree
-     scala-mode)))
+     visual-regexp
+     wgrep
+     whitespace-cleanup-mode
+     yasnippet
+     yesql-ghosts
+     zoom-frm)))
 
 (condition-case nil
     (init--install-packages)
@@ -155,8 +176,11 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+<<<<<<< HEAD
 (require 'setup-editorconfig)
 (require 'setup-css-mode)
+=======
+>>>>>>> magnars/master
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
@@ -189,7 +213,6 @@
 (autoload 'skewer-start "setup-skewer" nil t)
 (autoload 'skewer-demo "setup-skewer" nil t)
 (autoload 'auto-complete-mode "auto-complete" nil t)
-(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -273,5 +296,8 @@
 (when (file-exists-p user-settings-dir)
   (mapc 'load (directory-files user-settings-dir nil "^[^#].*el$")))
 
+<<<<<<< HEAD
 ;; Slides
 (require 'slides)
+=======
+>>>>>>> magnars/master

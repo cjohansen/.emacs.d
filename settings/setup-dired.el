@@ -2,9 +2,7 @@
 (require 'dash)
 
 ;; Make dired less verbose
-(require 'dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
+(add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode 1)))
 
 ;; Move files between split panes
 (setq dired-dwim-target t)
@@ -24,6 +22,10 @@
 
 (define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
 (define-key dired-mode-map (kbd "k") 'dired-do-delete)
+
+;; Enable 'a'-keybinding in dired - which opens the file and closes dired buffer
+
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; Delete with C-x C-k to match file buffers and magit
 (define-key dired-mode-map (kbd "C-x C-k") 'dired-do-delete)

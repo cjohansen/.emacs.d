@@ -18,8 +18,6 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
-;;(setq cider-pprint-fn 'pprint)
-
 (require 'core-async-mode)
 
 (defun enable-clojure-mode-stuff ()
@@ -96,8 +94,6 @@
 (define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
 (define-key cider-mode-map (kbd "C-c t") 'cider-repl-run-clj-test)
 
-(require 'yesql-ghosts)
-
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
@@ -116,6 +112,7 @@
   (d/li 1)
   (d/option 1)
   (d/p 1)
+  (d/clipPath 1)
   (d/pre 1)
   (d/select 1)
   (d/small 1)
@@ -133,6 +130,8 @@
   (dd/measure! 2)
   (dog/measure! 2)
   (e/prose 1)
+  (e/container 1)
+  (e/hero-container 1)
   (e/value 1)
   (e/section 1)
   (e/section-prose 1)
@@ -155,6 +154,7 @@
   (c/group 1)
   (c/list 1)
   (c/split 1)
+  (e/Page 1)
 
   (add-watch 2)
   (async 1))
@@ -195,8 +195,6 @@
 
 ;; Some expectations features
 
-(require 'clj-autotest)
-
 (defun my-toggle-expect-focused ()
   (interactive)
   (save-excursion
@@ -218,6 +216,30 @@
 
 (define-key clj-refactor-map
   (cljr--key-pairs-with-modifier "C-s-" "xr") 'my-remove-all-focused)
+
+;; Focus tests
+
+(defun my-toggle-focused-test ()
+  (interactive)
+  (save-excursion
+    (search-backward "(deftest " (cljr--point-after 'cljr--goto-toplevel))
+    (forward-word)
+    (if (looking-at " ^:test-refresh/focus")
+        (kill-sexp)
+      (insert " ^:test-refresh/focus"))))
+
+(defun my-blur-all-tests ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward " ^:test-refresh/focus" nil t)
+      (delete-region (match-beginning 0) (match-end 0)))))
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "ft") 'my-toggle-focused-test)
+
+(define-key clj-refactor-map
+  (cljr--key-pairs-with-modifier "C-s-" "bt") 'my-blur-all-tests)
 
 ;; Cycle between () {} []
 
@@ -347,43 +369,39 @@
 
 (define-key clojure-mode-map (vector 'remap 'cleanup-buffer) 'clojure-mode-indent-top-level-form)
 
+(defun clojure-mode-paredit-wrap (pre post)
+  (unless (looking-back "[ #\(\[\{]" 1)
+    (insert " "))
+  (let ((beg (point))
+        (end nil))
+    (insert pre)
+    (save-excursion
+      (clojure-forward-logical-sexp 1)
+      (insert post)
+      (setq end (point)))
+    (indent-region beg end)))
+
 (defun clojure-mode-paredit-wrap-square ()
   (interactive)
-  (unless (looking-back " " 1)
-    (insert " "))
-  (insert "[")
-  (save-excursion
-    (clojure-forward-logical-sexp 1)
-    (insert "]")))
+  (clojure-mode-paredit-wrap "[" "]"))
 
 (defun clojure-mode-paredit-wrap-round ()
   (interactive)
-  (unless (looking-back " " 1)
-    (insert " "))
-  (insert "(")
-  (save-excursion
-    (clojure-forward-logical-sexp 1)
-    (insert ")")))
+  (clojure-mode-paredit-wrap "(" ")"))
+
+(defun clojure-mode-paredit-wrap-curly ()
+  (interactive)
+  (clojure-mode-paredit-wrap "{" "}"))
+
+(defun clojure-mode-paredit-wrap-round-from-behind ()
+  (interactive)
+  (clojure-backward-logical-sexp 1)
+  (clojure-mode-paredit-wrap "(" ")"))
 
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-round) 'clojure-mode-paredit-wrap-round)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-square) 'clojure-mode-paredit-wrap-square)
-
-;; Set up linting of clojure code with eastwood
-
-;; Make sure to add [acyclic/squiggly-clojure "0.1.2-SNAPSHOT"]
-;; to your :user :dependencies in .lein/profiles.clj
-
-(require 'flycheck-clojure)
-
-(defun my-cider-mode-enable-flycheck ()
-  ;; (when (and (s-ends-with-p ".clj" (buffer-file-name))
-  ;;            (not (s-ends-with-p "/dev/user.clj" (buffer-file-name))))
-  ;;   (flycheck-mode 1))
-  )
-
-(add-hook 'cider-mode-hook 'my-cider-mode-enable-flycheck)
-
-(eval-after-load 'flycheck '(add-to-list 'flycheck-checkers 'clojure-cider-eastwood))
+(define-key clojure-mode-map (vector 'remap 'paredit-wrap-curly) 'clojure-mode-paredit-wrap-curly)
+(define-key clojure-mode-map (vector 'remap 'paredit-wrap-round-from-behind) 'clojure-mode-paredit-wrap-round-from-behind)
 
 ;; Make q quit out of find-usages to previous window config
 

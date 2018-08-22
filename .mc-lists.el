@@ -9,6 +9,7 @@
         adv-dot
         adv-enter
         adv-gt
+        adv-lt
         adv-open-curly
         adv-tab
         back-to-indentation-or-beginning
@@ -36,7 +37,10 @@
         clojure-backward-logical-sexp
         clojure-forward-logical-sexp
         clojure-mode-paredit-wrap-round
+        clojure-mode-paredit-wrap-square
+        clojure-thread-first-all
         clojure-toggle-keyword-string
+        comment-dwim
         complete-symbol
         cua-replace-region
         cua-set-mark
@@ -85,11 +89,13 @@
         markdown-enter-key
         markdown-exdent-or-delete
         markdown-insert-link
+        markdown-outdent-or-delete
         move-line-down
         move-line-up
         move-text-down
         move-text-up
         move-to-window-line-top-bottom
+        my-toggle-expect-focused
         new-line-above
         new-line-dwim
         nxml-electric-slash
@@ -182,6 +188,7 @@
         touch-buffer-file
         transpose-params
         transpose-sexps
+        transpose-words
         wdired-capitalize-word
         wdired-next-line
         wdired-previous-line
@@ -189,6 +196,7 @@
         yaml-electric-backspace
         yaml-electric-dash-and-dot
         yank-indented
+        yank-unindented
         yas-expand
         zap-up-to-char
         ))
@@ -202,8 +210,10 @@
         cleanup-buffer
         clj-jump-to-other-file
         completion-at-point
+        clojure-mode-indent-top-level-form
         custom-persp/emacs
         describe-key
+        diff-hl-diff-goto-hunk
         dired-toggle-read-only
         edebug-next-mode
         eval-expression
