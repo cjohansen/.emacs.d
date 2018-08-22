@@ -10,7 +10,7 @@
  '(ido-use-filename-at-point nil)
  '(package-selected-packages
    (quote
-    (scala-mode terraform-mode cider beginend wgrep php+-mode go-mode company elm-mode js2-refactor js2-mode shell-command project-archetypes eproject exec-path-from-shell undo-tree smooth-scrolling zoom-frm diminish editorconfig textile-mode string-edit yesql-ghosts prodigy groovy-mode clojure-mode-extra-font-locking dockerfile-mode elisp-slime-nav whitespace-cleanup-mode highlight-escape-sequences restclient nodejs-repl guide-key simple-httpd ido-at-point ido-vertical-mode smartparens yasnippet css-eldoc flx-ido f flx flycheck-clojure flycheck-pos-tip flycheck fill-column-indicator markdown-mode visual-regexp htmlize gist move-text paredit hydra inflections edn magit)))
+    (minions scala-mode terraform-mode cider beginend wgrep php+-mode go-mode company elm-mode js2-refactor js2-mode shell-command project-archetypes eproject exec-path-from-shell undo-tree smooth-scrolling zoom-frm diminish editorconfig textile-mode string-edit yesql-ghosts prodigy groovy-mode clojure-mode-extra-font-locking dockerfile-mode elisp-slime-nav whitespace-cleanup-mode highlight-escape-sequences restclient nodejs-repl guide-key simple-httpd ido-at-point ido-vertical-mode smartparens yasnippet css-eldoc flx-ido f flx flycheck-clojure flycheck-pos-tip flycheck fill-column-indicator markdown-mode visual-regexp htmlize gist move-text paredit hydra inflections edn magit)))
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil

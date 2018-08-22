@@ -35,6 +35,7 @@
         cljr-unwind
         clojure-backward-logical-sexp
         clojure-forward-logical-sexp
+        clojure-mode-paredit-wrap-round
         clojure-toggle-keyword-string
         complete-symbol
         cua-replace-region
@@ -139,6 +140,7 @@
         paredit-splice-sexp
         paredit-splice-sexp-killing-backward
         paredit-split-sexp
+        paredit-wrap-curly
         paredit-wrap-round
         paredit-wrap-round-from-behind
         paredit-wrap-square
