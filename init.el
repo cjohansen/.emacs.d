@@ -118,6 +118,7 @@
      paredit
      perspective
      prodigy
+     projectile
      queue
      request
      restclient
