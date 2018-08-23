@@ -9,7 +9,7 @@
  '(ido-use-filename-at-point nil)
  '(package-selected-packages
    (quote
-    (perspective ido-completing-read+ clojure-mode f flx flycheck ansible systemd diff-hl less-css-mode typescript-mode cider yasnippet whitespace-cleanup-mode wgrep visual-regexp string-edit spinner smartparens simple-httpd restclient request queue prodigy paredit nodejs-repl move-text markdown-mode magit lorem-ipsum js2-mode inflections ido-vertical-mode ido-at-point hydra htmlize highlight-escape-sequences guide-key groovy-mode gist flycheck-pos-tip flx-ido fill-column-indicator exec-path-from-shell elm-mode elisp-slime-nav edn dockerfile-mode dired-details css-eldoc company clojure-mode-extra-font-locking beginend)))
+    (projectile perspective ido-completing-read+ clojure-mode f flx flycheck ansible systemd diff-hl less-css-mode typescript-mode cider yasnippet whitespace-cleanup-mode wgrep visual-regexp string-edit spinner smartparens simple-httpd restclient request queue prodigy paredit nodejs-repl move-text markdown-mode magit lorem-ipsum js2-mode inflections ido-vertical-mode ido-at-point hydra htmlize highlight-escape-sequences guide-key groovy-mode gist flycheck-pos-tip flx-ido fill-column-indicator exec-path-from-shell elm-mode elisp-slime-nav edn dockerfile-mode dired-details css-eldoc company clojure-mode-extra-font-locking beginend)))
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil

@@ -98,6 +98,7 @@
      groovy-mode
      prodigy
      cider
+     projectile
      diff-hl
      ido-completing-read+
      perspective
