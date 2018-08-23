@@ -63,46 +63,47 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(magit
-     wgrep
-     edn
-     inflections
-     hydra
-     paredit
-     move-text
-     gist
-     htmlize
-     visual-regexp
-     markdown-mode
-     fill-column-indicator
-     flycheck
-     flycheck-pos-tip
-     flx
-     f
-     flx-ido
-     css-eldoc
-     yasnippet
-     smartparens
-     ido-vertical-mode
-     ido-at-point
-     simple-httpd
-     guide-key
-     nodejs-repl
-     restclient
-     highlight-escape-sequences
-     whitespace-cleanup-mode
-     elisp-slime-nav
-     dockerfile-mode
+   '(
+     cider
      clojure-mode
      clojure-mode-extra-font-locking
-     groovy-mode
-     prodigy
-     cider
-     projectile
+     css-eldoc
      diff-hl
+     dockerfile-mode
+     edn
+     elisp-slime-nav
+     f
+     fill-column-indicator
+     flx
+     flx-ido
+     flycheck
+     flycheck-pos-tip
+     gist
+     groovy-mode
+     guide-key
+     highlight-escape-sequences
+     htmlize
+     hydra
+     ido-at-point
      ido-completing-read+
+     ido-vertical-mode
+     inflections
+     magit
+     markdown-mode
+     move-text
+     nodejs-repl
+     paredit
      perspective
+     prodigy
+     projectile
+     restclient
+     simple-httpd
+     smartparens
      string-edit
+     visual-regexp
+     wgrep
+     whitespace-cleanup-mode
+     yasnippet
      )))
 
 (condition-case nil
