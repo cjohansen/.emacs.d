@@ -465,6 +465,10 @@
 
 ;; Norled
 
+(require 'cider)
+
+(cider-register-cljs-repl-type 'trip-trap "(do (start-fw) (cljs))")
+
 (defun custom-persp/norled-trip-trap ()
   (interactive)
   (custom-persp "trip-trap"
