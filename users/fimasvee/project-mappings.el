@@ -9,8 +9,8 @@
 
 (defun cider-jack-in-adventur-server ()
   (interactive)
-  (let ((cider-lein-parameters "with-profile +dev-server repl :headless"))
-    (cider-jack-in)))
+  (let ((cider-lein-parameters "with-profile +dev-server repl :headless :host ::"))
+    (cider-jack-in-clj nil)))
 
 (add-hook 'clojure-mode-hook
           (lambda ()
