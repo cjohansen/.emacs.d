@@ -96,6 +96,7 @@
      perspective
      prodigy
      projectile
+     request
      restclient
      simple-httpd
      smartparens
