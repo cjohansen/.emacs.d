@@ -413,5 +413,7 @@
 ;; TODO: Loot more stuff from:
 ;;  - https://github.com/overtone/emacs-live/blob/master/packs/dev/clojure-pack/config/paredit-conf.el
 
+(setq cljr-inject-dependencies-at-jack-in nil)
+(setq sayid-inject-dependencies-at-jack-in nil)
 
 (provide 'setup-clojure-mode)
