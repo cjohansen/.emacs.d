@@ -119,6 +119,7 @@
   (d/span 1)
   (d/strong 1)
   (d/ul 1)
+  (d/ol 1)
   (d/svg 1)
   (d/g 1)
   (d/table 1)
