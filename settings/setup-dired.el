@@ -1,4 +1,5 @@
 (require 'dired)
+(require 'dired-x)
 (require 'dash)
 
 ;; Make dired less verbose
