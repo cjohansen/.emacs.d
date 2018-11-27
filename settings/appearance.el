@@ -64,6 +64,28 @@
 ;; Make zooming affect frame instead of buffers
 (require 'zoom-frm)
 
+(defun enable-zoom-one-shot-keybindings ()
+  (set-transient-map
+   (let ((map (make-sparse-keymap)))
+     (define-key map (kbd "+") 'zoom-frm-in)
+     (define-key map (kbd "-") 'zoom-frm-out)
+     (define-key map (kbd "0") 'zoom-frm-unzoom)
+     map) t))
+
+(defun zoom-frame-in ()
+  (interactive)
+  (zoom-frm-in)
+  (enable-zoom-one-shot-keybindings))
+
+(defun zoom-frame-out ()
+  (interactive)
+  (zoom-frm-out)
+  (enable-zoom-one-shot-keybindings))
+
+(global-set-key (kbd "C-x +") 'zoom-frame-in)
+(global-set-key (kbd "C-x -") 'zoom-frame-out)
+(global-set-key (kbd "C-x C-0") 'zoom-frm-unzoom)
+
 ;; Unclutter the modeline
 (require 'diminish)
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
