@@ -346,7 +346,6 @@
 (global-set-key (kbd "C-x C-o xm") (ffip-create-pattern-file-finder "*.xml"))
 (global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
 (global-set-key (kbd "C-x C-o pr") (ffip-create-pattern-file-finder "*.properties"))
-(global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
 (global-set-key (kbd "C-x C-o gr") (ffip-create-pattern-file-finder "*.groovy"))
 (global-set-key (kbd "C-x C-o ga") (ffip-create-pattern-file-finder "*.gradle"))
 (global-set-key (kbd "C-x C-o sc") (ffip-create-pattern-file-finder "*.scala"))
