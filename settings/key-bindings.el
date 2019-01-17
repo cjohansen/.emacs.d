@@ -106,8 +106,10 @@
 (global-set-key (kbd "s-w") 'save-region-or-current-line)
 (global-set-key (kbd "M-W") (λ (save-region-or-current-line 1)))
 
-;; Make shell more convenient, and suspend-frame less
-(global-set-key (kbd "C-z") 'shell)
+;; Make shell and suspend-frame less convenient
+;; Do nothing on C-z, since I repeatedly mistakenly type it
+(global-set-key (kbd "C-z") (λ nil))
+(global-set-key (kbd "C-x C-z") 'shell)
 (global-set-key (kbd "C-x M-z") 'suspend-frame)
 
 ;; Zap to char
