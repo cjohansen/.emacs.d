@@ -114,8 +114,8 @@
 (setq electric-indent-mode nil)
 
 ;; Nic says eval-expression-print-level needs to be set to nil (turned off) so
-;; that you can always see what's happening.
-(setq eval-expression-print-level nil)
+;; that you can always see what's happening. Nic is wrong.
+(setq eval-expression-print-level 100)
 
 ;; When popping the mark, continue popping until the cursor actually moves
 ;; Also, if the last command was a copy - skip past all the expand-region cruft.
