@@ -13,6 +13,7 @@
     (ansible
      beginend
      cider
+     clj-refactor
      clojure-mode
      clojure-mode-extra-font-locking
      company
@@ -34,6 +35,7 @@
      flycheck-pos-tip
      gist
      go-mode
+     gotest
      groovy-mode
      guide-key
      highlight-escape-sequences
@@ -45,6 +47,7 @@
      inflections
      js2-mode
      js2-refactor
+     kubernetes
      less-css-mode
      lorem-ipsum
      magit
@@ -54,6 +57,7 @@
      nodejs-repl
      paredit
      perspective
+     php-mode
      prodigy
      projectile
      queue
@@ -72,10 +76,21 @@
      visual-regexp
      wgrep
      whitespace-cleanup-mode
+     yaml-mode
      yasnippet)))
  '(safe-local-variable-values
    (quote
-    ((eval font-lock-add-keywords nil
+    ((cider-clojure-cli-global-options . "-A:dev")
+     (cljr-inject-dependencies-at-jack-in)
+     (cljr-inject-dependencies-at-jack-in . t)
+     (cider-figwheel-main-default-options . ":dev")
+     (cider-default-cljs-repl . figwheel-main)
+     (cider-preferred-build-tool . "clojure-cli")
+     (eval cider-register-cljs-repl-type
+           (quote figwheel-main)
+           "(require 'figwheel.main) (figwheel.main/start \"dev\")"
+           (quote cider-verify-piggieback-is-present))
+     (eval font-lock-add-keywords nil
            (quote
             (("defexamples\\|def-example-group\\| => "
               (0
