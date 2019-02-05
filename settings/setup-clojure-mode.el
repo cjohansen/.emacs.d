@@ -18,12 +18,8 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
-(require 'core-async-mode)
-
 (defun enable-clojure-mode-stuff ()
-  (clj-refactor-mode 1)
-  (when (not (s-ends-with-p "/dev/user.clj" (buffer-file-name)))
-    (core-async-mode 1)))
+  (clj-refactor-mode 1))
 
 (add-hook 'clojure-mode-hook 'enable-clojure-mode-stuff)
 
@@ -99,6 +95,7 @@
 (define-clojure-indent
   (d/a 1)
   (d/button 1)
+  (d/code 1)
   (d/div 1)
   (d/form 1)
   (d/h1 1)
@@ -158,7 +155,8 @@
   (e/Page 1)
   (test-within 1)
   (add-watch 2)
-  (async 1))
+  (async 1)
+  (testing-async 1))
 
 ;; Don't warn me about the dangers of clj-refactor, fire the missiles!
 (setq cljr-warn-on-eval nil)
