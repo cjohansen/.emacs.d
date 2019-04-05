@@ -1,3 +1,6 @@
+;; Clojure tooling is not ready for JDK11
+(setenv "JAVA_HOME" "/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home")
+
 ;; Default js indentation levels
 (setq-default js2-basic-offset 2)
 (setq js-indent-level 2)
