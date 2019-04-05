@@ -60,9 +60,6 @@
     (define-key paredit-mode-map (read-kbd-macro original) nil)
     (define-key paredit-mode-map (read-kbd-macro replacement) command)))
 
-;; don't hijack \ please
-(define-key paredit-mode-map (kbd "\\") nil)
-
 ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
 (defun conditionally-enable-paredit-mode ()
   (if (eq this-command 'eval-expression)
