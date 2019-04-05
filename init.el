@@ -76,6 +76,7 @@
      clojure-mode-extra-font-locking
      css-eldoc
      diff-hl
+     deadgrep
      dockerfile-mode
      edn
      elisp-slime-nav
@@ -105,6 +106,7 @@
      projectile
      request
      restclient
+     ripgrep
      simple-httpd
      smartparens
      string-edit
@@ -112,6 +114,7 @@
      wgrep
      whitespace-cleanup-mode
      yasnippet
+     zprint-mode
      )))
 
 (condition-case nil
