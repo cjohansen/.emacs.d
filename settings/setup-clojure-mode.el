@@ -57,7 +57,11 @@
 
 (require 'cider)
 
-(setq cider-repl-print-level 100)
+;; don't kill the REPL when printing large data structures
+(setq cider-print-options
+      '(("length" 50)
+        ("level" 10)
+        ("right-margin" 80)))
 
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
@@ -68,6 +72,7 @@
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
+  (forcat 1)
   (d/a 1)
   (d/button 1)
   (d/div 1)
