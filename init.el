@@ -56,6 +56,13 @@
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
 
+;; Write all autosave files in the tmp dir
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
+;; Don't write lock-files, I'm the only one here
+(setq create-lockfiles nil)
+
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
@@ -73,20 +80,22 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(ansible
+   '(
+     ansible
      beginend
      cider
      clojure-mode
      clojure-mode-extra-font-locking
      company
      css-eldoc
-     diminish
+     deadgrep
      diff-hl
+     diminish
      dockerfile-mode
      editorconfig
+     elm-mode
      edn
      elisp-slime-nav
-     elm-mode
      eproject
      exec-path-from-shell
      f
@@ -113,6 +122,8 @@
      magit
      markdown-mode
      minions
+     magit
+     markdown-mode
      move-text
      nodejs-repl
      paredit
@@ -122,6 +133,7 @@
      queue
      request
      restclient
+     ripgrep
      scala-mode
      shell-command
      simple-httpd
@@ -135,7 +147,9 @@
      visual-regexp
      wgrep
      whitespace-cleanup-mode
-     yasnippet)))
+     yasnippet
+     zprint-mode
+     )))
 
 (condition-case nil
     (init--install-packages)

@@ -63,5 +63,8 @@
 (ido-everywhere 1)
 (require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
+(require 'icomplete)
+(icomplete-mode 1)
+(setq magit-completing-read-function 'magit-ido-completing-read)
 
 (provide 'setup-ido)

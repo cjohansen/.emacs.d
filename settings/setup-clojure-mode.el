@@ -53,6 +53,12 @@
 
 (require 'cider)
 
+;; don't kill the REPL when printing large data structures
+(setq cider-print-options
+      '(("length" 50)
+        ("level" 10)
+        ("right-margin" 80)))
+
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
@@ -93,6 +99,7 @@
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
+  (forcat 1)
   (d/a 1)
   (d/button 1)
   (d/code 1)
@@ -401,6 +408,18 @@
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-square) 'clojure-mode-paredit-wrap-square)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-curly) 'clojure-mode-paredit-wrap-curly)
 (define-key clojure-mode-map (vector 'remap 'paredit-wrap-round-from-behind) 'clojure-mode-paredit-wrap-round-from-behind)
+
+(defun cider-switch-to-any-repl-buffer (&optional set-namespace)
+  "Switch to current REPL buffer, when possible in an existing window.
+The type of the REPL is inferred from the mode of current buffer.  With a
+prefix arg SET-NAMESPACE sets the namespace in the REPL buffer to that of
+the namespace in the Clojure source buffer"
+  (interactive "P")
+  (cider--switch-to-repl-buffer
+   (cider-current-repl "any" t)
+   set-namespace))
+
+(define-key clojure-mode-map (kbd "C-c z") 'cider-switch-to-any-repl-buffer)
 
 ;; Make q quit out of find-usages to previous window config
 
