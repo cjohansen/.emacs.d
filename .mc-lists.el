@@ -36,6 +36,7 @@
         cljr-unwind
         clojure-backward-logical-sexp
         clojure-forward-logical-sexp
+        clojure-mode-paredit-wrap-curly
         clojure-mode-paredit-wrap-round
         clojure-mode-paredit-wrap-square
         clojure-thread-first-all
@@ -209,8 +210,8 @@
         cider-macroexpand-1
         cleanup-buffer
         clj-jump-to-other-file
-        completion-at-point
         clojure-mode-indent-top-level-form
+        completion-at-point
         custom-persp/emacs
         describe-key
         diff-hl-diff-goto-hunk
