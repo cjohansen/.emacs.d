@@ -69,6 +69,9 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
+(setq cljr-clojure-test-declaration
+      "[clojure.test :refer [deftest is testing]]")
+
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
