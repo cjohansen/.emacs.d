@@ -18,12 +18,8 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
-(require 'core-async-mode)
-
 (defun enable-clojure-mode-stuff ()
-  (clj-refactor-mode 1)
-  (when (not (s-ends-with-p "/dev/user.clj" (buffer-file-name)))
-    (core-async-mode 1)))
+  (clj-refactor-mode 1))
 
 (add-hook 'clojure-mode-hook 'enable-clojure-mode-stuff)
 
