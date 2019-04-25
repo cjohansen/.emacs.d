@@ -59,8 +59,8 @@
 
 ;; don't kill the REPL when printing large data structures
 (setq cider-print-options
-      '(("length" 50)
-        ("level" 10)
+      '(("length" 80)
+        ("level" 20)
         ("right-margin" 80)))
 
 (define-key cider-repl-mode-map (kbd "<home>") nil)
@@ -80,6 +80,7 @@
   (d/button 1)
   (d/div 1)
   (d/form 1)
+  (d/fieldset 1)
   (d/h1 1)
   (d/h2 1)
   (d/h3 1)
