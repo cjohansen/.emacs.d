@@ -12,6 +12,8 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
+(setq css-fontify-colors nil)
+
 ;; Set custom theme path
 (setq custom-theme-directory (concat user-emacs-directory "themes"))
 
