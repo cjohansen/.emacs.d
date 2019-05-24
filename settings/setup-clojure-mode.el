@@ -61,8 +61,8 @@
 
 ;; don't kill the REPL when printing large data structures
 (setq cider-print-options
-      '(("length" 50)
-        ("level" 10)
+      '(("length" 80)
+        ("level" 20)
         ("right-margin" 80)))
 
 (define-key cider-repl-mode-map (kbd "<home>") nil)
@@ -102,6 +102,9 @@
 (define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
 (define-key cider-mode-map (kbd "C-c t") 'cider-repl-run-clj-test)
 
+(setq cljr-clojure-test-declaration
+      "[clojure.test :refer [deftest is testing]]")
+
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
@@ -111,6 +114,7 @@
   (d/code 1)
   (d/div 1)
   (d/form 1)
+  (d/fieldset 1)
   (d/h1 1)
   (d/h2 1)
   (d/h3 1)
@@ -313,6 +317,7 @@
 (define-key clojure-mode-map (kbd "C-c C-z") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)
+(define-key clojure-mode-map (kbd "C-c C-p") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-q") 'nrepl-warn-when-not-connected)
 
 (setq cljr-magic-require-namespaces
@@ -450,7 +455,45 @@ the namespace in the Clojure source buffer"
 ;; TODO: Loot more stuff from:
 ;;  - https://github.com/overtone/emacs-live/blob/master/packs/dev/clojure-pack/config/paredit-conf.el
 
+<<<<<<< HEAD
 (setq cljr-inject-dependencies-at-jack-in nil)
 (setq sayid-inject-dependencies-at-jack-in nil)
+=======
+;; eval-current-sexp while also including any surrounding lets with C-x M-e
+
+(defun my/cider-collect-lets ()
+  (let* ((beg-of-defun (save-excursion (beginning-of-defun) (point)))
+         (lets nil))
+    (save-excursion
+      (while (not (= (point) beg-of-defun))
+        (paredit-backward-up 1)
+        (when (or (looking-at "(let ")
+                  (looking-at "(letfn ")
+                  (looking-at "(when-let ")
+                  (looking-at "(if-let "))
+          (save-excursion
+            (let ((beg (point)))
+              (paredit-forward-down 1)
+              (paredit-forward 2)
+              (setq lets (cons (buffer-substring-no-properties beg (point)) lets))))))
+      lets)))
+
+(defun my/cider-eval-including-lets (&optional output-to-current-buffer)
+  "Evaluates the current sexp form, wrapped in all parent lets."
+  (interactive "P")
+  (let* ((beg-of-sexp (save-excursion (paredit-backward 1) (point)))
+         (code (buffer-substring-no-properties beg-of-sexp (point)))
+         (lets (my/cider-collect-lets))
+         (code (concat (s-join " " lets)
+                       " " code
+                       (s-repeat (length lets) ")"))))
+    (cider-interactive-eval code
+                            (when output-to-current-buffer
+                              (cider-eval-print-handler))
+                            nil
+                            (cider--nrepl-pr-request-map))))
+
+(define-key clojure-mode-map (kbd "C-x M-e") 'my/cider-eval-including-lets)
+>>>>>>> magnars/master
 
 (provide 'setup-clojure-mode)
