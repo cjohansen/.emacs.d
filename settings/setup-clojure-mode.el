@@ -455,10 +455,10 @@ the namespace in the Clojure source buffer"
 ;; TODO: Loot more stuff from:
 ;;  - https://github.com/overtone/emacs-live/blob/master/packs/dev/clojure-pack/config/paredit-conf.el
 
-<<<<<<< HEAD
+
 (setq cljr-inject-dependencies-at-jack-in nil)
 (setq sayid-inject-dependencies-at-jack-in nil)
-=======
+
 ;; eval-current-sexp while also including any surrounding lets with C-x M-e
 
 (defun my/cider-collect-lets ()
@@ -494,6 +494,5 @@ the namespace in the Clojure source buffer"
                             (cider--nrepl-pr-request-map))))
 
 (define-key clojure-mode-map (kbd "C-x M-e") 'my/cider-eval-including-lets)
->>>>>>> magnars/master
 
 (provide 'setup-clojure-mode)
