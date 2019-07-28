@@ -88,7 +88,7 @@
      flycheck-pos-tip
      gist
      groovy-mode
-     guide-key
+;;     guide-key
      highlight-escape-sequences
      htmlize
      hydra
@@ -131,12 +131,12 @@
   (require-package 'exec-path-from-shell)
   (exec-path-from-shell-initialize))
 
-;; guide-key
-(require 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
-(guide-key-mode 1)
-(setq guide-key/recursive-key-sequence-flag t)
-(setq guide-key/popup-window-position 'bottom)
+;;;; guide-key
+;;(require 'guide-key)
+;;(setq guide-key/guide-key-sequence '("C-x r" "C-x 4" "C-x v" "C-x 8" "C-x +"))
+;;(guide-key-mode 1)
+;;(setq guide-key/recursive-key-sequence-flag t)
+;;(setq guide-key/popup-window-position 'bottom)
 
 ;; Setup extensions
 (eval-after-load 'ido '(require 'setup-ido))
