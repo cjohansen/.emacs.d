@@ -96,6 +96,7 @@
      ido-completing-read+
      ido-vertical-mode
      inflections
+     kaocha-runner
      magit
      markdown-mode
      move-text
