@@ -86,6 +86,7 @@
      flx-ido
      flycheck
      flycheck-pos-tip
+     forge
      gist
      groovy-mode
 ;;     guide-key
