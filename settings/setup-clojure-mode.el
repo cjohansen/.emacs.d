@@ -41,6 +41,7 @@
 (add-hook 'cider-file-loaded-hook #'kaocha-runner-run-relevant-tests)
 
 (define-key clojure-mode-map (kbd "C-c k r") 'kaocha-runner-run-tests)
+(define-key clojure-mode-map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
 (define-key clojure-mode-map (kbd "C-c k w") 'kaocha-runner-show-warnings)
 (define-key clojure-mode-map (kbd "C-c k h") 'kaocha-runner-hide-windows)
 
