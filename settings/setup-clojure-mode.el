@@ -438,29 +438,42 @@ the namespace in the Clojure source buffer"
 
 ;; eval-current-sexp while also including any surrounding lets with C-x M-e
 
-(defun my/cider-collect-lets ()
+(defun my/cider-looking-at-lets? ()
+  (or (looking-at "(let ")
+      (looking-at "(letfn ")
+      (looking-at "(when-let ")
+      (looking-at "(if-let ")))
+
+(defun my/cider-collect-lets (&optional max-point)
   (let* ((beg-of-defun (save-excursion (beginning-of-defun) (point)))
          (lets nil))
     (save-excursion
       (while (not (= (point) beg-of-defun))
         (paredit-backward-up 1)
-        (when (or (looking-at "(let ")
-                  (looking-at "(letfn ")
-                  (looking-at "(when-let ")
-                  (looking-at "(if-let "))
+        (when (my/cider-looking-at-lets?)
           (save-excursion
             (let ((beg (point)))
               (paredit-forward-down 1)
               (paredit-forward 2)
-              (setq lets (cons (buffer-substring-no-properties beg (point)) lets))))))
+              (when (and max-point (< max-point (point)))
+                (goto-char max-point))
+              (setq lets (cons (concat (buffer-substring-no-properties beg (point))
+                                       (if max-point "]" ""))
+                               lets))))))
       lets)))
+
+(defun my/inside-let-block? ()
+  (save-excursion
+    (paredit-backward-up 2)
+    (my/cider-looking-at-lets?)))
 
 (defun my/cider-eval-including-lets (&optional output-to-current-buffer)
   "Evaluates the current sexp form, wrapped in all parent lets."
   (interactive "P")
   (let* ((beg-of-sexp (save-excursion (paredit-backward 1) (point)))
          (code (buffer-substring-no-properties beg-of-sexp (point)))
-         (lets (my/cider-collect-lets))
+         (lets (my/cider-collect-lets (when (my/inside-let-block?)
+                                        (save-excursion (paredit-backward 2) (point)))))
          (code (concat (s-join " " lets)
                        " " code
                        (s-repeat (length lets) ")"))))
