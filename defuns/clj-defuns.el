@@ -18,7 +18,8 @@
 (defun clj--cards-file-name-from-src (name)
   (s-with name
     (s-replace "/src/" "/devcards/")
-    (s-replace ".clj" "_cards.clj")))
+    (s-replace ".clj" "_cards.clj")
+    (s-replace ".cljc" ".cljs")))
 
 (defun clj--is-test? (name)
   (string-match-p "/test/" name))
