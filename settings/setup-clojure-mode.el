@@ -101,6 +101,13 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'nrepl-close)
 (define-key cider-mode-map (kbd "C-c C-Q") 'cider-quit)
 
+(defun cider-find-and-clear-repl-buffer ()
+  (interactive)
+  (cider-find-and-clear-repl-output t))
+
+(define-key cider-mode-map (kbd "C-c C-l") 'cider-find-and-clear-repl-buffer)
+(define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
+
 (setq cljr-clojure-test-declaration
       "[clojure.test :refer [deftest is testing]]")
 
