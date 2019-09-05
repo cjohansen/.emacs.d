@@ -87,5 +87,6 @@
   (advice-add command :around #'my/anti-ido-advice))
 
 (my/disable-ido 'dired-create-directory)
+(my/disable-ido 'cljr-rename-file)
 
 (provide 'setup-ido)
