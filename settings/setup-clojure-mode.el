@@ -15,8 +15,41 @@
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
 
+(define-key clojure-mode-map (kbd "C-:") 'hippie-expand-lines)
+(define-key clojure-mode-map (kbd "C-\"") 'clojure-toggle-keyword-string)
+
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
+
+;; kaocha
+
+(require 'kaocha-runner)
+
+(defun kaocha-runner-run-relevant-tests ()
+  (when (cljr--project-depends-on-p "kaocha")
+    (if (clj--is-test? (buffer-file-name))
+        (kaocha-runner--run-tests
+         (kaocha-runner--testable-sym (cider-current-ns) nil (eq major-mode 'clojurescript-mode))
+         nil t)
+      (let ((original-buffer (current-buffer)))
+        (save-window-excursion
+          (let* ((file (clj-other-file-name))
+                 (alternative-file (clj-find-alternative-name file)))
+            (cond
+             ((file-exists-p file) (find-file file))
+             ((file-exists-p alternative-file) (find-file alternative-file))))
+          (when (clj--is-test? (buffer-file-name))
+            (kaocha-runner--run-tests
+             (kaocha-runner--testable-sym (cider-current-ns) nil (eq major-mode 'clojurescript-mode))
+             nil t original-buffer)))))))
+
+(add-hook 'cider-file-loaded-hook #'kaocha-runner-run-relevant-tests)
+
+(define-key clojure-mode-map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
+(define-key clojure-mode-map (kbd "C-c k r") 'kaocha-runner-run-tests)
+(define-key clojure-mode-map (kbd "C-c k a") 'kaocha-runner-run-all-tests)
+(define-key clojure-mode-map (kbd "C-c k w") 'kaocha-runner-show-warnings)
+(define-key clojure-mode-map (kbd "C-c k h") 'kaocha-runner-hide-windows)
 
 (defun enable-clojure-mode-stuff ()
   (clj-refactor-mode 1))
@@ -65,6 +98,9 @@
         ("level" 20)
         ("right-margin" 80)))
 
+;; save files when evaluating them
+(setq cider-save-file-on-load t)
+
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
@@ -101,6 +137,13 @@
 (define-key cider-mode-map (kbd "C-c M-r") 'cider-repl-reset)
 (define-key cider-mode-map (kbd "C-c M-k") 'cider-repl-compile-and-restart)
 (define-key cider-mode-map (kbd "C-c t") 'cider-repl-run-clj-test)
+
+(defun cider-find-and-clear-repl-buffer ()
+  (interactive)
+  (cider-find-and-clear-repl-output t))
+
+(define-key cider-mode-map (kbd "C-c C-l") 'cider-find-and-clear-repl-buffer)
+(define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
 
 (setq cljr-clojure-test-declaration
       "[clojure.test :refer [deftest is testing]]")
@@ -393,12 +436,14 @@
       (when (clj--is-card? (buffer-file-name))
         (cljr--add-card-declarations)))))
 
-(defun clojure-mode-indent-top-level-form ()
-  (interactive)
-  (save-excursion
-    (cljr--goto-toplevel)
-    (indent-region (point)
-                   (progn (paredit-forward) (point)))))
+(defun clojure-mode-indent-top-level-form (&optional cleanup-buffer?)
+  (interactive "P")
+  (if cleanup-buffer?
+      (cleanup-buffer)
+    (save-excursion
+      (cljr--goto-toplevel)
+      (indent-region (point)
+                     (progn (paredit-forward) (point))))))
 
 (define-key clojure-mode-map (vector 'remap 'cleanup-buffer) 'clojure-mode-indent-top-level-form)
 
@@ -464,29 +509,42 @@ the namespace in the Clojure source buffer"
 
 ;; eval-current-sexp while also including any surrounding lets with C-x M-e
 
-(defun my/cider-collect-lets ()
+(defun my/cider-looking-at-lets? ()
+  (or (looking-at "(let ")
+      (looking-at "(letfn ")
+      (looking-at "(when-let ")
+      (looking-at "(if-let ")))
+
+(defun my/cider-collect-lets (&optional max-point)
   (let* ((beg-of-defun (save-excursion (beginning-of-defun) (point)))
          (lets nil))
     (save-excursion
       (while (not (= (point) beg-of-defun))
         (paredit-backward-up 1)
-        (when (or (looking-at "(let ")
-                  (looking-at "(letfn ")
-                  (looking-at "(when-let ")
-                  (looking-at "(if-let "))
+        (when (my/cider-looking-at-lets?)
           (save-excursion
             (let ((beg (point)))
               (paredit-forward-down 1)
               (paredit-forward 2)
-              (setq lets (cons (buffer-substring-no-properties beg (point)) lets))))))
+              (when (and max-point (< max-point (point)))
+                (goto-char max-point))
+              (setq lets (cons (concat (buffer-substring-no-properties beg (point))
+                                       (if max-point "]" ""))
+                               lets))))))
       lets)))
+
+(defun my/inside-let-block? ()
+  (save-excursion
+    (paredit-backward-up 2)
+    (my/cider-looking-at-lets?)))
 
 (defun my/cider-eval-including-lets (&optional output-to-current-buffer)
   "Evaluates the current sexp form, wrapped in all parent lets."
   (interactive "P")
   (let* ((beg-of-sexp (save-excursion (paredit-backward 1) (point)))
          (code (buffer-substring-no-properties beg-of-sexp (point)))
-         (lets (my/cider-collect-lets))
+         (lets (my/cider-collect-lets (when (my/inside-let-block?)
+                                        (save-excursion (paredit-backward 2) (point)))))
          (code (concat (s-join " " lets)
                        " " code
                        (s-repeat (length lets) ")"))))

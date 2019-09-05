@@ -110,7 +110,7 @@
 (eval-after-load "skewer-css" '(diminish 'skewer-css-mode))
 (eval-after-load "skewer-html" '(diminish 'skewer-html-mode))
 (eval-after-load "smartparens" '(diminish 'smartparens-mode))
-(eval-after-load "guide-key" '(diminish 'guide-key-mode))
+;;(eval-after-load "guide-key" '(diminish 'guide-key-mode))
 (eval-after-load "whitespace-cleanup-mode" '(diminish 'whitespace-cleanup-mode))
 
 (defmacro rename-modeline (package-name mode new-name)

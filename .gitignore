@@ -22,3 +22,4 @@ site-lisp/adventur-mode
 /projectile-bookmarks.eld
 /projectile.cache
 /transient/history.el
+/transient/values.el
