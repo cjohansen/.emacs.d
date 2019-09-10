@@ -71,7 +71,8 @@
 (define-key persp-mode-map (kbd "C-x p k") 'custom-persp/kodemaker)
 
 (project-specifics "projects/kodemaker.no"
-  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html"))
+  (ffip-local-patterns "*.clj" "*.js" "*.css" "*.edn" "*.html")
+  (set (make-local-variable 'css-indent-offset) 2))
 
 ;; mytomatoes
 
