@@ -118,8 +118,9 @@
 (define-key cider-mode-map (kbd "C-c C-l") 'cider-find-and-clear-repl-buffer)
 (define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
 
-(setq cljr-clojure-test-declaration
-      "[clojure.test :refer [deftest is testing]]")
+(setq cljr-clojure-test-declaration "[clojure.test :refer [deftest is testing]]")
+(setq cljr-cljs-clojure-test-declaration cljr-clojure-test-declaration)
+(setq cljr-cljc-clojure-test-declaration cljr-clojure-test-declaration)
 
 ;; indent [quiescent.dom :as d] specially
 
