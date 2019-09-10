@@ -57,8 +57,12 @@
 (define-key clojure-mode-map (kbd "C-c k w") 'kaocha-runner-show-warnings)
 (define-key clojure-mode-map (kbd "C-c k h") 'kaocha-runner-hide-windows)
 
+(require 'core-async-mode)
+
 (defun enable-clojure-mode-stuff ()
-  (clj-refactor-mode 1))
+  (clj-refactor-mode 1)
+  (when (not (s-ends-with-p "/dev/user.clj" (buffer-file-name)))
+    (core-async-mode 1)))
 
 (add-hook 'clojure-mode-hook 'enable-clojure-mode-stuff)
 
