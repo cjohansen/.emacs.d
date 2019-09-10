@@ -15,6 +15,12 @@
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
 
+(defun clj-goto-toplevel ()
+  (interactive)
+  (cljr--goto-toplevel))
+
+(define-key clojure-mode-map (kbd "C-S-M-u") 'clj-goto-toplevel)
+
 (define-key clojure-mode-map (kbd "C-:") 'hippie-expand-lines)
 (define-key clojure-mode-map (kbd "C-\"") 'clojure-toggle-keyword-string)
 
