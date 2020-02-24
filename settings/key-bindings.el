@@ -49,6 +49,7 @@
 (global-set-key (kbd "C-~") 'mc/reverse-regions)
 (global-set-key (kbd "M-~") 'mc/sort-regions)
 (global-set-key (kbd "H-~") 'mc/insert-numbers)
+(global-set-key (kbd "H-0") 'mc/insert-numbers)
 
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
