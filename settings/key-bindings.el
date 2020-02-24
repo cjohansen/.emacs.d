@@ -11,6 +11,9 @@
 (require 'misc)
 (global-set-key (kbd "s-.") 'copy-from-above-command)
 
+(require 'repeat)
+(global-set-key (kbd "H-.") 'repeat)
+
 ;; Smart M-x
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
