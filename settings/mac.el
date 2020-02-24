@@ -31,7 +31,7 @@
   (set-face-attribute 'default nil :font magnars/default-font))
 
 ;; keybinding to toggle full screen mode
-(global-set-key (quote [M-f10]) (quote ns-toggle-fullscreen))
+(global-set-key '[M-f10] 'toggle-frame-fullscreen)
 
 ;; Move to trash when deleting stuff
 (setq delete-by-moving-to-trash t
