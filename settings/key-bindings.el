@@ -44,9 +44,10 @@
 (global-set-key (kbd "M-s-Æ") 'mc/mark-all-symbols-like-this)
 
 ;; Extra multiple cursors stuff
-(global-set-key (kbd "C-~") 'mc/reverse-regions)
-(global-set-key (kbd "M-~") 'mc/sort-regions)
-(global-set-key (kbd "H-~") 'mc/insert-numbers)
+(global-set-key (kbd "H-0") 'mc/insert-numbers)
+(global-set-key (kbd "H-1") 'mc/reverse-regions)
+(global-set-key (kbd "H-2") 'mc/sort-regions)
+(global-set-key (kbd "H-3") 'mc/insert-letters)
 
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
