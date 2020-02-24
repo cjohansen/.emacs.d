@@ -76,12 +76,13 @@
     (ido-everywhere 0)
     (ido-ubiquitous-mode 0)
     (icomplete-mode 0)
-    (if (called-interactively-p 'any)
-        (call-interactively func)
-      (apply func args))
-    (ido-everywhere 1)
-    (ido-ubiquitous-mode 1)
-    (icomplete-mode 1)))
+    (unwind-protect
+        (if (called-interactively-p 'any)
+            (call-interactively func)
+          (apply func args))
+      (ido-everywhere 1)
+      (ido-ubiquitous-mode 1)
+      (icomplete-mode 1))))
 
 (defun my/disable-ido (command)
   "Disable IDO when command COMMAND is called."

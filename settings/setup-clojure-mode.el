@@ -15,6 +15,12 @@
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
 
+(defun clj-goto-toplevel ()
+  (interactive)
+  (cljr--goto-toplevel))
+
+(define-key clojure-mode-map (kbd "C-S-M-u") 'clj-goto-toplevel)
+
 (define-key clojure-mode-map (kbd "C-:") 'hippie-expand-lines)
 (define-key clojure-mode-map (kbd "C-\"") 'clojure-toggle-keyword-string)
 
@@ -51,8 +57,12 @@
 (define-key clojure-mode-map (kbd "C-c k w") 'kaocha-runner-show-warnings)
 (define-key clojure-mode-map (kbd "C-c k h") 'kaocha-runner-hide-windows)
 
+(require 'core-async-mode)
+
 (defun enable-clojure-mode-stuff ()
-  (clj-refactor-mode 1))
+  (clj-refactor-mode 1)
+  (when (not (s-ends-with-p "/dev/user.clj" (buffer-file-name)))
+    (core-async-mode 1)))
 
 (add-hook 'clojure-mode-hook 'enable-clojure-mode-stuff)
 
@@ -76,12 +86,6 @@
 (define-key clojure-mode-map (kbd "s-j") 'clj-jump-to-other-file)
 
 (define-key clojure-mode-map (kbd "C-.") 'clj-hippie-expand-no-case-fold)
-
-(defun backslash ()
-  (interactive)
-  (insert "\\"))
-
-(define-key clojure-mode-map (kbd "H-7") 'backslash)
 
 (defun clj-hippie-expand-no-case-fold ()
   (interactive)
@@ -143,8 +147,9 @@
 (define-key cider-mode-map (kbd "C-c C-l") 'cider-find-and-clear-repl-buffer)
 (define-key cider-repl-mode-map (kbd "C-c C-l") 'cider-repl-clear-buffer)
 
-(setq cljr-clojure-test-declaration
-      "[clojure.test :refer [deftest is testing]]")
+(setq cljr-clojure-test-declaration "[clojure.test :refer [deftest is testing]]")
+(setq cljr-cljs-clojure-test-declaration cljr-clojure-test-declaration)
+(setq cljr-cljc-clojure-test-declaration cljr-clojure-test-declaration)
 
 ;; indent [quiescent.dom :as d] specially
 
