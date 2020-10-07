@@ -19,6 +19,9 @@
 (set-default 'magit-no-confirm '(stage-all-changes
                                  unstage-all-changes))
 
+;; Real dates, please
+(set-default 'magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+
 ;; move cursor into position when entering commit message
 (defun my/magit-cursor-fix ()
   (beginning-of-buffer)
