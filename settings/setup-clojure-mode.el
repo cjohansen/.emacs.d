@@ -101,6 +101,9 @@
 ;; save files when evaluating them
 (setq cider-save-file-on-load t)
 
+;; don't time out too soon
+(setq nrepl-sync-request-timeout 30)
+
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-mode-map (kbd "C-,") 'complete-symbol)
