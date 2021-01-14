@@ -63,4 +63,7 @@
 (with-eval-after-load 'magit
   (require 'forge))
 
+;; Real dates, please
+(set-default 'magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
+
 (provide 'setup-magit)
