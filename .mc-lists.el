@@ -73,6 +73,7 @@
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
+        js2-tab-properly
         js2r-inline-var
         js2r-kill
         js2r-move-line-up
@@ -84,6 +85,7 @@
         kill-and-retry-line
         kill-region-or-backward-word
         kill-sexp
+        kmacro-start-macro-or-insert-counter
         live-cycle-clj-coll
         magit-stage-item
         markdown-cycle

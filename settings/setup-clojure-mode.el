@@ -153,6 +153,7 @@
 ;; indent [quiescent.dom :as d] specially
 
 (define-clojure-indent
+  (hex 1)
   (forcat 1)
   (d/a 1)
   (d/button 1)
@@ -212,6 +213,12 @@
   (e/grid 1)
   (e/grid-box 1)
   (e/grid-section 1)
+  (f/attempt-all 1)
+  (f/if-let-ok? 1)
+  (f/ok-> 1)
+  (f/ok->> 1)
+  (f/when-let-ok? 1)
+  (f/when-failed 1)
   (l/padded 1)
   (l/lightly-padded 1)
   (l/padded-all 1)
@@ -234,7 +241,8 @@
   (add-watch 2)
   (async 1)
   (testing-async 1)
-  (transaction 2))
+  (transaction 2)
+  (blur/component-blurer 1))
 
 ;; Don't warn me about the dangers of clj-refactor, fire the missiles!
 (setq cljr-warn-on-eval nil)

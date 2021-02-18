@@ -46,10 +46,10 @@
 
 ;; Preeeetty font in Emacs 24/Ubuntu
 (if is-mac nil
-  (set-default-font "DejaVu Sans Mono")
+  (set-frame-font "DejaVu Sans Mono")
   (set-face-attribute 'default nil :height 105))
 
-(set-default-font "Source Code Pro Medium")
+(set-frame-font "Source Code Pro Medium")
 
 ;; Don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)
