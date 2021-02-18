@@ -336,6 +336,7 @@
 (global-set-key (kbd "C-x C-o tx") (ffip-create-pattern-file-finder "*.txt"))
 (global-set-key (kbd "C-x C-o vm") (ffip-create-pattern-file-finder "*.vm"))
 (global-set-key (kbd "C-x C-o xm") (ffip-create-pattern-file-finder "*.xml"))
+(global-set-key (kbd "C-x C-o ym") (ffip-create-pattern-file-finder "*.yml"))
 (global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
 (global-set-key (kbd "C-x C-o pr") (ffip-create-pattern-file-finder "*.properties"))
 (global-set-key (kbd "C-x C-o in") (ffip-create-pattern-file-finder "*.ini"))
