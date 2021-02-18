@@ -303,3 +303,4 @@
 
 ;; Slides
 (require 'slides)
+(put 'narrow-to-page 'disabled nil)
