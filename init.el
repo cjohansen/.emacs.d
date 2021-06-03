@@ -3,8 +3,6 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-(package-initialize)
-
 ;; Remove security vulnerability
 (eval-after-load "enriched"
   '(defun enriched-decode-display-prop (start end &optional param)
