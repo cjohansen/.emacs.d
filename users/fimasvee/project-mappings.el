@@ -96,7 +96,7 @@
 
 (defun custom-persp/oiiku ()
   (interactive)
-  (custom-persp "oiiku" (find-file "~/work/oiiku/")))
+  (custom-persp "oiiku" (find-file "~/old-work/oiiku/")))
 
 (define-key persp-mode-map (kbd "C-x p o") 'custom-persp/oiiku)
 
@@ -139,143 +139,111 @@
   :port 3333
   :tags '(ring))
 
-(comment
- (prodigy-define-service
-   :name "datomic oiiku-central-api"
-   :cwd "~/data/datomic-free-0.8.4218"
-   :path '("~/data/datomic-free-0.8.4218/bin")
-   :command "transactor"
-   :args '("../../work/oiiku/oiiku-central-api/oiiku-central-api-server/config/datomic-transactor-free.properties")
-   :tags '(oiiku datomic pillar))
+(prodigy-define-service
+  :name "datomic oiiku-central-api"
+  :cwd "~/data/datomic-free-0.8.4218"
+  :path '("~/data/datomic-free-0.8.4218/bin")
+  :command "transactor"
+  :args '("../../work/oiiku/oiiku-central-api/oiiku-central-api-server/config/datomic-transactor-free.properties")
+  :tags '(oiiku datomic pillar))
 
- (prodigy-define-service
-   :name "datomic oiiku-badges-app"
-   :cwd "~/data/datomic-free-0.8.4218"
-   :path '("~/data/datomic-free-0.8.4218/bin")
-   :command "transactor"
-   :args '("../../work/oiiku/oiiku-badges-app/config/datomic-transactor-free.properties")
-   :tags '(oiiku datomic pillar))
+(prodigy-define-service
+  :name "datomic oiiku-badges-app"
+  :cwd "~/data/datomic-free-0.8.4218"
+  :path '("~/data/datomic-free-0.8.4218/bin")
+  :command "transactor"
+  :args '("../../work/oiiku/oiiku-badges-app/config/datomic-transactor-free.properties")
+  :tags '(oiiku datomic pillar))
 
- (prodigy-define-service
-   :name "datomic oiiku-screen-admin"
-   :cwd "~/data/datomic-free-0.8.4218"
-   :path '("~/data/datomic-free-0.8.4218/bin")
-   :command "transactor"
-   :args '("../../work/oiiku/oiiku-screen-admin-app/config/datomic-transactor-free.properties")
-   :tags '(oiiku datomic pillar))
+(prodigy-define-service
+  :name "datomic oiiku-screen-admin"
+  :cwd "~/data/datomic-free-0.8.4218"
+  :path '("~/data/datomic-free-0.8.4218/bin")
+  :command "transactor"
+  :args '("../../work/oiiku/oiiku-screen-admin-app/config/datomic-transactor-free.properties")
+  :tags '(oiiku datomic pillar))
 
- (prodigy-define-service
-   :name "elasticsearch"
-   :cwd "~/data/elasticsearch-1.0.0.Beta1/"
-   :path '("~/data/elasticsearch-1.0.0.Beta1/bin/")
-   :command "elasticsearch"
-   :args '("-f")
-   :tags '(oiiku elasticsearch pillar)
-   :on-output (lambda (service output)
-                (when (s-matches? "] started" output)
-                  (prodigy-set-status service 'ready))))
+(prodigy-define-service
+  :name "elasticsearch"
+  :cwd "~/data/elasticsearch-1.0.0.Beta1/"
+  :path '("~/data/elasticsearch-1.0.0.Beta1/bin/")
+  :command "elasticsearch"
+  :args '("-f")
+  :tags '(oiiku elasticsearch pillar)
+  :on-output (lambda (service output)
+               (when (s-matches? "] started" output)
+                 (prodigy-set-status service 'ready))))
 
- (prodigy-define-service
-   :name "oiiku-central-api"
-   :cwd "~/work/oiiku/oiiku-central-api/oiiku-central-api-server/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku pillar))
+(prodigy-define-service
+  :name "oiiku-central-api"
+  :cwd "~/work/oiiku/oiiku-central-api/oiiku-central-api-server/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku pillar))
 
- (prodigy-define-service
-   :name "oiiku-sso"
-   :cwd "~/work/oiiku/oiiku-sso/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku pillar))
+(prodigy-define-service
+  :name "oiiku-sso"
+  :cwd "~/work/oiiku/oiiku-sso/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku pillar))
 
- (prodigy-define-service
-   :name "oiiku-event-admin"
-   :cwd "~/work/oiiku/oiiku-event-admin/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku pillar))
+(prodigy-define-service
+  :name "oiiku-event-admin"
+  :cwd "~/work/oiiku/oiiku-event-admin/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku pillar))
 
- (prodigy-define-service
-   :name "oiiku-attendants-app"
-   :cwd "~/work/oiiku/oiiku-attendants-app/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku pillar))
+(prodigy-define-service
+  :name "oiiku-attendants-app"
+  :cwd "~/work/oiiku/oiiku-attendants-app/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku pillar))
 
- (prodigy-define-service
-   :name "oiiku-messages-app"
-   :cwd "~/work/oiiku/oiiku-messages-app/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku messages))
+(prodigy-define-service
+  :name "oiiku-messages-app"
+  :cwd "~/work/oiiku/oiiku-messages-app/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku messages))
 
- (prodigy-define-service
-   :name "oiiku-messages-gateway"
-   :cwd "~/work/oiiku/oiiku-messages-gateway/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku messages))
+(prodigy-define-service
+  :name "oiiku-messages-gateway"
+  :cwd "~/work/oiiku/oiiku-messages-gateway/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku messages))
 
- (prodigy-define-service
-   :name "oiiku-messages-dummy"
-   :cwd "~/work/oiiku/oiiku-messages-dummy/"
-   :path '("~/work/oiiku/oiiku-messages-dummy/")
-   :command "gradlew"
-   :args '("run")
-   :tags '(oiiku messages))
+(prodigy-define-service
+  :name "oiiku-messages-dummy"
+  :cwd "~/work/oiiku/oiiku-messages-dummy/"
+  :path '("~/work/oiiku/oiiku-messages-dummy/")
+  :command "gradlew"
+  :args '("run")
+  :tags '(oiiku messages))
 
- (prodigy-define-service
-   :name "oiiku-badges-app"
-   :cwd "~/work/oiiku/oiiku-badges-app/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku))
+(prodigy-define-service
+  :name "oiiku-badges-app"
+  :cwd "~/work/oiiku/oiiku-badges-app/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku))
 
- (prodigy-define-service
-   :name "oiiku-invitations-app"
-   :cwd "~/work/oiiku/oiiku-invitations-app/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku))
+(prodigy-define-service
+  :name "oiiku-invitations-app"
+  :cwd "~/work/oiiku/oiiku-invitations-app/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku))
 
- (prodigy-define-service
-   :name "oiiku-screen-admin-app"
-   :cwd "~/work/oiiku/oiiku-screen-admin-app/"
-   :command "lein"
-   :args '("trampoline" "ring" "server-headless")
-   :tags '(oiiku)))
-
-;; FINN Reise
-
-(defun custom-persp/travel ()
-  (interactive)
-  (custom-persp "travel"
-                (find-file "~/projects/finn-reise/travel-app/")))
-
-;;(define-key persp-mode-map (kbd "C-x p t") 'custom-persp/travel)
-
-(require 'travel-mode)
-
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (when (string-match-p "travel-app" (buffer-file-name))
-              (--each '("cull" "dome" "bane") (add-to-list 'js2-additional-externs it))
-              (js2-fetch-autolint-externs "~/projects/finn-reise/travel-app/web/src/autolint.js")
-              (setq js2r-path-to-tests "/test/javascript/tests/")
-              (setq js2r-path-to-sources "/main/webapp/scripts/")
-              (setq js2r-test-suffix "Test")
-              (setq buster-default-global "FINN.travel")
-              (setq buster-add-default-global-to-iife t)
-              (setq buster-test-prefix "")
-              (set (make-local-variable 'js2-basic-offset) 4)
-              (set (make-local-variable 'buster-use-strict) t)
-              (set (make-local-variable 'js2r-use-strict) t))))
-
-(project-specifics "travel-app"
-  (ffip-local-patterns "*.js" "*.tag" "*.jsp" "*.css" "*.org" "*.vm" "*jawr.properties")
-  (set (make-local-variable 'sgml-basic-offset) 2)
-  (travel-mode))
+(prodigy-define-service
+  :name "oiiku-screen-admin-app"
+  :cwd "~/work/oiiku/oiiku-screen-admin-app/"
+  :command "lein"
+  :args '("trampoline" "ring" "server-headless")
+  :tags '(oiiku))
 
 ;; kodemaker.no
 
@@ -473,7 +441,7 @@
 (defun custom-persp/norled-trip-trap ()
   (interactive)
   (custom-persp "trip-trap"
-                (find-file "~/work/trip-trap/project.clj")))
+                (find-file "~/old-work/trip-trap/project.clj")))
 
 (defun reload-norled-trip-trap ()
   (save-buffer)
@@ -492,7 +460,7 @@
 (defun custom-persp/norled-tic-tac ()
   (interactive)
   (custom-persp "tic-tac"
-                (find-file "~/work/tic-tac/project.clj")))
+                (find-file "~/old-work/tic-tac/project.clj")))
 
 (defun setup-tic-tac-project-specifics ()
   (ffip-local-patterns "*.cljs" "*.edn" "*.css"))
@@ -502,6 +470,9 @@
 (define-key persp-mode-map (kbd "C-x p t") 'custom-persp/norled-tic-tac)
 
 ;; Hafslund
+
+(project-specifics "work/madhouse"
+  (set (make-local-variable 'css-indent-offset) 2))
 
 (defun js2-hafslund-settings ()
   (when (string-match-p "projects/hafslund/link-app" (buffer-file-name))
