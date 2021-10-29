@@ -9,8 +9,11 @@
         adv-dot
         adv-enter
         adv-gt
+        adv-hash
         adv-lt
         adv-open-curly
+        adv-plus
+        adv-space
         adv-tab
         back-to-indentation-or-beginning
         backward-kill-sexp
@@ -27,6 +30,7 @@
         change-number-at-point
         change-outer
         cider-eval-last-sexp
+        clj-goto-toplevel
         clj-hippie-expand-no-case-fold
         cljr-cycle-coll
         cljr-raise-sexp
@@ -37,9 +41,11 @@
         clojure-backward-logical-sexp
         clojure-forward-logical-sexp
         clojure-mode-paredit-wrap-round
+        clojure-mode-paredit-wrap-round-from-behind
         clojure-mode-paredit-wrap-square
         clojure-thread-first-all
         clojure-toggle-keyword-string
+        clojure-unwind-all
         comment-dwim
         complete-symbol
         cua-replace-region
@@ -70,6 +76,7 @@
         js2-beginning-of-line
         js2-end-of-line
         js2-insert-and-indent
+        js2-tab-properly
         js2r-inline-var
         js2r-kill
         js2r-move-line-up
@@ -109,6 +116,7 @@
         org-return-indent
         org-self-insert-command
         org-shiftleft
+        org-shiftmetaright
         org-shiftright
         org-yank
         orgtbl-self-insert-command
@@ -159,6 +167,7 @@
         sp--self-insert-command
         sp-remove-active-pair-overlay
         sp-self-insert-command
+        split-window-right-and-move-there-dammit
         subtract-number-at-point
         subword-left
         subword-right
@@ -183,6 +192,7 @@
         transpose-sexps
         transpose-words
         wdired-capitalize-word
+        wdired-downcase-word
         wdired-next-line
         wdired-previous-line
         wrap-region-trigger
@@ -203,7 +213,9 @@
         cleanup-buffer
         clj-jump-to-other-file
         clojure-mode-indent-top-level-form
+        create-scratch-buffer
         custom-persp/emacs
+        delete-window
         describe-key
         diff-hl-diff-goto-hunk
         dired-toggle-read-only
@@ -224,6 +236,7 @@
         make-frame
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
+        move-past-close-and-reindent
         multiple-cursors-mode
         ns-prev-frame
         persp-switch
