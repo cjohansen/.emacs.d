@@ -48,41 +48,45 @@
 
 (defun core-async--update-clj-namespace ()
   (save-excursion
-    (let ((usages (core-async--find-usages)))
-      (core-async--remove-from-ns ":require" "clojure.core.async")
-      (when usages
-        (cljr--insert-in-ns ":require")
-        (insert "[clojure.core.async :refer [")
-        (apply 'insert (->> usages
-                            (-sort ocljr-sort-comparator)
-                            (-interpose " ")))
-        (insert "]]")))
+    (cljr--goto-ns)
+    (unless (cljr--search-forward-within-sexp "clojure.core.async :as")
+      (let ((usages (core-async--find-usages)))
+        (core-async--remove-from-ns ":require" "clojure.core.async")
+        (when usages
+          (cljr--insert-in-ns ":require")
+          (insert "[clojure.core.async :refer [")
+          (apply 'insert (->> usages
+                              (-sort ocljr-sort-comparator)
+                              (-interpose " ")))
+          (insert "]]"))))
     (ocljr-sort-ns)))
 
 (defun core-async--update-cljs-namespace ()
   (save-excursion
-    (let* ((usages (core-async--find-usages))
-           (used-fns (--filter (member it core-async--functions) usages))
-           (used-macros (--filter (member it core-async--macros) usages)))
-      (core-async--remove-from-ns ":require" "cljs.core.async")
-      (core-async--remove-from-ns ":require-macros" "cljs.core.async.macros")
-      (when used-fns
-        (cljr--insert-in-ns ":require")
-        (just-one-space)
-        (insert "[cljs.core.async :refer [")
-        (apply 'insert (->> used-fns
-                            (-sort ocljr-sort-comparator)
-                            (-interpose " ")))
-        (insert "]]"))
-      (when used-macros
-        (cljr--insert-in-ns ":require-macros")
-        (just-one-space)
-        (insert "[cljs.core.async.macros :refer [")
-        (apply 'insert (->> used-macros
-                            (-sort ocljr-sort-comparator)
-                            (-interpose " ")))
-        (insert "]]"))
-      (ocljr-sort-ns))))
+    (cljr--goto-ns)
+    (unless (cljr--search-forward-within-sexp "cljs.core.async :as")
+      (let* ((usages (core-async--find-usages))
+             (used-fns (--filter (member it core-async--functions) usages))
+             (used-macros (--filter (member it core-async--macros) usages)))
+        (core-async--remove-from-ns ":require" "cljs.core.async")
+        (core-async--remove-from-ns ":require-macros" "cljs.core.async.macros")
+        (when used-fns
+          (cljr--insert-in-ns ":require")
+          (just-one-space)
+          (insert "[cljs.core.async :refer [")
+          (apply 'insert (->> used-fns
+                              (-sort ocljr-sort-comparator)
+                              (-interpose " ")))
+          (insert "]]"))
+        (when used-macros
+          (cljr--insert-in-ns ":require-macros")
+          (just-one-space)
+          (insert "[cljs.core.async.macros :refer [")
+          (apply 'insert (->> used-macros
+                              (-sort ocljr-sort-comparator)
+                              (-interpose " ")))
+          (insert "]]"))
+        (ocljr-sort-ns)))))
 
 (defun core-async-update-namespace ()
   (interactive)
