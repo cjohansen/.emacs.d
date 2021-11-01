@@ -42,6 +42,7 @@
         clojure-thread-first-all
         clojure-toggle-keyword-string
         comment-dwim
+        comment-or-uncomment-region
         complete-symbol
         cua-replace-region
         cua-set-mark
@@ -239,6 +240,7 @@
         markdown-outdent-or-delete
         mc/add-cursor-on-click
         mc/add-cursors-to-all-matches
+        mf/mirror-region-in-multifile
         multiple-cursors-mode
         ns-prev-frame
         paredit-backward-kill-word
