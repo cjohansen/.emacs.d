@@ -52,7 +52,7 @@
 (defun custom-persp/org ()
   (interactive)
   (custom-persp "org"
-                (find-file "~/Dropbox/org/")))
+                (find-file "~/org/")))
 (define-key persp-mode-map (kbd "C-<f6>") 'custom-persp/org)
 
 ;; Småjobber
