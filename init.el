@@ -186,6 +186,7 @@
 (require 'setup-paredit)
 (require 'setup-editorconfig)
 (require 'setup-css-mode)
+(require 'scala-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
