@@ -49,7 +49,7 @@
              (kaocha-runner--testable-sym (cider-current-ns) nil (eq major-mode 'clojurescript-mode))
              nil t original-buffer)))))))
 
-(add-hook 'cider-file-loaded-hook #'kaocha-runner-run-relevant-tests)
+;;(add-hook 'cider-file-loaded-hook #'kaocha-runner-run-relevant-tests)
 
 (define-key clojure-mode-map (kbd "C-c k t") 'kaocha-runner-run-test-at-point)
 (define-key clojure-mode-map (kbd "C-c k r") 'kaocha-runner-run-tests)
