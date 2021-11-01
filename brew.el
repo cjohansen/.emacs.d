@@ -108,11 +108,13 @@
 ;; (required-grain-weights 5 1.050 '((0.74 0.78 0.75) (0.26 0.75 0.75)))
 ;; (required-grain-weights-metric 18.92 1.050 '((0.74 0.78 0.75) (0.26 0.75 0.75)))
 
+(setq BOIL_TEMP 95)
+
 (defun boil-cold (temp volume cold-temp)
   "To create VOLUME liters of TEMP C water, use this many liters
    of boiling water, and this many liters of cold water"
-  (let ((boiling (/ (- (* temp volume) cold-temp) 100)))
-    (list (cons (- volume boiling) cold-temp) (cons boiling 100))))
+  (let ((boiling (/ (- (* temp volume) cold-temp) BOIL_TEMP)))
+    (list (cons (- volume boiling) cold-temp) (cons boiling BOIL_TEMP))))
 
 (defun wort-points (gravity volume)
   (* (gravity-points gravity) volume))
@@ -128,7 +130,7 @@
         (mash-temp (car steps))
         (water-volume (* grain-weight start-ratio)))
     (-flatten (cons (boil-cold strike-temp water-volume 10.4) (-map (lambda (infusion-temp)
-                                                                      (cons (infusion-volume-boil infusion-temp mash-temp grain-weight water-volume) 100)) (cdr steps))))))
+                                                                      (cons (infusion-volume-boil infusion-temp mash-temp grain-weight water-volume) BOIL_TEMP)) (cdr steps))))))
 
 (defun final-mash-volume (grain-weight grain-temp start-ratio steps)
   (-reduce-from (lambda (sum pair) (+ sum (car pair)))
