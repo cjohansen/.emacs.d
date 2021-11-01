@@ -55,4 +55,11 @@
 
 (global-set-key (kbd "M-U") 'unfill-paragraph)
 
+(defun goto-last-modification ()
+  (interactive)
+  (undo-tree-undo)
+  (undo-tree-redo))
+
+(global-set-key (kbd "M-B") 'goto-last-modification)
+
 (provide 'my-misc)
