@@ -122,6 +122,7 @@
         paredit-backward
         paredit-backward-barf-sexp
         paredit-backward-down
+        paredit-backward-kill-word
         paredit-backward-slurp-sexp
         paredit-backward-up
         paredit-close-curly
@@ -243,7 +244,6 @@
         mf/mirror-region-in-multifile
         multiple-cursors-mode
         ns-prev-frame
-        paredit-backward-kill-word
         persp-switch
         shell
         skewer-load-buffer

@@ -8,9 +8,10 @@
  '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)
  '(ido-use-filename-at-point nil)
  '(package-selected-packages
-   '(kaocha-runner forge ripgrep deadgrep vcl-mode lsp-scala ansible beginend cider clj-refactor clojure-mode clojure-mode-extra-font-locking company css-eldoc diminish diff-hl dockerfile-mode editorconfig edn elisp-slime-nav elm-mode eproject exec-path-from-shell f fill-column-indicator flx flx-ido flycheck flycheck-pos-tip gist go-mode gotest groovy-mode guide-key highlight-escape-sequences htmlize hydra ido-at-point ido-completing-read+ ido-vertical-mode inflections js2-mode js2-refactor kubernetes less-css-mode lorem-ipsum magit markdown-mode minions move-text nodejs-repl paredit perspective php-mode prodigy projectile queue request restclient scala-mode shell-command simple-httpd smartparens spinner string-edit systemd terraform-mode textile-mode undo-tree visual-regexp wgrep whitespace-cleanup-mode yaml-mode yasnippet))
+   '(zprint-mode kaocha-runner forge ripgrep deadgrep vcl-mode lsp-scala ansible beginend cider clj-refactor clojure-mode clojure-mode-extra-font-locking company css-eldoc diminish diff-hl dockerfile-mode editorconfig edn elisp-slime-nav elm-mode eproject exec-path-from-shell f fill-column-indicator flx flx-ido flycheck flycheck-pos-tip gist go-mode gotest groovy-mode guide-key highlight-escape-sequences htmlize hydra ido-at-point ido-completing-read+ ido-vertical-mode inflections js2-mode js2-refactor kubernetes less-css-mode lorem-ipsum magit markdown-mode minions move-text nodejs-repl paredit perspective php-mode prodigy projectile queue request restclient scala-mode shell-command simple-httpd smartparens spinner string-edit systemd terraform-mode textile-mode undo-tree visual-regexp wgrep whitespace-cleanup-mode yaml-mode yasnippet))
  '(safe-local-variable-values
-   '((cider-figwheel-main-default-options . ":fortum-app-dev")
+   '((cider-clojure-cli-global-options . "-A:dev:test:login")
+     (cider-figwheel-main-default-options . ":fortum-app-dev")
      (cider-clojure-cli-global-options . "-A:fortum-app-dev:ui:nucleus:hafslund:fortum:dev")
      (cider-clojure-cli-global-options . "-A:ui:dev:test:hafslund:fortum:norgesenergi:fortum-dev")
      (cider-clojure-cli-global-options . "-A:ui:dev:test:hafslund:fortum:fortum-dev")

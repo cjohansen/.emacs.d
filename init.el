@@ -134,7 +134,6 @@
      restclient
      ripgrep
      scala-mode
-     shell-command
      simple-httpd
      smartparens
      spinner
