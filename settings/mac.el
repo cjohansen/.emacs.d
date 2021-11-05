@@ -44,7 +44,7 @@
 (setq ns-pop-up-frames nil)
 
 ;; Use aspell for spell checking: brew install aspell --lang=en
-(setq ispell-program-name "/usr/local/bin/aspell")
+(setq ispell-program-name "/opt/homebrew/bin/aspell")
 
 ;; Open files
 (defun mac-open-current-file ()
