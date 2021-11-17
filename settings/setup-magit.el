@@ -7,11 +7,27 @@
         (stashes . show)))
 
 ;; full screen magit-status
+(defun magit-quit (&optional kill-buffer)
+  "Like magit-mode-bury-buffer, but also restores the window
+configuration stored by magit-status-fullscreen"
+  (interactive "P")
+  ;; Kill all associated Magit buffers when a double prefix arg is given.
+  (when (>= (prefix-numeric-value kill-buffer) 16)
+    (let ((current (current-buffer)))
+      (dolist (buf (magit-mode-get-buffers))
+        (unless (eq buf current)
+          (kill-buffer buf)))))
+  (funcall magit-bury-buffer-function kill-buffer)
+  (jump-to-register :magit-fullscreen))
+
 (defun magit-status-fullscreen (prefix)
   (interactive "P")
+  (window-configuration-to-register :magit-fullscreen)
   (magit-status)
   (unless prefix
     (delete-other-windows)))
+
+(define-key magit-status-mode-map (kbd "q") 'magit-quit)
 
 ;; don't prompt me
 (set-default 'magit-push-always-verify nil)
