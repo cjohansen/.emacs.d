@@ -26,6 +26,11 @@
         (call-interactively 'goto-line))
     (linum-mode -1)))
 
+(defun goto-last-modification ()
+  (interactive)
+  (undo-tree-undo)
+  (undo-tree-redo))
+
 (defun open-line-and-indent ()
   (interactive)
   (newline-and-indent)

@@ -447,15 +447,16 @@
     (indent-region (point-min) (point-max))))
 
 (defun cljr--add-ns-if-blank-clj-file ()
-  (ignore-errors
-    (when (and cljr-add-ns-to-blank-clj-files
-               (cljr--clojure-ish-filename-p (buffer-file-name))
-               (= (point-min) (point-max)))
-      (insert (format "(ns %s)\n\n" (clojure-expected-ns)))
-      (when (cljr--in-tests-p)
-        (cljr--add-test-declarations))
-      (when (clj--is-card? (buffer-file-name))
-        (cljr--add-card-declarations)))))
+  (when (and cljr-add-ns-to-blank-clj-files
+             (cljr--clojure-ish-filename-p (buffer-file-name))
+             (= (point-min) (point-max)))
+    (insert (format "(ns %s)\n\n" (->> (clojure-expected-ns)
+                                       (s-chop-prefix "src.")
+                                       (s-chop-prefix "test."))))
+    (when (cljr--in-tests-p)
+      (cljr--add-test-declarations))
+    (when (clj--is-card? (buffer-file-name))
+      (cljr--add-card-declarations))))
 
 (defun clojure-mode-indent-top-level-form (&optional cleanup-buffer?)
   (interactive "P")
