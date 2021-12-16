@@ -13,6 +13,9 @@
         (set-marker m nil))
     ad-do-it))
 
+;; Enter passwords in minibuffer
+(setq epa-pinentry-mode 'loopback)
+
 ;; Whitespace-style
 (setq whitespace-style '(trailing lines space-before-tab
                                   indentation space-after-tab)
