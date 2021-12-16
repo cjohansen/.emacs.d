@@ -91,9 +91,6 @@
 [submodule "site-lisp/revealjs-mode"]
         path = site-lisp/revealjs-mode
         url = https://github.com/cjohansen/revealjs-mode.git
-[submodule "site-lisp/clj-refactor"]
-        path = site-lisp/clj-refactor
-        url = https://github.com/magnars/clj-refactor.el.git
 [submodule "site-lisp/tern"]
         path = site-lisp/tern
         url = https://github.com/marijnh/tern.git

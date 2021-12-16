@@ -81,6 +81,7 @@
      ansible
      beginend
      cider
+     clj-refactor
      clojure-mode
      clojure-mode-extra-font-locking
      company
