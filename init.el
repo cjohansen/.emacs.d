@@ -109,6 +109,7 @@
 ;;     guide-key
      highlight-escape-sequences
      htmlize
+     html-to-hiccup
      hydra
      ido-at-point
      ido-completing-read+

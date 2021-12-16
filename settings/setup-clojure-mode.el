@@ -27,6 +27,9 @@
 (define-key clojure-mode-map [remap paredit-forward] 'clojure-forward-logical-sexp)
 (define-key clojure-mode-map [remap paredit-backward] 'clojure-backward-logical-sexp)
 
+(require 'html-to-hiccup)
+(define-key clojure-mode-map (kbd "H-k") 'html-to-hiccup-convert-region)
+
 ;; kaocha
 
 (require 'kaocha-runner)
