@@ -110,6 +110,7 @@
         org-delete-backward-char
         org-delete-char
         org-end-of-line
+        org-kill-line
         org-metaleft
         org-metaright
         org-return-indent
