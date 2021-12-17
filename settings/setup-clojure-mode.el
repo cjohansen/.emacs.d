@@ -107,6 +107,12 @@
 ;; don't time out too soon
 (setq nrepl-sync-request-timeout 30)
 
+;; work around logging issues, figwheel-main vs cider ... fight!
+(defun cider-figwheel-workaround--boot-up-cljs ()
+  (format "(boot-up-cljs %s)" cider-figwheel-main-default-options))
+
+(cider-register-cljs-repl-type 'boot-up-cljs #'cider-figwheel-workaround--boot-up-cljs)
+
 (define-key cider-repl-mode-map (kbd "<home>") nil)
 (define-key cider-repl-mode-map (kbd "C-,") 'complete-symbol)
 (define-key cider-mode-map (kbd "C-,") 'complete-symbol)
