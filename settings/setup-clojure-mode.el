@@ -1,6 +1,12 @@
 (require 'clojure-mode)
 (require 'clojure-mode-extra-font-locking)
 
+;; To get linting, install joker:
+;;
+;;     brew install candid82/brew/joker
+;;
+(require 'flycheck-joker)
+
 (defadvice clojure-test-run-tests (before save-first activate)
   (save-buffer))
 

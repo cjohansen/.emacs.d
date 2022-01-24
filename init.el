@@ -84,6 +84,7 @@
      flx-ido
      flycheck
      flycheck-pos-tip
+     flycheck-joker
      forge
      gist
      groovy-mode
@@ -151,6 +152,8 @@
 (require 'setup-ffip)
 (require 'setup-html-mode)
 (require 'setup-paredit)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
