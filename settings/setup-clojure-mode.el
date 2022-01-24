@@ -31,6 +31,12 @@
 
 (setq clojure-toplevel-inside-comment-form t)
 
+;; Automatically download all available .jars with Java sources and javadocs -
+;; allowing you to navigate to Java sources and javadocs in your Clojure
+;; projects.
+
+(setq cider-enrich-classpath t)
+
 ;; kaocha
 
 (require 'kaocha-runner)
