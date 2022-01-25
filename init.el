@@ -102,6 +102,7 @@
      flx-ido
      flycheck
      flycheck-pos-tip
+     flycheck-joker
      forge
      gist
      go-mode
@@ -188,6 +189,8 @@
 (require 'setup-editorconfig)
 (require 'setup-css-mode)
 (require 'scala-mode)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'prodigy)
 (global-set-key (kbd "C-x M-m") 'prodigy)
