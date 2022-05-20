@@ -17,6 +17,8 @@
 
 (setq cljr-favor-prefix-notation nil)
 (setq cljr-favor-private-functions nil)
+(setq cljr-insert-newline-after-require nil)
+(setq cljr-assume-language-context "clj")
 
 (cljr-add-keybindings-with-modifier "C-s-")
 (define-key clj-refactor-map (kbd "C-x C-r") 'cljr-rename-file)
