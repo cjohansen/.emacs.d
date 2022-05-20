@@ -428,7 +428,8 @@
 (define-key clojure-mode-map (kbd "C-c C-q") 'nrepl-warn-when-not-connected)
 
 (setq cljr-magic-require-namespaces
-      '(("io"   . "clojure.java.io")
+      '(("edn"  . "clojure.edn")
+        ("io"   . "clojure.java.io")
         ("set"  . "clojure.set")
         ("str"  . "clojure.string")
         ("walk" . "clojure.walk")
