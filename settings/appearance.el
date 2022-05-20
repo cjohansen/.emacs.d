@@ -76,6 +76,7 @@
 ;; Sweet window-splits
 (defadvice split-window-right (after balance activate) (balance-windows))
 (defadvice delete-window (after balance activate) (balance-windows))
+(defadvice split-window-below (after balance activate) (balance-windows))
 
 (defun enable-zoom-one-shot-keybindings ()
   (set-transient-map

@@ -44,6 +44,15 @@
 ;; projects.
 (setq cider-enrich-classpath t)
 
+(defun clojure--remove-superfluous-parens ()
+  "Remove extra parens from a form."
+  (when (looking-at "([^ )]+)")
+    (let ((delete-pair-blink-delay 0))
+      (delete-pair))))
+
+;; Don't tread the last one
+;;(setq clojure-thread-all-but-last nil)
+
 ;; kaocha
 
 (require 'kaocha-runner)
@@ -258,6 +267,7 @@
   (l/bottom-fixed 1)
   (l/centered 1)
   (l/vert-space 1)
+  (picard/execute-command! 1)
   (c/box 1)
   (c/square 1)
   (c/box-with-subsection 1)
