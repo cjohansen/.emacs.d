@@ -619,4 +619,34 @@ the namespace in the Clojure source buffer"
 
 (define-key clojure-mode-map (kbd "C-x M-e") 'my/cider-eval-including-lets)
 
+(defun my/clojure-should-unwind-once? ()
+  (save-excursion
+    (ignore-errors
+      (when (looking-at "(")
+        (forward-char 1)
+        (forward-sexp 1)))
+    (let ((forms nil))
+      (while (not (looking-at ")"))
+        (clojure-forward-logical-sexp)
+        (clojure-backward-logical-sexp)
+        (setq forms (cons (buffer-substring-no-properties (point) (+ 1 (point))) forms))
+        (clojure-forward-logical-sexp))
+      (and (--any? (s-equals? it "(") forms)
+           (< 2 (length forms))))))
+
+(defun clojure--thread-all (first-or-last-thread but-last)
+  "Fully thread the form at point.
+
+FIRST-OR-LAST-THREAD is \"->\" or \"->>\".
+
+When BUT-LAST is non-nil, the last expression is not threaded.
+Default value is `clojure-thread-all-but-last'."
+  (save-mark-and-excursion
+    (save-excursion
+      (insert-parentheses 1)
+      (insert first-or-last-thread))
+    (while (save-excursion (clojure-thread)))
+    (when (my/clojure-should-unwind-once?)
+      (clojure-unwind))))
+
 (provide 'setup-clojure-mode)
