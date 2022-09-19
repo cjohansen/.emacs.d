@@ -45,6 +45,12 @@
 
 (setq clojure-thread-all-but-last t)
 
+(defun clojure--remove-superfluous-parens ()
+  "Remove extra parens from a form."
+  (when (looking-at "([^ )]+)")
+    (let ((delete-pair-blink-delay 0))
+      (delete-pair))))
+
 ;; Treat top level forms in comment forms as top level forms
 (setq clojure-toplevel-inside-comment-form t)
 
