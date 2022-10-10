@@ -24,7 +24,7 @@ I use Cocoa Emacs, installed like this:
 If you want to use my settings straight out of the box, here are some things to note:
 
  * I recommend starting with a blank emacs +
-   [Technomancy's better-defaults package](https://github.com/technomancy/better-defaults),
+   [Technomancy's better-defaults package](https://git.sr.ht/~technomancy/better-defaults),
    and then dig through this repo for useful nuggets, instead of forking it directly.
 
  * The key bindings are optimized for a norwegian keyboard layout.
