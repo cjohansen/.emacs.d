@@ -147,6 +147,7 @@
      terraform-mode
      textile-mode
      undo-tree
+     string-edit-at-point
      visual-regexp
      wgrep
      whitespace-cleanup-mode
