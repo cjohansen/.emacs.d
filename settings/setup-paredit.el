@@ -38,7 +38,8 @@
 (define-key paredit-mode-map (kbd "M-s-(") 'paredit-wrap-curly)
 (define-key paredit-mode-map (kbd "M-s-)") 'paredit-wrap-curly-from-behind)
 (define-key paredit-mode-map (kbd "C-w") 'paredit-kill-region-or-backward-word)
-(define-key paredit-mode-map (kbd "C-M-<backspace>") 'backward-kill-sexp)
+(define-key paredit-mode-map (kbd "M-C-<backspace>") 'backward-kill-sexp)
+(define-key paredit-mode-map (kbd "C-d") 'paredit-forward-delete)
 
 ;; Change nasty paredit keybindings
 (defvar my-nasty-paredit-keybindings-remappings
