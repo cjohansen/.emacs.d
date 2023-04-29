@@ -1,8 +1,11 @@
 ;; Load Perspective
 (require 'perspective)
 
+(global-set-key (kbd "C-x C-b") 'persp-list-buffers)
+(customize-set-variable 'persp-mode-prefix-key (kbd "C-x x"))
+
 ;; Enable perspective mode
-(persp-mode t)
+(persp-mode)
 
 ;; TODO: implement persp-last as before-advice on persp-switch (?)
 

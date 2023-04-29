@@ -150,6 +150,7 @@
      terraform-mode
      textile-mode
      undo-tree
+     sqlite3
      string-edit-at-point
      use-package
      vertico
