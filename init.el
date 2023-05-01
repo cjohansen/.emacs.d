@@ -92,9 +92,9 @@
      diminish
      dockerfile-mode
      editorconfig
-     elm-mode
      edn
      elisp-slime-nav
+     elm-mode
      eproject
      exec-path-from-shell
      f
@@ -103,16 +103,15 @@
      flx-ido
      flycheck
      flycheck-clj-kondo
-     flycheck-pos-tip
      flycheck-joker
+     flycheck-pos-tip
      forge
      gist
      go-mode
      groovy-mode
-;;     guide-key
      highlight-escape-sequences
-     htmlize
      html-to-hiccup
+     htmlize
      hydra
      ido-at-point
      ido-completing-read+
@@ -125,11 +124,11 @@
      less-css-mode
      lorem-ipsum
      magit
-     markdown-mode
-     minions
      magit
      marginalia
      markdown-mode
+     markdown-mode
+     minions
      move-text
      nodejs-repl
      orderless
@@ -145,13 +144,13 @@
      simple-httpd
      smartparens
      spinner
+     sqlite3
      string-edit
+     string-edit-at-point
      systemd
      terraform-mode
      textile-mode
      undo-tree
-     sqlite3
-     string-edit-at-point
      use-package
      vertico
      visual-regexp
