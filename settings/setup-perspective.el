@@ -22,6 +22,5 @@
   (persp-switch (persp-name persp-last)))
 
 (define-key persp-mode-map (kbd "C-x p -") 'custom-persp-last)
-(customize-set-variable 'persp-mode-prefix-key (kbd "C-x p"))
 
 (provide 'setup-perspective)
