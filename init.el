@@ -101,6 +101,7 @@
      flx
      flx-ido
      flycheck
+     flycheck-clj-kondo
      flycheck-pos-tip
      flycheck-joker
      forge
@@ -116,6 +117,7 @@
      ido-completing-read+
      ido-vertical-mode
      inflections
+     jet
      js2-mode
      js2-refactor
      kaocha-runner
@@ -189,6 +191,10 @@
 (require 'setup-editorconfig)
 (require 'setup-css-mode)
 (require 'scala-mode)
+(require 'jet-custom)
+
+(global-set-key (kbd "C-c j e j") 'copy-edn-as-json)
+(global-set-key (kbd "C-c j j e") 'copy-json-as-edn)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

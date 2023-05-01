@@ -193,6 +193,7 @@
 (define-clojure-indent
   (box 1)
   (section-box 1)
+  (modals/modal-bed 1)
   (hex 1)
   (forcat 1)
   (d/a 1)
@@ -264,6 +265,7 @@
   (focusable 1)
   (actionable 1)
   (focusable-inline 1)
+  (illustration 1)
   (l/padded 1)
   (l/lightly-padded 1)
   (l/padded-all 1)
@@ -416,7 +418,6 @@
 (define-key clojure-mode-map (kbd "C-x C-e") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-e") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-l") 'nrepl-warn-when-not-connected)
-(define-key clojure-mode-map (kbd "C-c C-r") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-z") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-k") 'nrepl-warn-when-not-connected)
 (define-key clojure-mode-map (kbd "C-c C-n") 'nrepl-warn-when-not-connected)

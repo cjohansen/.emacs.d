@@ -108,6 +108,7 @@
         my-toggle-expect-focused
         new-line-above
         new-line-dwim
+        nrepl-warn-when-not-connected
         nxml-electric-slash
         open-line-above
         open-line-and-indent
@@ -225,6 +226,7 @@
         cleanup-buffer
         clj-jump-to-other-file
         clojure-mode-indent-top-level-form
+        compilation-previous-file
         completion-at-point
         create-scratch-buffer
         custom-persp/emacs
@@ -264,8 +266,10 @@
         subword-left
         toggle-read-only
         view-echo-area-messages
+        wdired--self-insert
         wgrep-change-to-wgrep-mode
         wgrep-finish-edit
         wgrep-save-all-buffers
         yank-rectangle
+        zoom-frm-out
         ))
