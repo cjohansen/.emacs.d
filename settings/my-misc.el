@@ -86,4 +86,6 @@
   (interactive)
   (insert "(╯°□°）╯︵ ┻━┻"))
 
+(global-set-key (kbd "C-c f t") 'flip-table)
+
 (provide 'my-misc)
