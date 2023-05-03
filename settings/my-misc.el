@@ -82,4 +82,8 @@
 
 (define-key mc/keymap (kbd "H-:") 'mc/eval-with-cursor-regions)
 
+(defun flip-table ()
+  (interactive)
+  (insert "(╯°□°）╯︵ ┻━┻"))
+
 (provide 'my-misc)
