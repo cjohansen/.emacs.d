@@ -657,4 +657,9 @@ Default value is `clojure-thread-all-but-last'."
     (when (my/clojure-should-unwind-once?)
       (clojure-unwind))))
 
+(font-lock-add-keywords 'clojure-mode
+                        `((,(concat "(\\(?:" clojure--sym-regexp "/\\)?"
+                                    "\\(def[^a][^ ]*\\)\\>")
+                           1 font-lock-keyword-face)))
+
 (provide 'setup-clojure-mode)
