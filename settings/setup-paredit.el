@@ -62,8 +62,17 @@
 
 ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
 (defun conditionally-enable-paredit-mode ()
-  (if (eq this-command 'eval-expression)
-      (paredit-mode 1)))
+  (when (eq this-command 'eval-expression)
+    (paredit-mode 1)
+    (disable-inconvenient-paredit-keybindings-in-minor-mode)))
+
+(defun disable-inconvenient-paredit-keybindings-in-minor-mode ()
+  (let ((oldmap (cdr (assoc 'paredit-mode minor-mode-map-alist)))
+        (newmap (make-sparse-keymap)))
+    (set-keymap-parent newmap oldmap)
+    (define-key newmap (kbd "RET") nil)
+    (make-local-variable 'minor-mode-overriding-map-alist)
+    (push `(paredit-mode . ,newmap) minor-mode-overriding-map-alist)))
 
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
 
