@@ -179,7 +179,16 @@
   (keymap-set vertico-map "RET" #'vertico-directory-enter)
   (keymap-set vertico-map "DEL" #'vertico-directory-delete-char)
   (keymap-set vertico-map "M-DEL" #'vertico-directory-delete-word)
-  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy))
+  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy)
+
+  ;; Use `consult-completion-in-region' if Vertico is enabled.
+  ;; Otherwise use the default `completion--in-region' function.
+  (setq completion-in-region-function
+        (lambda (&rest args)
+          (apply (if vertico-mode
+                     #'consult-completion-in-region
+                   #'completion--in-region)
+                 args))))
 
 (use-package orderless
   :init
