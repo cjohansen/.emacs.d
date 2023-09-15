@@ -195,7 +195,10 @@
   ;; Configure a custom style dispatcher (see the Consult wiki)
   ;; (setq orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch)
   ;;       orderless-component-separator #'orderless-escapable-split-on-space)
-  (setq completion-styles '(initials orderless basic)
+  (setq completion-styles '(orderless basic)
+        orderless-matching-styles '(orderless-initialism
+                                    orderless-literal
+                                    orderless-regexp)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion)))))
 

@@ -659,12 +659,14 @@ Default value is `clojure-thread-all-but-last'."
 
 (font-lock-add-keywords 'clojure-mode
                         `((,(concat "(\\(?:" clojure--sym-regexp "/\\)?"
-                                    "\\(\\(?:.+/\\)?def[^a ][^ ]*\\)\\>")
-                           1 font-lock-keyword-face)))
+                                    "\\(\\(?:.+/\\)?def[^a ][^ ]*\\)[ ]+\\([^ \)\n]+\\)")
+                           1 font-lock-keyword-face
+                           2 font-lock-function-name-face)))
 
 (font-lock-add-keywords 'clojurescript-mode
                         `((,(concat "(\\(?:" clojure--sym-regexp "/\\)?"
-                                    "\\(\\(?:.+/\\)?def[^a ][^ ]*\\)\\>")
-                           1 font-lock-keyword-face)))
+                                    "\\(\\(?:.+/\\)?def[^a ][^ ]*\\)[ ]+\\([^ \)\n]+\\)")
+                           1 font-lock-keyword-face
+                           2 font-lock-function-name-face)))
 
 (provide 'setup-clojure-mode)
