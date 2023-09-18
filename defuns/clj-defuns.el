@@ -18,7 +18,7 @@
 (defun clj--src-file-name-from-scenes (name)
   (s-with name
     (s-replace "/portfolio/" "/ui/")
-    (s-replace "_scenes.clj" ".clj")))
+    (s-replace "_scenes.cljs" ".cljc")))
 
 (defun clj--cards-file-name-from-src (name)
   (s-with name

@@ -495,6 +495,51 @@
                 "[devcards.core :refer-macros [defcard]]")))
     (indent-region (point-min) (point-max))))
 
+;; Add requires to blank portfolio scenes
+
+(defun cljr--find-source-ns-of-portfolio-ns (test-ns test-file)
+  (let* ((ns-chunks (split-string test-ns "[.]" t))
+         (test-name (car (last ns-chunks)))
+         (src-dir-name (s-replace "portfolio/" "ui/" (file-name-directory test-file)))
+         (replace-underscore (-partial 's-replace "_" "-"))
+         (src-ns (car (--filter (or (s-prefix-p it test-name)
+                                    (s-suffix-p it test-name))
+                                (-map (lambda (file-name)
+                                        (funcall replace-underscore
+                                                 (file-name-sans-extension file-name)))
+                                      (directory-files src-dir-name))))))
+    (when src-ns
+      (mapconcat 'identity (append (butlast ns-chunks) (list src-ns)) "."))))
+
+(defun clj--find-portfolio-component-name ()
+  (or
+   (ignore-errors
+     (with-current-buffer
+         (find-file-noselect (clj--src-file-name-from-scenes (buffer-file-name)))
+       (save-excursion
+         (goto-char (point-max))
+         (re-search-backward "defcomponent\\|defn")
+         (clojure-forward-logical-sexp)
+         (skip-syntax-forward " ")
+         (let ((beg (point))
+               (end (progn (re-search-forward "\\w+")
+                           (point))))
+           (buffer-substring-no-properties beg end)))))
+   ""))
+
+(defun cljr--add-scene-declarations ()
+  (save-excursion
+    (let* ((ns (clojure-find-ns))
+           (source-ns (cljr--find-source-ns-of-portfolio-ns ns (buffer-file-name))))
+      (cljr--insert-in-ns ":require")
+      (when source-ns
+        (insert "[" source-ns " :refer [" (clj--find-portfolio-component-name) "]]"))
+      (cljr--insert-in-ns ":require")
+      (insert (if (cljr--project-depends-on-p "reagent")
+                  "[portfolio.reagent :as portfolio :refer [defscene]]"
+                "[portfolio.dumdom :as portfolio :refer [defscene]]")))
+    (indent-region (point-min) (point-max))))
+
 (defun cljr--add-ns-if-blank-clj-file ()
   (when (and cljr-add-ns-to-blank-clj-files
              (cljr--clojure-ish-filename-p (buffer-file-name))
@@ -505,7 +550,9 @@
     (when (cljr--in-tests-p)
       (cljr--add-test-declarations))
     (when (clj--is-card? (buffer-file-name))
-      (cljr--add-card-declarations))))
+      (cljr--add-card-declarations))
+    (when (clj--is-scene? (buffer-file-name))
+      (cljr--add-scene-declarations))))
 
 (defun clojure-mode-indent-top-level-form (&optional cleanup-buffer?)
   (interactive "P")
