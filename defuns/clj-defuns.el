@@ -15,10 +15,21 @@
     (s-replace "/devcards/" "/src/")
     (s-replace "_cards.clj" ".clj")))
 
+(defun clj--src-file-name-from-scenes (name)
+  (s-with name
+    (s-replace "/portfolio/" "/ui/")
+    (s-replace "_scenes.clj" ".clj")))
+
 (defun clj--cards-file-name-from-src (name)
   (s-with name
     (s-replace "/src/" "/devcards/")
     (s-replace ".clj" "_cards.clj")
+    (s-replace ".cljc" ".cljs")))
+
+(defun clj--scenes-file-name-from-src (name)
+  (s-with name
+    (s-replace "/ui/" "/portfolio/")
+    (s-replace ".clj" "_scenes.clj")
     (s-replace ".cljc" ".cljs")))
 
 (defun clj--is-test? (name)
@@ -27,6 +38,9 @@
 (defun clj--is-card? (name)
   (string-match-p "/devcards/" name))
 
+(defun clj--is-scene? (name)
+  (string-match-p "/portfolio/" name))
+
 (defun clj--is-ui? (name)
   (string-match-p "/ui/" name))
 
@@ -34,8 +48,11 @@
   (let ((name (buffer-file-name)))
     (cond
      ((clj--is-test? name) (clj--src-file-name-from-test name))
+     ((clj--is-scene? name) (clj--src-file-name-from-scenes name))
      ((clj--is-card? name) (clj--src-file-name-from-cards name))
-     ((clj--is-ui? name) (clj--cards-file-name-from-src name))
+     ((clj--is-ui? name) (if (cljr--project-depends-on-p "portfolio")
+                             (clj--scenes-file-name-from-src name)
+                           (clj--cards-file-name-from-src name)))
      (:else (clj--test-file-name-from-src name)))))
 
 (defun clj-find-alternative-name (file)
